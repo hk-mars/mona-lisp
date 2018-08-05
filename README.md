@@ -1,5 +1,5 @@
 # monalisp
-a elegant, design-hackable and data-hackable lisp-based language.
+An elegant, design-hackable and data-hackable lisp-based language.
 
 
 ## Ideas
