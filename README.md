@@ -26,3 +26,5 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### With-minimal-elegant-editor
 
 ### Easy-creating-complex-ai-system
+
+### common-lisp-standard-based
