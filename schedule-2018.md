@@ -1,7 +1,7 @@
 
 ## Sep-week2
-Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
-Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
+- Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
+- Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 
 ## Sep-week3-week4
 Hack sbcl
