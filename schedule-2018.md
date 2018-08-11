@@ -5,7 +5,6 @@
 
 ## Sep-week3-week4
 Hack sbcl
-Hack ecl
 
 ## Oct-week1-week2
 Desgin monalisp parser
