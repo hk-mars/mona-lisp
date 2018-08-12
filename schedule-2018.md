@@ -6,7 +6,9 @@
 **Done.**
 
 ## Sep-week3-week4
-Hack sbcl, ecl, clisp(hack it again)
+- Hack sbcl
+- ecl
+- clisp(hack it again)
 
 ## Oct-week1-week2
 Desgin monalisp parser
