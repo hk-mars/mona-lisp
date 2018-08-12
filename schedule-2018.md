@@ -1,19 +1,19 @@
 
-## Sep-week2
+## Aug-week2
 - Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 
-==> **Done.**
+==> Done.
 
-## Sep-week3-week4
+## Aug-week3-week4
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
 
-## Oct-week1-week2
+## Sep-week1-week2
 Desgin monalisp parser
 
-## Oct-Nov-Dec
+## Sep-week3-week4, Oct-Nov-Dec
 Implement monalisp parser
 
 ## Christmas
