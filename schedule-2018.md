@@ -5,15 +5,15 @@
 
 ==> Done.
 
-## Aug-week3-week4
+## Aug-week3-week4; Sep-week1
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
 
-## Sep-week1-week2
+## Sep-week2-week3-week4
 Desgin monalisp parser
 
-## Sep-week3-week4, Oct-Nov-Dec
+## Oct-Nov-Dec
 Implement monalisp parser
 
 ## Christmas
