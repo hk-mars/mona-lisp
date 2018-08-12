@@ -9,6 +9,7 @@
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
+- Consider more about how to extend common lisp for monalisp features. 
 
 ## Sep-week2-week3-week4
 Desgin monalisp parser
