@@ -3,16 +3,17 @@
 - Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 
-==> ok.
+## Aug-week3
+- Hack ecl guide: http://paulgraham.com/arc.html
 
-## Aug-week3-week4; Sep-week1
+## Aug-week4, Sep-week1-week2
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
 - Hack arc
 - Consider more about how to extend common lisp for monalisp features. 
 
-## Sep-week2-week3-week4
+## Sep-week3-week4
 Desgin monalisp parser
 
 ## Oct-Nov-Dec
