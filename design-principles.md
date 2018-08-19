@@ -13,3 +13,7 @@ I think these two types of cleanness are not merely separate, but in opposition 
 you can only obey them at the expense of mathematical elegance. And vice versa.
 
 -- Paul Graham
+
+## Brevity 
+what you like about abstraction
+
