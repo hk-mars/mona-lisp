@@ -3,7 +3,7 @@
 - Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 
-==> Done.
+==> ok.
 
 ## Aug-week3-week4; Sep-week1
 - Hack sbcl
