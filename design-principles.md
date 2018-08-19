@@ -11,4 +11,5 @@ powerful organizations.
 I think these two types of cleanness are not merely separate, but in opposition to one another. 
 "The rules," whatever they are, are usually determined by politics; 
 you can only obey them at the expense of mathematical elegance. And vice versa.
--- Paul Graham
+
+    -- Paul Graham
