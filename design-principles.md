@@ -1,5 +1,5 @@
 
-### Good cleanness
+## Good Cleanness
 So experience suggests we should embrace dirtiness. 
 Or at least some forms of it; in other ways, the best quick-and-dirty programs are usually quite clean. 
 Which kind of dirtiness is bad and which is good? The best kind of quick and dirty programs seem to be ones 
