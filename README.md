@@ -28,3 +28,6 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### Easy-creating-complex-ai-system
 
 ### common-lisp-standard-based
+
+### A Language for Good Programmers
+- Target user: opposite of Java.
