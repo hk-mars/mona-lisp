@@ -7,6 +7,7 @@ that are mathematically elegant, but missing features-- and particularly feature
 but deemed necessary for propriety. Good cleanness is a response to constraints imposed by the problem. 
 Bad cleanness is a response to constraints imposed from outside-- by regulations, or the expectations of 
 powerful organizations.
+
 I think these two types of cleanness are not merely separate, but in opposition to one another. 
 "The rules," whatever they are, are usually determined by politics; 
 you can only obey them at the expense of mathematical elegance. And vice versa.
