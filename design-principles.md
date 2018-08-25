@@ -28,3 +28,8 @@ Forced rules MUST never be used, it makes the design less brevity and broken.
 In Arc we hope to make programs as short or shorter, but at the same time to build the language up in a transparent way from clearly understood foundations. We're not doing this (just) out of fastidiousness. You have to build the language up transparently if you want users to be able to customize it. The chaotic semantics of Perl would make it very hard to add macros.  -- Paul Graham
 
 
+## Smoothly Lowercase
+Ordinary lowercase letters are less work to type than characters like #&%$. 
+And lowercase letters are easier to read as well. 
+
+so a language that's easy to type should be a win for them.
