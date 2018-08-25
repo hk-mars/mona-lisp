@@ -30,3 +30,8 @@ In Arc we hope to make programs as short or shorter, but at the same time to bui
 Ordinary lowercase letters are less work to type than characters like #&%$. 
 And lowercase letters are easier to read as well. 
 so a language that's easy to type should be a win for them.  -- Paul G.
+
+## Integrated with a big application
+Every language should be designed together with a big application written in it, so the designers can see whether the language works. C, for example, was sharpened on the systems programming projects that culminated in Unix. We're going to use Arc to write a platform for Web-based applications. The two will be tightly integrated, like C and Unix.  -- Paul G.
+
+Monalisp would be integrated with db and searching engine.
