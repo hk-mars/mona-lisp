@@ -19,7 +19,7 @@ That counts for something, but it is more important to require fewer tokens. -- 
 
 Mathematical expression(elegance form) is always a good way of abstraction for design brevity, list and lisp are the examples, but be remember it is not the goal.
 
-Strategical rules(defined constraints or format, but redefinable), is a needed way for design brevity, but it only be used for limitedness points of system.
+Strategical rules(defined constraints or format, but redefinable), is a needed way for design brevity, but it only be used for improving the limitations of system.
 
 Forced rules MUST never be used, it makes the design less brevity and broken.
 
