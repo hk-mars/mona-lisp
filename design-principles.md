@@ -16,4 +16,9 @@ you can only obey them at the expense of mathematical elegance. And vice versa.
 
 ## Brevity 
 what you like about abstraction
+By brevity I don't mean that programs should require fewer characters. 
+That counts for something, but it is more important to require fewer tokens.
+
+## Clearly Understood Foundations
+In Arc we hope to make programs as short or shorter, but at the same time to build the language up in a transparent way from clearly understood foundations. We're not doing this (just) out of fastidiousness. You have to build the language up transparently if you want users to be able to customize it. The chaotic semantics of Perl would make it very hard to add macros.
 
