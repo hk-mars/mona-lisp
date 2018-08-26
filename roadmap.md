@@ -1,6 +1,6 @@
-# Roadmap
+# roadmap
 
-## 2018 Released
+## 2018 released
 - Schedule-2018.md
 - Design-principles.md
 - Design-reflecting.md
