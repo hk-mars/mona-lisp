@@ -1,5 +1,5 @@
 
-## Good Cleanness
+## good cleanness
 So experience suggests we should embrace dirtiness. 
 Or at least some forms of it; in other ways, the best quick-and-dirty programs are usually quite clean. 
 Which kind of dirtiness is bad and which is good? The best kind of quick and dirty programs seem to be ones 
@@ -12,7 +12,7 @@ I think these two types of cleanness are not merely separate, but in opposition 
 "The rules," whatever they are, are usually determined by politics; 
 you can only obey them at the expense of mathematical elegance. And vice versa. -- Paul G.
 
-## Brevity 
+## brevity 
 what you like about abstraction.
 By brevity I don't mean that programs should require fewer characters. 
 That counts for something, but it is more important to require fewer tokens. -- Paul G.
@@ -23,15 +23,15 @@ Strategical rules(defined constraints or format, but redefinable), is a needed w
 
 Forced rules MUST never be used, it makes the design less brevity and broken.
 
-## Clearly Understood Foundations
+## clearly understood foundations
 In Arc we hope to make programs as short or shorter, but at the same time to build the language up in a transparent way from clearly understood foundations. We're not doing this (just) out of fastidiousness. You have to build the language up transparently if you want users to be able to customize it. The chaotic semantics of Perl would make it very hard to add macros.  -- Paul G.
 
-## Smoothly Lowercase
+## smoothly lowercase
 Ordinary lowercase letters are less work to type than characters like #&%$. 
 And lowercase letters are easier to read as well. 
 so a language that's easy to type should be a win for them.  -- Paul G.
 
-## Integrated with a big application
+## integrated with a big application
 Every language should be designed together with a big application written in it, so the designers can see whether the language works. C, for example, was sharpened on the systems programming projects that culminated in Unix. We're going to use Arc to write a platform for Web-based applications. The two will be tightly integrated, like C and Unix.  -- Paul G.
 
 Monalisp would be integrated with db and searching engine.
