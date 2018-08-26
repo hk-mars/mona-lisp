@@ -11,13 +11,20 @@
 - String 
 - Array 
 - Obj 
-- DB (hash/alist, engine, more)
+- DB (hash/alist, db engine, more)
 - Function 
 - Macro 
 - more
 
 ## Profile
-For improving performance and instability of system.
+For improving performance of application.
+
+## Err
+For dealing with errors of instability of application.
 
 ## Use Pronouns
 Let things be as clear as possible.
+
+## Showing Architecture of Code
+For showing the architecture of code of applications, so we have a basic point to improve architecture.
+
