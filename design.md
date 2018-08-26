@@ -1,7 +1,3 @@
-
-## Use Pronouns
-Let things be as clear as possible.
-
 ## Core
 - eval, car, cdr, cons, quote
 - cond + do
@@ -19,3 +15,9 @@ Let things be as clear as possible.
 - Function 
 - Macro 
 - more
+
+## Profile
+For improving performance and instability of system.
+
+## Use Pronouns
+Let things be as clear as possible.
