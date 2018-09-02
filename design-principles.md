@@ -35,3 +35,10 @@ so a language that's easy to type should be a win for them.  -- Paul G.
 Every language should be designed together with a big application written in it, so the designers can see whether the language works. C, for example, was sharpened on the systems programming projects that culminated in Unix. We're going to use Arc to write a platform for Web-based applications. The two will be tightly integrated, like C and Unix.  -- Paul G.
 
 Monalisp would be integrated with db and searching engine.
+
+## easy-to-change
+It means the design is easy-to-use, easy-to-entend, easy-for-product-designing.
+If we want it be easy-to-change, we should create a cleanness framework and easy-to-use extendable interface for that.
+If it was easy-to-change, we get more advantages to win the end-users.
+
+
