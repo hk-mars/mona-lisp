@@ -37,8 +37,9 @@ Every language should be designed together with a big application written in it,
 Monalisp would be integrated with db and searching engine.
 
 ## easy-to-change
-It means the design is easy-to-use, easy-to-entend, easy-for-product-designing.
-If we want it be easy-to-change, we should create a cleanness framework and easy-to-use extendable interface for that.
-If it was easy-to-change, we get more advantages to win the end-users.
+It means the design is easy-to-use, easy-to-extend, easy-for-product-designing.
+If we want it be easy-to-change, we should create the cleanness framework and extendable brief interface.
+If it's easy-to-change, we get more advantages to win the end-users than other competitors.
+
 
 
