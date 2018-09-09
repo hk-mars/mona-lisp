@@ -41,5 +41,16 @@ It means the design is easy-to-use, easy-to-extend, easy-for-product-designing.
 If we want it be easy-to-change, we should create the cleanness framework and extendable brief interface.
 If it's easy-to-change, we get more advantages to win the end-users than other competitors.
 
+## big-extraordinary-vision-to-the-whole
+This is the key for the design.
+If we want the design to be extendable outside, we need to have a bigger and extraordianry vision inside in the designing.
+To have this vision, we need to zoom in the components, make them brief and abstraction, more over, to be perfect.
+That is to say, this vision only exist in the world of abstraction and intuition.
+Only the great designers have this inborn ability.
+
+
+
+
+
 
 
