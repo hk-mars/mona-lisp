@@ -43,7 +43,7 @@ If it's easy-to-change, we get more advantages to win the end-users than other c
 
 ## big-extraordinary-vision-to-the-whole
 This is the key for the good design.
-If we want the design to be extendable to outside, we need to have a bigger and extraordianry vision from inside.
+If we want the design to win outside, we need to have a bigger and extraordianry vision from inside.
 To have this vision, we need to zoom in the components, make them brief and abstraction, more over, to be perfect.
 That is to say, this vision only exist in the world of abstraction and intuition.
 Only the great designers have this inborn ability.
