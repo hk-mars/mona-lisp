@@ -5,10 +5,10 @@
 - Hack arc guide: http://paulgraham.com/arc.html
 
 ## Sep-to-Oct-week1
-- Hack sbcl (w)
-- Hack ecl (w)
-- Hack clisp(again, w)
-- Hack arc (w)
+- Hack sbcl (sep-w2-mon-tue-wed)
+- Hack ecl (1w)
+- Hack clisp(again, 1w)
+- Hack arc (1w)
 - Consider more about how to extend common lisp for monalisp features. (5w)
 
 ## Aug-week4-to-Oct-week1
