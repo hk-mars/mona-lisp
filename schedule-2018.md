@@ -5,7 +5,7 @@
 - Hack arc guide: http://paulgraham.com/arc.html
 
 ## Sep-to-Oct-week1
-- Hack sbcl (sep-w2-sun)
+- Hack sbcl (1w)
 - Hack ecl (1w)
 - Hack clisp(again, 1w)
 - Hack arc (1w)
