@@ -10,6 +10,7 @@
 - Hack clisp(again)
 - Hack arc
 - Consider more about how to extend common lisp for monalisp features.
+
 within music and hack one hour each day, create interesting codes for systemic understanding of common lisp.
 
 ## Aug-week4-to-Oct-week1
