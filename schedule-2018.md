@@ -5,11 +5,12 @@
 - Hack arc guide: http://paulgraham.com/arc.html
 
 ## Sep-to-Oct-week1
-- Hack sbcl (1w)
-- Hack ecl (1w)
-- Hack clisp(again, 1w)
-- Hack arc (1w)
-- Consider more about how to extend common lisp for monalisp features. (5w)
+- Hack sbcl
+- Hack ecl
+- Hack clisp(again)
+- Hack arc
+- Consider more about how to extend common lisp for monalisp features.
+within music and hack one hour each day, create interesting codes for systemic understanding of common lisp.
 
 ## Aug-week4-to-Oct-week1
 Desgin monalisp parser
