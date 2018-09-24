@@ -18,4 +18,5 @@ Any ideas that make designing more easy to hack, try them in monalisp.
 3. architecture design.
 4. complex system design.
 ...
-Consider deeply more like those mentioned above.
+
+Consider more deeply about this.
