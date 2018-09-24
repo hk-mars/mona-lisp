@@ -4,7 +4,7 @@
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 - Hack arc guide: http://paulgraham.com/arc.html
 
-## Sep-to-Oct-week1
+## Sep-to-Oct-week1-week2
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
@@ -13,7 +13,7 @@
 
 within music and hack one hour each day, create interesting codes for systemic understanding of common lisp.
 
-## Aug-week4-to-Oct-week1
+## Aug-week4-to-Oct
 Desgin monalisp parser
 
 ## Oct-Nov-Dec
