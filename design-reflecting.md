@@ -10,3 +10,12 @@ and the rest of the language, which, like theorems, are defined in terms of the 
 e.g.:  quit monalisp
 
 @ (q)
+
+### design-hackable
+Any ideas that make designing more easy to hack, try them in monalisp.
+1. layout design.
+2. interface design.
+3. architeture design.
+4. system design.
+...
+Consider deeply more about like those mentioned above.
