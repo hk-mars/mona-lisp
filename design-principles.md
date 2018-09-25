@@ -49,6 +49,8 @@ e.g., extract the common logics as a list-based part, list is a better expressio
 That is to say, this vision only exist in the world of abstraction and intuition.
 Only the great designers have this inborn ability.
 
+## bottom-up-as-extensible-philosophy
+Bottom-up design leads naturally to extensible programs.
 
 
 
