@@ -51,7 +51,7 @@ If entries are added to or deleted from the hash table while a maphash is in pro
 the results are unpredictable, with one exception: if the function calls remhash to remove the entry currently being processed by the function, or performs a setf of 
 gethash on that entry to change the associated value, then those operations will have the intended effect. For example:
 
->
+>>
 ;;; Alter every entry in MY-HASH-TABLE, replacing the value with 
 ;;; its square root.  Entries with negative values are removed. 
 (maphash #'(lambda (key val) 
@@ -101,7 +101,7 @@ hash-table (which is evaluated exactly once).
 This facility is a bit more flexible than maphash. It makes possible a portable and
 efficient implementation of loop clauses for iterating over hash tables.
 
->
+>>
 (with-hash-table-iterator (show-turtle turtles)
 	(labels ((try (show-one &optional key value)
 			(when show-one
