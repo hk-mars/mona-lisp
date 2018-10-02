@@ -100,6 +100,20 @@ hash-table (which is evaluated exactly once).
 This facility is a bit more flexible than maphash. It makes possible a portable and
 efficient implementation of loop clauses for iterating over hash tables.
 
+(with-hash-table-iterator (show-turtle turtles)
+	(labels ((try (show-one &optional key value)
+			(when show-one
+				(when (eq (first value) 'ninja)
+					(format t "~%~:(~A~): ~{~A~^, ~}"
+						key (rest value)))
+				(multiple-value-call #'try (show-turtle)))))
+		(multiple-value-call #'try (show-turtle))))
+
+Leonardo: LEADER, BLUE
+Donatello: MACHINES, PURPLE
+Raphael: COOL, RUDE, RED
+Michaelangelo: PARTY-DUDE, ORANGE
+NIL
 
 
 
