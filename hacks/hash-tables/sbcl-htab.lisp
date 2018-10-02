@@ -10,24 +10,6 @@
 * (setf x (make-hash-table :size (* number-of-widgets 200)
 		           :rehash-size 1.5))
 
-; in: SETF X
-;     (* NUMBER-OF-WIDGETS 200)
-; 
-; caught WARNING:
-;   undefined variable: NUMBER-OF-WIDGETS
-
-;     (SETF X (MAKE-HASH-TABLE :SIZE (* NUMBER-OF-WIDGETS 200) :REHASH-SIZE 1.5))
-; ==>
-;   (SETQ X (MAKE-HASH-TABLE :SIZE (* NUMBER-OF-WIDGETS 200) :REHASH-SIZE 1.5))
-; 
-; caught WARNING:
-;   undefined variable: X
-; 
-; compilation unit finished
-;   Undefined variables:
-;     NUMBER-OF-WIDGETS X
-;   caught 2 WARNING conditions
-
 #<HASH-TABLE :TEST EQL :COUNT 0 {11E2AF69}>
 * x
 
