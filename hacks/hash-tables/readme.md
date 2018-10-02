@@ -35,9 +35,9 @@ setf may be used with gethash to make new entries in a hash table.
 If an entry with the specified key already exists, it is removed before the new entry
 is added.The default argument may be specified in this context; it is ignored by setf
 but may be useful in such macros as incf that are related to setf:
-(incf (gethash a-key table 0)
-(setf (gethash a-key table)
-      (incf (gethash a-key table 0)))
+>>(incf (gethash a-key table 0)
+>>(setf (gethash a-key table)
+>>      (incf (gethash a-key table 0)))
 
 
 ### remhash key hash-table
@@ -52,12 +52,12 @@ the results are unpredictable, with one exception: if the function calls remhash
 gethash on that entry to change the associated value, then those operations will have the intended effect. For example:
 
 >>;;; Alter every entry in MY-HASH-TABLE, replacing the value with 
-;;; its square root.  Entries with negative values are removed. 
-(maphash #'(lambda (key val) 
-             (if (minusp val) 
-                 (remhash key my-hash-table) 
-                 (setf (gethash key my-hash-table) (sqrt val)))) 
-         my-hash-table)
+>>;;; its square root.  Entries with negative values are removed. 
+>>(maphash #'(lambda (key val) 
+>>             (if (minusp val) 
+>>                 (remhash key my-hash-table) 
+>>                 (setf (gethash key my-hash-table) (sqrt val)))) 
+>>         my-hash-table)
 
 
 ### clrhash hash-table
@@ -85,7 +85,7 @@ If the test is one of the standard test functions, then the result will always b
 symbol, even if the function itself was specified when the hash-table was created. 
 For example:
 
-(hash-table-test (make-hash-table :test #'equal)) => equal
+>>(hash-table-test (make-hash-table :test #'equal))
 
 
 ## Macro
@@ -101,20 +101,21 @@ This facility is a bit more flexible than maphash. It makes possible a portable 
 efficient implementation of loop clauses for iterating over hash tables.
 
 >>(with-hash-table-iterator (show-turtle turtles)
-	(labels ((try (show-one &optional key value)
-			(when show-one
-				(when (eq (first value) 'ninja)
-					(format t "~%~:(~A~): ~{~A~^, ~}"
-						key (rest value)))
-				(multiple-value-call #'try (show-turtle)))))
-		(multiple-value-call #'try (show-turtle))))
-
-Leonardo: LEADER, BLUE
-Donatello: MACHINES, PURPLE
-Raphael: COOL, RUDE, RED
-Michaelangelo: PARTY-DUDE, ORANGE
-NIL
-
-
+>>	(labels ((try (show-one &optional key value)
+>>			(when show-one
+>>				(when (eq (first value) 'ninja)
+>>					(format t "~%~:(~A~): ~{~A~^, ~}"
+>>						key (rest value)))
+>>				(multiple-value-call #'try (show-turtle)))))
+>>		(multiple-value-call #'try (show-turtle))))
+>>
+>>Leonardo: LEADER, BLUE
+>>Donatello: MACHINES, PURPLE
+>>Raphael: COOL, RUDE, RED
+>>Michaelangelo: PARTY-DUDE, ORANGE
+>>NIL
 
 
+hacks examples:
+sbcl-htab.lisp
+...
