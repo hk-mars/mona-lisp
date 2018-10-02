@@ -75,8 +75,7 @@ hash-table-test returns the test used for comparing keys.
 If the test is one of the standard test functions, then the result will always be a 
 symbol, even if the function itself was specified when the hash-table was created. 
 For example:
-
->>(hash-table-test (make-hash-table :test #'equal))
+(hash-table-test (make-hash-table :test #'equal))
 
 
 ## Macro
@@ -92,5 +91,6 @@ This facility is a bit more flexible than maphash. It makes possible a portable 
 efficient implementation of loop clauses for iterating over hash tables.
 
 See hack examples:
-- sbcl-htab.lisp
+- [here](sbcl-htab.lisp)
+
 ...
