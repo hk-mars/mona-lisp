@@ -1,4 +1,4 @@
-* (setf number-of-widgets 10
+* (setf number-of-widgets 10)
 
 * (make-hash-table :size (* number-of-widgets 200)
 		   :rehash-size 1.5)
