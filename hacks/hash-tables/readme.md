@@ -35,9 +35,9 @@ setf may be used with gethash to make new entries in a hash table.
 If an entry with the specified key already exists, it is removed before the new entry
 is added.The default argument may be specified in this context; it is ignored by setf
 but may be useful in such macros as incf that are related to setf:
->>(incf (gethash a-key table 0)
->>(setf (gethash a-key table)
->>      (incf (gethash a-key table 0)))
+(incf (gethash a-key table 0)
+(setf (gethash a-key table)
+      (incf (gethash a-key table 0)))
 
 
 ### remhash key hash-table
@@ -49,16 +49,7 @@ For each entry in hash-table, maphash calls function on two arguments: the key o
 entry and the value of the entry; maphash then returns nil.
 If entries are added to or deleted from the hash table while a maphash is in progress,
 the results are unpredictable, with one exception: if the function calls remhash to remove the entry currently being processed by the function, or performs a setf of 
-gethash on that entry to change the associated value, then those operations will have the intended effect. For example:
-
->>;;; Alter every entry in MY-HASH-TABLE, replacing the value with 
->>;;; its square root.  Entries with negative values are removed. 
->>(maphash #'(lambda (key val) 
->>             (if (minusp val) 
->>                 (remhash key my-hash-table) 
->>                 (setf (gethash key my-hash-table) (sqrt val)))) 
->>         my-hash-table)
-
+gethash on that entry to change the associated value, then those operations will have the intended effect.
 
 ### clrhash hash-table
 
@@ -100,22 +91,6 @@ hash-table (which is evaluated exactly once).
 This facility is a bit more flexible than maphash. It makes possible a portable and
 efficient implementation of loop clauses for iterating over hash tables.
 
->>(with-hash-table-iterator (show-turtle turtles)
->>	(labels ((try (show-one &optional key value)
->>			(when show-one
->>				(when (eq (first value) 'ninja)
->>					(format t "~%~:(~A~): ~{~A~^, ~}"
->>						key (rest value)))
->>				(multiple-value-call #'try (show-turtle)))))
->>		(multiple-value-call #'try (show-turtle))))
->>
->>Leonardo: LEADER, BLUE
->>Donatello: MACHINES, PURPLE
->>Raphael: COOL, RUDE, RED
->>Michaelangelo: PARTY-DUDE, ORANGE
->>NIL
-
-
-hacks examples:
-sbcl-htab.lisp
+See hack examples:
+- sbcl-htab.lisp
 ...
