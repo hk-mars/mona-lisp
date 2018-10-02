@@ -51,6 +51,9 @@ Only the great designers have this inborn ability.
 
 ## bottom-up-as-extensible-philosophy
 Bottom-up design leads naturally to extensible programs.
+If this philosophy is carried all the way up to the topmost layer, that layer becomes a programming language for the user. Such a program, where extensibility permeates every level, is likely to make a much better programming language than a system which was written as a traditional black box, and then made extensible as an afterthought.
+
+This is why db should be integrated into monalisp.
 
 
 
