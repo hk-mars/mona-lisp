@@ -24,6 +24,7 @@ It compares two strings and is true if they are the same but is false if they ar
 The function equal calls string= if applied to two strings.
 
 start => default to zero
+
 end => default to the length of the strings.
 
 ### string-equal string1 string2 &key :start1 :end1 :start2 :end2
