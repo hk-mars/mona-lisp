@@ -44,13 +44,13 @@ T
 
 * (string> "bbc" "abc")
 
-0 ; equal
+0 ; as true
 
 * 
 NIL
 * (string< "abc" "abb")
 
-NIL ; not equal
+NIL ; as false
 
 
 
