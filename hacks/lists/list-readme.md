@@ -21,16 +21,15 @@ whereas list-length will return nil.
 
 It returns the nth element of list.
 
-### 
-first list
-second list
-third list
-fourth list
-fifth list
-sixth list
-seventh list
-ninth list
-tenth list
+### first list
+### second list
+### third list
+### fourth list
+### fifth list
+### sixth list
+### seventh list
+### ninth list
+### tenth list
 
 These functions are sometimes convenient for accessing particular elements of a list.
 
