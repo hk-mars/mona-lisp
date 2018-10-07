@@ -29,6 +29,6 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### common-lisp-standard-based
 
 ### a language for good programmers
-- Target user: opposite of Java.
+- Target user: lisp hackers.
 
 ### everything-is-object, everything-is-data, everything-is-db (design-and-data-hackable)
