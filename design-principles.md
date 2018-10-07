@@ -23,9 +23,11 @@ Strategical rules(defined constraints or format, but redefinable), is a needed w
 
 Forced rules MUST never be used, it makes the design less brevity and broken.
 
-### by-product of vigor
+#### by-product of vigor
 Two sentences with the same meaning:
+
 There were a great number of dead leaves lying on the ground.
+
 Dead leaves covered the ground.
 
 In the examples above, that when a sentence is made stronger, it usually becomes shorter.
