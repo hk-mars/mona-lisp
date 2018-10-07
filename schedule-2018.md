@@ -13,10 +13,10 @@
 
 within music and hack one hour each day, create interesting codes for systemic understanding of common lisp.
 
-## Aug-week4-to-Oct
+## Aug-week4-to-Nov
 Desgin monalisp parser
 
-## Oct-Nov-Dec
+## Nov-Dec
 Implement monalisp parser
 
 ## Christmas
