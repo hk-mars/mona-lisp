@@ -17,9 +17,11 @@ what you like about abstraction.
 By brevity I don't mean that programs should require fewer characters. 
 That counts for something, but it is more important to require fewer tokens. -- Paul G.
 
-Mathematical expression(elegance form) is always a good way of abstraction for design brevity, list and lisp are the examples, but be remember it is not the goal.
+Mathematical expression(elegance form) is always a good way of abstraction for design brevity, 
+list and lisp(list processing) are the examples, but be remember it is not the goal.
 
-Strategical rules(defined constraints or format, but redefinable), is a needed way for design brevity, but it only be used for improving the limitations of system.
+Strategical rules(defined constraints or format, but redefinable), is a needed way for design brevity, 
+but it only be used for improving the limitations of system.
 
 Forced rules MUST never be used, it makes the design less brevity and broken.
 
