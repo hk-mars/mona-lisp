@@ -23,6 +23,18 @@ Strategical rules(defined constraints or format, but redefinable), is a needed w
 
 Forced rules MUST never be used, it makes the design less brevity and broken.
 
+### by-product of vigor
+Two sentences with the same meaning:
+There were a great number of dead leaves lying on the ground.
+Dead leaves covered the ground.
+
+In the examples above, that when a sentence is made stronger, it usually becomes shorter.
+Thus, brevity is a by-product of vigor(good health).
+
+The excellent products is always within the good health.
+So brevity is the key foundation of creating the excellent products.
+
+
 ## clearly understood foundations
 In Arc we hope to make programs as short or shorter, but at the same time to build the language up in a transparent way from clearly understood foundations. We're not doing this (just) out of fastidiousness. You have to build the language up transparently if you want users to be able to customize it. The chaotic semantics of Perl would make it very hard to add macros.  -- Paul G.
 
