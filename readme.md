@@ -4,7 +4,7 @@ An elegant, design-hackable and data-hackable lisp language.
 ## ideas
 ### db feature (data-hackable)
 - Database language would be included into lisp grammer tree as a part of monalisp.
-- Any searchable data could be treasured as a list-based db object.
+- Any searchable data could be treated as a list-based db object.
 - The basic db operations could be implemented via lisp macros or lisp functions.
 - The users can change the basic interface of db operations and extend them, they also can change the grammer of db feature.
 
