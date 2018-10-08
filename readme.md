@@ -16,7 +16,7 @@ An elegant, design-hackable and data-hackable lisp language.
 Those embedded systems need the database feature, but due to the limited footprint of hardware always without a text-based file subsystem.
 
 ### anything-is-text (design-hackable)
-- If anything could be implemented as text, it means the languaure would be as more elegant as possible for designing. 
+- If anything could be implemented as text, it means the language would be as more elegant as possible for designing. 
 
 ### with-minimal-english-text-filesystem (data-hackable)
 
