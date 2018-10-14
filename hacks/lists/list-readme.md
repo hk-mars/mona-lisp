@@ -52,4 +52,103 @@ It returns the last cons of list.
 
 ### last list &optional (n 1)
 
+last returns the tail of the list consisting of the last n cons of list.
+The list may be a dotted list. It is an error if the list is circular.
+The argument n must be a non-negative integer.
+
+### list &rest args
+list constructs and returns a list of its arguments.
+
+
+### list* arg &rest others
+
+list* is like lit except that the last cons of the constructed list is "dotted."
+The last argument to the list* is used as the cdr of the last cons constructed.
+
+(list* 'a 'b 'c) => (a b . c) => (a (b c))
+
+This is like
+(cons 'a (cons 'b 'c))
+
+
+### make-list size &key :initial-element
+
+This creates and returns a list containing @size elements, each of which is 
+initialized to the :initial-element argument (which defaults to nil).
+@size should be a non-negative integer.
+
+
+### append &rest lists
+
+The arguments to appended are lists. The resuslt is a list.
+
+### copy-list list
+
+This returns a list that is equal to list, but not eq. Only the top level of list 
+structure is copied. That is , copy-list copies in the cdr direction but not in the
+direction. If the list is "dotted", that is, (cdr (last list)) is a non-nil atom, 
+this will be true of the returned list also.
+The new list is not in another memory area of the stack.
+
+
+### revappend x y
+(revappend x y) is exactly the same as (append (reverse x) y).
+Bothe x and y should be lists. x is copied, not destroyed.
+
+
+### nconc &rest lists
+
+It returns a list that is the arguments concatenated together.
+The arguments are changed rather than copied.
+
+
+### nreconc x y
+
+It is the same as (nconc (nreverse x) y).
+
+
+### butlast list &optional n
+
+This crates and returns a list with the same elements as list, excepting the last n
+elements.
+n => default value is 1.
+
+
+### nbutlast list &optional n
+
+This is the destructive version of butlast, the list would be changed.
+
+
+### ldiff list sublist
+
+
+The sublist should be a sublist of list.
+ldiff means "list difference".
+
+
+
+
+
+## Macro
+
+### push item place
+
+The form @place should be the name of a generalized variable containing a list;
+
+
+### pushnew item place &key :test :test-not :key
+
+The form @place should be the name of a generalized variable containing a list.
+
+
+### pop place
+
+The form @place should be the name of a generalized variable containing a list.
+The result of pop is the car of the contents of place, and the cdr of the contents 
+is stored back into @place.
+
+
+
+
+
 
