@@ -1,27 +1,26 @@
 
-## Aug-week-week3-week4
+## Aug-week-w3-w4
 - Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 - Hack arc guide: http://paulgraham.com/arc.html
 
-## Sep-to-Oct-week1-week2
+## Sep-to-Nov-w2
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
 - Hack arc
 - Consider more about how to extend common lisp for monalisp features.
+- Create interesting codes for systemic understanding of common lisp.
 
-within music and hack one hour each day, create interesting codes for systemic understanding of common lisp.
-
-## Aug-week4-to-Nov
+## Aug-w4-to-Dec
 Desgin monalisp parser
 
-## Nov-Dec
+## Christmas-2018-to-April-2019
 Implement monalisp parser
 
-## Christmas
+## May-2019
 Releases monalisp parser v1.0
 
-I would try to create this gift for myself :~)
+
 
 
