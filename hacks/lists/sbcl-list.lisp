@@ -277,4 +277,43 @@ NIL
 
 
 
+;;
+;; subst
+;;
+
+* (subst 'a 'b 
+	'(x y (the b)))
+
+(X Y (THE A))
+
+
+* (subst 'foo 'nil '(x y (z m)))
+
+(X Y (Z M . FOO) . FOO)
+
+*
+(defun subst (old new tree &rest x &key test test-not key)
+	(cond ((satisfies-the-test old tree :test test
+			        	:test-not test-not :key key)
+	new)
+	((atom tree) tree)
+	(t (let ((a (apply #'subst old new (car tree) x))
+		 (d (apply #'subst old new (cdr tree) x)))
+		(if (and (eql a (car tree))
+			(eql d (cdr tree)))
+		    tree
+		    (cons a d))))))
+
+; in: DEFUN SUBST
+;     (SATISFIES-THE-TEST OLD TREE :TEST TEST :TEST-NOT TEST-NOT :KEY KEY)
+; 
+; caught STYLE-WARNING:
+;   undefined function: SATISFIES-THE-TEST
+; 
+; compilation unit finished
+;   Undefined function:
+;     SATISFIES-THE-TEST
+;   caught 1 STYLE-WARNING condition
+STYLE-WARNING: redefining COMMON-LISP:SUBST in DEFUN
+
 
