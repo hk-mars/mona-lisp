@@ -322,4 +322,40 @@ STYLE-WARNING: redefining COMMON-LISP:SUBST in DEFUN
 (PLUS 100 (MINUS G ZPRIME 100 P) 4 . 100)
 
 
+* (member 'snerd '(a b c d))
 
+NIL
+* (member 'abcdef '(a b c d))
+
+NIL
+* (member 'a '(a b c d))
+
+(A B C D)
+
+
+* (member-if #'numberp '(a #\Space 5/3 foo))
+
+(5/3 FOO)
+* (member 'a '(g (a y) c a d e a f))
+
+(A D E A F)
+
+* (union '(a b c) '(f a d))
+
+(C B F A D)
+* (intersection '(a b c) '(f a d))
+
+(A)
+
+
+* (set-difference '(a b c) '(c d e))
+
+(B A)
+
+* (set-exclusive-or '(a b c) '(c d e))
+
+(E D B A)
+
+* (subsetp '(a b) '(c a b d e))
+
+T
