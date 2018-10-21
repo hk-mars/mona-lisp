@@ -18,4 +18,19 @@ The original tree is unchanged, but the result tree may share with parts of the
 argument tree.
 
 
+### sublis alist tree &key :test :test-not :key
+
+sublis makes substitutions for objects in a tree(a structure of conses).
+This first argument to sublis is an association list.
+The second argument is the tree in which substitutions are to be made.
+sublis looks at all subtrees and leaves of the tree.
+if a subtree or leaf appears as a key in the association list, it is replaced by
+the object with which it is associated.
+This operation is non-destructive.
+
+
+### nsublis a list tree &key :test :test-not :key
+
+nsublis is like sublis but destructively modifies the relevant parts of the tree.
+
 

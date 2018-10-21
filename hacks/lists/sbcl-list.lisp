@@ -316,4 +316,10 @@ NIL
 ;   caught 1 STYLE-WARNING condition
 STYLE-WARNING: redefining COMMON-LISP:SUBST in DEFUN
 
+* (sublis '((x . 100) (z . zprime))
+	'(plus x (minus g z x p) 4 . x))
+
+(PLUS 100 (MINUS G ZPRIME 100 P) 4 . 100)
+
+
 
