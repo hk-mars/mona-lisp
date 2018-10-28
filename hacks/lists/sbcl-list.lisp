@@ -358,4 +358,36 @@ NIL
 
 * (subsetp '(a b) '(c a b d e))
 
-T
+
+;;
+;; acons
+;;
+* (setf x '(("k1" a) ("k2" b)))
+
+* (cons "k3" '(c))
+
+("k3" C)
+* (acons "k3" '(c) x)
+
+(("k3" C) ("k1" A) ("k2" B))
+
+
+;;
+;; pairlis
+;;
+* (pairlis '(c d) x)
+
+((D "k2" B) (C "k1" A))
+
+
+;;
+;; assoc, rassoc
+;;
+* (assoc 'k1 '((k1 a) (k2 b)))
+
+(K1 A)
+
+* (rassoc 'a '((a . b) (b . c) (c . a) (z . a)))
+
+(C . A)
+
