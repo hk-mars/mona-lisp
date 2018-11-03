@@ -69,18 +69,6 @@ debugger invoked on a TYPE-ERROR: The value #(1 2 3) is not of type LIST.
 
 * (setf x (make-array '(1 2 3)))
 
-;     (SETF X (MAKE-ARRAY '(1 2 3)))
-; ==>
-;   (SETQ X (MAKE-ARRAY '(1 2 3)))
-; 
-; caught WARNING:
-;   undefined variable: X
-; 
-; compilation unit finished
-;   Undefined variable:
-;     X
-;   caught 1 WARNING condition
-
 #3A(((0 0 0) (0 0 0)))
 * (array-dimensions x)
 
