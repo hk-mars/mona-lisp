@@ -42,4 +42,57 @@ It is analogous to the function list.
 # Access Array
 
 
+## Functions
+
+### aref array &rest subscripts
+
+THis accesses and returns the element of array specified by the subscripts.
+The number of subscripts must equal the rank of the array, and each subscript must
+be a non-negative integer less than the corresponding array dimension.
+
+aref is unusual among the functions that operate on arrays in that it completely 
+ignores fill pointers.
+aref can access without error any array element, whether active or not.
+
+setf may be used with aref to destructively replace an array element with a new value.
+
+
+### svref simple-vector index
+
+
+svref is identical to aref except that it requires its first argument to be simple
+vector.
+
+
+# Array Info.
+
+## Functions
+
+### array-element-type array
+
+It returns a type specifier for the set of objects that can be stored in the array.
+
+
+### array-rank array
+
+This returns the number of dimensions(axes) of array.
+
+### array-dimension array axis-number
+
+The length of dimension number axis-number of the array is returned.
+
+
+### array-dimensions array
+
+It returns a list whose elements are the dimensions of array.
+
+### array-total-size array
+
+It returns the total number of elements in the array for all the dimensions.
+
+
+### adjustalbe-array-p array
+
+This predicate is true if the argument is adjustable.
+
 
