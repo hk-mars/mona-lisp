@@ -96,3 +96,37 @@ It returns the total number of elements in the array for all the dimensions.
 This predicate is true if the argument is adjustable.
 
 
+# Bit-array
+
+## Functions
+
+
+### bit bit-array &rest subscripts
+### sbit simple-bit-array &rest subscripts
+
+bit is exactly like aref but requires an array of bits, that is, one of type as
+array bit. The result will always be 0 or 1.
+
+sbit is like bit but additionally requires that the first argument be a simple array.
+
+setf may be used with bit or sbit to destructively replace a bit-array element.
+
+
+### bit-and bit-array1 bit-array2 &optional result-bit-array 
+### bit-ior bit-array1 bit-array2 &optional result-bit-array 
+### bit-xor bit-array1 bit-array2 &optional result-bit-array 
+### bit-eqv bit-array1 bit-array2 &optional result-bit-array 
+### bit-nand bit-array1 bit-array2 &optional result-bit-array 
+### bit-nor bit-array1 bit-array2 &optional result-bit-array 
+### bit-andc1 bit-array1 bit-array2 &optional result-bit-array 
+### bit-andc2 bit-array1 bit-array2 &optional result-bit-array 
+### bit-orc1 bit-array1 bit-array2 &optional result-bit-array 
+### bit-orc2 bit-array1  bit-array2 &optional result-bit-array
+
+These functions perform bit-wise logical operations on bit-array.
+
+### bit-not bit-array &optional result-bit-array
+
+The first argument musb be an array of bits.
+
+
