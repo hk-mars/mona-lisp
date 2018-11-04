@@ -78,6 +78,18 @@ For example:
 (hash-table-test (make-hash-table :test #'equal))
 
 
+## sxhash object
+
+It is a convenient tool for the user who needs to create more complicated hashed
+data structures that re provided by hash-table objects.
+
+It computes a hash code for an object and returns the hash code as a non-negagive
+fixnum.
+
+(equal x y) => (= (sxhash x) (sxhash y))
+
+
+
 ## Macro
 
 ### with-hash-table-iterator (mname hash-table) {form}*

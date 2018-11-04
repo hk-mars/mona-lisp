@@ -97,4 +97,31 @@ EQL
 
 EQUAL
 
+
+;;
+;; sxhash function
+;;
+
+* (setf x (make-hash-table :size 10))
+
+#<HASH-TABLE :TEST EQL :COUNT 0 {11E97781}>
+* x
+
+#<HASH-TABLE :TEST EQL :COUNT 0 {11E97781}>
+* (sxhash x)
+
+316863442
+* (setf y (make-hash-table :size 10))
+
+#<HASH-TABLE :TEST EQL :COUNT 0 {11EAA781}>
+* (sxhash y)
+
+316863442
+* (equal x y)
+
+NIL
+* (= (sxhash x) (sxhash y))
+
+T
+
  
