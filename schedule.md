@@ -1,5 +1,5 @@
 
-## Aug-week-w3-w4
+## Aug-w3-w4
 - Hack sbcl manual: http://sbcl.org/manual/sbcl.pdf
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 - Hack arc guide: http://paulgraham.com/arc.html
