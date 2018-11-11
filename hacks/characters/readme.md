@@ -67,4 +67,38 @@ to a different ordering such that differences of bits attributes and case are ig
 and font information is taken into account in an implementation-dependent manner. 
 
 
+## char-upcase char
+## char-downcase char
+
+The @char must be a character object.
+char-upcase attempts to convert the @char to an uppercase char, and char-downcase is
+for converting to lowercase char.
+
+
+## digit-char weight &optional (radix 10) (font 0)
+
+It determines whether or not it is possible to construct a character object whose
+font attribute is @font, and whose @code is such that the result character has the 
+@weight when considered as digit of the radix(digit-char-p).
+It returns such a character if that is possible, otherwise returns nil.
+
+If @font is zero, radix is between 2 and 36 inclusive, and @weight is non-negative and
+less than @radix.
+
+
+## char-int char
+
+char-int returns a non-negative encoding the character object.
+
+
+## char-name char
+
+If the character has a name, then that name (a string) is returned.
+
+
+## name-char name
+
+If the name is the same as the name of char object, that object is returned,
+otherwise nil is returned.
+
 
