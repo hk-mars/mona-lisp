@@ -12,9 +12,8 @@ In particular, it's possible that the expression:
 
 may be false rather than true, if the value of z is a character.
 
-
-> Table 13-1: Standard Character Labels, Glyphs, and Descriptions
-
+>
+ Table 13-1: Standard Character Labels, Glyphs, and Descriptions
                             SM05 @ commercial at        SD13 ` grave accent 
 SP02 ! exclamation mark     LA02 A capital A            LA01 a small a 
 SP04 " quotation mark       LB02 B capital B            LB01 b small b 
