@@ -52,10 +52,15 @@ It is true if the @integer is even (divisible by 2).
 ### >= number &rest more-numbers
 
 "="            all the same
+
 "/="           all different
+
 "<"            monotonically increasing
+
 ">"            monotonically decreasing
+
 "<="           monotonically nondecreasing
+
 ">="           monotonically nonincreasing
 
 If these functons satisfy with above certain condition, then return true, otherwise
