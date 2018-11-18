@@ -51,7 +51,7 @@ It is true if the @integer is even (divisible by 2).
 ### <= number &rest more-numbers
 ### >= number &rest more-numbers
 
->
+>>
 =            all the same
 /=           all different
 <            monotonically increasing
