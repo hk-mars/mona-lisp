@@ -74,4 +74,50 @@ The @number may be any non-complex numbers.
 max returns the argument that is greatest.
 min returns the argument that is least.
 
+### + &rest numbers
+
+This returns the sum of numbers.
+
+### - number &rest more-numbers
+
+The function -, when given only one argument, returns the negative of that argument.
+The function -, when given more than one argument, successively subtracts from the 
+first argument all the others,and returns the result. For example, (- 3 4 5) => -6.
+
+
+### * number &rest more-numbers
+
+This returns the product of the arguments. If there are no arguments, the result is 1.
+
+### / number &rest more-numbers
+
+successively divides the first argument by all the others and returns the result.
+
+### 1+ number
+### 1- number
+
+(1+ x) is the same as (+ x 1).
+(1- x) is the same as (- x 1).
+
+### conjugate nunber
+
+This returns the complex conjugate of number.
+
+### gcd &rest integers
+
+This returns the greatest common divisor of the intergers.
+
+### lcm integer &rest more-integers
+
+This returns the least common multiple of intergers.
+
+
+
+## Macro
+
+### incf place [delta]
+### decf place [delta]
+
+The number produced by the form delta is added to (incf) or subtracted from (decf) 
+the number.
 
