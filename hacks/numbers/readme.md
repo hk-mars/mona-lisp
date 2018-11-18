@@ -44,5 +44,29 @@ It is true if the @integer is odd (not divisible by 2).
 It is true if the @integer is even (divisible by 2).
 
 
+### = number &rest more-numbers
+### /= number &rest more-numbers
+### < number &rest more-numbers
+### > number &rest more-numbers
+### <= number &rest more-numbers
+### >= number &rest more-numbers
+
+=            all the same
+/=           all different
+<            monotonically increasing
+>            monotonically decreasing
+<=           monotonically nondecreasing
+>=           monotonically nonincreasing
+
+If these functons satisfy with above certain condition, then return true, otherwise
+return false.
+
+
+### max number &rest more-numbers
+### min number &rest more-numbers
+
+The @number may be any non-complex numbers.
+max returns the argument that is greatest.
+min returns the argument that is least.
 
 
