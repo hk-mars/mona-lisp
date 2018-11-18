@@ -72,6 +72,9 @@ If this philosophy is carried all the way up to the topmost layer, that layer be
 This is why db should be integrated into monalisp.
 
 
+## creates the perfect context
+
+The genius idea always comes from exceptional vision of designer, it shows to realization with "The perfect context", this context loops the intuition world, abstraction world and realization world together as a new 'world' to provide better solutions.
 
 
 
