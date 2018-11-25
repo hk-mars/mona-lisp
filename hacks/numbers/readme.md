@@ -112,6 +112,53 @@ This returns the greatest common divisor of the intergers.
 This returns the least common multiple of intergers.
 
 
+### float number &optional other
+This converts any non-complex number to a floating-point number. 
+
+### rational number
+### rationalize number
+These functions converts any non-complex number to a rational number.
+
+### numerator rational
+### denominator rational
+These functions take a rational number (an integer or ratio) and return as an integer
+the numerator or denominator.
+
+
+### floor number &optional divisor 
+### ceiling number &optional divisor 
+### truncate number &optional divisor 
+### round number &optional divisor
+floor converts its argument by truncating toward negative infinity;
+ceiling converts its argument by truncating toward positive infinity;
+truncate converts its argument by truncating toward zero;
+round converts its argument by rounding to the nearest integer;
+
+
+### mod number divisor 
+### rem number divisor
+mod performs the operation floor on its two arguments and returns the second result 
+of floor.
+similarly for rem.
+
+(mod 13 4) => 1                 (rem 13 4) => 1 
+(mod -13 4) => 3                (rem -13 4) => -1 
+(mod 13 -4) => -3               (rem 13 -4) => 1 
+(mod -13 -4) => -1              (rem -13 -4) => -1 
+(mod 13.4 1) => 0.4             (rem 13.4 1) => 0.4 
+(mod -13.4 1) => 0.6            (rem -13.4 1) => -0.4
+
+### complex realpart &optional imagpart
+### realpart number
+### imagpart number
+
+Functions for creating complex number and get part of it.
+
+
+
+
+
+
 
 ## Macro
 
@@ -120,4 +167,5 @@ This returns the least common multiple of intergers.
 
 The number produced by the form delta is added to (incf) or subtracted from (decf) 
 the number.
+
 
