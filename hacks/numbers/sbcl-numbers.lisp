@@ -181,3 +181,24 @@ T
 1
 
 
+;;
+;; logical operations on numbers
+;;
+
+ (logior 1 0)
+
+1
+* (logxor 1 1)
+
+0
+* (logand 1 1)            
+
+1
+* (logand 0 1)
+
+0
+* (logcount 15)
+
+4
+
+

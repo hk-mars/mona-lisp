@@ -162,9 +162,34 @@ Functions for creating complex number and get part of it.
 
 
 
+### logior &rest integers
+### logxor &rest integers
+### logand &rest integers
+### logeqv &rest integers
 
+### lognand integer1 integer2 
+### lognor integer1 integer2 
+### logandc1 integer1 integer2 
+### logandc2 integer1 integer2 
+### logorc1 integer1 integer2 
+### logorc2 integer1 integer2
 
+These bit-wise logical operations on two integers are summarized in the following table:
 
+----------------------------------------------------------------
+integer1        0       0       1       1 
+integer2        0       1       0       1       Operation Name 
+----------------------------------------------------------------
+logand          0       0       0       1       and 
+logior          0       1       1       1       inclusive or 
+logxor          0       1       1       0       exclusive or 
+logeqv          1       0       0       1       equivalence (exclusive nor) 
+lognand         1       1       1       0       not-and 
+lognor          1       0       0       0       not-or 
+logandc1        0       1       0       0       and complement of integer1 with integer2 
+logandc2        0       0       1       0       and integer1 with complement of integer2 
+logorc1         1       1       0       1       or complement of integer1 with integer2 
+logorc2         1       0       1       1       or integer1 with complement of integer2 
 
 ## Macro
 
@@ -174,4 +199,9 @@ Functions for creating complex number and get part of it.
 The number produced by the form delta is added to (incf) or subtracted from (decf) 
 the number.
 
+
+### logcount integer
+The number of bits in integer is determined and returned.
+
+(logcount 13) => 3      ;Binary representation is ...0001101
 
