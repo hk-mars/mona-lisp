@@ -141,12 +141,18 @@ mod performs the operation floor on its two arguments and returns the second res
 of floor.
 similarly for rem.
 
-(mod 13 4) => 1                 (rem 13 4) => 1 
+(mod 13 4) => 1                 (rem 13 4) => 1
+
 (mod -13 4) => 3                (rem -13 4) => -1 
+
 (mod 13 -4) => -3               (rem 13 -4) => 1 
+
 (mod -13 -4) => -1              (rem -13 -4) => -1 
+
 (mod 13.4 1) => 0.4             (rem 13.4 1) => 0.4 
+
 (mod -13.4 1) => 0.6            (rem -13.4 1) => -0.4
+
 
 ### complex realpart &optional imagpart
 ### realpart number
