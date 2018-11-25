@@ -77,10 +77,13 @@ This is why db should be integrated into monalisp.
 The genius idea always comes from exceptional vision of designer, it shows to realization with "The perfect context", this context loops the intuition world, abstraction world and realization world together as a new 'world' to provide better solutions.
 
 
-## designing the design system
+## design the design system
+## design the design-framework for design systems
 This is the design at the lighest level, which be also called "strategic design".
-I think a core subsystem(framework) of the design system can be integrated into the language.
-We use this designable language to design the design system which used for designing for specific products for end-users.
+Strategic design focuses on roadmaps for innovative products and services.
+It requires a high-level vision, insight into future trends, understanding the relationship of technology to social change, user-centered design expertise, and a "whole systems" design methodology.
+The core subsystem(design-framework) of the design system can be integrated into the language.
+We use this design-hackable language to design the design system for designing for the special products for the end-users.
 
 
 
