@@ -191,6 +191,20 @@ logandc2        0       0       1       0       and integer1 with complement of 
 logorc1         1       1       0       1       or complement of integer1 with integer2 
 logorc2         1       0       1       1       or integer1 with complement of integer2 
 
+### random number &optional state
+
+It accepts a positive number n and returns a number of the same kind between zero 
+(inclusive) and n (exclusive).
+
+### *random-state*
+This variable holds a data structure, an object of type random-state.
+
+### make-random-state &optional state
+This function returns a new object of type random-state, suitable for use as the value of the variable *random-state*.
+
+a new state object is returned that has been "randomly" initialized by some means
+(such as by a time-of-day clock).
+
 ## Macro
 
 ### incf place [delta]

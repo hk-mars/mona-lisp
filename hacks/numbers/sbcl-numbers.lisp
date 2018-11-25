@@ -202,3 +202,31 @@ T
 4
 
 
+
+;;
+;; random operations on numbers
+;;
+
+* (random 10)
+
+5
+* *random-state*
+
+#S(RANDOM-STATE :STATE #.(MAKE-ARRAY 627 :ELEMENT-TYPE '(UNSIGNED-BYTE 32)
+                                     :INITIAL-CONTENTS
+                                     '(0 2567483615 7 2601187879 3919438689
+                                       2270374771 3254473187 705526435
+                                       752899028 4259895275 1635503293
+                                       287311810 3348146311 587101971
+                                       1133963260 197444494 1569747226
+
+
+* (make-random-state t)
+
+#S(RANDOM-STATE :STATE #.(MAKE-ARRAY 627 :ELEMENT-TYPE '(UNSIGNED-BYTE 32)
+                                     :INITIAL-CONTENTS
+                                     '(0 2567483615 624 2147483648 1475954278
+                                       3325869972 334603751 3153596043
+                                       628567236 3524313949 2634605248
+                                       3638273735 3550264641 727190391
+
