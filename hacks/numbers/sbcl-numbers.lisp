@@ -157,3 +157,27 @@ T
 
 70
 
+;;
+;; type converstions and component extractions
+;;
+
+* (float 0)
+
+0.0
+* (float 1)
+
+1.0
+* (rational 3/9)
+
+1/3
+* (rational 2)
+
+2
+* (complex 1 2)
+
+#C(1 2)
+* (realpart (complex 1 2))
+
+1
+
+
