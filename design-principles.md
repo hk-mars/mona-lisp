@@ -77,5 +77,10 @@ This is why db should be integrated into monalisp.
 The genius idea always comes from exceptional vision of designer, it shows to realization with "The perfect context", this context loops the intuition world, abstraction world and realization world together as a new 'world' to provide better solutions.
 
 
+## designing the design system
+This is the design at the lighest level, which be also called "strategic design".
+I think a core subsystem(framework) of the design system can be integrated into the language.
+We use this designable language to design the design system which used for designing for specific products for end-users.
+
 
 
