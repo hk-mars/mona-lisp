@@ -4,7 +4,7 @@
 - Hack ecl manual: https://common-lisp.net/project/ecl/static/manual/
 - Hack arc guide: http://paulgraham.com/arc.html
 
-## Sep-to-Nov-w4
+## Sep-to-Dec
 - Hack sbcl
 - Hack ecl
 - Hack clisp(again)
