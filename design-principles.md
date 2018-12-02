@@ -78,13 +78,13 @@ The genius idea always comes from exceptional vision of designer, it shows to re
 
 
 ## the system is the interface
-The philosophy beind this is:
+The philosophy behind this is:
 
-if the system does not respond to all of the design problem factors, 
-no amount of skin-deep "design" will fix design problems.
+> if the system does not respond to all of the design problem factors, 
+no amount of skin-deep "design" will fix the design problems.
 
-Employ a human-centered, whole systems, design methodology that lets user design
-factors define the function, and lets the function determine the form.
+Employ a human-centered, whole-systems design methodology that lets user design
+problem factors define the function, and lets the function determine the form.
 
 ## design the design system
 ## design the design-framework for design systems
