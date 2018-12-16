@@ -34,8 +34,8 @@ The binding of a "special" variable has dynamic extent.
 
 The entity continues to exist as long as the possibility of reference remains.
 
-It is free to destory the entity if it can prove that reference to it is no longer
-possible. GC(garbage collection) strategies implicityly employ such proofs.)
+It is free to destroy the entity if it can prove that reference to it is no longer
+possible. GC(garbage collection) strategies implicitly employ such proofs.)
 
 Most Common Lisp data objects have indefinite extent.
 
@@ -48,14 +48,14 @@ Most Common Lisp data objects have indefinite extent.
 lexical scope and indefinite extent, but objects that are the values of such 
 bindings may have dynamic extent.
 
-The declaration is the programmer's gurantee that the program will behave correctly
-even if certain of the data objects have only dynamic etent rather than the 
+The declaration is the programmer's grantee that the program will behave correctly
+even if certain of the data objects have only dynamic extent rather than the 
 indefinite extent.
 
 - Variable bindings that are declared to be special have dynamic scope (indefinite
 scope and dynamic extent).
 
-- Bindings of function names esablished by @lables have lexical scope and indefinite extent.
+- Bindings of function names established by @lables have lexical scope and indefinite extent.
 
 - Bindings of function names for which there is a dynamic-extent declaration also
 have lexical scope and indefinite extent, but function objects that are the values
@@ -74,8 +74,8 @@ are referred bo by @go have lexical scope and dynamic extent.
 
 - Named constants such as @nil and @pi have indefinite scope and indefinite extent.
 
-The rules of lexical scope imply that lambda-expressions apprearing in the function construct will result in "closures" over those non-special variables visible to the lambda-expression.
-That is, the function represented by a lambda-expression may refer ANY lecically
+The rules of lexical scope imply that lambda-expressions appearing in the function construct will result in "closures" over those non-special variables visible to the lambda-expression.
+That is, the function represented by a lambda-expression may refer ANY lexically
 apparent non-special variable and get the correct value, even if the construct that
 established the binding has been exited in the course of execution.
 
