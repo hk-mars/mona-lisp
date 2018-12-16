@@ -13,6 +13,6 @@ Lists indicate combinations or specializations of simpler types.
 
 ### type-of object
 
-This is a function, it returns an implementtion-dependent result.
+This is a function, it returns an implemention-dependent result.
 
 
