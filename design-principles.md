@@ -15,15 +15,23 @@ you can only obey them at the expense of mathematical elegance. And vice versa. 
 ## brevity 
 what you like about abstraction.
 By brevity I don't mean that programs should require fewer characters. 
-That counts for something, but it is more important to require fewer tokens. -- Paul G.
+That counts for something, but it is more important to require **fewer tokens**. -- Paul G.
 
-Mathematical expression(elegance form) is always a good way of abstraction for design brevity, 
-list and lisp(list processing) are the examples, but be remember it is not the goal.
+Mathematical expression(elegant-forms) is always a good way of abstraction for brevity design, 
+list and lisp(list processing) are the examples, but remember it is not the goal.
 
-Strategical rules(defined constraints or format, but redefinable), is a needed way for design brevity, 
-but it only be used for improving the limitations of system.
+Strategical rules(defined constraints or format, but **redefinable**), is a needed way for brevity design, 
+but it only be used for fixing the problems of the limitations of system.
 
 Forced rules MUST never be used, it makes the design less brevity and broken.
+
+**Here, remember:**
+> For system framework design, strategical-rules way always play the second role.
+
+**Frist we should design the prototype framework of the system from elegant-forms way,
+we call it "prototype framework". After this stage, we start to design the "perfect framework",
+which means we should consider the limitations of prototype framework itself and applications.
+The strategical-rules way used to fix this problem.**
 
 #### by-product of vigor
 Two sentences with the same meaning:
