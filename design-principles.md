@@ -28,9 +28,9 @@ Forced rules MUST never be used, it makes the design less brevity and broken.
 **Here, remember:**
 > For system framework design, strategical-rules way always play the second role.
 
-**Frist we should design the prototype framework of the system from elegant-forms way,
-we call it "prototype framework". After this stage, we start to design the "perfect framework",
-which means we should consider the limitations of prototype framework itself and applications.
+**Firstly we should design the prototype framework of the system from elegant-forms way,
+we call it "prototype framework"; then we start to design the "perfect framework",
+which means we should consider the limitations of prototype framework itself and application fields.
 The strategical-rules way used to fix this problem.**
 
 #### by-product of vigor
