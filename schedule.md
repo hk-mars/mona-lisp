@@ -12,7 +12,7 @@
 - Consider more about how to extend common lisp for monalisp features.
 - Create interesting codes for systemic understanding of common lisp.
 
-## Aug-w4-to-Jan-2019
+## Aug-w4-to-Feb-2019
 Desgin monalisp parser
 
 ## Jan-2019-to-April-2019
