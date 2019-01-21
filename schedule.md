@@ -13,13 +13,22 @@
 - Create interesting codes for systemic understanding of common lisp.
 
 ## Aug-w4-to-Feb-2019
+
 Desgin monalisp parser
+
+- use my holiday(a half of month)
 
 ## Jan-2019-to-April-2019
 Implement monalisp parser
 
 ## May-2019
 Releases monalisp parser v1.0
+
+   
+
+   
+   
+
 
 
 
