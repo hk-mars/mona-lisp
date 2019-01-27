@@ -136,7 +136,7 @@ the results of the last form only are returned as the results of the application
 
 The complete syntax of a lambda-expression is:
 
->
+```lisp
 (lambda ({var}*
          [&optional {var | (var [initform [svar]])}*]
          [&rest var]
@@ -145,6 +145,7 @@ The complete syntax of a lambda-expression is:
          [&aux {var | (var [initform])}*)]
    [[{declaration}* | documentation-string]]
    {form}*)
+```
    
    
 
