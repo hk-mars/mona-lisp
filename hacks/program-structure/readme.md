@@ -155,7 +155,27 @@ The complete syntax of a lambda-expression is:
 
 ## Top-Level Forms
 
+The standard way for the user to interact with a Common Lisp implementation is via a 
+**real-eval-print** loop.
+
+The system repeatedly reads a form from some input source, evaluates it, and prints the
+value(s) to some output sink(screen or file). Any form is acceptable.
+
 ### Defining Named Functions
+
+The **defun** special form is the usual means of defining named functions.
+
+[**Macro**]
+```lisp
+defun name lambda-list [[ {declaration}* | doc-string]] {form}*
+```
+
+Evaluating a @defun form causes the symbol @name to be a global name for the function
+specified by the lambda-expression:
+
+ ```lisp
+ (lambda lambda-list {declaration | doc-string}* {form}*)
+ ```
 
 ### Declaring Global Variables and Named Constants
 
