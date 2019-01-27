@@ -122,7 +122,9 @@ A name can be given to a function in one of two ways.
 
 A lambda-expression is a list with the following syntax:
 
-> (lambda lambda-list . body)
+```lisp
+(lambda lambda-list . body)
+```
 
 The first element MUST be the symbol **lambda**.
 The second element MUST be a list, called the **lambda-list**, specifies names for the
