@@ -100,10 +100,54 @@ A function that does return may produce no value or several values, see **values
 
 
 ## Functions
+There are two ways to name a function:
+1. Use a symbol that names the function.
+2. Use a lambda-expression, which is a list whose first element is the symbol **lambda**.
+
+A lambda-expression is not a form; it cannot be meaningfully evaluated.
+
+These two ways should be distinguished from the treatment of symbols and lambda-expressions
+as function objects, objects that satisfy the predicate **functionp**, as when giving such
+an object to **apply** or **funcall**.
+
 
 ### Named Functions
 
+A name can be given to a function in one of two ways.
+- a **global** name
+- a **local** name
+
+
 ### Lambda-Expressions
+
+A lambda-expression is a list with the following syntax:
+
+> (lambda lambda-list . body)
+
+The first element MUST be the symbol **lambda**.
+The second element MUST be a list, called the **lambda-list**, specifies names for the
+**parameters** of the function.
+
+When the function denoted by the lambda-expression is applied to arguments, the arguments
+are matched with the parameters specified by the lambda-list.
+The **body** may then refer to the arguments by using the parameter names.
+The **body** consists of any number of forms, these forms are evaluated in sequence, and
+the results of the last form only are returned as the results of the application.
+
+The complete syntax of a lambda-expression is:
+
+>
+(lambda ({var}*
+         [&optional {var | (var [initform [svar]])}*]
+         [&rest var]
+         [&key {var | ({var | (keyword var)} [initform [svar]])}*
+                [&allow-other-keys]]
+         [&aux {var | (var [initform])}*)]
+   [[{declaration}* | documentation-string]]
+   {form}*)
+   
+   
+
 
 
 ## Top-Level Forms
