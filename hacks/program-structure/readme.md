@@ -233,5 +233,29 @@ be used to accomplish the same purpose, because the call to **format** is evalua
 
 ### Control of Time of Evaluation
 
+#### [Special Form]
+
+##### eval-when ({situation}*) {form}*
+
+The **eval-when** special form allows pieces of code to be executed only at compile time,
+only at load time, or when interpreted but not compiled.
+
+Its uses are relatively **esoteric**.
+
+The body of it is processed as an implicit **progn**, but only in the situations listed.
+Each **situation** must be a symbol, either **compile**, **load**, or **eval**.
+
+For example:
+
+```lisp
+(eval-when (compile load eval)
+	(set-macro-character #\$ #`(lambda (stream char)
+									(declare (ignore char))
+									(list 'dollar (read stream)))))
+```
+This causes **set-macro-character** to be executed in the compiler's execution environment,
+thereby modifying its reader **syntax** table.
+
+
 
 
