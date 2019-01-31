@@ -179,6 +179,58 @@ specified by the lambda-expression:
 
 ### Declaring Global Variables and Named Constants
 
+#### Macro
+##### defvar name [initial-value] [documentation]
+##### defparameter name initial-value [documentation]
+##### defconstant name initial-value [documentation]
+**defvar** is the recommended way to declare the use of a special variable in a program.
+
+```lisp
+(defvar variable)
+```
+proclaims **variable** to be **special**, and can perform other system-dependent bookkeeping
+actions.
+
+If the second argument **initial-value** is supplied, then **variable** is initialized to
+the result of evaluating the form **initial-value** unless it already has a value.
+The **initial-value** form is not evaluated unless it is used; this fact is useful if 
+evaluation of the **initial-value** form does something expensive like creating a large
+data structure.
+
+**defparameter** is similar to **defvar**, but it prequires an **initial-value** form,
+always evaluates the form, and assigns the result to the variable.
+
+**defconstant** is like **defparameter** but does assert that the value of the variable
+is **fixed**.
+
+The **documentation** string is not evaluated but must appear as a literal string when 
+the form is evaluated.
+
+For example, the form:
+
+```lisp
+(defvar *avoid-registers* nil "Compilation control switch #43")
+```
+is legitimate, but
+
+```lisp
+(defvar *avoid-registers* nil
+	(format nil "Compilation control switch #~D"
+			(incf *compiler-switch-number*)))
+```
+is erroneous because the all to **format** is not a literal string.
+
+On the other hand, the form
+
+```lisp
+(defvar *avoid-registers* nil
+	#.(format nil "Compilation control switch #~D"
+				(incf *compiler-switch-number*)))
+```
+be used to accomplish the same purpose, because the call to **format** is evaluated at
+**read** time.
+
+
 ### Control of Time of Evaluation
 
 
