@@ -250,12 +250,12 @@ For example:
 ```lisp
 (eval-when (compile load eval)
 	(set-macro-character #\$ #`(lambda (stream char)
-									(declare (ignore char))
+								(declare (ignore char))
 									(list 'dollar (read stream)))))
 ```
 This causes **set-macro-character** to be executed in the compiler's execution environment,
 thereby modifying its reader **syntax** table.
 
-
+More examples of **eval-form** would be given in the future. 
 
 
