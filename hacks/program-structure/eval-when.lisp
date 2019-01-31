@@ -8,7 +8,8 @@
   (set-macro-character #\$ #'(lambda (stream char) 
                                (declare (ignore char)) 
                                (list 'dollar (read stream)))))
-STYLE-WARNING: using deprecated EVAL-WHEN situation names EVAL LOAD COMPILE
+T
+
 
 
 
