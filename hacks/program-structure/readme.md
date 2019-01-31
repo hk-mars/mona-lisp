@@ -228,7 +228,7 @@ On the other hand, the form
 				(incf *compiler-switch-number*)))
 ```
 be used to accomplish the same purpose, because the call to **format** is evaluated at
-**read** time.
+**read** time(only at load time, or when interpreted but not compiled).
 
 
 ### Control of Time of Evaluation
