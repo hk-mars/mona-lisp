@@ -144,21 +144,33 @@ It is ture if its arguments are **eq**, or if they are numbers of the same type 
 same value, of if they are character objects that represent the same character.
 
 (eql 'a 'b) is false. 
+
 (eql 'a 'a) is true. 
+
 (eql 3 3) is true. 
+
 (eql 3 3.0) is false. 
+
 (eql 3.0 3.0) is **true** (the same type with the same value)
+
 (eql #\A #\A) is **true** (character objects that represent the same character)
+
 
 - equal x y
 It is true if its arguments are structurally similar(in form) objects.
 
 (equal 'a 'b) is false. 
+
 (equal 'a 'a) is true. 
+
 (equal 3 3) is true. 
+
 (equal 3 3.0) is false. 
+
 (equal 3.0 3.0) is true. 
+
 (equal #\A #\A) is true. 
+
 (equal "Foo" "Foo") is true. 
 
 - equalp x y
