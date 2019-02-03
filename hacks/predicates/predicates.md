@@ -18,6 +18,7 @@ Although they are symbols like any other symbols, and appear to be treated as va
 when evaluated.
 
 - nil
+
 The value of nil is always nil.
 This object represents the logical false value and also the empty list. It can also be
 written as ().
@@ -38,6 +39,7 @@ If a data type is viewed as the set of all objects belonging to the type, then t
 #### functions
 
 - typep object type
+
 The return is true if **object** is of type **type**.
 
 Note that an object can be "of" more than one type, since one type can include another.
@@ -112,9 +114,11 @@ nil  nil  subtypep could not determine the relationship
 - functionp object
 
 - compiled-function-p object
+
 It is true if its argument is any compiled code object.
 
 - commonp object
+
 It is true if its argument is any standard Common Lisp data type.
 
 
@@ -128,6 +132,7 @@ For above all predicates, they are evaluated by the same expression:
 ### functions
 
 - eq x y
+
 It is true if and only if x and y are **the same identical object**.
 
 Implementationally, x and y are usually eq if and only if they address the same identical 
@@ -140,6 +145,7 @@ Implementationally, x and y are usually eq if and only if they address the same 
 (eq #\A #\A) might be true or false, depending on the implementation. 
 
 - eql x y
+
 It is ture if its arguments are **eq**, or if they are numbers of the same type with the
 same value, of if they are character objects that represent the same character.
 
@@ -157,6 +163,7 @@ same value, of if they are character objects that represent the same character.
 
 
 - equal x y
+
 It is true if its arguments are structurally similar(in form) objects.
 
 (equal 'a 'b) is false. 
@@ -174,6 +181,7 @@ It is true if its arguments are structurally similar(in form) objects.
 (equal "Foo" "Foo") is true. 
 
 - equalp x y
+
 Two objects are equalp if they are equal.
 
 
