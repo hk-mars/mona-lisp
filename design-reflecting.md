@@ -5,7 +5,7 @@ and the rest of the language, which, like theorems, are defined in terms of the 
 
 ### editor
 
-@ _
+@__
 
 e.g.:  quit monalisp
 
@@ -14,7 +14,7 @@ e.g.:  quit monalisp
 
 Consider below codes in editor:
 
-   **@** (eql "foo" "foo")
+   **@**  (eql "foo" "foo")
 
    **>** (eql "foo" "foo")
 
