@@ -25,10 +25,11 @@ I think "@" is more elegant than others, although ">" and "*" is good.
 
 ### design-hackable
 Any ideas that make designing more easy to hack, try them in monalisp.
-1. layout design.
-2. interface design.
-3. architecture design.
-4. system design (complex systems)
+- layout design.
+- interface design.
+- architecture design.
+- system design (complex systems)
+
 ...
 
 Consider more deeply about this.
