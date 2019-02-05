@@ -244,7 +244,6 @@ not returns t if x is nil, otherwise returns nil.
 If any form evaluates to nil, the value nil is immediately returned without evaluating 
 the remaining forms. 
 
-
 ```lisp
 (and x y z ... w) == (cond ((not x) nil) 
 							((not y) nil) 
