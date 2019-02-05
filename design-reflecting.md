@@ -12,9 +12,9 @@ e.g.:  quit monalisp
 @ (q)
 
 
-Consider below codes in editor:
+Consider below codes in editor of shell-terminal:
 
-   **@**  (eql "foo" "foo")
+   **@** (eql "foo" "foo")
 
    **>** (eql "foo" "foo")
 
