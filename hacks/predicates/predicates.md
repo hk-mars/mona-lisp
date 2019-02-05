@@ -246,10 +246,10 @@ the remaining forms.
 
 ```lisp
 (and x y z ... w) == (cond ((not x) nil) 
-						((not y) nil) 
-						((not z) nil) 
-						...
-						(t w))		   
+			    ((not y) nil) 
+			    ((not z) nil) 
+			    ...
+			    (t w))		   
 ```
 			   
 - or {form}*
