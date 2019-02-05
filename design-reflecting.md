@@ -20,7 +20,7 @@ Consider below codes in editor:
 
    \* (eql "foo" "foo")
 
-I think "@" is more elegant than others, althogh ">" and "*" is good.
+I think "@" is more elegant than others, although ">" and "*" is good.
 
 
 ### design-hackable
