@@ -11,6 +11,18 @@ e.g.:  quit monalisp
 
 @ (q)
 
+
+Comparing below codes in editor:
+
+@ (eql "foo" "foo")
+
+> (eql "foo" "foo")
+
+* (eql "foo" "foo")
+
+I think "@" is more elegant, but ">" and "*" is still better.
+
+
 ### design-hackable
 Any ideas that make designing more easy to hack, try them in monalisp.
 1. layout design.
