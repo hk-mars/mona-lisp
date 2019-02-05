@@ -166,6 +166,15 @@ same value, of if they are character objects that represent the same character.
 
 It is true if its arguments are structurally similar(in form) objects.
 
+Two objects are equal if and only if their printed representations are the same.
+
+
+Two arrays are equal only if they are eq, with one exception: strings and bit-vectors 
+are compared element-by-element. If either argument has a fill pointer, the fill pointer 
+limits the number of elements examined by equal. Uppercase and lowercase letters in strings 
+are considered by equal to be distinct. 
+(**In contrast, equalp ignores case distinctions in strings**)
+
 (equal 'a 'b) is false. 
 
 (equal 'a 'a) is true. 
@@ -178,11 +187,45 @@ It is true if its arguments are structurally similar(in form) objects.
 
 (equal #\A #\A) is true. 
 
-(equal "Foo" "Foo") is true. 
+(equal "Foo" "Foo") is true.
+
+(equal "FOO" "foo") is false.
 
 - equalp x y
 
-Two objects are equalp if they are equal.
+Two objects are equalp if they are **equal**.
+
+Objects that have components are equalp if they are of the same type and corresponding 
+components are equalp. 
+
+Two symbols can be equalp only if they are eq, that is, the same identical object.
+
+Two arrays are equalp if and only if they have the same number of dimensions.
+
+To clarify that otherwise equalp never recursively descends any structure or data type 
+other than the ones: conses, arrays (including bit-vectors and strings), and pathnames. 
+Numbers are compared for numerical equality (see =), 
+characters are compared as if by char-equal, 
+and all other data objects are compared as if by eq.
+
+
+(equalp 'a 'b) is false.
+
+(equalp 'a 'a) is true. 
+
+(equalp 3 3) is true. 
+
+(equalp 3 3.0) is true. 
+
+(equalp 3.0 3.0) is true.
+
+(equalp #\A #\A) is true. 
+
+(equalp "Foo" "Foo") is true. 
+
+(equalp "Foo" (copy-seq "Foo")) is true. 
+
+(equalp "FOO" "foo") is true.
 
 
 ## Logical Operators
@@ -191,12 +234,34 @@ Two objects are equalp if they are equal.
 
 - not x
 
+not returns t if x is nil, otherwise returns nil.
+
+### Macros
+
 - and {form}*
 
+(and form1 form2 ... ) evaluates each form, one at a time, from left to right. 
+If any form evaluates to nil, the value nil is immediately returned without evaluating 
+the remaining forms. 
+
+
+```lisp
+(and x y z ... w) == (cond ((not x) nil) 
+							((not y) nil) 
+							((not z) nil) 
+							...
+							(t w))		   
+```
+			   
 - or {form}*
 
-- 
+(or form1 form2 ... ) evaluates each form, one at a time, from left to right. 
+If any form other than the last evaluates to something other than nil, or immediately 
+returns that non-nil value without evaluating the remaining forms. 
 
+```lisp
+(or x y z ... w) == (cond (x) (y) (z) ... (t w))
+```
 
 
 

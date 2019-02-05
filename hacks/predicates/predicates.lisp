@@ -120,4 +120,39 @@ NIL
 
 T
 
+* (equal "Foo" "foo")
+
+NIL
+* (equalp "Foo" "foo")
+
+T
+
+
+;;
+;; logical operatiors
+;;
+
+
+* (setf x nil)
+
+NIL
+* (not x)
+
+T
+* (setf x 'a)
+
+NIL
+* (not x)
+
+NIL
+
+* (and t
+	(princ "hi"))
+hi
+"hi"
+* (and nil
+	(printc "hi"))
+
+NIL
+
 
