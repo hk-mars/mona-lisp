@@ -14,11 +14,11 @@ e.g.:  quit monalisp
 
 Comparing below codes in editor:
 
-  @ (eql "foo" "foo")
+   @ (eql "foo" "foo")
 
-  > (eql "foo" "foo")
+   > (eql "foo" "foo")
 
-  * (eql "foo" "foo")
+   * (eql "foo" "foo")
 
 I think "@" is more elegant, but ">" and "*" is still better.
 
