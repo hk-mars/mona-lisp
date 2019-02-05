@@ -12,7 +12,7 @@ e.g.:  quit monalisp
 @ (q)
 
 
-Comparing below codes in editor:
+Consider below codes in editor:
 
    **@** (eql "foo" "foo")
 
@@ -20,7 +20,7 @@ Comparing below codes in editor:
 
    \* (eql "foo" "foo")
 
-I think "@" is more elegant, but ">" and "*" is still better.
+I think "@" is more elegant than others, althogh ">" and "*" is good.
 
 
 ### design-hackable
