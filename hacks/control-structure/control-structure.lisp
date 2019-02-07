@@ -81,7 +81,29 @@ T
 2
 
 
+;;
+;; function invoation
+;;
+
+* (setq f '+
+
++
+)
+* (apply f '(1 2))
+
+3
+* (apply #'max '(1 2 3))
+
+3
 
 
+* (funcall f 1 2)
+
+3
+
+
+* call-arguments-limit
+
+536870911
 
 

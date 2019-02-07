@@ -71,7 +71,37 @@ statement" of Lisp.
 ## Generalized Variables
 
 
+
 ## Function Invocation
+
+The most primitive form for function in lisp has **no name**; any list that has no other
+interpretation as a macro call or special form is taken to be a function call.
+
+
+### functions
+
+- apply function arg &rest more-args
+
+This applies **function** is to a list of arguments.
+
+- funcall fn &rest arguments
+
+(funcall fn a1 a2 ... an) applies the function fn to the arguments a1, a2, ..., an.
+
+The fn may not be a special form or a macro; this would not be meaningful.
+
+
+The difference between funcall and an ordinary function call is that the function is 
+obtained **by ordinary Lisp evaluation rather** than by the special interpretation of 
+the function position.
+
+
+### constant
+
+- call-arguments-limit
+
+The value of call-arguments-limit is a positive integer that is the upper exclusive bound
+ on the number of arguments that may be passed to a function. 
 
 
 ## Simple Sequencing
