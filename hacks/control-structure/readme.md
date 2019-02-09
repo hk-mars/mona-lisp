@@ -106,6 +106,30 @@ The value of call-arguments-limit is a positive integer that is the upper exclus
 
 ## Simple Sequencing
 
+Sequencing forms evaluates all the arguments forms in order.
+
+### special forms
+
+- progn {form}*
+
+The **progn** construct takes a number of forms and evaluates them sequentially, in order,
+from left to right; the values of all the forms but the last are discarded.
+
+**progn** is the primitive control structure construct for "compound statements", as part
+of their syntax each allows **many forms** to be written that are to be evaluated sequentially.
+
+### macros
+
+- prog1 first {form}*
+
+*prog1* is similar to **progn**, but it returns the value of its **first** form.
+
+- prog2 first second {form} *
+
+**prog2** is similar to **prog1**, but it returns the value of its **second** form.
+
+(prog2 a b c ... z) == (progn a (prog1 b c ... z))
+
 
 ## Variable Bindings
 
