@@ -133,6 +133,73 @@ of their syntax each allows **many forms** to be written that are to be evaluate
 
 ## Variable Bindings
 
+### special forms
+
+- let ({var | (var value)}*) {declaration}* {form}*
+
+A let form can be used to execute a series of forms with specified variables bound to
+specified values.
+
+More precisely, the form:
+
+```lisp
+(let ((var1 value1)
+	  (var2 value2)
+	  ...
+	  (varm valuem))
+	declaration1
+	declaration2
+	...
+	declarationp
+	body1
+	body2
+	...
+	bodyn)	  
+```
+
+first evaluates the expressions value1, value2, and so on, in that order, saving the 
+resulting values. Then all of the variables varj are bound to the corresponding values 
+in parallel;
+
+
+- let ({var | (var [value])}*) {declaration}* {form}*
+
+This changes let to allow a list (var) to appear, meaning the same as simply var.
+
+- let* ({var | (var value)}*) {declaration}* {form}*
+
+**let*** is similar to let, but the bindings of variables are performed **sequentially 
+rather than in parallel**.
+ 
+This allows the expression for the value of a variable to refer to variables **previously**
+bound in the let** form.
+
+```lisp
+(let* ((var1 value1) 
+       (var2 value2) 
+       ... 
+       (varm valuem)) 
+	declaration1 
+	declaration2 
+	... 
+	declarationp 
+	body1 
+	body2 
+	... 
+	bodyn)
+```
+
+first evaluates the expression value1, then binds the variable var1 to that value; then 
+it evaluates value2 and binds var2; and so on.
+
+
+- let* ({var | (var [value])}*) {declaration}* {form}*
+
+This changes let* to allow a list (var) to appear, meaning the same as simply var. 
+
+
+
+
 
 ## Conditional Construct
 

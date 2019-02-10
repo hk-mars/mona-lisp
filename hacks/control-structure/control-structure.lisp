@@ -127,3 +127,34 @@ T
 7
 
 
+
+;;
+;; variables bingding
+;;
+
+* (let ((x 1)
+	(y 2)
+	(z 3))
+     (setq r (+ x y))
+     r)
+
+3
+
+
+* x       
+
+1
+* (let ((x 2)
+	(y (+ x 1))) ; x is 1
+     y)
+
+2
+
+* (let* ((x 2)
+	 (y (+ x 1))) ; x is 2
+     y)
+
+3
+
+  
+
