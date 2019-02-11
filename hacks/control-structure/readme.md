@@ -309,9 +309,19 @@ This is identical in meaning to (return-from nil form), used to exit properly in
 iteration constructs like **do**.
 
 
-
-
 ## Iteration
+
+## Macros
+
+```lisp
+loop {form}*
+```
+
+The loop construct is the simplest iteration facility, it controls no variables, and 
+simply executes its body(forms) repeatedly, and never returns a value.
+
+We can use **return** or **throw** constructs to exit **loop**.
+
 
 
 ## Multiple Values

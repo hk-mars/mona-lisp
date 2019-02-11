@@ -168,3 +168,37 @@ T
 2.0
 
 
+
+;;
+;; iteration
+;;
+
+
+* (loop
+	(setq x 1)
+	(when (eq x 1) (return)))
+
+nil
+
+
+* (setf x 10)
+
+10
+
+* (loop
+	(when (eq x 0) (return))
+	(print x)
+	(setf x (- x 1)))
+
+10 
+9 
+8 
+7 
+6 
+5 
+4 
+3 
+2 
+1 
+NIL
+
