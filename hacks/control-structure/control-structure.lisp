@@ -158,3 +158,13 @@ T
 
   
 
+* (setq longlist '(4 4))
+
+(4 4)
+* (flet ((safesqrt (x) (sqrt (abs x)))) 
+  ;; The safesqrt function is used in two places. 
+  (safesqrt (apply #'+ (map 'list #'safesqrt longlist))))
+
+2.0
+
+

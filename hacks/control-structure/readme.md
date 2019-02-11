@@ -203,6 +203,49 @@ let* ({var | (var [value])}*) {declaration}* {form}*
 This changes let* to allow a list (var) to appear, meaning the same as simply var. 
 
 
+```lisp
+progv symbols values {form}*
+```
+
+**progv** allows binding one or more dynamic variables whose names may be determined at 
+run time.
+
+The sequence of forms is evaluated with the dynamic variables whose names are in the list 
+** symbols** bound to values from the list **values**.
+
+The results of the progv form are those of the last form.
+
+progv is **particularly useful** for writing **interpreters** for **languages embedded**
+in lisp; it provides a handle on the mechanism for binding dynamic variables.
+
+
+```lisp
+flet ({(name lambda-list
+         [[ {declaration}* | doc-string ]] {form}*)}*)
+     {form}*
+      
+labels ({(name lambda-list
+         [[ {declaration}* | doc-string ]] {form}*)}*)
+     {form}*
+      
+macrolet ({(name varlist
+         [[ {declaration}* | doc-string ]] {form}*)}*)
+     {form}*
+```
+
+**flet** may be used to define **locally named functions**.
+
+Function names matching those defined by the **flet** refer to the locally defined 
+functions rather than to the global function.
+
+**labels** construct is identical in form to the **flet** construct, it can be used to
+**define mutually recursive functions**, but flet cannot.
+
+**macrolet** is similar in form to flet but **defines local macros**, using the same format
+by **defmacro**.
+
+
+
 ## Conditional Construct
 
 
