@@ -245,11 +245,70 @@ functions rather than to the global function.
 by **defmacro**.
 
 
+## Conditionals
 
-## Conditional Construct
+The traditional conditional construct in lisp is **cond**, it is considered to be primitive
+in common lisp, but common lisp also provides more convenient constructs like **case** and
+**typecase**.
 
+
+### special forms
+
+```lisp
+if test then [else]
+```
+
+### macros
+
+```lisp
+when test {form}*
+```
+
+
+```lisp
+unless test {form}*
+```
+
+```lisp
+cond {(test {forms}*)}*
+```
+
+
+```lisp
+case keyform {({({key}* | key)} {}*)}*
+```
+
+
+```lisp
+typecase keyform {(type {form}*)}*
+```
 
 ## Blocks and Exits
+
+Below constructs provides a lexical non-local exit feature.
+
+### special forms
+
+```lisp
+block name {form}*
+```
+
+
+```lisp
+return-from name [result]
+```
+
+
+### macros
+
+```lisp
+return [result]
+```
+
+This is identical in meaning to (return-from nil form), used to exit properly in the 
+iteration constructs like **do**.
+
+
 
 
 ## Iteration
