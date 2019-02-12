@@ -202,3 +202,106 @@ nil
 1 
 NIL
 
+
+* (do ((x 0 (+ x 1))
+       (y 5 (- y 1)))
+      ((= x 3) y)
+      (print y)
+      (print 'working))
+
+5 
+WORKING 
+4 
+WORKING 
+3 
+WORKING 
+2
+
+
+
+* (do ((x 0 (+ x 1))
+       (y 5 (+ x 1)))
+      ((= x 3) y)
+      (print y)
+      (print 'working))
+
+5 
+WORKING 
+1 
+WORKING 
+2 
+WORKING 
+3
+
+
+* (do* ((x 0 (+ x 1))
+       (y 5 (+ x 1)))
+       ((= x 3) y)
+       (print y)
+       (print 'working))
+
+5 
+WORKING 
+2 
+WORKING 
+3 
+WORKING 
+4
+
+
+* (dolist (x '(a b c))
+	  (print x))
+
+A 
+B 
+C 
+NIL
+
+
+
+
+
+* (mapcar #'abs '(-1 -2 -3 4))
+
+(1 2 3 4)
+
+* (maplist #'(lambda (x) (cons 'e x))
+           '(a b c d))
+
+((E A B C D) (E B C D) (E C D) (E D))
+
+
+* (dotimes (x 10)
+	   (print x))
+
+0 
+1 
+2 
+3 
+4 
+5 
+6 
+7 
+8 
+9 
+NIL
+
+
+
+;;
+;; program feature
+;;
+
+* (tagbody
+	(setf x 1)
+    case-1
+	(when (= x 0) (print x)) 
+
+    case-2
+	(when (= x 1) (print x)))
+
+1
+
+
+
+

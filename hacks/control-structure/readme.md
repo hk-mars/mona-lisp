@@ -334,13 +334,119 @@ We can use **return** or **throw** constructs to exit **loop**.
 
 ### general iteration
 
+**do** and **do*** can recalculate the variables.
+
+
+#### macros
+
+```lisp
+do ({(var [init [step]])}*)
+	(end-test {result}*)
+	{declaration}*
+	{tag | statement}*
+```
+
+The **do** special form provides a iteration facility, with an arbitrary number of 
+"index variables"; these variables are bound within the iteration and stepped in parallel
+in specified ways.
+
+More precisely, a **do** loop looks like this:
+
+```lisp
+(do ((var1 init1 step1) 
+	(var2 init2 step2) 
+	... 
+	(varn initn stepn)) 
+	(end-test . result) 
+	{declaration}*
+	. tagbody)
+```
+
+
+```lisp
+do* ({(var [init [step]])}*)
+	(end-test {result}*)
+	{declaration}*
+	{tag | statement}*
+```
+
+A **do*** loop looks exactly the same except that name do is replaced by **do***.
+
+The do* form is to do as let* is to let.
+
+
+```lisp
+dolist (var listform [resultform])
+       {declaration}* 
+       {tag | statement}*
+```
+
+**dolist** provides iteration over the elements of a list simply.
+
+
+```lisp
+dotimes (var countform [resultform])
+        {declaration}* 
+        {tag | statement}*
+```
+
+**dotimes** provides iteration over a sequence of integers simply.
+
 
 ### mapping
 
+Mapping is a type of iteration in which a function is successively applied to one or more
+sequences.
+
+The result of it is a sequence containing the respective results of the function applications.
+
+#### functions
+
+```lisp
+mapcar function list &rest more-lists 
+maplist function list &rest more-lists 
+mapc function list &rest more-lists 
+mapl function list &rest more-lists 
+mapcan function list &rest more-lists 
+mapcon function list &rest more-lists
+
+```
+
+**mapcar** operates the **function** to the **car** of each **list**, then to the **cadr**
+of each list, and so on.
+
+**maplist** is like mapcar except that the function is applied to the successive **cdr** 
+of the list, the result of each operation is a list, so the whole result of 
+**maplist** is a list-in-list list like:
+
+```lisp
+({()}*)
+```
 
 ### program feature
 
+In Common Lisp, these three operations have been separated into three distinct constructs:
+let, block, and tagbody. These three constructs may be used independently as **building 
+blocks** for other types of constructs.
 
+
+#### special forms
+
+```lisp
+tagbody {tag | statement}*
+```
+
+The part of a **tagbody** is called the body:
+
+```lisp
+{tag | statement}*
+```
+A **tag** may be symbol or an integer.
+
+A **statement** may be a list.
+
+Each element of the body is processed form left to right; a tag is ignored; a statment is
+evaluated, and its results are discarded; at the end of the body, tagbody returns nil.
 
 
 ## Multiple Values
