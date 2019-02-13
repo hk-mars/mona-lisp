@@ -109,8 +109,8 @@ complex, emergency and requirement-specified (for example: in the war time, we n
 fighting system).
 
 > A individual needs a big-picture vision to the whole for design of the idea; 
-Never use top-down design way **within planned forced actions by organization** to products, 
-it would make all novel ideas broken, good design and product impossible.
+Never use top-down way **within planned forced actions by organization** for product design, 
+it would make all novel ideas broken, good design and good product impossible.
 
 
 ## create the perfect context
@@ -135,9 +135,11 @@ problem factors define the function, and lets the function determine the form.
 This is the design at the lighest level, also called "strategic design".
 
 Strategic design focuses on roadmaps for innovative products and services.
-It requires a high-level vision, insight into future trends, understanding the relationship of technology to social change, 
+It requires a high-level vision, insight into future trends, understanding the 
+relationship of technology to social change, 
 user-centered design expertise, and a "whole systems" design methodology.
 
 The core subsystem(design-framework) of the design system can be integrated into the language.
-We use this design-hackable language to design the design system for designing for the special products for the end-users.
+We use this design-hackable language to design the design system for designing 
+for the special products for the end-users.
 
