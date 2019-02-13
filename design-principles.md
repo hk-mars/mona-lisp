@@ -97,6 +97,18 @@ a programming language for the user. Such a program, where extensibility permeat
 is likely to make a much better programming language than a system which was written 
 as a traditional black box, and then made extensible as an afterthought.
 
+> Bottom-up parsing is a strategy for analyzing unknown data relationships that attempts 
+to identify the most **fundamental units** first, and then to **infer** higher-order 
+structures from them(for example: lisp). Top-down parsers, on the other hand, hypothesize 
+general parse tree structures and then consider whether the known fundamental structures 
+are compatible with the hypothesis(for example: MS SQL Server). 
+
+> Use bottom-up principle to the foundation of system and system design, 
+language is the foundation; but use top-down principle to some special products which is 
+complex, emergency and requirement-specified (for example: in the war time, we need a new 
+fighting system).
+
+
 
 ## create the perfect context
 
