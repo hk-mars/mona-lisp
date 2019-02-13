@@ -109,8 +109,8 @@ complex, emergency and requirement-specified (for example: in the war time, we n
 fighting system).
 
 > A individual needs a big-picture vision to the whole for design of the idea; 
-Never use top-down way **within planned forced actions by organization** for product design, 
-it would make all novel ideas broken, good design and good product impossible.
+Never use top-down way **within planned forced rules by organization** for product design, 
+it would make all novel ideas broken, make good design and good product impossible.
 
 
 ## create the perfect context
