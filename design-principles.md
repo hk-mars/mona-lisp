@@ -108,14 +108,14 @@ language is the foundation; but use top-down principle to some special products 
 complex, emergency and requirement-specified (for example: in the war time, we need a new 
 fighting system).
 
-> A individual needs a big-picture vision to the whole for design of the idea; 
+> An individual needs a big-picture vision to the whole for design of the idea; 
 Never use top-down way **within planned forced rules by organization** for product design, 
 it would make all novel ideas broken, make good design and good product impossible.
 
 
 ## create the perfect context
 
-The genius idea always comes from exceptional vision of designer, it shows to realization 
+The genius ideas always comes from exceptional vision of designer, it shows to realization 
 with "The perfect context", this context loops the intuition world, abstraction world and 
 realization world together as a new 'world' to provide better solutions for the problems.
 
