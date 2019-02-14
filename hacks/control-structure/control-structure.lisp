@@ -304,4 +304,71 @@ NIL
 
 
 
+;;
+;; multiple values
+;;
+
+
+* (defun polar (x y) 
+  (values (sqrt (+ (* x x) (* y y))) (atan y x))) 
+
+POLAR
+* (multiple-value-bind (r theta) (polar 3.0 4.0) 
+  (vector r theta)) 
+
+#(5.0 0.9272952)
+* (polar 3 4)
+
+5.0
+0.9272952
+* (values 1 2 4)
+
+1
+2
+4
+* (values-list (list 1 2 3))
+
+1
+2
+3
+* multiple-values-limit
+
+536870911
+* (values-list '(1 2 3))
+
+1
+2
+3
+* (multiple-value-list (floor -3 4))
+
+(-1 1)
+
+* (multiple-value-call #'* (+ 1 2) (- 3 4))
+
+-3
+* (multiple-value-bind (x y z) (floor 5 3) (list x y z))
+
+(1 2 NIL)
+
+* (multiple-value-setq (x y) (floor 5 3))
+1
+* x
+
+1
+* y
+
+2
+
+* (nth-value 1 (floor 5 3))
+
+2
+* (nth 1 (multiple-value-list (floor 5 3)))
+
+2
+
+
+* (multiple-value-prog1 (abs -1) (abs -2) (abs -3))
+
+1
+
 

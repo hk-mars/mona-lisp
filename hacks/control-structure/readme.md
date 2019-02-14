@@ -451,6 +451,130 @@ evaluated, and its results are discarded; at the end of the body, tagbody return
 
 ## Multiple Values
 
+Ordinarily the result of calling a lisp function is a single lisp object; however, 
+sometimes it is convenient for a function to compute several objects and return them.
+
+Common Lisp provides a mechanism for handling multiple values directly, it is cleaner 
+and more efficient than the usual tricks like returning a list of results.
+
+### constructs of multiple values
+
+Normally multiple values are not used; special forms are required both to **product** 
+multiple values and to **receive** them.
+
+Functions used to produce multiple values:
+
+- values
+
+
+Special forms and macros for receiving multiple values:
+
+- multiple-value-list
+- multiple-value-call
+- multiple-value-prog1
+- multiple-value-bind
+- multiple-value-setq
+
+
+[**Function**]
+
+```lisp
+values &rest args
+```
+All of the arguments are returned in order as values.
+
+
+[**Constant**]
+
+```lisp
+multiple-values-limit
+```
+
+A positive integer that is the upper exclusive bound on the number of values.
+
+
+[**Function**]
+
+```lisp
+values-list list
+```
+
+(values-list (list a b c)) == (values a b c)
+
+
+[**Macro**]
+
+```lisp
+multiple-value-list form
+```
+It evaluates **form** and returns a list of the multiple values it returned.
+
+
+[**Special Form**]
+
+```lisp
+multiple-value-call function {form}*
+```
+
+It first evaluates **function** to obtain a function and then evaluates all of the forms
+as that function.
+
+
+(multiple-value-list form) == (multiple-value-call #'list form)
+
+
+[**Special Form**]
+
+```lisp
+multiple-value-prog1 form {form}*
+```
+
+It evaluates the first **form** and saves all the values produced by that form;
+then it evaluates the other **forms** from left to right, but discarding their values;
+It always returns the result of the first **form**.
+
+
+[**Macro**]
+
+```lisp
+multiple-value-bind ({var}*) values-form
+                      {declaration}* 
+                      {form}*
+```
+
+The **values-form** is evaluated, and each of the variables **var** is bound to the 
+respective value returned by that form.
+
+
+[**Macro**]
+
+```lisp
+multiple-value-setq variables form
+```
+The **variables** must be a list of variables; the form is evaluated, and the variables are
+set(not bound) to the values returned by that form.
+
+
+[**Macro**]
+
+```lisp
+nth-value n form
+```
+
+Value **n** of the **form** is returned as the single value of the **nth-value** form.
+
+**nth-value** can be define as:
+
+```lisp
+(defmacro nth-value (n form) 
+  `(nth ,n (multiple-value-list ,form)))
+```
+
+
+
+
+
+
 
 ## Dynamic Non-Local Exits
 
