@@ -17,8 +17,39 @@ that symbol (by **flet, lables, and macrolet**); If that fails, it looks for a g
 definition. If the definition is a macro definition, then the original list is said to be 
 a **macro call**.
 
+**All any macro does is saving typing to make program elegant and brief.**
+
+
 
 ## Macro Definition
+
+[**Function**]
+
+```lisp
+macro-function symbol
+```
+
+If the **symbol** has a global definition that is a macro, then the expansion function is
+returned, otherwise, nil is returned.
+
+
+[**Macro**]
+
+```lisp
+defmacro name lamda-list 
+		[[ {declaration}* | doc-string]]
+		{form}*
+```
+
+**defmacro** decompose the macro-call form in an **elegant and useful** way; it has
+essentially the same syntax as **defun**:
+
+**name** is the synbol whose macro definition we are creating, **lambda-list** is similar
+in form to a lambda-list, and the **forms** constitute the body of the expander function;
+**defmacro** installs this expander function as the global macro definition of **name**.
+
+
+The **name** is returned as the value of the **defmacro** form.
 
 
 ## Macro Expansion
