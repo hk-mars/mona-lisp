@@ -62,4 +62,14 @@ debugger invoked on a UNBOUND-VARIABLE: The variable C is unbound.
 
 debugger invoked on a UNBOUND-VARIABLE: The variable C is unbound.
 
+
+* (defmacro while (test &body body)
+	; do is a macro
+	`(do ()
+	     ((not, test))
+	    ,@body))
+
+WHILE
+
+
  
