@@ -46,4 +46,40 @@ restarts (invokable by number or by possibly-abbreviated name):
 nil
 
 
+;; loop
+;; loop [name-clause] {variable-clause}* {main-clause}* => result*
+;;
+;; variable-clause::= with-clause | initial-final | for-as-clause
+;; main-clause::= unconditional | accumulation | conditional | termination-test | initial-final 
+;;
+;; sqrt advisor
+;;
+(defun sqrt-advisor ()
+	(loop (format t "Number: ~%")  ; initially compound-form, function
+	
+		  ; initially compound-form, special operator
+		  (let ((n (parse-integer (read-line) :junk-allowed t))) 
+		  
+		  ; main-clause, conditional macro
+		  (when (not n) (return))  
+		  
+		  ; main-clause, finally compound-form, function
+		  (format t "The square root of ~D is ~D.~%" n (sqrt n)))))  
+
+SQRT-ADVISOR
+* (sqrt-advisor)
+Number: 
+1
+The square root of 1 is 1.0.
+Number: 
+2
+The square root of 2 is 1.4142135.
+Number: 
+3
+The square root of 3 is 1.7320508.
+Number: 
+
+
+		
+		
 
