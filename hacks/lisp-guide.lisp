@@ -146,7 +146,7 @@ Nil
 
 ;; Here, I found typing "as" is better than "for" 
 ;; and "if" and "when" is better than "unless",
-;; and "when" is better than "if", because "if" is more abstract than "when",
+;; and "when" is better than "if", because "when" is more extensible than "if",
 ;; "loop" should be hidden when the following "for-as-clause" is found.
 ;; 
 *
