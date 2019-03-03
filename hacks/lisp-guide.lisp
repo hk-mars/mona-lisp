@@ -144,15 +144,39 @@ Nil
 (3) 
 
 
+;; Here, I found typing "as" is better than "for" 
+;; and "if" and "when" is better than "unless",
+;; and "when" is better than "if", because "if" is more abstract than "when",
+;; "loop" should be hidden when the following "for-as-clause" is found.
+;; 
 *
 (loop for v on x
 	do (print 
 		(loop for vv in v
 			unless (> vv 2)
 			collect vv)))
-	    		  	
+
+(loop as v on x
+	do (print 
+		(loop as vv in v
+			when (<= vv 2)
+			collect vv)))
+				    		  	
 (1 2) 
 (2)
+
+
+;;
+;; How about below codes ?
+;; however, "loop as" is tolerated as the consistency with common lisp
+;;
+(as v on x
+	do (print 
+		(as vv in v
+			when (<= vv 2)
+			collect vv)))
+			
+			
 
 
 
