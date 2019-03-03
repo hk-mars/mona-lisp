@@ -78,8 +78,83 @@ Number:
 3
 The square root of 3 is 1.7320508.
 Number: 
+Nil
 
 
+
+;;
+;; loop
+;;
+;; for-as-clause
+;;
+* (loop as n from -20 to 20
+	if (and (> n 0) (oddp n)) collect n)
+
+(1 3 5 7 9 11 13 15 17 19)
+
+
+* (loop for n from -20 to 20
+	when (and (> n 0) (oddp n)) collect n)
+
+(1 3 5 7 9 11 13 15 17 19)
+
+*
+(loop for n from 10 downto 0
+	when (< n 6)
+	collect n)
+	
+(5 4 3 2 1 0)
+
+
+
+;;
+;; loop
+;;
+;; for-as-in-list
+;; for-as-on-list
+;;
+
+* x
+
+(1 2 3)
+
+*
+(loop
+	for v in x
+	when (> v 2)
+	    do (print v))
+	    
+3
+
+*
+(loop
+	as v in x
+	when (> v 1)
+	    collect v)	
 		
-		
+(2 3)
 
+*
+(loop
+	for v on x
+	    do (print v))
+	    
+(1 2 3) 
+(2 3) 
+(3) 
+
+
+*
+(loop for v on x
+	do (print 
+		(loop for vv in v
+			unless (> vv 2)
+			collect vv)))
+	    		  	
+(1 2) 
+(2)
+
+
+
+
+	    
