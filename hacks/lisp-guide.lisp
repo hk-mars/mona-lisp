@@ -239,7 +239,22 @@ sum of (1+2+...+10) is:
 55
 
 
+(do
+	;; @var
+	((n 10)
+	 (i 1 (+ i 1))
+	 (sum 0))
+
+	;; end-test-form . result-form
+	((> i n) sum)
 	
+	;; statement
+	;; here, "when" is better than "if"
+	(when (= i 1) (format t "~&sum of (1+2+...+~D) is: " n))
+	(setf sum (+ sum i)))
+
+sum of (1+2+...+10) is: 
+55
 
 
 
