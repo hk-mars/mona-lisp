@@ -177,6 +177,78 @@ Nil
 			collect vv)))
 			
 			
+			
+;;
+;; do ({@var}*) (end-test-form . result-form*) declaration* . {tag | statement}*
+;; @var :: var | (var [init-form [step-form]])
+;;
+
+;;
+;; 
+;;
+(do 
+	((j 0 (+ j 1)))  ; @var
+	
+	; without end-test-form and result-form, do forever
+	(nil)
+	 
+	 
+	;; statement
+	(format t "~%input ~D:" j)
+	
+	;; declaration . statement
+	(let ((item (read)))  ; declaration
+	
+	;; statement
+	(if (null item) (return)
+		(format t "~%output ~D: ~S" j item))))
+
+
+a
+input 0:
+output 0: A
+b
+input 1:
+output 1: B
+cd
+input 2:
+output 2: CD
+123456
+input 3:
+output 3: 123456
+nil
+input 4:
+NIL
+
+
+
+(do
+	;; @var
+	((n 10)
+	 (i 0 (+ i 1))
+	 (sum 0))
+
+	;; end-test-form . result-form
+	((> i n) sum)
+	
+	;; statement
+	(if (= i 0) (format t "~&sum of (1+2+...+~D) is: " n))
+		(setf sum (+ sum i)))
+		
+sum of (1+2+...+10) is: 
+55
+
+
+	
+
+
+
+
+
+
+
+			
+			
 
 
 
