@@ -46,6 +46,29 @@ Too many optional init-forms in the loop makes it is hard to program and the cod
 ### implement the core form of a common lisp form as a minimize prototype
 
 
+## circle-like is more elegant than non-cricle
+"@" is more elegant than ">", "*", ">>", ">>>" and "$";
+
+"*" is more elegant than ">", ">>", ">>>" and "$";
+
+"$" is more elegant than ">", ">>" and ">>>".
+
+## guide-like is more useful than non-guide
+
+">" is more useful than "*" and "@";
+
+"@" is more usedul than "*".
+
+## the balance of elegant design and useful design.
+
+"@" is more designable than "*", ">", ">>", ">>>", "#" and "$".
+
+So, "@" is choose.
+
+
+
+
+
 
 
 
