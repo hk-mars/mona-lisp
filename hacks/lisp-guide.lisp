@@ -170,6 +170,7 @@ Nil
 ;; How about below codes ?
 ;; however, "loop as" is tolerated as the consistency with common lisp
 ;;
+*
 (as v on x
 	do (print 
 		(as vv in v
@@ -183,9 +184,8 @@ Nil
 ;; @var :: var | (var [init-form [step-form]])
 ;;
 
-;;
-;; 
-;;
+
+*
 (do 
 	((j 0 (+ j 1)))  ; @var
 	
@@ -221,7 +221,7 @@ input 4:
 NIL
 
 
-
+*
 (do
 	;; @var
 	((n 10)
@@ -239,6 +239,7 @@ sum of (1+2+...+10) is:
 55
 
 
+*
 (do
 	;; @var
 	((n 10)
@@ -257,6 +258,115 @@ sum of (1+2+...+10) is:
 55
 
 
+
+(defun list-reverse (list)
+	(do ((x list (cdr x))
+	
+	     ;; put the front item to the last position
+		 (y '() (cons (car x) y)))
+		 
+		 ;; end-test-form . result-form
+		 ((endp x) y))
+
+		 
+* 
+(list-reverse x)
+(5 4 3 2 1)
+
+
+;;
+;; do* ({@var}*) (end-test-form . result-form*) declaration* . {tag | statement}*
+;; @var :: var | (var [init-form [step-form]])
+;;
+;; The syntax is like do, but their @var lexical binding is clearly different.
+;;
+
+*
+(do* ((x 1 (1+ x))
+		
+	   ;; y-form always gets the latest x evaluated from the step-form of x-form
+	   ;; this binding is done in the lexical stage.  
+       (y 0 (1+ x)))
+            
+      ((= 5 y) y)
+      
+      (print y))
+
+0
+3 
+4 
+5
+
+
+;; macro
+;;
+;; return [result]
+;; @result:: a from
+;;
+
+;;
+;; special operator
+;;
+;; return-from name [result]
+;; @name:: a block tag; not evaluated
+;;
+
+;; 
+;; tips:
+;; (return) ==  (return-from nil)
+;; (return form) ==  (return-from nil form)  
+;;
+
+
+*
+(block nil (return) 1)
+
+nil
+
+*
+(block nil (return 1) 2)
+
+1
+
+*
+;; the block-tag "one" is given, so the @name of return-from must be given too.
+(block one (return-from one 1))
+
+1
+
+*
+(block nil (return-from nil nil))
+
+nil
+
+*
+;; "return form" is the same with "return-from nil form"
+(block nil (return nil))
+
+nil
+
+
+*
+;; "return-from nil" == "return"
+(block nil (return-from nil))
+
+nil
+
+
+;;
+;; if "return" is replaced by "out"
+;; out: move away from a place
+;; return: got back to place
+;;
+*
+(block one (out-from one 1))
+(block nil (out 1))
+
+
+
+		 
+		 
+		 
 
 
 

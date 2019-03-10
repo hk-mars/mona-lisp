@@ -66,6 +66,16 @@ Too many optional init-forms in the loop makes it is hard to program and the cod
 So, "@" is choose.
 
 
+## more clear and brief keywords
+
+"return" should be replaced by "out", because:
+
+> out: move away from a place
+return: got back to a place
+"out" is more clear and brief than "return".
+
+
+
 
 
 
