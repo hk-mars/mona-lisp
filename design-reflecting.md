@@ -75,7 +75,7 @@ return: got back to a place
 "out" is more clear and brief than "return".
 
 
-## use more "i" word as a free style
+## use more words like "i" to show a free style
 
 i: (out (+ 1 2 3))
 
