@@ -86,6 +86,20 @@ i: (out (+ 1 2 3))
 "@" is like "i" including a nut as the foundation.
 
 
+## db
+
+(add @list to @db)
+(search @list in @db)
+(del @db as @list)
+(update @db as @list)
+(show @db)
+(pull @db from @where)
+(push @db to @where)
+(merge @db-list)
+
+
+
+
 
 
 
