@@ -75,6 +75,21 @@ return: got back to a place
 "out" is more clear and brief than "return".
 
 
+## use more "i" word as a free style
+
+i: (out (+ 1 2 3))
+
+6
+
+@ (out (+ 1 2 3))
+
+"@" is like "i" including a nut as the foundation.
+
+
+
+
+
+
 
 
 

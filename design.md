@@ -1,7 +1,14 @@
 ## core
 - eval, car, cdr, cons, quote
-- cond + do
+- when + do
 - if + do
+- loop + as + in
+- loop + for + in
+- out + out-from
+- return + return-from
+- dolist
+
+
 
 ## data types
 - Symbol 

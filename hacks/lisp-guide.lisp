@@ -364,6 +364,36 @@ nil
 
 
 
+;;
+;; dotimes (var count-form [result-form]) declaration* {tag | statement}*
+;;
+;; dolist (var list-form [result-form]) declaration* {tag | statement}*
+;;
+
+*
+(defun list-sum(lst)
+	(setf x 0)
+	
+	;; @n starts from 0
+	(dotimes (n (length lst) x) (incf x (nth n lst))))
+
+* (list-sum '(1 2 3 4))
+
+10
+
+
+*
+(defun list-sum(lst)
+	(setf x 0)
+	(dolist (v lst x) (incf x v)))
+
+* (list-sum '(1 2 3))
+
+6
+
+
+
+
 		 
 		 
 		 
