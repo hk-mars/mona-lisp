@@ -2,6 +2,7 @@
 - eval, car, cdr, cons, quote
 - when + do
 - if + do
+- cond
 - loop + as + in
 - loop + for + in
 - out + out-from

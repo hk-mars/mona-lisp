@@ -365,6 +365,8 @@ nil
 
 
 ;;
+;; macros
+;;
 ;; dotimes (var count-form [result-form]) declaration* {tag | statement}*
 ;;
 ;; dolist (var list-form [result-form]) declaration* {tag | statement}*
@@ -392,6 +394,31 @@ nil
 6
 
 
+;;
+;; macro
+;;
+;; cond {clause}* => result*
+;; clause ::= (test-form form*)
+;;
+
+
+;;
+;; below example shows "cond" is very useful in error-processing situation.
+;; it is like the "switch + case" in C language, but more brief.
+;;
+(defun err-show (id)
+	(cond ((= id 1) "err: device init")
+		  ((= id 2) "err: memory full")))
+
+
+* (err-show 1)
+"err: device init"
+
+* (err-show 2)
+"err: memory full"
+
+* (err-show 0)
+NIL
 
 
 		 
