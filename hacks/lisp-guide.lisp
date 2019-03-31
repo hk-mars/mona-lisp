@@ -422,7 +422,40 @@ NIL
 
 
 		 
-	 
+;;
+;; make-random-state &optional state  => new-state
+;; 
+;; @state:  a random state, or nil, or t. The default is nil.
+;; @new-state: a random state object.
+;;
+;; usage: create a fresh object suitable for use as the value of *random-state*.
+;; it is useful to allow the same series pseudo-random numbers to be generated many times
+;; within a single program.
+;;
+
+* (setf r0 (make-random-state))
+
+#S(RANDOM-STATE :STATE #.(MAKE-ARRAY 627 :ELEMENT-TYPE '(UNSIGNED-BYTE 32)
+                                     :INITIAL-CONTENTS
+                                     '(0 2567483615 624 5489 1301868182
+                                       2938499221 2950281878 1875628136
+                                       751856242 944701696 2243192071 694061057
+                                       219885934 2066767472 3182869408
+                                       485472502 2336857883 1071588843
+                                       3418470598 951210697 3693558366
+                                       2923482051 1793174584 2982310801
+                                       ...
+                                       
+* (random 100 r0)
+
+44
+* (random 100 r0)
+
+95
+
+
+
+
 		 
 
 
