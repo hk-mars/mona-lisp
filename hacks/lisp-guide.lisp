@@ -455,8 +455,65 @@ NIL
 
 
 
+;;
+;; *features*
+;;
 
-		 
+;; SBCL features
+;;
+* *features*
+
+(:ALIEN-CALLBACKS :ANSI-CL :BSD :C-STACK-IS-CONTROL-STACK :COMMON-LISP
+ :COMPARE-AND-SWAP-VOPS :CYCLE-COUNTER :DARWIN :GENCGC :IEEE-FLOATING-POINT
+ :INLINE-CONSTANTS :LINKAGE-TABLE :LITTLE-ENDIAN :MACH-EXCEPTION-HANDLER
+ :MACH-O :MEMORY-BARRIER-VOPS :MULTIPLY-HIGH-VOPS :OS-PROVIDES-BLKSIZE-T
+ :OS-PROVIDES-DLADDR :OS-PROVIDES-DLOPEN :OS-PROVIDES-PUTWC
+ :OS-PROVIDES-SUSECONDS-T :PACKAGE-LOCAL-NICKNAMES :RAW-INSTANCE-INIT-VOPS
+ :RESTORE-FS-SEGMENT-REGISTER-FROM-TLS :SB-DOC :SB-EVAL :SB-LDB
+ :SB-PACKAGE-LOCKS :SB-SOURCE-LOCATIONS :SB-TEST :SB-UNICODE :SBCL
+ :STACK-ALLOCATABLE-CLOSURES :STACK-ALLOCATABLE-FIXED-OBJECTS
+ :STACK-ALLOCATABLE-LISTS :STACK-ALLOCATABLE-VECTORS
+ :STACK-GROWS-DOWNWARD-NOT-UPWARD :UD2-BREAKPOINTS :UNIX
+ :UNWIND-TO-FRAME-AND-CALL-VOP :X86)
+ 
+ ;; As the above shown, it surports the IEEE-FLOATING-POINT feature.
+
+
+
+;;
+;; All functions taht operate on strings will operate on subtypes of string as well.
+;; strings are arrays implicitly.
+;;
+;;  (char s j) ==  (aref (the string s) j)
+;;
+
+* (string #\`)
+
+"`"
+
+* (string-trim "ab" "ssfdslfsdjfdablfjslfjds")
+
+"ssfdslfsdjfdablfjslfjds"
+
+(char "abcd1234" 4)
+
+#\1
+* (aref "abcd1234" 4)
+
+#\1
+
+
+;;
+;; string compare in case are ignored
+;;
+
+* (string-equal "ABC" "aBc")
+
+T
+
+	 
+
+
 
 
 
