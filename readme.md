@@ -1,5 +1,5 @@
 
-![image] (doc/monalisa_logo.jpg "logo")
+![image](doc/monalisa_logo.jpg "logo")
 
 
 # monalisp
