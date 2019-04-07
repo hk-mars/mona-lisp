@@ -1,3 +1,6 @@
+
+! [image] (doc/monalisa_logo.jpg "logo")
+
 # monalisp
 An elegant, design-hackable and data-hackable lisp language.
 
@@ -32,3 +35,4 @@ Those embedded systems need the database feature, but due to the limited footpri
 - Target user: hackers.
 
 ### everything-is-object, everything-is-data, everything-is-db (design-and-data-hackable)
+
