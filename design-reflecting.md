@@ -102,7 +102,7 @@ i: (out (+ 1 2 3))
 ## arch overview
 
 V1:
-![Image](doc/arch-draft-v1.png "arch-draft")
+![Image](doc/arch-draft-v1.jpg "arch-draft")
 
 
 
