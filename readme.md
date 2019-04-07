@@ -1,5 +1,6 @@
 
-! [image] (doc/monalisa_logo.jpg "logo")
+![image] (doc/monalisa_logo.jpg "logo")
+
 
 # monalisp
 An elegant, design-hackable and data-hackable lisp language.
