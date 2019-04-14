@@ -105,3 +105,75 @@ the tree structure resulting from evaluating the **expression**, then executes t
 ## Environments
 
 
+## Standard Macro Characters
+
+If the reader encounters a macro character, then its associated **reader macro function**
+is invoked and may produce an object. This function may read the characters following the
+character in the stream in any syntax and return the object represented by that syntax.
+
+Any character can be made to be a macro character.  The **macro characters** defined initially
+in a conforming implementation include the following:
+
+- left-parenthesis
+The left-parenthesis initiates reading of a list. **read** is called recursively to read 
+successive objects until a right parenthesis is found in the input stream, and a list of
+the objects read is returned.
+
+```lisp
+(a b c)
+```
+
+is read as a list of three objects(the symbols a, b and c).
+ 
+- right-parenthesis
+The right-parenthesis is invalid except when used in conjunction with the left parenthesis.
+
+- single-quote
+The sigle-quote introduces an expression to be quoted.
+
+
+- semicolon
+A semicolon introduces characters that are to be ignored, such as comments.
+
+- double-quote
+The double-quote is used to begin and end a string.
+
+- backquote
+The backquote introduces a template of a data structure to be built.
+ 
+ ```lisp
+ `(a b ,b ,(+ b 1) b)
+ ```
+ 
+ Assume b has the value 3, then it produces the result  (a b 3 4 b)
+ 
+ Where a comma occurs in the template, the expression following the comma is to be evaluated
+ to produce an object to be inserted at that point.
+ 
+ 
+- comma
+The common is part of the backquote syntax.
+
+- sharpsign
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

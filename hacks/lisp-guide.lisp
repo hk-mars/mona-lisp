@@ -512,6 +512,25 @@ NIL
 T
 
 
+;;
+;; single-quote
+;;
+
+* 'hello
+
+HELLO
+* (quote hello)
+
+HELLO
+* ''hello 
+
+'HELLO
+* (car ''hello)
+
+QUOTE
+
+
+
 
 
 
