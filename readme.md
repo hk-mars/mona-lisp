@@ -32,8 +32,7 @@ Those embedded systems need the database feature, but due to the limited footpri
 
 ### common-lisp-standard-based
 
-### a language for good programmers
-- Target user: hackers.
+### a language for great hackers and designers
 
 ### everything-is-object, everything-is-data, everything-is-db (design-and-data-hackable)
 
