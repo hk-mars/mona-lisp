@@ -14,17 +14,18 @@
 
 holiday time (Feb-2019)
 
-## Feb-2019-to-May-2019
+## Feb-2019-to-2020
 
-- Desgin monalisp parser.
-
-
-## 2019
-Implement monalisp parser
+- Desgin monalisp
+- Implement monalisp parser (Make it done in this summer !)
 
 
 ## 2019
-Releases monalisp parser v1.0
+Implement monalisp
+
+
+## 2019
+Releases monalisp v1.0
 
    
 
