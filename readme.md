@@ -6,7 +6,7 @@
 An elegant, design-hackable and data-hackable lisp language.
 
 ## ideas
-### winin-db-feature (data-hackable)
+### within-db-feature (data-hackable)
 - Database language would be included into lisp grammer tree as a part of monalisp.
 - Any searchable data could be treated as a list-based db object.
 - The basic db operations could be implemented via lisp macros or lisp functions.
@@ -26,13 +26,11 @@ Those embedded systems need the database feature, but due to the limited footpri
 
 ### easy-for-creating-new-parser
 
-### within-minimal-elegant-editor
+### within-minimal-elegant-useful-editor
 
-### easy-for-creating-complex-ai-system
+### based-on-common-lisp
 
-### common-lisp-standard-based
-
-### a language for great hackers and designers
+### a language for good hackers and good designers
 
 ### everything-is-object, everything-is-data, everything-is-db (design-and-data-hackable)
 
