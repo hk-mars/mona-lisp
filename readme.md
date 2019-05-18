@@ -20,7 +20,7 @@ An elegant, design-hackable and data-hackable lisp language.
 Those embedded systems need the database feature, but due to the limited footprint of hardware always without a text-based file subsystem.
 
 ### anything-is-text (design-hackable)
-- If anything could be implemented as text, it means the language would be as more elegant as possible for designing. 
+- If anything could be implemented as text, it means the language should be as more elegant as possible for designing. 
 
 ### within-minimal-english-text-filesystem (data-hackable)
 
@@ -30,13 +30,19 @@ Those embedded systems need the database feature, but due to the limited footpri
 
 ### based-on-common-lisp
 
-### a language for good hackers and good designers
+### for good hackers and good designers
 
 ### everything-is-object, everything-is-data, everything-is-db (design-and-data-hackable)
 
 ### easy-for-architecture-design
 
-### easy-for-complex-system-design
+### easy-for-system-design
+
+### easy-for-layout-design
+
+### for exquisite products
+
+
 
 
 
