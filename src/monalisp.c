@@ -1,6 +1,6 @@
 
 #define MONA_OK
-#define VER v1.0.0
+#define VER "v1.0.0"
 
 
 int 
