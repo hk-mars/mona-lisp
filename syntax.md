@@ -2,6 +2,7 @@
 
 ## Monalisp Syntax
 
+### Basic Law-Rules
 
 Syntax with extended BNF forms:
 
@@ -9,6 +10,8 @@ Syntax with extended BNF forms:
 
 [A] means an optional A,
 
+
+### Syntax
 
 syntax-types ::= 
 
