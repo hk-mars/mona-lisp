@@ -78,6 +78,6 @@ macosx:
 .PHONY:		all $(PLATFORMS) default o a clean depend echo none
 
 
-monalisp.o: monalisp.c
+monalisp.o:	monalisp.c
 
 
