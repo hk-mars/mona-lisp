@@ -10,6 +10,12 @@ Syntax with extended BNF forms:
 
 [A] means an optional A,
 
+A | B  means A or B,
+
+A B means A and B,
+
+
+
 
 ### Syntax
 
@@ -78,6 +84,38 @@ char ::= TBD
 single-escape ::= TBD
 
 multiple-escape ::= TBD
+
+
+ 
+numeric-token  ::=  integer |
+				   ratio   |
+				   float       
+integer        ::=  [sign]
+				   decimal-digit+
+				   decimal-point |
+				   [sign]
+				   digit+      
+ratio          ::=  [sign]
+				   {digit}+
+				   slash
+				   {digit}+    
+float          ::=  [sign]
+				   {decimal-digit}*
+				   decimal-point
+				   {decimal-digit}+
+				   [exponent]  
+                    | 
+				   [sign]
+				   {decimal-digit}+
+				   [decimal-point
+					   {decimal-digit}*]
+				   exponent    
+exponent       ::=  exponent-marker
+				   [sign]
+				   {digit}+   
+				   
+				   
+
 
 
 	
