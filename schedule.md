@@ -17,7 +17,7 @@ holiday time (Feb-2019)
 ## Feb-2019-to-2020
 
 - Desgin monalisp
-- Implement monalisp parser (lisping in this summer !!)
+- Implement monalisp parser (lisping in this summer 6~9)
 
 
 ## 2019
