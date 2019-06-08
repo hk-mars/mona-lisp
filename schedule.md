@@ -19,6 +19,13 @@ holiday time (Feb-2019)
 - Desgin monalisp
 - Implement monalisp parser (lisping in this summer 6~9)
 
+### Events
+
+- June 9, 2019
+hack parser
+
+
+
 
 ## 2019
 Implement monalisp
