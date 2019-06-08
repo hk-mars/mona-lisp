@@ -134,7 +134,7 @@ digit	::=
 	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 
 
-Tip [Parsing of Numbers and Symbols] (http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node189.html#SECTION002612000000000000000).
+Tip [Parsing of Numbers and Symbols](http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node189.html#SECTION002612000000000000000).
 
 
 		
