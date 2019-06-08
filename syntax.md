@@ -87,32 +87,64 @@ multiple-escape ::= TBD
 
 
  
-numeric-token  ::=  integer |
-				   ratio   |
-				   float       
-integer        ::=  [sign]
-				   decimal-digit+
-				   decimal-point |
-				   [sign]
-				   digit+      
-ratio          ::=  [sign]
-				   {digit}+
-				   slash
-				   {digit}+    
-float          ::=  [sign]
-				   {decimal-digit}*
-				   decimal-point
-				   {decimal-digit}+
-				   [exponent]  
-                    | 
-				   [sign]
-				   {decimal-digit}+
-				   [decimal-point
-					   {decimal-digit}*]
-				   exponent    
-exponent       ::=  exponent-marker
-				   [sign]
-				   {digit}+   
+numeric-token	::=
+  
+	integer |
+
+	ratio |
+	
+	float
+				          
+integer	::=
+  
+	[sign] decimal-digit+ decimal-point |
+	
+	[sign] digit+
+				         
+ratio	::=
+  
+	[sign] {digit}+ slash {digit}+ 
+				      
+float	::=
+  
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] | 
+                    
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+exponent	::=
+  
+	exponent-marker [sign] {digit}+	      
+
+sign	::= + | -
+
+slash	::= /
+
+dot		::= .
+
+exponent-marker	::= 
+
+	double-float |
+	
+	float |
+	
+	single-float |
+	
+	long-float |
+	
+	short-float
+
+
+decimal-digit	::= 
+
+	radix-10-digit
+		
+digit	::=
+
+	radix-x-digit
+	
+numeric-character	::= TBD
+
+		
 				   
 				   
 
