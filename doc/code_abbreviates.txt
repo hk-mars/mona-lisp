@@ -1,0 +1,10 @@
+
+Abbreviates in codes:
+
+
+ml = monalisp
+
+rt = return
+
+
+
