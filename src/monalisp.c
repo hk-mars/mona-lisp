@@ -31,14 +31,20 @@ main (int argc, char **argv)
     
     while (1)
     {
-	debug("\r\n@ ");
+	debug("\n@ ");
 
 	fflush(stdout);
 	fgets(code, sizeof(code) -1, stdin);
 
 	if (strlen(code) <= 1) continue;
-	if (!strcasecmp(code, "q\n") || !strcasecmp(code, "quit\n")) break;
+	if (!strcasecmp(code, "(q)\n") || !strcasecmp(code, "(quit)\n"))
+	{
+	    debug("\nquit\n");
+	    break;
+	}
 
+	debug("\n");
+	
 	code[strlen(code) - 1] = ' ';
 
 	

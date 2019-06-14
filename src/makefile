@@ -50,7 +50,7 @@ $(ALL_APPS):	$(ALL_OBJS)
 
 
 clean:
-		rm -rf $(ALL_APPS) $(ALL_OBJS)
+		rm -rf $(ALL_APPS) $(ALL_OBJS) *.*~
 
 depend:
 		@$(CC) $(CFLAGS) -MM l*.c
