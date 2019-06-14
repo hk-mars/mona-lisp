@@ -31,7 +31,7 @@ PLATFORMS = aix bsd c89 freebsd generic linux macosx mingw posix solaris
 
 ALL_APPS = monalisp
 
-ALL_OBJS = monalisp.o
+ALL_OBJS = monalisp.o lexer.o
 
 ALL_LIBS = lib_monalisp.a
 
@@ -57,12 +57,11 @@ depend:
 
 echo:
 		@echo "PLATFORM = $(PLATFORM)"
-		@echo "CC= $(CC)"
-		@echo "CFLAGS= $(CFLAGS)"
-		@echo "LDFLAGS= $(SYSLDFLAGS)"
-		@echo "LIBS= $(LIBS)"
-		@echo "AR= $(AR)"
-
+		@echo "CC = $(CC)"
+		@echo "CFLAGS = $(CFLAGS)"
+		@echo "LDFLAGS = $(SYSLDFLAGS)"
+		@echo "LIBS = $(LIBS)"
+		@echo "AR = $(AR)"
 
 
 ALL = all
@@ -78,6 +77,6 @@ macosx:
 .PHONY:		all $(PLATFORMS) default o a clean depend echo none
 
 
-monalisp.o:	monalisp.c
+monalisp.o:	monalisp.c lexer.c
 
 
