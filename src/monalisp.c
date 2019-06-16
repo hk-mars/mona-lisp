@@ -3,7 +3,7 @@
 
 #include "debug.h"
 
-#include "lexer.h"
+#include "lex.h"
 
 
 
@@ -14,15 +14,16 @@ int
 main (int argc, char **argv)
 {
     char code[512];
-
+    lex_s lex_obj;
     
     if (!argv || argc < 2)
     {	    
-	debug("No user input found \n");
+	;
     }
     
-    debug("hello monalisp \n");
-    debug("ver: %s \n", ml_get_version());
+    
+    show("Hello Monalisp \n");
+    show("Ver: %s \n\n", ml_get_version());
 
 
     lisp_rt_t rt = ml_init();
@@ -31,7 +32,7 @@ main (int argc, char **argv)
     
     while (1)
     {
-	debug("\n@ ");
+	show("\n@ ");
 
 	fflush(stdout);
 	fgets(code, sizeof(code) -1, stdin);
@@ -39,14 +40,23 @@ main (int argc, char **argv)
 	if (strlen(code) <= 1) continue;
 	if (!strcasecmp(code, "(q)\n") || !strcasecmp(code, "(quit)\n"))
 	{
-	    debug("\nquit\n");
+	    show("\nquit\n");
 	    break;
 	}
 
-	debug("\n");
-	
+	show("\n");
+
+	/* delete '\n' at the end of the string */
 	code[strlen(code) - 1] = ' ';
 
+	debug("%s \n", code);
+
+	
+	memset(&lex_obj, 0, sizeof(lex));
+	lex_rt_t lex_rt = lex(&lex_obj, code);
+	if (lex_rt != LEX_OK) continue;
+
+	
 	
     }
   
@@ -56,7 +66,7 @@ main (int argc, char **argv)
 
 
 /**
- * get the version of monalisp 
+ * Get the version of monalisp 
  */
 const char*
 ml_get_version(void)
@@ -66,15 +76,15 @@ ml_get_version(void)
 
 
 /**
- * initialize monalisp 
+ * Initialize monalisp 
  */
 lisp_rt_t
 ml_init(void)
 {
     func_s();
 
-    lex_rt_t rt = lexer_init();
-    if (rt != LEX_OK) return LISP_ERR_LEXER;
+    lex_rt_t rt = lex_init();
+    if (rt != LEX_OK) return LISP_ERR_LEX;
 
     
 

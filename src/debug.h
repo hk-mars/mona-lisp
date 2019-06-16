@@ -1,7 +1,7 @@
 
 
-#ifndef __DEBUG_H__
-#define __DEBUG_H__
+#ifndef ML_DEBUG_H
+#define ML_DEBUG_H
 
 #include <stdint.h>
 #include <stdio.h>
@@ -28,7 +28,10 @@
 #define func_fail() debug("%s failed \r\n", __func__)
 
 
+#define show printf
 
-#endif /* __DEBUG_H__ */
+
+
+#endif /* ML_DEBUG_H */
 
 

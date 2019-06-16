@@ -1,6 +1,6 @@
 
-#ifndef __LEXER_H__
-#define __LEXER_H__
+#ifndef ML_LEX_H
+#define ML_LEX_H
 
 
 #include <stdint.h>
@@ -9,17 +9,32 @@
 
 typedef enum
 {
-    LEXER_OK = 0,
-    LEXER_ERR = 1,
+    LEX_OK = 0,
+    LEX_ERR = 1,
+    LEX_ERR_NULL = 2,
     
-} lexer_rt_t;
+    
+} lex_rt_t;
 
 
-/* initialize lexer */
-lexer_rt_t lexer_init(void);
+typedef struct
+{
+    const char *code;
+
+    
+
+    
+} lex_s;
+
+
+/* Initialize lexer */
+lex_rt_t lex_init(void);
+
+
+/* Analyse lexical for the code */
+lex_rt_t lex(lex_s *lex, const char *code);
 
 
 
-
-#endif /* __LEXER_H__ */
+#endif /* ML_LEX_H */
 
