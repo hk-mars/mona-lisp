@@ -6,6 +6,9 @@
 #include <stdint.h>
 #include <stdio.h>
 
+#include "config.h"
+#include "chars.h"
+
 
 typedef enum
 {
@@ -17,12 +20,29 @@ typedef enum
 } lex_rt_t;
 
 
+typedef enum
+{
+    TOKEN_NUMERIC = 0,
+    TOKEN_SYMBOL = 1,
+    
+} token_t;
+
+
+typedef struct
+{
+    token_t type;
+    
+} token_s;
+
+
 typedef struct
 {
     const char *code;
 
-    
+    token_s *tokens[TOKEN_MAX_CNT];
+    int token_cnt;
 
+    
     
 } lex_s;
 

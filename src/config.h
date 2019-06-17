@@ -18,5 +18,9 @@
 #define DEBUG_ENABLE YES
 
 
+#define TOKEN_MAX_CNT 1024
+
+
+
 #endif /* __CONFIG_H__ */
 

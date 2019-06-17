@@ -19,15 +19,13 @@ A B means A and B,
 
 ### Syntax
 
-syntax-types ::= 
+syntax-character-types ::= 
 
 	whitespace | constituent | constituent*
 	
-	terminating | non-terminating |
-	 
-	macro | char | 
+	single-escape | multiple-escape |
 	
-	single-escape | multiple-escape
+	macro
 	
 						
 whitespace ::=
@@ -54,11 +52,19 @@ multiple escape ::= |
 
 constituent* ::= characters reserved to the user
 
+single-escape ::= TBD
+
+multiple-escape ::= TBD
+
+macro ::=
+
+	terminating | non-terminating
+
 terminating ::= TBD
 
 non-terminating ::= TBD
 
-macro ::=
+macro_chars ::=
 	macro-label-chars | 
 	macro-func-chars |
 	simple-vector-chars |
@@ -78,13 +84,6 @@ signals-error-chars ::= # )
 bit-vector-chars ::= # *
 
 character-object-chars ::= # \
-
-char ::= TBD
-
-single-escape ::= TBD
-
-multiple-escape ::= TBD
-
 
  
 numeric-token	::=
@@ -134,8 +133,11 @@ digit	::=
 	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
 
 
-Guide: [Parsing of Numbers and Symbols](http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node189.html#SECTION002612000000000000000).
+Guides:
+ 
+1. [Parsing of Numbers and Symbols](http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node189.html#SECTION002612000000000000000).
 
+2. [What the Read Function Accepts](http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node188.html#SECTION002611000000000000000)
 
 		
 				   
