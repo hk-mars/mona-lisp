@@ -46,15 +46,11 @@ constituent ::=
 	
 	^ | _ | ~ | rubout
 	
-single escape ::= \
+single-escape ::= \
 
-multiple escape ::= |
+multiple-escape ::= |
 
 constituent* ::= characters reserved to the user
-
-single-escape ::= TBD
-
-multiple-escape ::= TBD
 
 macro ::=
 
