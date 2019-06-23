@@ -51,7 +51,7 @@ typedef struct
 lex_rt_t lex_init(void);
 
 
-/* Analyse lexical for the code */
+/* Lexical analyzing for the code */
 lex_rt_t lex(lex_s *lex, const char *code);
 
 

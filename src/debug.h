@@ -27,6 +27,9 @@
 #define func_ok() debug("%s ok \r\n", __func__)
 #define func_fail() debug("%s failed \r\n", __func__)
 
+#define fs() func_s()
+#define fe() func_e()
+
 
 #define show printf
 

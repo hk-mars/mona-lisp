@@ -5,6 +5,9 @@
 
 #include "lex.h"
 
+#include "reader.h"
+
+
 
 
 #define VER "1.0.0"
@@ -29,6 +32,11 @@ main (int argc, char **argv)
     lisp_rt_t rt = ml_init();
     if (rt != LISP_OK) return -1;
 
+
+    reader_rt_t reader_rt = ml_reader_load_file("test/demo_1.lisp");
+    if (reader_rt != READER_OK) return -1;
+    
+ #if 0
     
     while (1)
     {
@@ -54,12 +62,12 @@ main (int argc, char **argv)
 	
 	memset(&lex_obj, 0, sizeof(lex));
 	lex_rt_t lex_rt = lex(&lex_obj, code);
-	if (lex_rt != LEX_OK) continue;
-
-	
+	if (lex_rt != LEX_OK) continue;       	
 	
     }
-  
+ #endif
+
+    
     
     return 0;
 }
@@ -86,7 +94,9 @@ ml_init(void)
     lex_rt_t rt = lex_init();
     if (rt != LEX_OK) return LISP_ERR_LEX;
 
-    
+
+    reader_rt_t reader_rt = ml_reader_init();
+    if (reader_rt != READER_OK) return LISP_ERR_READER;
 
 
     func_ok();

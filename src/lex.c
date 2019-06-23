@@ -23,7 +23,7 @@ lex_init(void)
 
 
 /**
- * Analyse lexical for the code 
+ * Lexical analyzing for the code
  */
 lex_rt_t
 lex(lex_s *lex, const char *code)
@@ -32,6 +32,7 @@ lex(lex_s *lex, const char *code)
 
     if (!lex || !code) return LEX_ERR_NULL;
 
+    
     
 
     lex->code = code;

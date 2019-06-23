@@ -31,7 +31,7 @@ PLATFORMS = aix bsd c89 freebsd generic linux macosx mingw posix solaris
 
 ALL_APPS = monalisp
 
-ALL_OBJS = monalisp.o lex.o
+ALL_OBJS = monalisp.o lex.o reader.o
 
 ALL_LIBS = lib_monalisp.a
 
@@ -77,6 +77,6 @@ macosx:
 .PHONY:		all $(PLATFORMS) default o a clean depend echo none
 
 
-monalisp.o:	monalisp.c lex.c
+monalisp.o:	monalisp.c lex.c reader.h
 
 

@@ -14,6 +14,8 @@ typedef enum
     LISP_OK = 0,
     LISP_ERR = 1,
     LISP_ERR_LEX = 2,
+    LISP_ERR_READER = 3,
+    
     
     
 } lisp_rt_t;
