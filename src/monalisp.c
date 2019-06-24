@@ -19,8 +19,7 @@ main (int argc, char **argv)
     char code[512];
     lex_s lex_obj;
     
-    if (!argv || argc < 2)
-    {	    
+    if (!argv || argc < 2) {	    
 	;
     }
     
@@ -38,16 +37,14 @@ main (int argc, char **argv)
     
  #if 0
     
-    while (1)
-    {
+    while (1) {
 	show("\n@ ");
 
 	fflush(stdout);
 	fgets(code, sizeof(code) -1, stdin);
 
 	if (strlen(code) <= 1) continue;
-	if (!strcasecmp(code, "(q)\n") || !strcasecmp(code, "(quit)\n"))
-	{
+	if (!strcasecmp(code, "(q)\n") || !strcasecmp(code, "(quit)\n")) {
 	    show("\nquit\n");
 	    break;
 	}

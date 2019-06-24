@@ -1,7 +1,7 @@
 
 
-#ifndef __CONFIG_H__
-#define __CONFIG_H__
+#ifndef ML_CONFIG_H
+#define ML_CONFIG_H
 
 
 #include <stdint.h>
@@ -22,5 +22,5 @@
 
 
 
-#endif /* __CONFIG_H__ */
+#endif /* ML_CONFIG_H */
 
