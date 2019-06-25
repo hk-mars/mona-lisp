@@ -15,6 +15,7 @@ typedef enum
     LEX_OK = 0,
     LEX_ERR = 1,
     LEX_ERR_NULL = 2,
+    LEX_ERR_ARGU = 3,
     
     
 } lex_rt_t;
@@ -37,22 +38,18 @@ typedef struct
 
 typedef struct
 {
-    const char *code;
-
     token_s *tokens[TOKEN_MAX_CNT];
     int token_cnt;
-
-    
     
 } lex_s;
 
 
 /* Initialize lexer */
-lex_rt_t lex_init(void);
+lex_rt_t ml_lex_init(void);
 
 
 /* Lexical analyzing for the code */
-lex_rt_t lex(lex_s *lex, const char *code);
+lex_rt_t ml_lex(lex_s *lex, const char *code, size_t code_sz);
 
 
 

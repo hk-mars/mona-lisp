@@ -8,7 +8,7 @@
 
 
 char*
-ml_strdup(const char *str)
+ml_util_strdup(const char *str)
 {
     if (!str) return NULL;
 
@@ -22,5 +22,14 @@ ml_strdup(const char *str)
     return s;
 }
 
+
+void
+ml_util_show_buf(char *buf, size_t size)
+{
+    show("%s, %d bytes:\n", __func__, size);
+    buf += (size - 1);
+    while(--size >= 0) show("%c", *(buf - size));
+    show("\n");    
+}
 
 

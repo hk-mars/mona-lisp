@@ -16,24 +16,25 @@
 int
 main (int argc, char **argv)
 {
+#if 0
     char code[512];
-    lex_s lex_obj;
+#endif
     
     if (!argv || argc < 2) {	    
 	;
     }
-    
-    
+        
     show("Hello Monalisp \n");
     show("Ver: %s \n\n", ml_get_version());
 
-
+    
     lisp_rt_t rt = ml_init();
     if (rt != LISP_OK) return -1;
 
-
-    reader_rt_t reader_rt = ml_reader_load_file("test/demo_1.lisp");
+    reader_s reader;
+    reader_rt_t reader_rt = ml_reader_load_file(&reader, "test/demo_1.lisp");
     if (reader_rt != READER_OK) return -1;
+    
     
  #if 0
     
@@ -58,7 +59,7 @@ main (int argc, char **argv)
 
 	
 	memset(&lex_obj, 0, sizeof(lex));
-	lex_rt_t lex_rt = lex(&lex_obj, code);
+	lex_rt_t lex_rt = ml_lex(&lex_obj, code);
 	if (lex_rt != LEX_OK) continue;       	
 	
     }
@@ -88,7 +89,7 @@ ml_init(void)
 {
     func_s();
 
-    lex_rt_t rt = lex_init();
+    lex_rt_t rt = ml_lex_init();
     if (rt != LEX_OK) return LISP_ERR_LEX;
 
 

@@ -12,6 +12,7 @@
 
 void* ml_malloc(size_t sz);
 
+void ml_free(void *mem);
 
 
 #endif /* ML_MEM_H */

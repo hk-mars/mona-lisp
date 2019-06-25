@@ -8,6 +8,8 @@
 
 #include "util.h"
 
+#include "mem.h"
+
 
 
 /**
@@ -34,48 +36,6 @@
 
 
 
-typedef struct s_file_info
-{
-    const char *f_name;
-    FILE *f;
-    int f_sz;
-    char *f_buf;
-    int buf_sz;
-    char *buf_e;
-  
-} file_info;
-
-
-static void
-show_buf(char *buf, int size, file_info *fi)
-{
-    if (fi) {
-       if (buf + size - 1 > fi->buf_e) return;
-    }
-  
-    debug("%d bytes:\n", size);
-    buf += (size - 1);
-    while(--size >= 0) debug("%c", *(buf - size));
-    debug("\n");
-}
-
-
-static char* 
-dump_trail(char *s, char *e)
-{
-  while(s <= e) {
-    if (*e != ' ') break;
-    e--;
-  }
-  
-  if (s > e) return NULL;
-  
-  *(e+1) = '\0';
-
-  return e;
-}
-
-
 static long 
 get_file_size(FILE *f) 
 {
@@ -92,31 +52,30 @@ get_file_size(FILE *f)
 
 
 static int 
-load_file(file_info *fi)
+load_file(file_info_s *f)
 {
-    fs();
+    func_s();
   
-    fi->f = fopen(fi->f_name,"rb");
-    if (!fi->f) return 0;
+    f->f = fopen(f->name,"rb");
+    if (!f->f) return 0;
   
-    fi->f_sz = get_file_size(fi->f);
-    debug("file %s opened, size %d bytes.\n", fi->f_name, fi->f_sz);
+    f->f_sz = get_file_size(f->f);
+    show("file %s opened, size %d bytes.\n", f->name, f->f_sz);
   
-    fi->f_buf = (char*)malloc(fi->f_sz);
-    if (!fi->f_buf) return 0;
+    f->buf = (char*)ml_malloc(f->f_sz);
+    if (!f->buf) return 0;
   
-    fi->buf_sz = fread(fi->f_buf, 1, fi->f_sz, fi->f);
-    if (fi->buf_sz < fi->f_sz) {
-	free(fi->f_buf);
-	fi->f_buf = NULL;
+    f->buf_sz = fread(f->buf, 1, f->f_sz, f->f);
+    if (f->buf_sz < f->f_sz) {
+	
+	ml_free(f->buf);
+	f->buf = NULL;
 	return 0;
     }
   
-    fi->buf_e = fi->f_buf + fi->buf_sz - 1;
+    f->buf_e = f->buf + f->buf_sz - 1;
   
-    //filter_bnf_buf(fi);
-  
-    fe();
+    func_e();
     return 1;
 }
 
@@ -136,24 +95,32 @@ ml_reader_init(void)
 
 
 reader_rt_t
-ml_reader_load_file(const char *fname)
+ml_reader_load_file(reader_s *reader, const char *fname)
 {
     func_s();
 
-    if (!fname) return READER_ERR_NULL;
+    if (!reader || !fname) return READER_ERR_NULL;
+
+    memset(reader, 0, sizeof(reader_s));
     
-    file_info fi;
+    file_info_s *f = &reader->f;
 
-    memset(&fi, 0, sizeof(fi));
+    f->name = ml_util_strdup(fname);
 
-    fi.f_name = ml_strdup(fname);
-
-    if (!load_file(&fi)) return READER_ERR;
+    /* load codes from file 
+     */
+    if (!load_file(f)) return READER_ERR;
+    ml_util_show_buf(f->buf, f->buf_sz);
 
     
 
-    
+    /* lexical analyzing
+     */
+    lex_rt_t lex_rt = ml_lex(&reader->lex_obj, f->buf, f->buf_sz);
+    if (lex_rt != LEX_OK) return READER_ERR_LEX;
 
+    
+    
     func_ok();
 
     return READER_OK;

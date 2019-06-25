@@ -8,10 +8,12 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "config.h"
 
 
-char* ml_strdup(const char *str);
+char* ml_util_strdup(const char *str);
 
+void ml_util_show_buf(char *buf, size_t size);
 
 
 #endif /* ML_UTIL_H */
