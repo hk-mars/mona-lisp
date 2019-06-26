@@ -25,14 +25,83 @@
 /* ' ', #\space */
 #define SPACE 0x20
 
-/* The Carriage Return ("CR") character (0x0D, \r), #\return */
+/* Carriage Return ("CR") character (0x0D, \r), #\return */
 #define RETURN_CR 0x0D
 
-/* The Line Feed ("LF") character (0x0A, \n), #\linefeed */
+/* Line Feed ("LF") character (0x0A, \n), #\linefeed */
 #define LINEFEED 0x0A
 
-/* #\page */
-#define PAGE 0xFF  /* TODO */
+/* TODO, #\page */
+#define PAGE 0xFF
+
+/* backward-delete-char (Rubout), #\rubout */
+#define RUBOUT 0x7F
+
+
+/* reverse solidus, or backslash */ 
+#define BACKSLASH '\\'
+
+/* vertical bar */
+#define VERTICAL_BAR '|'
+
+
+#define is_digit(x) ((x) >= '0' && (x) <= '9')
+
+#define is_alpha(x) ( ((x) >= 'a' && (x) <= 'z') || ((x) >= 'A' && (x) <= 'Z') )
+
+#define is_whitespace_char(x) ( \
+        (x) == BACKSPACE ||    \
+	(x) == TAB ||	       \
+	(x) == NEWLINE ||      \
+	(x) == LINEFEED ||     \
+	(x) == RETURN_CR )
+
+#define is_terminating_char(x) (       \
+   (x) == '\"' ||		       \
+   (x) == '\'' ||		       \
+   (x) == '(' ||		       \
+   (x) == ')' ||		       \
+   (x) == ',' ||		       \
+   (x) == ';' ||		       \
+   (x) == '`' )
+
+#define is_non_terminating_char(x) ((x) == '#')
+
+#define is_macro_char(x) ( is_terminating_char(x) || is_non_terminating_char(x) )
+
+#define is_escape_char(x) ((x) == BACKSLASH)
+
+#define is_multiple_escape_char(x) ((x) == VERTICAL_BAR)
+
+#define is_constituent_char(x) ( \
+        (x) == BACKSPACE ||	 \
+	(x) == RUBOUT ||	 \
+        is_digit(x) ||		 \
+	is_alpha(x) ||		 \
+	(x) == '$' ||		 \
+	(x) == '%' ||		 \
+	(x) == '&' ||		 \
+	(x) == '*' ||		 \
+	(x) == '+' ||		 \
+	(x) == '-' ||		 \
+	(x) == '.' ||		 \
+	(x) == '/' ||		 \
+	(x) == ':' ||		 \
+	(x) == '<' ||		 \
+	(x) == '=' ||		 \
+	(x) == '>' ||		 \
+	(x) == '@' ||		 \
+	(x) == '^' ||		 \
+	(x) == '_' ||		 \
+	(x) == '~' )
+
+#define is_illegal_char(x) (   \
+    is_constituent_char(x) ||  \
+    is_whitespace_char(x) ||   \
+    is_macro_char(x) ||	       \
+    is_escape_char(x) ||       \
+    is_multiple_escape_char(x) )
+
 
 
 typedef enum
