@@ -25,5 +25,9 @@
 - Fund community (enlarged)
 - User community (enlarged)
 
+## 2023
+- Applications of monalisp (released)
+- Fund community (improved)
+- User community (improved)
 
 
