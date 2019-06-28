@@ -96,11 +96,11 @@
 	(x) == '~' )
 
 #define is_illegal_char(x) (   \
-    is_constituent_char(x) ||  \
-    is_whitespace_char(x) ||   \
-    is_macro_char(x) ||	       \
-    is_escape_char(x) ||       \
-    is_multiple_escape_char(x) )
+    !is_constituent_char(x) &&  \
+    !is_whitespace_char(x) &&   \
+    !is_macro_char(x) &&	       \
+    !is_escape_char(x) &&       \
+    !is_multiple_escape_char(x) )
 
 
 

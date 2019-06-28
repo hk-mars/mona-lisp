@@ -9,6 +9,87 @@
 
 #include "util.h"
 
+#include "eval.h"
+
+#include "mem.h"
+
+
+
+/** 
+ * The function read is called recursively to read successive objects until a right parenthesis
+ * is found to be next in the code. A list of the objects read is returned.
+ */
+       
+static code_s
+read_list(const char *code, size_t code_sz, values_s *v)
+{
+    debug("0x%02x %c \n", *code, *code);
+    
+    if (*code == ')') {
+
+	func_ok();
+
+	code_s cd = { code, code_sz };
+	return cd;
+    }
+
+    if (code_sz == 0) {
+
+	ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+
+	code_s cd = { NULL, 0 };
+	return cd;
+    }
+
+    return read_list(++code, --code_sz, v);
+}
+
+
+static values_s*
+read_macro(code_s *cd)
+{
+    values_s *v = NULL;
+
+    if (!cd || !cd->code || !cd->code_sz) return NULL;
+    
+    func_s();
+
+    char c = *cd->code;
+    debug("0x%02x %c \n", c, c);
+    
+    /* compound form: a non-empty list which is a form: a special form, a lambda form, 
+     * a macro form, or a function form.
+     */
+
+
+    /* The left-parenthesis character initiates reading of a list. The function read is called
+       recursively to read successive objects until a right parenthesis is found to be next in
+       the code. A list of the objects read is returned. */
+      
+    if (c == '(') {
+
+	cd->code++;
+	cd->code_sz--;
+
+        v = (values_s*)ml_malloc(sizeof(values_s));
+	if (!v) return NULL;
+	
+        code_s icode = read_list(cd->code, cd->code_sz, v);
+	if (!icode.code) return NULL;
+
+	cd->code = icode.code;
+	cd->code_sz = icode.code_sz;
+	
+    }
+    else {
+	
+    }
+
+    
+    func_e();
+    return v;
+}
+
 
 
 /**
@@ -27,20 +108,28 @@ ml_lex_init(void)
 }
 
 
+
 /**
  * Lexical analyzing for the code
  */
 lex_rt_t
-ml_lex(lex_s *lex, const char *code, size_t code_sz)
+ml_lex(lex_s *lex, code_s *cd)
 {
+    const char *code;
+    size_t code_sz;
+    
     func_s();
 
-    if (!lex || !code) return LEX_ERR_NULL;
+    if (!lex || !cd || !cd->code) return LEX_ERR_NULL;
 
+    code = cd->code;
+    code_sz = cd->code_sz;
+    
     if (code_sz <= 0) return LEX_ERR_ARGU;
 
 
     ml_util_show_buf((char*)code, code_sz);
+    
     
     
     /* identify the tokens
@@ -55,7 +144,7 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
      *    except that single escape and multiple escape characters must nevertheless be preceded
      *    by a single escape character to be included.
      */
-    char x, y;
+    char x, y, z;
     while (1) {
 
 	/* step 1: if at end of code, break.
@@ -64,12 +153,13 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
 
 	x = *code; /* read one character */
 
-	show("0x%x \n", x);
+	debug("0x%02x %c \n", x, x);
 	
 	/* step 2: if x is an illegal character, signal an error. 
 	 */
 	if (is_illegal_char(x)) {
-	
+
+	    show_func_line();
 	    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
 	    return LEX_ERR;
 	}
@@ -79,6 +169,8 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
 	 */
 	if (is_whitespace_char(x)) {
 
+	    debug("whitespace char \n");
+	    
 	    code++;
 	    code_sz--;
 	    continue;
@@ -90,6 +182,18 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
 	 */
 	if (is_macro_char(x)) {
 
+	    debug("macro char \n");
+
+	    cd->code = code;
+	    cd->code_sz = code_sz;	    
+	    values_s *v = read_macro(cd);
+	    if (!v) return LEX_ERR;
+	    
+	    if (cd->code_sz == 0) break;
+	    
+	    code = ++cd->code;
+	    code_sz = --cd->code_sz;
+	    continue;
 	}
 
 
@@ -97,11 +201,14 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
 	 */
 	if (is_escape_char(x)) {
 
+	    debug("escape char \n");
+	    
 	    y = *++code;
 	    code_sz--;
 
 	    if (code_sz == 0) {
-		
+
+		debug_err("end of code \n");
 		ml_err_signal(ML_ERR_ILLEGAL_CHAR);
 		return LEX_ERR;
 	    }
@@ -114,6 +221,7 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
 	 */
 	if (is_multiple_escape_char(x)) {
 
+	    show("multiple escape char \n");
 	    goto STEP_9;
 	}
 
@@ -124,6 +232,8 @@ ml_lex(lex_s *lex, const char *code, size_t code_sz)
 	 */
 	if (is_constituent_char(x)) {
 
+	    debug("constituent char \n");
+	    
 	    /* use x to begin a token, and go on to step 8.
 	     */
 	    goto STEP_8;

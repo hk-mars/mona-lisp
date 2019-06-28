@@ -33,6 +33,7 @@
 
 #define show printf
 
+#define show_func_line() debug("%s: %dL \n", __func__, __LINE__)
 
 
 #endif /* ML_DEBUG_H */

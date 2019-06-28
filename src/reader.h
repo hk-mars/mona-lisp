@@ -34,11 +34,14 @@ typedef struct
 } file_info_s;
 
 
+
 typedef struct
 {
     file_info_s f;
 
-    lex_s lex_obj;
+    code_s cd;
+
+    lex_s lex;
     
 } reader_s;
 

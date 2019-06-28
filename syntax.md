@@ -136,6 +136,24 @@ Guides:
 2. [What the Read Function Accepts](http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node188.html#SECTION002611000000000000000)
 
 		
+		
+- Function +
+
+Syntax:
+
+> + &rest numbers => sum
+
+@number: a number.
+
+@sum: a number.
+
+Returns the sum of numbers
+
+[REF](http://www.lispworks.com/documentation/HyperSpec/Body/f_pl.htm)
+
+
+
+				   
 				   
 				   
 

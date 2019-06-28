@@ -94,6 +94,7 @@ ml_reader_init(void)
 }
 
 
+
 reader_rt_t
 ml_reader_load_file(reader_s *reader, const char *fname)
 {
@@ -112,14 +113,15 @@ ml_reader_load_file(reader_s *reader, const char *fname)
     if (!load_file(f)) return READER_ERR;
     ml_util_show_buf(f->buf, f->buf_sz);
 
+    reader->cd.code = f->buf;
+    reader->cd.code_sz = f->buf_sz;
     
 
     /* lexical analyzing
      */
-    lex_rt_t lex_rt = ml_lex(&reader->lex_obj, f->buf, f->buf_sz);
+    lex_rt_t lex_rt = ml_lex(&reader->lex, &reader->cd);
     if (lex_rt != LEX_OK) return READER_ERR_LEX;
 
-    
     
     func_ok();
 
