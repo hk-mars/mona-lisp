@@ -6,6 +6,9 @@
 
 #include "mem.h"
 
+#include "error.h"
+
+
 
 char*
 ml_util_strdup(const char *str)
@@ -31,5 +34,31 @@ ml_util_show_buf(char *buf, size_t size)
     while(--size >= 0) show("%c", *(buf - size));
     show("\n");    
 }
+
+
+unsigned int
+ml_util_arr2int(char *arr, size_t len)
+{
+    unsigned int x;
+
+    char buf[64];
+
+    if (len+1 >= (int)sizeof(buf)) {
+	
+	debug_err("err: buffer overflow \n");
+	ml_err_signal(ML_ERR_BUF_OVERFLOW);
+	return 0;
+    }
+	
+    memcpy(buf, arr, len);
+    buf[len] = 0;
+
+    x = atoi(buf);
+
+    return x;
+}
+
+
+
 
 

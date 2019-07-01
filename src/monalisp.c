@@ -7,6 +7,7 @@
 
 #include "reader.h"
 
+#include "stack.h"
 
 
 
@@ -89,6 +90,13 @@ ml_init(void)
 {
     func_s();
 
+    stack_rt_t stack_rt = stack_init(1024);
+    if (stack_rt != STACK_OK) {
+	
+	debug_err("err: %d, stack init failed", stack_rt);
+	return LISP_ERR_STACK;
+    }
+	
     lex_rt_t rt = ml_lex_init();
     if (rt != LEX_OK) return LISP_ERR_LEX;
 

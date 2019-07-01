@@ -103,6 +103,12 @@
     !is_multiple_escape_char(x) )
 
 
+#define check_char(i, who) ((i) == (who))
+
+#define check_char_as_func(i, who_i_am) (who_i_am((i)))
+
+#define is_sign(x) (check_char(x, '-') || check_char(x, '+'))
+
 
 typedef enum
 {

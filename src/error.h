@@ -16,6 +16,8 @@ typedef enum
     ML_ERR_NULL = 2,
     ML_ERR_MEM_FULL = 3,
     ML_ERR_ILLEGAL_CHAR = 4,
+    ML_ERR_BUF_OVERFLOW = 5,
+    ML_ERR_STACK_OVERFLOW = 6,
     
     
 } ml_err_t;

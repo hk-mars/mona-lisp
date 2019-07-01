@@ -8,17 +8,29 @@
 #include <stdio.h>
 
 
-#define size_t int
-
-
 #define YES 1
 #define NO  0
 
 
+#ifndef size_t
+#define size_t int
+#endif
+
+#ifndef bool
+#define bool unsigned char
+#endif
+
+#ifndef true
+#define true YES
+#endif
+
+#ifndef false
+#define false NO
+#endif
+
+
+
 #define DEBUG_ENABLE YES
-
-
-#define TOKEN_MAX_CNT 1024
 
 
 

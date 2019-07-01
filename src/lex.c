@@ -13,6 +13,145 @@
 
 #include "mem.h"
 
+#include "config.h"
+
+#include "stack.h"
+
+
+static size_t m_offset = 0;
+
+static const char *m_c = NULL;
+static size_t m_sz = 0;
+
+static const char *m_stack_code = NULL;
+static size_t m_stack_code_sz = 0;
+
+
+#define move_code(code, code_sz, offset)		\
+    (code) += offset;					\
+    (code_sz) -= offset;
+
+
+#define next_code(code, code_sz) \
+    (code)++;			 \
+    (code_sz)--;
+
+#define backup_context(code, code_sz) \
+    m_stack_code = code; \
+    m_stack_code_sz = code_sz; \
+    m_c = code; \
+    m_sz = code_sz
+
+
+#define resume_context(code, code_sz) \
+    code = m_stack_code; \
+    code_sz = m_stack_code_sz;
+
+
+
+static bool
+is_like_num_token(const char *code, size_t code_sz)
+{
+    if (is_sign(*code)) return true;
+
+    if (is_digit(*code)) return true;
+
+    if ((*code == 'e' || *code == 'E') && (code_sz-1) > 0) {
+
+	if (is_sign(*(code+1))) return true;
+
+	if (is_digit(*(code+1))) return true;
+    }
+
+    return false;
+}
+
+
+static int
+identify_digits(void)
+{
+    unsigned int n = 0;
+    int k = 0;
+
+    const char *c = m_c;
+
+    
+    while (m_sz > 0) {
+
+	if (!check_char_as_func(*m_c, is_digit)) {
+
+	    debug("\n");
+	    if (k > 0) {
+		debug("digits len: %d \n", k);
+
+		unsigned int x = ml_util_arr2int(c, k);
+		debug("%d \n", x);
+	    }
+	    
+	    return k;
+	}
+
+	debug("%c ", *m_c);
+	
+	k++;
+	next_code(m_c, m_sz);
+    }
+
+    return k;
+}
+
+
+static bool
+identify_number(lex_s *lex)
+{
+    func_s();
+    
+    while (m_sz > 0) {
+
+	if (is_sign(*m_c)) {
+
+	    next_code(m_c, m_sz);
+	}
+
+	int k = identify_digits();
+	if (k > 0) {
+	    
+	    return true;
+	}
+
+	next_code(m_c, m_sz);
+    }
+
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+
+    return false;
+}
+
+
+static bool
+is_plus_func(const char **code, size_t *code_sz)
+{
+    if (!check_char(**code, '+')) return false;
+    next_code(*code, *code_sz);
+
+    if (*code_sz == 0) return true;
+
+    if (check_char(**code, SPACE)) {
+
+	next_code(*code, *code_sz);
+	return true;
+    }
+
+    if (is_whitespace_char(**code)) {
+
+	next_code(*code, *code_sz);
+	return true;
+    }
+
+    return false;
+}
+
+
 
 
 /** 
@@ -21,32 +160,77 @@
  */
        
 static code_s
-read_list(const char *code, size_t code_sz, values_s *v)
+read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
 {
-    debug("0x%02x %c \n", *code, *code);
+    func_s();
     
-    if (*code == ')') {
+    while (code_sz > 0) {
 
-	func_ok();
+	debug("0x%02x %c \n", *code, *code);
+	
+	if (*code == ')') {
 
-	code_s cd = { code, code_sz };
-	return cd;
+	    code_s cd = { code, code_sz };
+	    return cd;
+	}
+
+	//stack_data_t sdata = { code, 1 };
+	//stack_push(&sdata, 2);
+	
+	if (is_plus_func(&code, &code_sz)) {
+
+	    debug("plus function \n");
+
+	    //stack_pop(&sdata);
+	    
+	    //next_code(code, code_sz);
+	    continue;
+	}
+	
+	//stack_pop(&sdata);
+
+	
+	if (is_like_num_token(code, code_sz)) {
+
+	    debug("like number token \n");
+
+	    backup_context(code, code_sz);
+	    if (identify_number(lex)) {
+		
+		code = m_c++;
+		code_sz = m_sz--;
+
+		continue;
+		
+	    }
+	    resume_context(code, code_sz);
+
+	    debug("not number \n");
+	}
+
+	if (*code == '(') {
+	
+	    code_s cd = read_list(++code, --code_sz, v, lex);
+	    if (!cd.code) return cd;
+
+	    code = cd.code + 1;
+	    code_sz = cd.code_sz - 1;
+	    
+	    continue;
+	}
+
+	next_code(code, code_sz);
     }
 
-    if (code_sz == 0) {
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
 
-	ml_err_signal(ML_ERR_ILLEGAL_CHAR);
-
-	code_s cd = { NULL, 0 };
-	return cd;
-    }
-
-    return read_list(++code, --code_sz, v);
+    code_s cd = { NULL, 0 };
+    return cd;
 }
 
 
 static values_s*
-read_macro(code_s *cd)
+read_macro(code_s *cd, lex_s *lex)
 {
     values_s *v = NULL;
 
@@ -74,7 +258,7 @@ read_macro(code_s *cd)
         v = (values_s*)ml_malloc(sizeof(values_s));
 	if (!v) return NULL;
 	
-        code_s icode = read_list(cd->code, cd->code_sz, v);
+        code_s icode = read_list(cd->code, cd->code_sz, v, lex);
 	if (!icode.code) return NULL;
 
 	cd->code = icode.code;
@@ -186,7 +370,7 @@ ml_lex(lex_s *lex, code_s *cd)
 
 	    cd->code = code;
 	    cd->code_sz = code_sz;	    
-	    values_s *v = read_macro(cd);
+	    values_s *v = read_macro(cd, lex);
 	    if (!v) return LEX_ERR;
 	    
 	    if (cd->code_sz == 0) break;

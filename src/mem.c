@@ -20,6 +20,7 @@ ml_malloc(size_t sz)
 	return NULL;
     }
 
+    memset(m, 0, sz);
 
     return m;
 }

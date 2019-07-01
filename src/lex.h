@@ -9,6 +9,8 @@
 #include "config.h"
 #include "chars.h"
 
+#include "object.h"
+
 
 typedef enum
 {
@@ -44,25 +46,34 @@ typedef struct
 } token_s;
 
 
+typedef struct s_token_list
+{
+    token_s tk;
+
+    struct s_token_list *next;
+    
+} token_list_s;
+
 typedef struct
 {
-    token_s *tokens[TOKEN_MAX_CNT];
-    int token_cnt;
+    token_list_s *tokens;
     
 } lex_s;
 
 
-typedef struct
+typedef struct s_obj_list
 {
     
-} value_list_s;
+    object_s obj;
+
+    struct s_obj_list *next;
+    
+} obj_list_s;
 
 
 typedef struct
 {
-    int vint;
-    float vfloat;
-    value_list_s vlist;
+    obj_list_s *objs;
     
 } values_s;
 
