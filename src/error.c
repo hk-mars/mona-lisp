@@ -23,11 +23,17 @@ proc_illegal_char(void)
 }
 
 
+static void
+proc_stack_overflow(void)
+{
+    func_s();
+}
+
 
 void
 ml_err_signal(ml_err_t err)
 {
-    show("%s, err:%d ", __func__, err);
+    debug("%s, err:%d \n", __func__, err);
 
     switch (err) {
     case ML_ERR_ILLEGAL_CHAR:
@@ -40,8 +46,13 @@ ml_err_signal(ml_err_t err)
 	ml_err_proc_mem_full();
 	break;
 
+    case ML_ERR_STACK_OVERFLOW:
+
+	proc_stack_overflow();
+	break;
+
     default:
-	debug_err("unkown error");
+	debug_err("unkown error \n");
 	break;
     }
 

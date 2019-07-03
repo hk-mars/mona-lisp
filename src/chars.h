@@ -37,12 +37,12 @@
 /* backward-delete-char (Rubout), #\rubout */
 #define RUBOUT 0x7F
 
-
 /* reverse solidus, or backslash */ 
 #define BACKSLASH '\\'
 
 /* vertical bar */
 #define VERTICAL_BAR '|'
+
 
 
 #define is_digit(x) ((x) >= '0' && (x) <= '9')
@@ -101,7 +101,6 @@
     !is_macro_char(x) &&	       \
     !is_escape_char(x) &&       \
     !is_multiple_escape_char(x) )
-
 
 #define check_char(i, who) ((i) == (who))
 

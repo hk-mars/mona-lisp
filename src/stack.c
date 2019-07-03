@@ -1,5 +1,4 @@
 
-
 #include "stack.h"
 
 #include "debug.h"
@@ -8,13 +7,12 @@
 
 #include "mem.h"
 
-
 #define ALIGN_LEN sizeof(stack_t)
 
 
 static ml_stack_t *m_stack = NULL;
 static size_t m_stack_sz = 0;
-static size_t *m_stack_pos = NULL;
+static ml_stack_t *m_stack_pos = NULL;
 
 static size_t m_stack_top = 0;
 
@@ -43,10 +41,12 @@ stack_init(size_t sz)
 
 
 stack_rt_t
-stack_push(void *data, size_t data_cnt)
+stack_push(void *data_in, size_t data_sz)
 {
-    size_t len = data_cnt*sizeof(stack_t);
+    size_t len = data_sz*sizeof(ml_stack_t);
 
+    func_s();
+    
     if (m_stack_top >= MAX_STACK_ITEM_CNT) {
 
 	debug_err("err: stack db overflow \n");
@@ -54,9 +54,8 @@ stack_push(void *data, size_t data_cnt)
 	ml_err_signal(ML_ERR_STACK_OVERFLOW);
 	return STACK_ERR_OVERFLOW;	
     }
-    
-    
-    if (len > (m_stack_sz - (m_stack_pos-m_stack))) {
+  
+    if (len > (m_stack_sz - (size_t)(m_stack_pos - m_stack))) {
 
 	debug_err("err: stack overflow \n");
 	ml_err_signal(ML_ERR_STACK_OVERFLOW);
@@ -64,7 +63,7 @@ stack_push(void *data, size_t data_cnt)
     }
 
     
-    memcpy(m_stack_pos, data, len);
+    memcpy(m_stack_pos, data_in, len);
 
     m_db[m_stack_top].data = m_stack_pos;
     m_db[m_stack_top].data_sz = len;
@@ -72,15 +71,19 @@ stack_push(void *data, size_t data_cnt)
     m_stack_pos += len;
     m_stack_top++;
 
+    debug("in size: %d, m_stack_top: %d \n", len, m_stack_top);
+    
     func_ok();
     return STACK_OK;
 }
 
 
 stack_rt_t
-stack_pop(stack_data_t *mydata)
+stack_pop(void *data_out)
 {
-    if (!mydata) return STACK_ERR_NULL;
+    func_s();
+    
+    if (!data_out) return STACK_ERR_NULL;
     
     if (m_stack_top <= 0) {
 	
@@ -88,13 +91,14 @@ stack_pop(stack_data_t *mydata)
 	return STACK_ERR;
     }
 
-    
-    mydata->data = m_db[m_stack_top].data;
-    mydata->data_sz = m_db[m_stack_top].data_sz;
-    
-    m_stack_pos -= m_db[m_stack_top].data_sz;
+    size_t sz = m_db[m_stack_top-1].data_sz;
+    memcpy(data_out, m_db[m_stack_top-1].data, sz);
+
+    m_stack_pos -= sz;
     m_stack_top--;
 
+    debug("out size: %d, m_stack_top: %d \n", sz, m_stack_top);
+    
     func_ok();
     return STACK_OK;
 }

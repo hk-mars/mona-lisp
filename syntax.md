@@ -152,7 +152,6 @@ Returns the sum of numbers
 [REF](http://www.lispworks.com/documentation/HyperSpec/Body/f_pl.htm)
 
 
-
 				   
 				   
 				   

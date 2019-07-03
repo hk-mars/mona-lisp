@@ -11,7 +11,7 @@
 
 #define MAX_STACK_ITEM_CNT 2048
 
-#define ml_stack_t int
+#define ml_stack_t char
 
 
 typedef enum
@@ -36,9 +36,9 @@ typedef struct
 
 stack_rt_t stack_init(size_t sz);
 
-stack_rt_t stack_push(void *data, size_t data_cnt);
+stack_rt_t stack_push(void *data_in, size_t data_sz);
 
-stack_rt_t stack_pop(stack_data_t *mydata);
+stack_rt_t stack_pop(void *data_out);
 
 
 #endif /* ML_STACK_H */
