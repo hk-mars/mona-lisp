@@ -138,6 +138,34 @@ read_comments(const char **code, size_t *code_sz)
 }
 
 
+static bool
+read_symbol(const char **code, size_t *code_sz)
+{
+    func_s();
+
+    while (*code_sz > 0) {
+
+	debug("0x%02x %c \n", **code, **code);
+	
+	if (check_char(**code, SPACE) || check_char(**code, ')')) {
+
+	    if (check_char(**code, SPACE)) {
+		next_code(*code, *code_sz);
+	    }
+	    
+	    func_ok();
+	    return true;
+	}
+
+	next_code(*code, *code_sz);
+    }
+
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+    
+    return false;
+}
+
+
 
 static bool
 like_func(const char *code, size_t code_sz)
@@ -153,20 +181,68 @@ like_func(const char *code, size_t code_sz)
 }
 
 
+/* A token is a potential number if it satisfies all of the following requirements:
+ * 
+ * 1. The token consists entirely of digits, signs, ratio markers, decimal points
+ *    (.), extension characters (^ or _), and number markers. 
+ * 2. The token contains at least one digit(letters may be considered to be digits).
+ * 3. The token begins with a digit, sign, decimal point, or extension character, 
+ *    but not a package marker.
+ * 4. The token does not end with a sign.
+ * 
+ */
 static bool
 like_num_token(const char *code, size_t code_sz)
 {
-    if (is_sign(*code)) return true;
+    if (is_sign(*code)) goto FIND_ONE_DIGIT;
 
-    if (is_digit(*code)) return true;
+    if (is_digit(*code)) goto CHECK_MORE;
+    
+    if (check_char(*code, '.')) goto FIND_ONE_DIGIT;
 
-    if ((*code == 'e' || *code == 'E') && (code_sz-1) > 0) {
+    if (check_char(*code, '^')) goto FIND_ONE_DIGIT;
+    if (check_char(*code, '_')) goto FIND_ONE_DIGIT;
 
-	if (is_sign(*(code+1))) return true;
+    
+  FIND_ONE_DIGIT:
 
-	if (is_digit(*(code+1))) return true;
+    next_code(code, code_sz);
+    while (code_sz > 0) {
+
+	if (check_char(*code, SPACE) || check_char(*code, ')')) return false;
+
+	if (is_digit(*code)) goto CHECK_MORE;
+
+        next_code(code, code_sz);
     }
 
+
+  CHECK_MORE:
+
+    next_code(code, code_sz);
+    while (code_sz > 0) {
+
+	if (check_char(*code, SPACE) || check_char(*code, ')')) {
+
+	    /* The token does not end with a sign. */
+	    if (is_sign(*(code-1))) return false;
+
+	    return true;
+	}
+
+	if (is_digit(*code) || is_sign(*code) ||
+	    check_char(*code, '^') || check_char(*code, '_') ||
+	    check_char(*code, '.') || is_exponent_maker(*code)) {
+
+	    next_code(code, code_sz);
+
+	    continue;
+	}
+
+	return false;
+    }
+
+    
     return false;
 }
 
@@ -305,6 +381,12 @@ read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
     while (code_sz > 0) {
 
 	debug("0x%02x %c \n", *code, *code);
+
+	if (is_whitespace_char(*code)) {
+
+	    next_code(code, code_sz);
+	    continue;
+	}
 	
 	if (*code == ')') {
 
@@ -319,7 +401,7 @@ read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
 	    if (found) continue;
 	}
 	
-	
+
 	if (like_num_token(code, code_sz)) {
 
 	    debug("like number token \n");
@@ -327,7 +409,6 @@ read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
 	    found = identify_token_as_func(&code, &code_sz, is_number_token);
 	    if (found) continue;
 	}
-	
 
 	if (*code == '(') {
 	
@@ -336,11 +417,12 @@ read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
 
 	    code = cd.code;
 	    code_sz = cd.code_sz;
-	    
-	    continue;
 	}
-
-	next_code(code, code_sz);
+	else {
+	    
+	    found = read_symbol(&code, &code_sz);
+	}
+	
     }
 
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);

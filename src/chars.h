@@ -108,6 +108,19 @@
 
 #define is_sign(x) (check_char(x, '-') || check_char(x, '+'))
 
+#define is_exponent_maker(x)					\
+(								\
+ check_char(x, 'e') ||						\
+ check_char(x, 's') ||						\
+ check_char(x, 'f') ||						\
+ check_char(x, 'd') ||						\
+ check_char(x, 'l') ||						\
+ check_char(x, 'E') ||						\
+ check_char(x, 'S') ||						\
+ check_char(x, 'F') ||						\
+ check_char(x, 'D') ||						\
+ check_char(x, 'L') )
+
 
 typedef enum
 {

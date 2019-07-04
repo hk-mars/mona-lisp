@@ -114,7 +114,7 @@ sign	::= + | -
 
 slash	::= /
 
-dot		::= .
+decimal-point	::= .
 
 exponent-marker	::= 
 
@@ -122,11 +122,15 @@ exponent-marker	::=
 
 decimal-digit	::= 
 
-	radix-10-digit
+	digit-as-10-radix
 		
-digit	::= 
+digit-as-10-radix	::= 
 
 	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+	
+digit	::= 
+
+	a digit in the current input radix 
 
 
 Guides:
