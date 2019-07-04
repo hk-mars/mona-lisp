@@ -122,6 +122,9 @@
  check_char(x, 'L') )
 
 
+#define is_ratio_marker(x) check_char(x, '/')
+
+
 typedef enum
 {
     CHAR_WHITESPACE = 0,

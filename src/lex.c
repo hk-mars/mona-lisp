@@ -216,6 +216,7 @@ like_num_token(const char *code, size_t code_sz)
         next_code(code, code_sz);
     }
 
+    return false;
 
   CHECK_MORE:
 
@@ -232,7 +233,8 @@ like_num_token(const char *code, size_t code_sz)
 
 	if (is_digit(*code) || is_sign(*code) ||
 	    check_char(*code, '^') || check_char(*code, '_') ||
-	    check_char(*code, '.') || is_exponent_maker(*code)) {
+	    check_char(*code, '.') || is_ratio_marker(*code) ||
+	    is_exponent_maker(*code)) {
 
 	    next_code(code, code_sz);
 
@@ -369,8 +371,7 @@ identify_token_as_func(const char **code, size_t *code_sz, identify_token_f f)
 /** 
  * The function read is called recursively to read successive objects until a right
  * parenthesis is found to be next in the code. A list of the objects read is returned.
- */
-       
+ */     
 static code_s
 read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
 {
@@ -439,7 +440,7 @@ read_macro(code_s *cd, lex_s *lex)
     
     values_s *v = NULL;
 
-    if (!cd || !cd->code || !cd->code_sz) return NULL;
+    if (!cd || !cd->code || !cd->code_sz) return false;
     
     func_s();
 

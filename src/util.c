@@ -59,6 +59,28 @@ ml_util_arr2int(char *arr, size_t len)
 }
 
 
+/* *read-base* value may be any integer from 2 to 36 (inclusive) and 
+ * is normally 10 (decimal radix)
+ */
+static unsigned char m_read_base = 10;
+
+void
+ml_util_set_read_base(unsigned char read_base)
+{
+    m_read_base = read_base;
+}
+
+
+unsigned char
+ml_util_get_read_base(void)
+{
+    return m_read_base;
+}
+
+
+
+
+
 
 
 
