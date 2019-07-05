@@ -6,6 +6,8 @@
 
 #include "mem.h"
 
+#include "form.h"
+
 
 
 /** 

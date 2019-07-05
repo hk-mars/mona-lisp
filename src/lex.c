@@ -373,7 +373,7 @@ identify_token_as_func(const char **code, size_t *code_sz, identify_token_f f)
  * parenthesis is found to be next in the code. A list of the objects read is returned.
  */     
 static code_s
-read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
+read_list(const char *code, size_t code_sz, lex_s *lex)
 {
     bool found;
     
@@ -413,7 +413,7 @@ read_list(const char *code, size_t code_sz, values_s *v, lex_s *lex)
 
 	if (*code == '(') {
 	
-	    code_s cd = read_list(++code, --code_sz, v, lex);
+	    code_s cd = read_list(++code, --code_sz, lex);
 	    if (!cd.code) return cd;
 
 	    code = cd.code;
@@ -437,8 +437,6 @@ static bool
 read_macro(code_s *cd, lex_s *lex)
 {
     bool found = false;
-    
-    values_s *v = NULL;
 
     if (!cd || !cd->code || !cd->code_sz) return false;
     
@@ -455,11 +453,8 @@ read_macro(code_s *cd, lex_s *lex)
 	 */
 	
 	next_code(cd->code, cd->code_sz);
-
-	v = (values_s*)ml_malloc(sizeof(values_s));
-	if (!v) return false;
 	
-	code_s icode = read_list(cd->code, cd->code_sz, v, lex);
+	code_s icode = read_list(cd->code, cd->code_sz, lex);
 	if (!icode.code) return false;
 
 	cd->code = icode.code;

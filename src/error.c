@@ -20,6 +20,9 @@ static void
 proc_illegal_char(void)
 {
     func_s();
+
+    /* TODO: process for illegal lex char */
+    while (1);
 }
 
 
@@ -27,7 +30,21 @@ static void
 proc_stack_overflow(void)
 {
     func_s();
+    
+    /* TODO: process for stack overflow */
+    while (1);
 }
+
+
+static void
+proc_buf_overflow(void)
+{
+    func_s();
+    
+    /* TODO: process for buffer overflow */
+    while (1);
+}
+
 
 
 void
@@ -49,6 +66,12 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_STACK_OVERFLOW:
 
 	proc_stack_overflow();
+	break;
+
+
+    case ML_ERR_BUF_OVERFLOW:
+
+	proc_buf_overflow();
 	break;
 
     default:

@@ -9,7 +9,7 @@
 #include "config.h"
 #include "chars.h"
 
-#include "object.h"
+#include "form.h"
 
 
 typedef enum
@@ -23,14 +23,6 @@ typedef enum
 } lex_rt_t;
 
 
-typedef enum
-{
-    TOKEN_NUMERIC = 0,
-    TOKEN_SYMBOL = 1,
-    
-} token_t;
-
-
 typedef struct
 {
     const char *code;
@@ -41,41 +33,9 @@ typedef struct
 
 typedef struct
 {
-    token_t type;
-    
-} token_s;
-
-
-typedef struct s_token_list
-{
-    token_s tk;
-
-    struct s_token_list *next;
-    
-} token_list_s;
-
-typedef struct
-{
-    token_list_s *tokens;
+    form_s forms;
     
 } lex_s;
-
-
-typedef struct s_obj_list
-{
-    
-    object_s obj;
-
-    struct s_obj_list *next;
-    
-} obj_list_s;
-
-
-typedef struct
-{
-    obj_list_s *objs;
-    
-} values_s;
 
 
 
