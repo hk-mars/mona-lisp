@@ -16,7 +16,7 @@ typedef struct s_object
 {
     unsigned int type;
     
-    token_s *tokens;
+    token_s token;
 
     struct s_object *self;
 } object_s;

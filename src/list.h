@@ -11,14 +11,20 @@
 
 #include "obj.h"
 
+#include "token.h"
+
 
 typedef struct s_lisp_list
 {
     object_s obj;
 
     struct s_lisp_list *next;
+    struct s_lisp_list *front;
     
 } lisp_list_s;
+
+
+bool list_add_token(lisp_list_s *list, token_s *token);
 
 
 #endif /* ML_LIST_H */

@@ -4,6 +4,14 @@
 #define ML_TOKEN_H
 
 
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "config.h"
+
+
+
 typedef enum
 {
     TOKEN_NUMBER = 0,
@@ -51,6 +59,8 @@ typedef struct s_token_list
     
 } token_list_s;
 
+
+token_s* token_make_number(const char *code, size_t code_sz);
 
 #endif /* ML_TOKEN_H */
 

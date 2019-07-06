@@ -342,7 +342,7 @@ is_num_operator_func(const char **code, size_t *code_sz)
 
 
 static bool
-identify_token_as_func(const char **code, size_t *code_sz, identify_token_f f)
+identify_code_as_func(const char **code, size_t *code_sz, identify_token_f f)
 {
     bool found = false;
     
@@ -373,7 +373,7 @@ identify_token_as_func(const char **code, size_t *code_sz, identify_token_f f)
  * parenthesis is found to be next in the code. A list of the objects read is returned.
  */     
 static code_s
-read_list(const char *code, size_t code_sz, lex_s *lex)
+read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 {
     bool found;
     
@@ -388,6 +388,13 @@ read_list(const char *code, size_t code_sz, lex_s *lex)
 	    next_code(code, code_sz);
 	    continue;
 	}
+
+	if (check_char(*code, SPACE)) {
+
+	    /* next token */
+	    next_code(code, code_sz);
+	    continue;
+	}
 	
 	if (*code == ')') {
 
@@ -398,28 +405,45 @@ read_list(const char *code, size_t code_sz, lex_s *lex)
 
 	if (like_func(code, code_sz)) {
 
-	    found = identify_token_as_func(&code, &code_sz, is_num_operator_func);
-	    if (found) continue;
+	    found = identify_code_as_func(&code, &code_sz, is_num_operator_func);
+	    if (found) {
+
+		if (form_is_unkown(form)) {
+		    form_set_type(form, COMPOUND_FUNCTION_FORM);
+		}
+		
+		form_add_front(&lex->forms, form);
+		continue;
+	    }
 	}
-	
 
 	if (like_num_token(code, code_sz)) {
 
-	    debug("like number token \n");
+	    found = identify_code_as_func(&code, &code_sz, is_number_token);
+	    if (found) {
 
-	    found = identify_token_as_func(&code, &code_sz, is_number_token);
-	    if (found) continue;
+		/* add the number token into the list form */
+		list_add_token(form->list, token_make_number(code, code_sz));
+		
+		continue;
+	    }
 	}
 
 	if (*code == '(') {
-	
-	    code_s cd = read_list(++code, --code_sz, lex);
+
+	    form_s *f = form_create_list();
+
+	    code_s cd = read_list(++code, --code_sz, lex, f);
 	    if (!cd.code) return cd;
 
 	    code = cd.code;
 	    code_sz = cd.code_sz;
 	}
 	else {
+
+	    if (form_is_unkown(form)) {
+		form_set_type(form, SYMBOL_FORM);
+	    }
 	    
 	    found = read_symbol(&code, &code_sz);
 	}
@@ -453,8 +477,11 @@ read_macro(code_s *cd, lex_s *lex)
 	 */
 	
 	next_code(cd->code, cd->code_sz);
+
+	form_s *form = form_create_list();
+	if (!form) return false;
 	
-	code_s icode = read_list(cd->code, cd->code_sz, lex);
+	code_s icode = read_list(cd->code, cd->code_sz, lex, form);
 	if (!icode.code) return false;
 
 	cd->code = icode.code;

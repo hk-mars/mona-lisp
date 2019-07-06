@@ -16,20 +16,23 @@
 
 typedef enum
 {
-    SYMBOL_FORM = 0,
+    UNKOWN_FORM = 0,
+    
+    SYMBOL_FORM = 1,
 
-    /* 1. a non-empty list.
-     * 2. a special form.
-     * 3. a lambda form.
-     * 4. a macro form.
-     * 5. a function form.
+    /* a compound non-empty-list form:
+     * 1. a special form.
+     * 2. a lambda form.
+     * 3. a macro form.
+     * 4. a function form.
      *
      */
-    COMPOUND_FORM = 1,
+    COMPOUND_SPECIAL_FORM = 2,
+    COMPOUND_LAMBDA_FORM = 3,
+    COMPOUND_MACRO_FORM = 4,
+    COMPOUND_FUNCTION_FORM = 5,
 
-    SELF_EVALUATING_FORM = 2,
-    
-    OPERATOR_FORM = 3,
+    SELF_EVALUATING_FORM = 6,
     
 } form_t;
 
@@ -46,9 +49,24 @@ typedef struct s_form
 
     object_s *self_eval;
     
-    struct s_form *next;
+    
+    struct s_form *next; /* next form */
+    struct s_form *front; /* front form */
 
 } form_s;
+
+
+form_s* form_create(void);
+
+void form_free(form_s *form);
+
+form_s* form_create_list(void);
+
+bool form_add_front(form_s *forms, form_s *new_form);
+
+void form_set_type(form_s *form, form_t type);
+
+bool form_is_unkown(form_s *form);
 
 
 #endif /* ML_FORM_H */
