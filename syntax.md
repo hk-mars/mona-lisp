@@ -6,15 +6,15 @@
 
 Syntax with extended BNF forms:
 
-{A} means 0 or more as,
+{A}* means 0 or more A,
+
+{A}+ means one or more A,
 
 [A] means an optional A,
 
 A | B  means A or B,
 
 A B means A and B,
-
-
 
 
 ### Syntax

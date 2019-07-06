@@ -14,8 +14,11 @@
 
 typedef enum
 {
-    TOKEN_NUMBER = 0,
+    TOKEN_UNKOWN = 0,
     TOKEN_SYMBOL = 1,
+    TOKEN_NUM_INT = 2,
+    TOKEN_NUM_FLOAT = 3,
+    TOKEN_NUM_RATIO = 4,
     
 } token_t;
 

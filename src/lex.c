@@ -23,7 +23,7 @@
     (code_sz)--;
 
 
-typedef bool (*identify_token_f) (const char **code, size_t *code_sz);
+typedef bool (*identify_f) (const char **code, size_t *code_sz, void *context);
 
 
 
@@ -259,7 +259,7 @@ identify_digits(const char **code, size_t *code_sz)
     
     while (*code_sz > 0) {
 
-	if (!check_char_as_func(**code, is_digit)) {
+	if (!is_digit(**code)) {
 
 	    debug("\n");
 	    if (k > 0) {
@@ -287,21 +287,99 @@ identify_digits(const char **code, size_t *code_sz)
 
 
 static bool
-is_number_token(const char **code, size_t *code_sz)
+identify_number_token(const char **code, size_t *code_sz, void *context)
 {
+    token_s *t = (token_s*)context;
+    
+    bool is_minus = false;
+
     if (is_sign(**code)) {
 
+	is_minus = (**code == '-');
 	next_code(*code, *code_sz);
     }
+   
+    int k = 0;
 
-    int k = identify_digits(code, code_sz);
-    if (k > 0) {
+    char *c = (char*)*code;
+    
+    while (*code_sz > 0) {
+
+	if (!is_digit(**code)) {
+
+	    debug("\n");
+	    if (k > 0) {
+		debug("digits len: %d \n", k);
+
+		unsigned int x = ml_util_arr2int(c, k);
+		debug("%d \n", x);
+
+		/* [sign] {digit}+ decimal-point
+		 */
+		if (check_char(**code, '.')) {
+		    next_code(*code, *code_sz);
+
+		    if (is_digit(**code)) {
+
+			/* float */
+			t->type = TOKEN_NUM_FLOAT;
+		    }
+		    else if (is_exponent_maker(**code)) {
+
+			/* float */
+			t->type = TOKEN_NUM_FLOAT;
+		    }
+		    else {
+
+			/* integer */
+			t->type = TOKEN_NUM_INT;
+		    }
+		}
+		else if (check_char(**code, '/')) {  
+		    next_code(*code, *code_sz);
+
+		    if (is_digit(**code)) {
+
+			/* ratio */
+			t->type = TOKEN_NUM_RATIO;
+			
+		    }
+		    else {
+			
+			return false;
+		    }
+			
+		}		
+		else {
+
+		    /* integer */
+		    t->type = TOKEN_NUM_INT;
+		}
+		
+		break;
+		
+	    }
+	    else {
+
+		/* float */
+		t->type = TOKEN_NUM_FLOAT;
+	    }
+	    
+	    break;
+	}
+
+	debug("%c ", **code);
+	
+	k++;
+	next_code(*code, *code_sz);
+    }    
+    
+    if (t->type != TOKEN_UNKOWN) {
 
 	func_ok();
 	return true;
     }
-	
-
+    
     return false;
 }
 
@@ -342,15 +420,15 @@ is_num_operator_func(const char **code, size_t *code_sz)
 
 
 static bool
-identify_code_as_func(const char **code, size_t *code_sz, identify_token_f f)
+identify_code_as_func(const char **code, size_t *code_sz, identify_f f, void *context)
 {
     bool found = false;
     
     code_s mycode = { *code, *code_sz };
     
     stack_push(&mycode, sizeof(code_s));
-   
-    if (f(code, code_sz)) {
+
+    if (f(code, code_sz, context)) {
 	
 	found = true;
     }
@@ -405,7 +483,7 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 
 	if (like_func(code, code_sz)) {
 
-	    found = identify_code_as_func(&code, &code_sz, is_num_operator_func);
+	    found = identify_code_as_func(&code, &code_sz, is_num_operator_func, NULL);
 	    if (found) {
 
 		if (form_is_unkown(form)) {
@@ -419,11 +497,12 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 
 	if (like_num_token(code, code_sz)) {
 
-	    found = identify_code_as_func(&code, &code_sz, is_number_token);
+	    token_s *token = token_make_number(code, code_sz);
+	    found = identify_code_as_func(&code, &code_sz, identify_number_token, token);
 	    if (found) {
 
 		/* add the number token into the list form */
-		list_add_token(form->list, token_make_number(code, code_sz));
+		list_add_token(form->list, token);
 		
 		continue;
 	    }

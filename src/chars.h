@@ -104,8 +104,6 @@
 
 #define check_char(i, who) ((i) == (who))
 
-#define check_char_as_func(i, who_i_am) (who_i_am((i)))
-
 #define is_sign(x) (check_char(x, '-') || check_char(x, '+'))
 
 #define is_exponent_maker(x)					\
