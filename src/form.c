@@ -41,6 +41,21 @@ form_create_list(void)
 }
 
 
+form_s*
+form_create_symbol(void)
+{
+    form_s *f;
+
+    f = form_create();
+    if (!f) return NULL;
+
+    f->symbol = ml_malloc(sizeof(symbol_s));
+    if (!f->symbol) return NULL;
+
+    return f;
+}
+
+
 bool
 form_add_front(form_s *forms, form_s *new_form)
 {

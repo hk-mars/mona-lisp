@@ -9,14 +9,24 @@
 
 
 token_s*
-token_make_number(const char *code, size_t code_sz)
+token_create(void)
 {
     token_s *t = (token_s*)ml_malloc(sizeof(token_s));
     if (!t) return NULL;
-
 
     func_ok();
     return t;
 }
 
+
+token_s* token_clone(token_s *token)
+{
+    token_s *t = (token_s*)ml_malloc(sizeof(token_s));
+    if (!t) return NULL;
+    
+    memcpy(t, token, sizeof(token_s));
+
+    func_ok();
+    return t;
+}
 

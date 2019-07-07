@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "config.h"
 
@@ -63,7 +64,9 @@ typedef struct s_token_list
 } token_list_s;
 
 
-token_s* token_make_number(const char *code, size_t code_sz);
+token_s* token_create(void);
+
+token_s* token_clone(token_s *token);
 
 #endif /* ML_TOKEN_H */
 
