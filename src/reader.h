@@ -18,6 +18,7 @@ typedef enum
     READER_ERR = 1,
     READER_ERR_NULL = 2,
     READER_ERR_LEX = 3,
+    READER_ERR_EVAL = 4,
         
 } reader_rt_t;
 

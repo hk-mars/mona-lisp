@@ -10,6 +10,7 @@
 
 #include "mem.h"
 
+#include "eval.h"
 
 
 /**
@@ -122,6 +123,11 @@ ml_reader_load_file(reader_s *reader, const char *fname)
     lex_rt_t lex_rt = ml_lex(&reader->lex, &reader->cd);
     if (lex_rt != LEX_OK) return READER_ERR_LEX;
 
+
+    /* eval
+     */
+    eval_rt_t eval_rt = eval(&reader->lex.forms);
+    if (eval_rt != EVAL_OK) return READER_ERR_EVAL;
     
     func_ok();
 
