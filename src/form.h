@@ -71,6 +71,8 @@ void form_set_type(form_s *form, form_t type);
 
 bool form_is_unkown(form_s *form);
 
+void form_show(form_s *form);
+
 
 #endif /* ML_FORM_H */
 

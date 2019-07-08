@@ -37,6 +37,8 @@ form_create_list(void)
     f->list = ml_malloc(sizeof(lisp_list_s));
     if (!f->list) return NULL;
 
+    f->list->obj.type = OBJ_LIST;
+    
     return f;
 }
 
@@ -64,6 +66,7 @@ form_add_front(form_s *forms, form_s *new_form)
     if (!forms->front) {
 
 	forms->next = new_form;
+	forms->front = new_form; 
 	new_form->front = forms;
 	new_form->next = forms;
     }
@@ -72,6 +75,7 @@ form_add_front(form_s *forms, form_s *new_form)
 	forms->front->next = new_form;
 	new_form->front = forms->front;
 	new_form->next = forms;
+	forms->front = new_form;
     }
 
     func_ok();
@@ -94,4 +98,41 @@ form_is_unkown(form_s *form)
     return (form->type == UNKOWN_FORM);
 }
 
+
+void
+form_show(form_s *form)
+{
+    if (!form) return;
+
+    func_s();
+
+    form_s *f = form->next;
+    
+    while (f != form) {
+
+	switch (f->type) {
+
+	case SYMBOL_FORM:
+	    debug_err("SYMBOL_FORM \n");
+	    
+	    break;
+
+	case COMPOUND_FUNCTION_FORM:
+	    debug_err("COMPOUND_FUNCTION_FORM \n");
+	    
+	    break;
+
+	    
+	default:
+	    debug_err("unkown form \n");
+	    break;
+
+	}
+	
+	
+	f = f->next;
+    }
+
+    func_ok();
+}
 
