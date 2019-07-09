@@ -46,6 +46,15 @@ proc_buf_overflow(void)
 }
 
 
+static void
+proc_divide_zero(void)
+{
+    func_s();
+    
+    /* TODO: process for deviding zero */
+    while (1);
+}
+
 
 void
 ml_err_signal(ml_err_t err)
@@ -72,6 +81,11 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_BUF_OVERFLOW:
 
 	proc_buf_overflow();
+	break;
+
+    case ML_ERR_EVAL_DIVIDE_ZERO:
+
+	proc_divide_zero();
 	break;
 
     default:

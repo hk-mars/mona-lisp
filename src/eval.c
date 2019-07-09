@@ -8,6 +8,10 @@
 
 #include "error.h"
 
+#include "list.h"
+
+#include "token.h"
+
 
 
 /** 
@@ -30,6 +34,156 @@
  */
 
 
+static bool
+arithmetic_add(void *left, void *right)
+{
+    func_s();
+
+    eval_value_s  *l = left;
+    eval_value_s  *r = right;
+
+
+    if (l->type  == TOKEN_UNKOWN) {
+
+	l->value.num_int = r->value.num_int;
+	l->type = r->type;
+    }
+    else {
+
+	l->value.num_int += r->value.num_int;
+    }
+    
+
+    debug("cur val: %d \n", l->value.num_int);
+    
+    return true;
+}
+
+
+static bool
+arithmetic_minus(void *left, void *right)
+{
+    func_s();
+
+    eval_value_s  *l = left;
+    eval_value_s  *r = right;
+
+
+    if (l->type  == TOKEN_UNKOWN) {
+
+	l->value.num_int = r->value.num_int;
+	l->type = r->type;
+    }
+    else {
+
+	l->value.num_int -= r->value.num_int;
+    }
+    
+
+    debug("cur val: %d \n", l->value.num_int);
+    
+    return true;
+}
+
+
+static bool
+arithmetic_product(void *left, void *right)
+{
+    func_s();
+
+    eval_value_s  *l = left;
+    eval_value_s  *r = right;
+
+
+    if (l->type  == TOKEN_UNKOWN) {
+
+	l->value.num_int = r->value.num_int;
+	l->type = r->type;
+    }
+    else {
+
+	l->value.num_int *= r->value.num_int;
+    }
+    
+
+    debug("cur val: %d \n", l->value.num_int);
+    
+    return true;
+}
+
+
+static bool
+arithmetic_divide(void *left, void *right)
+{
+    func_s();
+
+    eval_value_s  *l = left;
+    eval_value_s  *r = right;
+
+
+    if (l->type  == TOKEN_UNKOWN) {
+
+	l->value.num_int = r->value.num_int;
+	l->type = r->type;
+    }
+    else {
+
+	if (r->value.num_int == 0) {
+	    
+	    debug_err("error: divide zero \n");
+	    ml_err_signal(ML_ERR_EVAL_DIVIDE_ZERO);
+	    return false;
+	}
+	
+	l->value.num_int /= r->value.num_int;
+    }
+    
+
+    debug("cur val: %d \n", l->value.num_int);
+    
+    return true;
+}
+
+
+
+typedef bool (*eval_func_f)(void *left, void *right);
+
+typedef struct
+{
+    char *name;
+    
+    eval_func_f f;
+    
+} eval_func_s;
+
+
+static const eval_func_s m_funcs[] =
+{
+    { "+", arithmetic_add },
+    { "-", arithmetic_minus },
+    { "*", arithmetic_product },
+    { "/", arithmetic_divide },
+    
+
+};
+
+
+
+eval_func_f
+match_func(char *name)
+{
+    int len = (int)sizeof(m_funcs) / sizeof(m_funcs[0]);
+    for (int i = 0; i < len; i++) {
+
+	if (!strcmp(name, m_funcs[i].name)) return m_funcs[i].f;
+	
+    }
+
+    return NULL;
+}
+
+
+
 /**
  * The rule of evaluating a function form:
  * The subforms in the cdr of the original form are evaluated in left-to-right 
@@ -39,11 +193,56 @@
  *
  */
 static eval_rt_t
-eval_function_form(form_s *form)
+eval_function_form(form_s *form, eval_value_s *val)
 {
-    func_s();
-    
+    lisp_list_s *l;
 
+    func_s();
+
+    l = form->list->next;
+
+    debug("%s \n", l->obj.token.value.symbol);
+
+    eval_func_f f = match_func(l->obj.token.value.symbol);
+    if (!f) {
+
+	debug_err("undefined function \n");
+	
+	return EVAL_ERR;
+    }
+
+    l = l->next;
+    
+    while (l && l != form->list) {
+
+	if (l->obj.type == OBJ_LIST) {
+
+	    debug("OBJ_LIST \n");
+	    
+	    eval_value_s value;
+	    memset(&value, 0, sizeof(eval_value_s));
+	    
+	    eval_rt_t rt = eval_function_form(form->next, &value);
+	    if (rt != EVAL_OK) return rt;
+
+	    debug("val: %d, val2: %d \n", val->value.num_int, value.value.num_int);
+	    f(val, &value);
+	}
+	else if (l->obj.type == OBJ_TYPE) {
+
+	    f(val, &l->obj.token);
+
+	}
+	else {
+
+	    debug("unkown object, type: %d \n", l->obj.type);
+	}
+
+	
+	l = l->next;
+    }
+
+    
     func_ok();
 
     return EVAL_OK;
@@ -54,6 +253,7 @@ eval_rt_t
 eval(form_s *forms)
 {
     eval_rt_t rt;
+    eval_value_s value;
     
     if (!forms) return EVAL_ERR_NULL;
 
@@ -61,13 +261,16 @@ eval(form_s *forms)
 
     form_s *f = forms->next;
 
-    while (f && f != forms) {
+    //while (f && f != forms) {
 
 	switch (f->type) {
 
 	case COMPOUND_FUNCTION_FORM:
 
-	    rt = eval_function_form(f);
+	    
+	    memset(&value, 0, sizeof(eval_value_s));
+	    
+	    rt = eval_function_form(f, &value);
 	    if (rt != EVAL_OK) {
 		
 		ml_err_signal(ML_ERR_EVAL);
@@ -82,8 +285,8 @@ eval(form_s *forms)
 	    
 	}
 
-	f = f->next;
-    }
+	//f = f->next;
+	//}
     
 
 

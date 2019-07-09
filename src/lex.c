@@ -404,12 +404,14 @@ static bool
 identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 {
     token_s *t;
+    char c;
     
     if (!check_char(**code, '+') && !check_char(**code, '-') &&
 	!check_char(**code, '*') && !check_char(**code, '/')) {
 
 	return false;
     }
+    c = **code;
     next_code(*code, *code_sz);
     if (*code_sz == 0) goto DONE;
 
@@ -439,7 +441,7 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
     size_t len = 2;
     t->type = TOKEN_SYMBOL;
     t->value.symbol = (char*)ml_malloc(len);
-    t->value.symbol[0] = **code;
+    t->value.symbol[0] = c;
 
         
     if (form_is_unkown(form)) {
@@ -536,7 +538,12 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 
 	if (*code == '(') {
 
+	    token_s *t = token_create();
+	    list_add_token(form->list, t);
+	    form->list->front->obj.type = OBJ_LIST;
+	    
 	    form_s *f = form_create_list();
+	    form->sub = f;
 
 	    code_s cd = read_list(++code, --code_sz, lex, f);
 	    if (!cd.code) return cd;

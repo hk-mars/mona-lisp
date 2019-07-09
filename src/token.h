@@ -42,7 +42,6 @@ typedef union
     float num_float;
 
     ratio_s num_ratio;
-    
 } token_value_s;
 
 

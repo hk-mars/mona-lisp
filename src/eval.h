@@ -12,6 +12,8 @@
 
 #include "form.h"
 
+#include "token.h"
+
 
 typedef enum
 {
@@ -20,6 +22,9 @@ typedef enum
     EVAL_ERR_NULL = 2,
     
 } eval_rt_t;
+
+
+typedef token_s eval_value_s;
 
 
 eval_rt_t eval(form_s *forms);

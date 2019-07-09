@@ -53,6 +53,8 @@ typedef struct s_form
     
     struct s_form *next; /* next form */
     struct s_form *front; /* front form */
+    struct s_form *sub; /* sub form */
+    
 
 } form_s;
 
