@@ -17,7 +17,7 @@ token_create(void)
     func_ok();
     return t;
 }
-
+ 
 
 token_s*
 token_clone(token_s *token)

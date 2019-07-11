@@ -153,7 +153,22 @@ Syntax:
 
 Returns the sum of numbers
 
-[REF](http://www.lispworks.com/documentation/HyperSpec/Body/f_pl.htm)
+[More...](http://www.lispworks.com/documentation/HyperSpec/Body/f_pl.htm)
+
+
+- Function SET
+
+setf {pair}* => result*
+
+place---a place.
+
+newvalue---a form.
+
+results---the multiple values[2] returned by the storing form for the last place, 
+or nil if there are no pairs.
+
+[More...](http://www.lispworks.com/documentation/HyperSpec/Body/m_setf_.htm#setf)
+
 
 
 				   

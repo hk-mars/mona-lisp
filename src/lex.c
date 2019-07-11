@@ -542,7 +542,7 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 	    list_add_token(form->list, t);
 	    form->list->front->obj.type = OBJ_LIST;
 	    
-	    form_s *f = form_create_list();
+	    form_s *f = form_create();
 	    form->sub = f;
 
 	    code_s cd = read_list(++code, --code_sz, lex, f);
@@ -558,6 +558,10 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 	    }
 	    
 	    found = read_symbol(&code, &code_sz);
+
+	    form_create_symbol(form);
+
+	    /* TODO */
 
 	    form_add_front(&lex->forms, form);
 	}
@@ -592,7 +596,7 @@ read_macro(code_s *cd, lex_s *lex)
 	
 	next_code(cd->code, cd->code_sz);
 
-	form_s *form = form_create_list();
+	form_s *form = form_create();
 	if (!form) return false;
 	
 	code_s icode = read_list(cd->code, cd->code_sz, lex, form);

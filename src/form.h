@@ -61,11 +61,9 @@ typedef struct s_form
 
 form_s* form_create(void);
 
+bool form_create_symbol(form_s *form);
+
 void form_free(form_s *form);
-
-form_s* form_create_list(void);
-
-form_s* form_create_symbol(void);
 
 bool form_add_front(form_s *forms, form_s *new_form);
 
