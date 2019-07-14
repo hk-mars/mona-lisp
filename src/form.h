@@ -34,8 +34,16 @@ typedef enum
     COMPOUND_FUNCTION_FORM = 5,
 
     SELF_EVALUATING_FORM = 6,
-    
+
 } form_t;
+
+
+typedef enum
+{
+    SYMBOL_MACRO_FORM = 1,
+    SYMBOL_VARIABLE_FORM = 2,
+    
+} symbol_form_t;
 
 
 /* a form is any object meant to be evaluated.
@@ -43,6 +51,7 @@ typedef enum
 typedef struct s_form
 {
     form_t type;
+    unsigned char sub_type; /* the sub type of this form */
 
     symbol_s *symbol;
     

@@ -156,7 +156,7 @@ Returns the sum of numbers
 [More...](http://www.lispworks.com/documentation/HyperSpec/Body/f_pl.htm)
 
 
-- Function SET
+- Macro SETF
 
 setf {pair}* => result*
 
@@ -170,7 +170,17 @@ or nil if there are no pairs.
 [More...](http://www.lispworks.com/documentation/HyperSpec/Body/m_setf_.htm#setf)
 
 
+- Special Form SETQ
 
+setq {pair}* => result
+
+pair::= var form 
+
+var---a symbol naming a variable other than a constant variable.
+
+form---a form.
+
+result---the primary value of the last form, or nil if no pairs were supplied.
 				   
 				   
 				   

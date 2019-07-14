@@ -12,6 +12,8 @@
 
 #include "token.h"
 
+#include "variable.h"
+
 
 
 /** 
@@ -250,6 +252,42 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 
 eval_rt_t
+eval_symbol_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+
+    func_s();
+
+    l = form->list->next;
+
+    debug("%s \n", l->obj.token.value.symbol);
+    
+    const var_binder_s *binder = var_match_binder(l->obj.token.value.symbol);
+    if (!binder) {
+
+	debug_err("undefined binder \n");
+	
+	return EVAL_ERR;
+    }
+
+    if (!binder->bind) {
+
+	debug_err("binding function is null \n");
+	
+	return EVAL_ERR;
+    }
+
+    variable_s var;
+    binder->bind(&var, form->list);  
+    
+    func_ok();
+
+    return EVAL_OK;
+}
+
+
+
+eval_rt_t
 eval(form_s *forms)
 {
     eval_rt_t rt;
@@ -263,12 +301,11 @@ eval(form_s *forms)
 
     //while (f && f != forms) {
 
+    memset(&value, 0, sizeof(eval_value_s));
+    
 	switch (f->type) {
 
 	case COMPOUND_FUNCTION_FORM:
-
-	    
-	    memset(&value, 0, sizeof(eval_value_s));
 	    
 	    rt = eval_function_form(f, &value);
 	    if (rt != EVAL_OK) {
@@ -279,7 +316,15 @@ eval(form_s *forms)
 	    
 	    break;
 
+	case SYMBOL_FORM:
 
+	  rt = eval_symbol_form(f, &value); 
+	  if (rt != EVAL_OK) {
+		
+	    ml_err_signal(ML_ERR_EVAL);
+	    return EVAL_ERR;
+	  }
+	    
 	default:
 	    break;
 	    

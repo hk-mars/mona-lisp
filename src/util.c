@@ -9,6 +9,20 @@
 #include "error.h"
 
 
+char*
+ml_util_buf2str(const char *buf, size_t len)
+{
+    if (!buf) return NULL;
+    
+    char *s = ml_malloc(len+1);
+    if (!s) return NULL;
+
+    memcpy(s, buf, len);
+    s[len] = 0;
+
+    return s;
+}
+
 
 char*
 ml_util_strdup(const char *str)

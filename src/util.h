@@ -11,6 +11,11 @@
 #include "config.h"
 
 
+#define ARR_LEN(array) (sizeof(array) / sizeof(array[0]))
+
+
+char* ml_util_buf2str(const char *buf, size_t len);
+
 char* ml_util_strdup(const char *str);
 
 void ml_util_show_buf(char *buf, size_t size);

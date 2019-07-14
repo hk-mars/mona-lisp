@@ -57,8 +57,6 @@ form_create_symbol(form_s *form)
 {
     form->symbol = ml_malloc(sizeof(symbol_s));
     if (!form->symbol) return false;
-
-    form->type = SYMBOL_FORM;
     
     return true;
 }

@@ -19,6 +19,9 @@
 
 #include "token.h"
 
+#include "variable.h"
+
+
 
 #define next_code(code, code_sz) \
     (code)++;			 \
@@ -141,22 +144,48 @@ read_comments(const char **code, size_t *code_sz)
 
 
 static bool
-read_symbol(const char **code, size_t *code_sz)
+read_symbol(const char **code, size_t *code_sz, form_s *form)
 {
+    token_s token;
+    
+    const char *buf = *code;
+    
     func_s();
 
+    memset(&token, 0, sizeof(token_s));
+    
     while (*code_sz > 0) {
 
 	debug("0x%02x %c \n", **code, **code);
 	
 	if (check_char(**code, SPACE) || check_char(**code, ')')) {
 
+	    
+	    token.value.symbol = ml_util_buf2str(buf, *code - buf);
+	    if (token.value.symbol) {
+
+		debug("symbol: %s \n", token.value.symbol);
+		token.type = TOKEN_SYMBOL;
+	    }
+	    
+			    
 	    if (check_char(**code, SPACE)) {
 		next_code(*code, *code_sz);
 	    }
+
+
+	    if (token.type != TOKEN_UNKOWN) {
+
+		token_s *t = token_clone(&token);
+
+		/* add the symbol token into the list form */
+		list_add_token(form->list, t);	
+	
+		func_ok();
+		return true;
+	    }
 	    
-	    func_ok();
-	    return true;
+	    return false;
 	}
 
 	next_code(*code, *code_sz);
@@ -556,14 +585,26 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 	    if (form_is_unkown(form)) {
 		form_set_type(form, SYMBOL_FORM);
 	    }
+
+	    //form_create_symbol(form);
 	    
-	    found = read_symbol(&code, &code_sz);
+	    found = read_symbol(&code, &code_sz, form);
+	    if (!found) break;
 
-	    form_create_symbol(form);
+	    const var_binder_s *binder = var_match_binder(form->list->next->obj.token.value.symbol);
+	    if (binder) {
 
-	    /* TODO */
+		form->sub_type = SYMBOL_VARIABLE_FORM;
 
-	    form_add_front(&lex->forms, form);
+		debug("%s \n", form->list->next->obj.token.value.symbol);
+		
+		form_add_front(&lex->forms, form);
+	    }
+	    else {
+
+		form->sub_type = SYMBOL_MACRO_FORM;
+	    }
+	    
 	}
 	
     }
