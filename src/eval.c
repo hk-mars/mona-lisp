@@ -201,8 +201,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 
     func_s();
 
-    l = form->list->next;
+    
+    if (!form->list->next) {
 
+	debug("null form \n");
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
+    
     debug("%s \n", l->obj.token.value.symbol);
 
     eval_func_f f = match_func(l->obj.token.value.symbol);
@@ -220,11 +227,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 	if (l->obj.type == OBJ_LIST) {
 
 	    debug("OBJ_LIST \n");
+
+	    if (form->sub) {
+		debug("eval sub_form \n");
+	    }
 	    
 	    eval_value_s value;
 	    memset(&value, 0, sizeof(eval_value_s));
 	    
-	    eval_rt_t rt = eval_function_form(form->next, &value);
+	    eval_rt_t rt = eval_function_form(form->sub->next, &value);
 	    if (rt != EVAL_OK) return rt;
 
 	    debug("val: %d, val2: %d \n", val->value.num_int, value.value.num_int);
@@ -299,9 +310,9 @@ eval(form_s *forms)
 
     form_s *f = forms->next;
 
-    //while (f && f != forms) {
-
-    memset(&value, 0, sizeof(eval_value_s));
+    while (f && f != forms) {
+	
+	memset(&value, 0, sizeof(eval_value_s));
     
 	switch (f->type) {
 
@@ -318,20 +329,20 @@ eval(form_s *forms)
 
 	case SYMBOL_FORM:
 
-	  rt = eval_symbol_form(f, &value); 
-	  if (rt != EVAL_OK) {
+	    rt = eval_symbol_form(f, &value); 
+	    if (rt != EVAL_OK) {
 		
-	    ml_err_signal(ML_ERR_EVAL);
-	    return EVAL_ERR;
-	  }
+		ml_err_signal(ML_ERR_EVAL);
+		return EVAL_ERR;
+	    }
 	    
 	default:
 	    break;
 	    
 	}
 
-	//f = f->next;
-	//}
+	f = f->next;
+    }
     
 
 

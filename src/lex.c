@@ -514,7 +514,7 @@ identify_code_as_func(const char **code, size_t *code_sz,
  * parenthesis is found to be next in the code. A list of the objects read is returned.
  */     
 static code_s
-read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
+read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 {
     bool found;
     
@@ -550,7 +550,7 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 					  identify_arithmetic_operator, form);
 	    if (found) {
 
-		form_add_front(&lex->forms, form);
+		form_add_front(form_head, form);
 		continue;
 	    }
 	}
@@ -574,7 +574,7 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 	    form_s *f = form_create();
 	    form->sub = f;
 
-	    code_s cd = read_list(++code, --code_sz, lex, f);
+	    code_s cd = read_list(++code, --code_sz, f, form_create());
 	    if (!cd.code) return cd;
 
 	    code = cd.code;
@@ -591,14 +591,16 @@ read_list(const char *code, size_t code_sz, lex_s *lex, form_s *form)
 	    found = read_symbol(&code, &code_sz, form);
 	    if (!found) break;
 
-	    const var_binder_s *binder = var_match_binder(form->list->next->obj.token.value.symbol);
+	    
+	    const var_binder_s *binder;
+	    binder = var_match_binder(form->list->next->obj.token.value.symbol);
 	    if (binder) {
 
 		form->sub_type = SYMBOL_VARIABLE_FORM;
 
 		debug("%s \n", form->list->next->obj.token.value.symbol);
 		
-		form_add_front(&lex->forms, form);
+		form_add_front(form_head, form);
 	    }
 	    else {
 
@@ -640,7 +642,7 @@ read_macro(code_s *cd, lex_s *lex)
 	form_s *form = form_create();
 	if (!form) return false;
 	
-	code_s icode = read_list(cd->code, cd->code_sz, lex, form);
+	code_s icode = read_list(cd->code, cd->code_sz, &lex->forms, form);
 	if (!icode.code) return false;
 
 	cd->code = icode.code;
