@@ -228,14 +228,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 	    debug("OBJ_LIST \n");
 
-	    if (form->sub) {
+	    form_s *subform = l->obj.sub;
+	    if (subform) {
 		debug("eval sub_form \n");
 	    }
 	    
 	    eval_value_s value;
 	    memset(&value, 0, sizeof(eval_value_s));
 	    
-	    eval_rt_t rt = eval_function_form(form->sub->next, &value);
+	    eval_rt_t rt = eval_function_form(subform->next, &value);
 	    if (rt != EVAL_OK) return rt;
 
 	    debug("val: %d, val2: %d \n", val->value.num_int, value.value.num_int);
@@ -243,6 +244,8 @@ eval_function_form(form_s *form, eval_value_s *val)
 	}
 	else if (l->obj.type == OBJ_TYPE) {
 
+	    debug("OBJ_TYPE \n");
+	    
 	    f(val, &l->obj.token);
 
 	}
@@ -324,6 +327,8 @@ eval(form_s *forms)
 		ml_err_signal(ML_ERR_EVAL);
 		return EVAL_ERR;
 	    }
+
+	    memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
 	    
 	    break;
 
@@ -335,6 +340,10 @@ eval(form_s *forms)
 		ml_err_signal(ML_ERR_EVAL);
 		return EVAL_ERR;
 	    }
+
+	    memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+
+	    break;
 	    
 	default:
 	    break;

@@ -55,8 +55,8 @@ typedef struct
 {
     char *var_name;
 
-    form_s *form;
-    
+    var_value_s val;
+  
 } pair_s;
 
 

@@ -572,7 +572,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    form->list->front->obj.type = OBJ_LIST;
 	    
 	    form_s *f = form_create();
-	    form->sub = f;
+	    form->list->front->obj.sub = (void*)f;
 
 	    code_s cd = read_list(++code, --code_sz, f, form_create());
 	    if (!cd.code) return cd;
@@ -586,14 +586,12 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 		form_set_type(form, SYMBOL_FORM);
 	    }
 
-	    //form_create_symbol(form);
-	    
 	    found = read_symbol(&code, &code_sz, form);
 	    if (!found) break;
 
 	    
 	    const var_binder_s *binder;
-	    binder = var_match_binder(form->list->next->obj.token.value.symbol);
+	    binder = var_match_binder(form->list->front->obj.token.value.symbol);
 	    if (binder) {
 
 		form->sub_type = SYMBOL_VARIABLE_FORM;

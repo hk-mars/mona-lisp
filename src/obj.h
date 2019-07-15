@@ -31,7 +31,10 @@ typedef struct s_object
     
     token_s token;
 
-    struct s_object *self;
+    void *self;
+
+    void *sub;
+    
 } object_s;
 
 

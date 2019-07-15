@@ -59,10 +59,8 @@ typedef struct s_form
 
     object_s *self_eval;
     
-    
     struct s_form *next; /* next form */
     struct s_form *front; /* front form */
-    struct s_form *sub; /* sub form */
     
 } form_s;
 
