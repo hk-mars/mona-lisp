@@ -12,9 +12,22 @@
 
 #include "eval.h"
 
+#include "hsearch.h"
+
+#include "mem.h"
+
+
+/* TODO: bin-tree is more extensible than hash-table when there are frequent
+ * deletion and resize operations.
+ */
+static hash_table_s m_lexical_htab;  /* hash table for lexical variables */
+static hash_table_s m_dynamic_htab;  /* hash table for dynamic variables */
+static hash_table_s m_constant_htab;  /* hash table for constants */
 
 
 static bool binding_setq(variable_s *var, void *context);
+
+static bool binding_defconstant(variable_s *var, void *context);
 
 const var_binder_s m_binders[] =
 {
@@ -28,7 +41,7 @@ const var_binder_s m_binders[] =
     
     { "defvar", NULL },
     
-    { "defconstant", NULL },
+    { "defconstant", binding_defconstant },
     
     { "lambda", NULL },
 
@@ -143,7 +156,18 @@ binding_setq(variable_s *var, void *context)
 
 
 	if (i%2 == 0) {
+	    
 	    show_setq_pair(&pair);
+
+	    var->name = pair.var_name;
+	    memcpy(&var->val, &pair.val, sizeof(var_value_s));
+
+	    var->type = VAR_LEXICAL;
+	    
+	    if (!var_add(var)) {
+
+		return false;
+	    }
 	}
 	
 	l = l->next;
@@ -153,6 +177,61 @@ binding_setq(variable_s *var, void *context)
     func_ok();
     return true;
 }
+
+
+static bool
+binding_defconstant(variable_s *var, void *context)
+{
+    lisp_list_s *head = (lisp_list_s*)context;
+    lisp_list_s *l;
+    int i;
+ 
+    func_s();
+
+    i = 1;
+    l = head->next->next->next;
+    while (l && l != head) {
+
+	i++;
+	
+	if (l->obj.type == OBJ_LIST) {
+
+	    debug("OBJ_LIST \n");
+
+	   
+	}
+	else if (l->obj.type == OBJ_TYPE) {
+
+	    debug("OBJ_TYPE \n");
+
+	    if (i%2 == 0) {
+		
+		var->name = l->front->obj.token.value.symbol;
+	    }
+	}
+	else {
+
+	    debug("unkown object, type: %d \n", l->obj.type);
+
+	    ml_err_signal(ML_ERR_BIND_VARIABLE);
+
+	    return false;
+	}
+	
+	l = l->next;
+    }    
+
+    
+    var->type = VAR_CONSTANT;
+    if (!var_add(var)) {
+
+	return false;
+    }
+    
+    func_ok();
+    return true;
+}
+
 
 
 const var_binder_s*
@@ -174,3 +253,133 @@ var_match_binder(const char *defined_name)
 }
 
 
+
+var_rt_t
+var_init(void)
+{
+    int rt;
+    
+    func_s();
+
+    memset(&m_lexical_htab, 0, sizeof(hash_table_s));
+    rt = hcreate(&m_lexical_htab, 1024);
+    if(!rt) return VAL_ERR_CREATE_HTAB;    
+
+    memset(&m_dynamic_htab, 0, sizeof(hash_table_s));
+    rt = hcreate(&m_dynamic_htab, 1024);
+    if(!rt) return VAL_ERR_CREATE_HTAB;       
+
+    memset(&m_constant_htab, 0, sizeof(hash_table_s));
+    rt = hcreate(&m_constant_htab, 1024);
+    if(!rt) return VAL_ERR_CREATE_HTAB;
+    
+    
+    func_ok();
+    return VAR_OK;
+}
+
+
+
+/** 
+ * add variable
+ */
+bool
+var_add(variable_s *var)
+{
+    htab_entry_s *entry_rt;
+    htab_entry_s entry;
+
+    func_s();
+    
+    debug("var->name: %s \n", var->name);
+    
+    entry.key = var->name;
+    entry_rt = hsearch(&m_lexical_htab, entry, FIND);
+    if (entry_rt) {
+
+	debug_err("varible %s has existed \n", var->name);
+
+	return false;
+    }
+
+    variable_s *v = (variable_s*)ml_malloc(sizeof(variable_s));
+    if (!v) return false;
+    
+    memcpy(v, var, sizeof(variable_s));
+      
+    entry.key = v->name;
+    entry.data = v;
+    entry_rt = hsearch(&m_lexical_htab, entry, ENTER);
+    if (!entry_rt) {
+
+	debug_err("push varible %s into hash table, failed \n", v->name);
+
+	ml_free(v);
+	return false;
+    }
+    
+    //var_get(v->name);
+    
+    func_ok();
+    return true;
+}
+
+
+/** 
+ * delete variable as name
+ */
+bool
+var_delete(char *name)
+{
+
+    func_ok();
+    return true;
+}
+
+
+/** 
+ * get variable as name
+ */
+variable_s*
+var_get(char *name)
+{
+    variable_s *var;
+    htab_entry_s *entry_rt;
+    htab_entry_s entry;
+
+    func_s();
+    
+    debug("name: %s \n", name);
+    
+    entry.key = name;
+    
+    entry_rt = hsearch(&m_lexical_htab, entry, FIND);
+    if (entry_rt) {
+
+	goto FOUND;
+    }
+    
+    entry_rt = hsearch(&m_constant_htab, entry, FIND);
+    if (entry_rt) {
+   
+	goto FOUND;
+    }
+
+    return NULL;
+
+  FOUND:
+    func_ok();
+    return entry_rt->data;;
+}
+
+
+/** 
+ * update value of variable
+ */
+bool
+var_update(var_value_s *value)
+{
+
+    func_ok();
+    return true;
+}

@@ -16,6 +16,7 @@ typedef enum
     LISP_ERR_LEX = 2,
     LISP_ERR_READER = 3,
     LISP_ERR_STACK = 4,
+    LISP_ERR_VAR = 5,
     
 } lisp_rt_t;
 

@@ -183,9 +183,18 @@ form---a form.
 result---the primary value of the last form, or nil if no pairs were supplied.
 				   
 				   
-				   
+- Macro DEFCONSTANT
 
+**defconstant** name initial-value [documentation] => name				   
 
+name---a symbol; not evaluated.
 
+initial-value---a form; evaluated.
+
+documentation---a string; not evaluated.
+
+Tip: show the documentation string of a variable:
+
+> (documentation 'name 'variable)
 	
 

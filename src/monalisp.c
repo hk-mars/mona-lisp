@@ -9,6 +9,8 @@
 
 #include "stack.h"
 
+#include "variable.h"
+
 
 
 #define VER "1.0.0"
@@ -96,6 +98,15 @@ ml_init(void)
 	debug_err("err: %d, stack init failed", stack_rt);
 	return LISP_ERR_STACK;
     }
+
+
+    var_rt_t var_rt = var_init();
+    if (var_rt != VAR_OK) {
+
+	debug_err("err: %d, var init failed", var_rt);
+	return LISP_ERR_VAR;
+    }
+    
 	
     lex_rt_t rt = ml_lex_init();
     if (rt != LEX_OK) return LISP_ERR_LEX;
@@ -104,6 +115,7 @@ ml_init(void)
     reader_rt_t reader_rt = ml_reader_init();
     if (reader_rt != READER_OK) return LISP_ERR_READER;
 
+    
 
     func_ok();
     
