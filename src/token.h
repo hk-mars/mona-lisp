@@ -54,18 +54,11 @@ typedef struct
 } token_s;
 
 
-typedef struct s_token_list
-{
-    token_s tk;
-
-    struct s_token_list *next;
-    
-} token_list_s;
-
-
 token_s* token_create(void);
 
 token_s* token_clone(token_s *token);
+
+void token_show(token_s *token);
 
 #endif /* ML_TOKEN_H */
 

@@ -41,7 +41,9 @@
 ;(setq x 1 y 2)
 ;(setq x (+ 1 2) y (* 2 3))
 
-(defconstant myname "Toby M.")
+;(defconstant myname
+;  ; this is my english name
+;  "Toby M.")
 
 
 

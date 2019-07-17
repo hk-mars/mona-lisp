@@ -198,7 +198,20 @@ binding_defconstant(variable_s *var, void *context)
 
 	    debug("OBJ_LIST \n");
 
-	   
+	    if (i%2 != 0) {
+
+	        debug_err("should be symbol but not list form \n");
+		ml_err_signal(ML_ERR_BIND_VARIABLE);
+		return false;
+	    }
+
+	    form_s *subform = l->obj.sub;
+
+	    eval_rt_t rt = eval(subform);
+	    if (rt != EVAL_OK) return false;
+
+	    var->name = l->front->obj.token.value.symbol;
+	    memcpy(&var->val.token, &l->obj.token, sizeof(token_s));   
 	}
 	else if (l->obj.type == OBJ_TYPE) {
 
@@ -207,6 +220,7 @@ binding_defconstant(variable_s *var, void *context)
 	    if (i%2 == 0) {
 		
 		var->name = l->front->obj.token.value.symbol;
+		memcpy(&var->val.token, &l->obj.token, sizeof(token_s));
 	    }
 	}
 	else {
@@ -227,6 +241,7 @@ binding_defconstant(variable_s *var, void *context)
 
 	return false;
     }
+    
     
     func_ok();
     return true;
@@ -318,7 +333,7 @@ var_add(variable_s *var)
 	return false;
     }
     
-    //var_get(v->name);
+    var_get(v->name);
     
     func_ok();
     return true;
@@ -343,10 +358,10 @@ var_delete(char *name)
 variable_s*
 var_get(char *name)
 {
-    variable_s *var;
     htab_entry_s *entry_rt;
     htab_entry_s entry;
-
+    variable_s *var;
+    
     func_s();
     
     debug("name: %s \n", name);
@@ -368,6 +383,10 @@ var_get(char *name)
     return NULL;
 
   FOUND:
+
+    var = (variable_s*)entry_rt->data;
+    token_show(&var->val.token);
+    
     func_ok();
     return entry_rt->data;;
 }

@@ -28,6 +28,19 @@
     (code_sz)--;
 
 
+#define ignore_end_chars(code, code_sz)		\
+    while (1) {					\
+	if (check_char(**code, NEWLINE) ||	\
+	    check_char(**code, LINEFEED) ||	\
+	    **code == SPACE) {			\
+	    next_code(*code, *code_sz);		\
+	    if (*code_sz <= 0) break;		\
+	    continue;				\
+	}					\
+	break;					\
+    }
+
+
 typedef bool (*identify_f) (const char **code, size_t *code_sz, form_s *form);
 
 
@@ -38,13 +51,18 @@ typedef bool (*identify_f) (const char **code, size_t *code_sz, form_s *form);
  * is accumulated, and accumulation continues.
  */
 static bool
-read_string(const char **code, size_t *code_sz)
+read_string(const char **code, size_t *code_sz, form_s *form)
 {
+    token_s token;
+    
     bool single_escape_flag;
     
     func_s();
 
+    const char *s;
+    
     if (!check_char(**code, '\"')) return false;
+    s = *code;
 
     single_escape_flag = false;
     while (*code_sz > 0) {
@@ -60,8 +78,28 @@ read_string(const char **code, size_t *code_sz)
 	}
 	
 	if (!single_escape_flag && check_char(**code, '\"')) {
-	    
+
 	    next_code(*code, *code_sz);
+
+	    memset(&token, 0, sizeof(token_s));
+	    token.value.symbol = ml_util_buf2str(s, *code - s);
+	    if (token.value.symbol) {
+
+		debug("symbol: %s \n", token.value.symbol);
+		token.type = TOKEN_SYMBOL;
+	    }
+	    
+	    if (token.type != TOKEN_UNKOWN) {
+
+		token_s *t = token_clone(&token);
+
+		/* add the symbol token into the list form */
+		list_add_token(form->list, t);	
+	
+		func_ok();
+		return true;
+	    }
+	    
 
 	    func_ok();
 	    return true;
@@ -130,6 +168,8 @@ read_comments(const char **code, size_t *code_sz)
 	    
 	    next_code(*code, *code_sz);
 
+	    ignore_end_chars(code, code_sz);
+
 	    func_ok();
 	    return true;
 	}
@@ -146,13 +186,42 @@ read_comments(const char **code, size_t *code_sz)
 static bool
 read_symbol(const char **code, size_t *code_sz, form_s *form)
 {
+    bool found;
     token_s token;
-    
-    const char *buf = *code;
+     
+    const char *buf;
     
     func_s();
 
-    memset(&token, 0, sizeof(token_s));
+
+    ignore_end_chars(code, code_sz);
+    
+    switch (**code) {
+
+    case ';':
+
+	/* A semicolon introduces characters to be ignored, such as comments. 
+	 */
+	
+	found = read_comments(code, code_sz);
+	
+    case '\"':
+
+        /* The double-quote is used to begin and end a string. 
+	 */
+
+	found = read_string(code, code_sz, form);
+	if (!found) goto ERR;
+
+	return true;
+	break;
+
+    default:
+	break;
+
+    }
+
+    buf = *code;
     
     while (*code_sz > 0) {
 
@@ -160,7 +229,7 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 	
 	if (check_char(**code, SPACE) || check_char(**code, ')')) {
 
-	    
+	    memset(&token, 0, sizeof(token_s));
 	    token.value.symbol = ml_util_buf2str(buf, *code - buf);
 	    if (token.value.symbol) {
 
@@ -191,6 +260,7 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 	next_code(*code, *code_sz);
     }
 
+  ERR:
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);
     
     return false;
@@ -670,7 +740,7 @@ read_macro(code_s *cd, lex_s *lex)
         /* The double-quote is used to begin and end a string. 
 	 */
 
-	found = read_string(&cd->code, &cd->code_sz);
+	found = read_string(&cd->code, &cd->code_sz, NULL);
 	break;
 
     case '`':
