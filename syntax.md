@@ -198,3 +198,72 @@ Tip: show the documentation string of a variable:
 > (documentation 'name 'variable)
 	
 
+- Function CONS
+
+cons object-1 object-2 => cons
+
+object-1---an object.
+
+object-2---an object.
+
+cons---a cons(a compound data object having two components called the car and the cdr.)
+
+
+- Accessor CAR, CDR, CAAR, CADR, CDAR, CDDR
+
+car x => object
+
+cdr x => object
+
+caar x => object
+
+cadr x => object
+
+cdar x => object
+
+cddr x => object
+
+(setf (car x) new-object)
+
+(setf (cdr x) new-object)
+
+(setf (caar x) new-object)
+
+(setf (cadr x) new-object)
+
+(setf (cdar x) new-object)
+
+(setf (cddr x) new-object)
+
+
+x---a list.
+
+object---an object.
+
+new-object---an object.
+
+
+- Function LIST, LIST*
+
+list &rest objects => list
+
+list* &rest objects+ => result
+
+object---an object.
+
+list---a list.
+
+result---an object.
+
+
+
+
+
+
+
+
+
+
+	
+	
+
