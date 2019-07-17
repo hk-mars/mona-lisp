@@ -46,4 +46,9 @@
 ;  "Toby M.")
 
 
+(cons (car (list 1 2)) (cdr (list 3 4)))
+
+
+
+
 
