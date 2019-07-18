@@ -40,6 +40,24 @@ ml_util_strdup(const char *str)
 }
 
 
+bool
+ml_util_strbufcmp(const char *str, char *buf, size_t buf_len)
+{
+    if (buf_len <= 0) return false;
+    
+    if ((size_t)strlen(str) > buf_len) return false;
+
+    while (*str) {
+	
+	if (tolower(*str) != tolower(*buf)) return false;
+	str++;
+	buf++;
+    }
+
+    return true;
+}
+
+
 void
 ml_util_show_buf(char *buf, size_t size)
 {
@@ -90,6 +108,7 @@ ml_util_get_read_base(void)
 {
     return m_read_base;
 }
+
 
 
 

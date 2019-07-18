@@ -209,7 +209,7 @@ object-2---an object.
 cons---a cons(a compound data object having two components called the car and the cdr.)
 
 
-- Accessor CAR, CDR, CAAR, CADR, CDAR, CDDR
+- Function CAR, CDR, CAAR, CADR, CDAR, CDDR
 
 car x => object
 

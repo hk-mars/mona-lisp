@@ -7,6 +7,8 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+
 
 #include "config.h"
 
@@ -17,6 +19,8 @@
 char* ml_util_buf2str(const char *buf, size_t len);
 
 char* ml_util_strdup(const char *str);
+
+bool ml_util_strbufcmp(const char *str, char *buf, size_t buf_len);
 
 void ml_util_show_buf(char *buf, size_t size);
 

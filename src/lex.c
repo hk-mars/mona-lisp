@@ -28,10 +28,18 @@
     (code_sz)--;
 
 
+#define move_code(code, code_sz, sz_moved) \
+    int i = sz_moved; \
+    while ((code_sz) > 0 && i > 0) { \
+	next_code(code, code_sz);	    \
+	i--;			    \
+    }
+
+
 #define ignore_end_chars(code, code_sz)		\
     while (1) {					\
-	if (check_char(**code, NEWLINE) ||	\
-	    check_char(**code, LINEFEED) ||	\
+	if (eq(**code, NEWLINE) ||		\
+	    eq(**code, LINEFEED) ||		\
 	    **code == SPACE) {			\
 	    next_code(*code, *code_sz);		\
 	    if (*code_sz <= 0) break;		\
@@ -61,7 +69,7 @@ read_string(const char **code, size_t *code_sz, form_s *form)
 
     const char *s;
     
-    if (!check_char(**code, '\"')) return false;
+    if (!eq(**code, '\"')) return false;
     s = *code;
 
     single_escape_flag = false;
@@ -77,7 +85,7 @@ read_string(const char **code, size_t *code_sz, form_s *form)
 	    continue;
 	}
 	
-	if (!single_escape_flag && check_char(**code, '\"')) {
+	if (!single_escape_flag && eq(**code, '\"')) {
 
 	    next_code(*code, *code_sz);
 
@@ -123,7 +131,7 @@ read_expression_with_single_quote(const char **code, size_t *code_sz)
 {
     func_s();
 
-    if (!check_char(**code, '\'')) return false;
+    if (!eq(**code, '\'')) return false;
     next_code(*code, *code_sz);
 
     /* TODO: reading expression 
@@ -132,10 +140,10 @@ read_expression_with_single_quote(const char **code, size_t *code_sz)
 
 	debug("0x%02x %c \n", **code, **code);
 	
-	if (check_char(**code, LINEFEED)) {
+	if (eq(**code, LINEFEED)) {
 	    
 	    next_code(*code, *code_sz);
-
+ 
 	    func_ok();
 	    return true;
 	}
@@ -159,12 +167,12 @@ read_comments(const char **code, size_t *code_sz)
 {
     func_s();
     
-    if (!check_char(**code, ';')) return false;
+    if (!eq(**code, ';')) return false;
     next_code(*code, *code_sz);
 
     while (*code_sz > 0) {
 
-	if (check_char(**code, NEWLINE) || check_char(**code, LINEFEED)) {
+	if (eq(**code, NEWLINE) || eq(**code, LINEFEED)) {
 	    
 	    next_code(*code, *code_sz);
 
@@ -227,7 +235,7 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 
 	debug("0x%02x %c \n", **code, **code);
 	
-	if (check_char(**code, SPACE) || check_char(**code, ')')) {
+	if (eq(**code, SPACE) || eq(**code, ')')) {
 
 	    memset(&token, 0, sizeof(token_s));
 	    token.value.symbol = ml_util_buf2str(buf, *code - buf);
@@ -238,7 +246,7 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 	    }
 	    
 			    
-	    if (check_char(**code, SPACE)) {
+	    if (eq(**code, SPACE)) {
 		next_code(*code, *code_sz);
 	    }
 
@@ -269,17 +277,35 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-like_func(const char *code, size_t code_sz)
+like_arithmetic_func(const char *code)
 {
     if (is_sign(*code)) return true;
 
-    if (check_char(*code, '*')) return true;
+    if (eq(*code, '*')) return true;
 
-    if (check_char(*code, '/')) return true;
-
+    if (eq(*code, '/')) return true;
     
     return false;
 }
+
+
+static bool
+like_list_func(const char *code)
+{
+    if (eq(*code, 'l') || !eq(*code, 'L')) return true;
+
+    return false;
+}
+
+
+static bool
+like_car_cdr_cons_func(const char *code)
+{
+    if (eq(*code, 'c') || !eq(*code, 'C')) return true;
+    
+    return false;
+}
+
 
 
 /* A token is a potential number if it satisfies all of the following requirements:
@@ -299,10 +325,10 @@ like_num_token(const char *code, size_t code_sz)
 
     if (is_digit(*code)) goto CHECK_MORE;
     
-    if (check_char(*code, '.')) goto FIND_ONE_DIGIT;
+    if (eq(*code, '.')) goto FIND_ONE_DIGIT;
 
-    if (check_char(*code, '^')) goto FIND_ONE_DIGIT;
-    if (check_char(*code, '_')) goto FIND_ONE_DIGIT;
+    if (eq(*code, '^')) goto FIND_ONE_DIGIT;
+    if (eq(*code, '_')) goto FIND_ONE_DIGIT;
 
     
   FIND_ONE_DIGIT:
@@ -310,7 +336,7 @@ like_num_token(const char *code, size_t code_sz)
     next_code(code, code_sz);
     while (code_sz > 0) {
 
-	if (check_char(*code, SPACE) || check_char(*code, ')')) return false;
+	if (eq(*code, SPACE) || eq(*code, ')')) return false;
 
 	if (is_digit(*code)) goto CHECK_MORE;
 
@@ -324,7 +350,7 @@ like_num_token(const char *code, size_t code_sz)
     next_code(code, code_sz);
     while (code_sz > 0) {
 
-	if (check_char(*code, SPACE) || check_char(*code, ')')) {
+	if (eq(*code, SPACE) || eq(*code, ')')) {
 
 	    /* The token does not end with a sign. */
 	    if (is_sign(*(code-1))) return false;
@@ -333,8 +359,8 @@ like_num_token(const char *code, size_t code_sz)
 	}
 
 	if (is_digit(*code) || is_sign(*code) ||
-	    check_char(*code, '^') || check_char(*code, '_') ||
-	    check_char(*code, '.') || is_ratio_marker(*code) ||
+	    eq(*code, '^') || eq(*code, '_') ||
+	    eq(*code, '.') || is_ratio_marker(*code) ||
 	    is_exponent_maker(*code)) {
 
 	    next_code(code, code_sz);
@@ -426,7 +452,7 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
 
 	/* [sign] {digit}+ decimal-point
 	 */
-	if (check_char(c, '.')) {
+	if (eq(c, '.')) {
 	    next_code(*code, *code_sz);
 
 	    if (is_digit(c)) {
@@ -463,8 +489,8 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
 	else {
 
 	    if (!is_whitespace_char(c) &&
-		!check_char(c, SPACE) &&
-		!check_char(c, ')')) {
+		!eq(c, SPACE) &&
+		!eq(c, ')')) {
 
 		return false;
 	    }
@@ -505,8 +531,8 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
     token_s *t;
     char c;
     
-    if (!check_char(**code, '+') && !check_char(**code, '-') &&
-	!check_char(**code, '*') && !check_char(**code, '/')) {
+    if (!eq(**code, '+') && !eq(**code, '-') &&
+	!eq(**code, '*') && !eq(**code, '/')) {
 
 	return false;
     }
@@ -514,7 +540,7 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
     next_code(*code, *code_sz);
     if (*code_sz == 0) goto DONE;
 
-    if (check_char(**code, SPACE)) {
+    if (eq(**code, SPACE)) {
 	
 	next_code(*code, *code_sz);
 	goto DONE;
@@ -525,7 +551,7 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 	next_code(*code, *code_sz);
 	goto DONE;
     }
-
+ 
     if (**code == ')') {
 	
 	next_code(*code, *code_sz);
@@ -536,12 +562,136 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
     
   DONE:
     t = token_create();
- 
+    if (!t) return false;
+    
     size_t len = 2;
     t->type = TOKEN_SYMBOL;
     t->value.symbol = (char*)ml_malloc(len);
     t->value.symbol[0] = c;
 
+        
+    if (form_is_unkown(form)) {
+	form_set_type(form, COMPOUND_FUNCTION_FORM);
+    }
+    
+    list_add_token(form->list, t);
+  
+    func_ok();
+    return true;
+}
+
+
+static bool
+identify_list_func(const char **code, size_t *code_sz, form_s *form)
+{
+    token_s *t;
+    char c;
+    
+    if (!ml_util_strbufcmp("list", *code, *code_sz)) return false;
+    
+    c = **code;
+    move_code(*code, *code_sz, 4);
+    
+    if (*code_sz == 0) goto DONE;
+
+    if (eq(**code, SPACE)) {
+	
+	next_code(*code, *code_sz);
+	goto DONE;
+    }
+    
+    if (is_whitespace_char(**code)) {
+
+	next_code(*code, *code_sz);
+	goto DONE;
+    }
+ 
+    if (**code == ')') {
+	
+	next_code(*code, *code_sz);
+	goto DONE;
+    }    
+     
+    return false;
+    
+  DONE:
+    t = token_create();
+    if (!t) return false;
+    
+    t->type = TOKEN_SYMBOL;
+    t->value.symbol = "list";
+
+        
+    if (form_is_unkown(form)) {
+	form_set_type(form, COMPOUND_FUNCTION_FORM);
+    }
+    
+    list_add_token(form->list, t);
+  
+    func_ok();
+    return true;
+}
+
+
+static bool
+identify_car_cdr_cons_func(const char **code, size_t *code_sz, form_s *form)
+{
+    token_s *t;
+    char c;
+    const char *str;
+    
+    c = **code;
+    if (ml_util_strbufcmp("car", *code, *code_sz)) {
+
+	debug("car \n");
+	move_code(*code, *code_sz, 3);
+	str = "car";
+    }
+    else if (ml_util_strbufcmp("cdr", *code, *code_sz)) {
+
+	debug("cdr \n");
+	move_code(*code, *code_sz, 3);
+	str = "cdr";
+    }
+    else if (ml_util_strbufcmp("cons", *code, *code_sz)) {
+
+	debug("cons \n");
+	move_code(*code, *code_sz, 4);
+	str = "cons";
+    }
+    else {
+
+	return false;
+    }
+
+    if (*code_sz == 0) goto DONE;
+
+    if (eq(**code, SPACE)) {
+	
+	next_code(*code, *code_sz);
+	goto DONE;
+    }
+    
+    if (is_whitespace_char(**code)) {
+
+	next_code(*code, *code_sz);
+	goto DONE;
+    }
+ 
+    if (**code == ')') {
+	
+	next_code(*code, *code_sz);
+	goto DONE;
+    }    
+     
+    return false;
+    
+  DONE:
+    t = token_create();
+    if (!t) return false;
+    
+    t->type = TOKEN_SYMBOL;
+    t->value.symbol = str;
         
     if (form_is_unkown(form)) {
 	form_set_type(form, COMPOUND_FUNCTION_FORM);
@@ -614,7 +764,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    return cd;
 	}
 
-	if (like_func(code, code_sz)) {
+	if (like_arithmetic_func(code)) {
 
 	    found = identify_code_as_func(&code, &code_sz,
 					  identify_arithmetic_operator, form);
@@ -624,6 +774,29 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 		continue;
 	    }
 	}
+
+	if (like_list_func(code)) {
+
+	    found = identify_code_as_func(&code, &code_sz,
+					  identify_list_func, form);
+	    if (found) {
+
+		form_add_front(form_head, form);
+		continue;
+	    }
+	}
+
+	if (like_car_cdr_cons_func(code)) {
+
+	    found = identify_code_as_func(&code, &code_sz,
+					  identify_car_cdr_cons_func, form);
+	    if (found) {
+
+		form_add_front(form_head, form);
+		continue;
+	    }
+	}
+	
 
 	if (like_num_token(code, code_sz)) {
 

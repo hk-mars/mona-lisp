@@ -147,6 +147,49 @@ arithmetic_divide(void *left, void *right)
 }
 
 
+static bool
+eval_list(void *left, void *right)
+{
+    func_s();
+
+
+    func_ok();
+    return true;
+}
+
+
+static bool
+eval_car(void *left, void *right)
+{
+    func_s();
+
+
+    func_ok();
+    return true;
+}
+
+
+static bool
+eval_cdr(void *left, void *right)
+{
+    func_s();
+
+
+    func_ok();
+    return true;
+}
+
+
+static bool
+eval_cons(void *left, void *right)
+{
+    func_s();
+
+
+    func_ok();
+    return true;
+}
+
 
 typedef bool (*eval_func_f)(void *left, void *right);
 
@@ -165,6 +208,12 @@ static const eval_func_s m_funcs[] =
     { "-", arithmetic_minus },
     { "*", arithmetic_product },
     { "/", arithmetic_divide },
+
+    { "list", eval_list},
+    { "car", eval_car},
+    { "cdr", eval_cdr},
+    { "cons", eval_cons},
+
     
 
 };
