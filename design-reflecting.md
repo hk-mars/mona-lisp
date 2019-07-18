@@ -29,6 +29,7 @@ I think "@" is more elegant than others, although ">" and "*" is good.
 ### design-hackable
 
 Any ideas that make designing more easy to hack, try them in monalisp.
+
 - layout design.
 - interface design.
 - architecture design.
@@ -105,6 +106,15 @@ V1:
 ![Image](doc/arch-draft-v1.jpg "arch-draft")
 
 
+## distributed codes in servers as list object
+
+The lisp loader is in the local application.
+But most other codes can be distributed in the servers, and can be changed as we expect.
+
+
+
+  
+  
 
 
 
