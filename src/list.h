@@ -27,6 +27,8 @@ typedef struct s_lisp_list
 
 bool list_add_token(lisp_list_s *list, token_s *token);
 
+bool list_add_object(lisp_list_s *list, object_s *obj);
+
 void list_show(lisp_list_s *list);
 
 

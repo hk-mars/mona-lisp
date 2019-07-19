@@ -45,6 +45,38 @@ list_add_token(lisp_list_s *list, token_s *token)
 }
 
 
+bool
+list_add_object(lisp_list_s *list, object_s *obj)
+{
+    if (!list || !obj) return false;
+
+   lisp_list_s *node = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
+    if (!node) return false;
+
+    memcpy(&node->obj, obj, sizeof(object_s));
+    
+    if (!list->front) {
+
+	list->next = node;
+	list->front = node;
+	node->front = list;
+	node->next = list;
+    }
+    else {
+	
+	list->front->next = node;
+	node->front = list->front;
+	node->next = list;
+	list->front = node;
+    }
+
+
+    func_ok();
+    return true;
+}
+
+
+
 void
 list_show(lisp_list_s *list)
 {
@@ -52,9 +84,9 @@ list_show(lisp_list_s *list)
 
     func_s();
 
-    lisp_list_s *l = list;
+    lisp_list_s *l = list->next;
 
-    while (l && l->next != list) {
+    while (l && l != list) {
 
 	switch (l->obj.type) {
 

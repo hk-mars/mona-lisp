@@ -18,12 +18,16 @@ typedef enum
     OBJ_LIST = 1,
     OBJ_ARRAY = 2,
     OBJ_SEQUENCE = 3,
+    
     OBJ_TYPE = 4,
-    OBJ_INPUT_STREAM = 5,
-    OBJ_OUTPUT_STREAM = 6,
-    OBJ_CLASS = 7,
+    OBJ_TYPE_FUNCTION = 5,
+    
+    OBJ_INPUT_STREAM = 6,
+    OBJ_OUTPUT_STREAM = 7,
+    OBJ_CLASS = 8,
     
 } object_t;
+
 
 typedef struct s_object
 {

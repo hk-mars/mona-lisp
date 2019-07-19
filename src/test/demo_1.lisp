@@ -45,10 +45,11 @@
 ;  ; this is my english name
 ;  "Toby M.")
 
-
-(cons (car (list 1 2)) (cdr (list 3 4)))
-
+;(cons (car (list 1 2)) (cdr (list 3 4)))
 
 
+; (list 1 2 3)
+
+(car (list 1 2 3))
 
 

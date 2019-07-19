@@ -585,11 +585,9 @@ static bool
 identify_list_func(const char **code, size_t *code_sz, form_s *form)
 {
     token_s *t;
-    char c;
     
     if (!ml_util_strbufcmp("list", *code, *code_sz)) return false;
     
-    c = **code;
     move_code(*code, *code_sz, 4);
     
     if (*code_sz == 0) goto DONE;
@@ -637,10 +635,8 @@ static bool
 identify_car_cdr_cons_func(const char **code, size_t *code_sz, form_s *form)
 {
     token_s *t;
-    char c;
     const char *str;
     
-    c = **code;
     if (ml_util_strbufcmp("car", *code, *code_sz)) {
 
 	debug("car \n");

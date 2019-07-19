@@ -14,6 +14,8 @@
 
 #include "token.h"
 
+#include "list.h"
+
 
 typedef enum
 {
@@ -24,7 +26,15 @@ typedef enum
 } eval_rt_t;
 
 
-typedef token_s eval_value_s;
+typedef struct
+{
+    lisp_list_s list;
+
+    object_s obj_out;
+
+    object_s *obj_in;
+    
+} eval_value_s;
 
 
 eval_rt_t eval(form_s *forms);

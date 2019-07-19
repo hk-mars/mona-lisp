@@ -41,8 +41,8 @@ arithmetic_add(void *left, void *right)
 {
     func_s();
 
-    eval_value_s  *l = left;
-    eval_value_s  *r = right;
+    token_s *l = &((eval_value_s*)left)->obj_out.token;
+    token_s *r = &((eval_value_s*)right)->obj_in->token;
 
 
     if (l->type  == TOKEN_UNKOWN) {
@@ -67,9 +67,8 @@ arithmetic_minus(void *left, void *right)
 {
     func_s();
 
-    eval_value_s  *l = left;
-    eval_value_s  *r = right;
-
+    token_s *l = &((eval_value_s*)left)->obj_out.token;
+    token_s *r = &((eval_value_s*)right)->obj_in->token;
 
     if (l->type  == TOKEN_UNKOWN) {
 
@@ -93,9 +92,8 @@ arithmetic_product(void *left, void *right)
 {
     func_s();
 
-    eval_value_s  *l = left;
-    eval_value_s  *r = right;
-
+    token_s *l = &((eval_value_s*)left)->obj_out.token;
+    token_s *r = &((eval_value_s*)right)->obj_in->token;
 
     if (l->type  == TOKEN_UNKOWN) {
 
@@ -119,10 +117,10 @@ arithmetic_divide(void *left, void *right)
 {
     func_s();
 
-    eval_value_s  *l = left;
-    eval_value_s  *r = right;
+    token_s *l = &((eval_value_s*)left)->obj_out.token;
+    token_s *r = &((eval_value_s*)right)->obj_in->token;
 
-
+    
     if (l->type  == TOKEN_UNKOWN) {
 
 	l->value.num_int = r->value.num_int;
@@ -152,6 +150,24 @@ eval_list(void *left, void *right)
 {
     func_s();
 
+    lisp_list_s *list = &((eval_value_s*)left)->list;
+    object_s *obj = ((eval_value_s*)right)->obj_in;
+
+    if (list->obj.type == OBJ_UNKOWN) {
+
+	list->obj.type = OBJ_LIST;
+    }
+    
+    
+    /* add an object into the list
+     */
+    if (!list_add_object(list, obj)) {
+
+	func_fail();
+	return false;
+    }
+
+    list_show(list);
 
     func_ok();
     return true;
@@ -163,10 +179,37 @@ eval_car(void *left, void *right)
 {
     func_s();
 
+    object_s *obj_out = &((eval_value_s*)left)->obj_out;
+    lisp_list_s *list_in = &((eval_value_s*)right)->list;
 
+
+    if (obj_out->type == OBJ_TYPE) {
+
+	return true;
+    }
+
+    if (!list_in) {
+
+	debug_err("NULL list \n");
+	return false;
+    }
+
+    if (!list_in->next) {
+
+	debug_err("nil list \n");
+	return true;
+    }
+   
+    
+    debug("car of list: ");
+    debug("%d \n", list_in->next->obj.token.value.num_int);
+    
+    memcpy(obj_out, &list_in->next->obj, sizeof(object_s));
+	    
     func_ok();
     return true;
 }
+
 
 
 static bool
@@ -192,27 +235,31 @@ eval_cons(void *left, void *right)
 
 
 typedef bool (*eval_func_f)(void *left, void *right);
+typedef bool (*get_result_f)(void *in, void *out);
 
 typedef struct
 {
     char *name;
     
-    eval_func_f f;
+    eval_func_f eval;
+
+    get_result_f get_result;
+    
     
 } eval_func_s;
 
 
 static const eval_func_s m_funcs[] =
 {
-    { "+", arithmetic_add },
-    { "-", arithmetic_minus },
-    { "*", arithmetic_product },
-    { "/", arithmetic_divide },
+    { "+", arithmetic_add, NULL},
+    { "-", arithmetic_minus, NULL},
+    { "*", arithmetic_product, NULL},
+    { "/", arithmetic_divide, NULL},
 
-    { "list", eval_list},
-    { "car", eval_car},
-    { "cdr", eval_cdr},
-    { "cons", eval_cons},
+    { "list", eval_list, NULL},
+    { "car", eval_car, NULL},
+    { "cdr", eval_cdr, NULL},
+    { "cons", eval_cons, NULL},
 
     
 
@@ -220,13 +267,13 @@ static const eval_func_s m_funcs[] =
 
 
 
-eval_func_f
+const eval_func_s*
 match_func(char *name)
 {
     int len = (int)sizeof(m_funcs) / sizeof(m_funcs[0]);
     for (int i = 0; i < len; i++) {
 
-	if (!strcmp(name, m_funcs[i].name)) return m_funcs[i].f;
+	if (!strcmp(name, m_funcs[i].name)) return &m_funcs[i];
 	
     }
 
@@ -247,7 +294,8 @@ static eval_rt_t
 eval_function_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
-
+    eval_value_s value;
+    
     func_s();
 
     
@@ -261,8 +309,8 @@ eval_function_form(form_s *form, eval_value_s *val)
     
     debug("%s \n", l->obj.token.value.symbol);
 
-    eval_func_f f = match_func(l->obj.token.value.symbol);
-    if (!f) {
+    const eval_func_s *eval_func = match_func(l->obj.token.value.symbol);
+    if (!eval_func) {
 
 	debug_err("undefined function \n");
 	
@@ -282,21 +330,19 @@ eval_function_form(form_s *form, eval_value_s *val)
 		debug("eval sub_form \n");
 	    }
 	    
-	    eval_value_s value;
 	    memset(&value, 0, sizeof(eval_value_s));
 	    
 	    eval_rt_t rt = eval_function_form(subform->next, &value);
 	    if (rt != EVAL_OK) return rt;
 
-	    debug("val: %d, val2: %d \n", val->value.num_int, value.value.num_int);
-	    f(val, &value);
+	    eval_func->eval(val, &value);
 	}
 	else if (l->obj.type == OBJ_TYPE) {
 
 	    debug("OBJ_TYPE \n");
-	    
-	    f(val, &l->obj.token);
 
+	    value.obj_in = &l->obj;
+	    eval_func->eval(val, &value);
 	}
 	else {
 
@@ -307,7 +353,12 @@ eval_function_form(form_s *form, eval_value_s *val)
 	l = l->next;
     }
 
-    
+
+    if (eval_func->get_result) {
+
+	eval_func->get_result(val, &value);
+    }
+	    
     func_ok();
 
     return EVAL_OK;
@@ -377,7 +428,7 @@ eval(form_s *forms)
 		return EVAL_ERR;
 	    }
 
-	    memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
 	    
 	    break;
 
@@ -390,7 +441,7 @@ eval(form_s *forms)
 		return EVAL_ERR;
 	    }
 
-	    memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+	    // memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
 
 	    break;
 	    
