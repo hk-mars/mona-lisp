@@ -21,7 +21,9 @@ typedef enum
     ML_ERR_EVAL = 7,
     ML_ERR_EVAL_DIVIDE_ZERO = 8,
     ML_ERR_BIND_VARIABLE = 9,
-    
+    ML_ERR_SYNTAX_CAR = 10,
+    ML_ERR_SYNTAX_CDR = 11,
+    ML_ERR_SYNTAX_CONS = 12,
     
 } ml_err_t;
 

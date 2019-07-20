@@ -185,7 +185,8 @@ eval_car(void *left, void *right)
 
     if (obj_out->type == OBJ_TYPE) {
 
-	return true;
+	ml_err_signal(ML_ERR_SYNTAX_CAR);
+	return false;
     }
 
     if (!list_in) {
@@ -217,7 +218,36 @@ eval_cdr(void *left, void *right)
 {
     func_s();
 
+    lisp_list_s *list_out = &((eval_value_s*)left)->list;
+    lisp_list_s *list_in = &((eval_value_s*)right)->list;
 
+    if (!list_in) {
+
+	debug_err("NULL list \n");
+	return false;
+    }
+
+    if (!list_in->next) {
+
+	debug_err("nil list \n");
+	return true;
+    }
+
+    lisp_list_s *l = list_in->next->next;
+    
+    while (l && l != list_in) {
+	
+	if (!list_add_object(list_out, &l->obj)) {
+
+	    func_fail();
+	    return false;
+	}
+
+	l = l->next;
+    }
+
+    list_show(list_out);
+     
     func_ok();
     return true;
 }
@@ -228,7 +258,36 @@ eval_cons(void *left, void *right)
 {
     func_s();
 
+    lisp_list_s *list_out = &((eval_value_s*)left)->list;
+    lisp_list_s *list_in = &((eval_value_s*)right)->list;
 
+    if (!list_in) {
+
+	debug_err("NULL list \n");
+	return false;
+    }
+
+    if (!list_in->next) {
+
+	debug_err("nil list \n");
+	return true;
+    }
+
+    lisp_list_s *l = list_in->next;
+    
+    while (l && l != list_in) {
+	
+	if (!list_add_object(list_out, &l->obj)) {
+
+	    func_fail();
+	    return false;
+	}
+
+	l = l->next;
+    }
+
+    list_show(list_out);
+    
     func_ok();
     return true;
 }

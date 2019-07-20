@@ -5,6 +5,8 @@
 
 #include "lex.h"
 
+#include "syntax.h"
+
 #include "reader.h"
 
 #include "stack.h"
@@ -35,7 +37,7 @@ main (int argc, char **argv)
     if (rt != LISP_OK) return -1;
 
     reader_s reader;
-    reader_rt_t reader_rt = ml_reader_load_file(&reader, "test/demo_1.lisp");
+    reader_rt_t reader_rt = ml_reader_load_file(&reader, "demo_1.lisp");
     if (reader_rt != READER_OK) return -1;
     
     
@@ -108,10 +110,14 @@ ml_init(void)
     }
     
 	
-    lex_rt_t rt = ml_lex_init();
-    if (rt != LEX_OK) return LISP_ERR_LEX;
+    lex_rt_t lex_rt = ml_lex_init();
+    if (lex_rt != LEX_OK) return LISP_ERR_LEX;
 
 
+    syntax_rt_t syntax_rt = syntax_init();
+    if (syntax_rt != SYNTAX_OK) return LISP_ERR_SYNTAX;
+
+    
     reader_rt_t reader_rt = ml_reader_init();
     if (reader_rt != READER_OK) return LISP_ERR_READER;
 

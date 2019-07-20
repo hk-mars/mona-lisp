@@ -88,6 +88,21 @@ ml_err_signal(ml_err_t err)
 	proc_divide_zero();
 	break;
 
+    case ML_ERR_SYNTAX_CAR:
+
+	debug_err("syntax err: car \n");
+	break;
+	
+    case ML_ERR_SYNTAX_CDR:
+
+	debug_err("syntax err: cdr \n");
+	break;	
+
+    case ML_ERR_SYNTAX_CONS:
+
+	debug_err("syntax err: cons \n");
+	break;		
+	
     default:
 	debug_err("unkown error \n");
 	break;

@@ -6,6 +6,8 @@
 
 #include "lex.h"
 
+#include "syntax.h"
+
 #include "util.h"
 
 #include "mem.h"
@@ -124,13 +126,19 @@ ml_reader_load_file(reader_s *reader, const char *fname)
     if (lex_rt != LEX_OK) return READER_ERR_LEX;
 
 
+    /* syntax check
+     */
+    syntax_rt_t syntax_rt = syntax_check(&reader->lex.forms);
+    if (syntax_rt != SYNTAX_OK) return READER_ERR_SYNTAX;
+    
+
     /* eval
      */
     eval_rt_t eval_rt = eval(&reader->lex.forms);
     if (eval_rt != EVAL_OK) return READER_ERR_EVAL;
+
     
     func_ok();
-
     return READER_OK;
 }
 
