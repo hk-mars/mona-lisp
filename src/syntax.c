@@ -31,9 +31,10 @@
 
 
 /**
+ * Schedule to implement a demo:
  * 1. Build the abstract syntactic tree(AST) form a BNF syntax file.
  * 2. Check the syntax of the forms of codes.
- * 3. Evaluate the the forms which the syntax has been checked to be right.
+ * 3. Evaluate the forms which the syntax has been checked to be right.
  * 4. Optimize the AST tree.
  * 5. Make part of the optimized AST tree be consts to save the heap memory.
  * 6. Parse some macro codes and update the AST tree dynamically.
