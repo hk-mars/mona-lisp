@@ -10,7 +10,6 @@
 - dolist
 
 
-
 ## data types
 - Symbol 
 - Number (same as CL)
@@ -41,5 +40,12 @@ By showing the architecture of code of applications, so we have a basic point to
 
 ## everything is data, every object includes the db object
 So everying is searchable, so we can build the application based on the benefit of searching engine of db.
+
+## externsible features
+
+- is(obj, val)
+
+        
+        
 
 
