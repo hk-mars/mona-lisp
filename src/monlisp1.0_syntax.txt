@@ -1,0 +1,177 @@
+
+/* Monalisp1.0 syntax
+ */
+ 
+ 
+lisp-char ::=
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+whitespace ::=
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+backspace ::= \b
+tab ::= \t
+newline ::= \r
+linefeed ::= \n
+page ::= \p
+return ::= \r
+space ::= 0x20 
+
+constituent-char ::= 
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+rubout ::= 0x7F
+
+single-escape ::= \
+
+multiple-escape ::= |
+
+macro-char ::= 
+	terminating-char | 
+	non-terminating-char
+	
+terminating-char ::= " | ' | ( | ) | , | ; | `
+non-terminating-char ::= #
+
+
+token ::=
+	number-token |
+	symbol-token
+	
+number-token ::=
+	integer |
+	ratio |
+	float
+				          
+integer ::=
+	[sign] decimal-digit+ decimal-point |
+	[sign] digit+
+				         
+ratio ::=
+	[sign] {digit}+ slash {digit}+ 
+				      
+float ::=
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+exponent ::=
+	exponent-marker [sign] {digit}+	      
+
+sign ::= + | -
+
+slash ::= /
+
+decimal-point ::= .
+
+exponent-marker	::= 
+	e | s | f | d | l | E | S | F | D | L
+
+decimal-digit ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+digit ::= <undefined>
+	
+symbol-token ::= <undefined>
+
+
+list ::= 
+	( { object [, object] }* )
+
+object ::= 
+	element |
+	<undefined>
+	
+element ::=
+	list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+
+cons ::= ( CONS object object )
+
+car ::= ( CAR list )
+
+cdr ::= ( CDR list )
+
+setq ::= ( SETQ {setq-pair}* )
+
+setq-pair ::= setq-var form
+
+setq-var ::= symbol-token
+
+defconstant ::= ( DEFCONSTANT name form [documentation] )
+
+name ::= symbol-token
+
+form ::= object | symbol-token | compound-form
+
+documentation ::= string
+
+compound-form ::= operator form
+
+operator ::= 
+	function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+function-call-operator ::=
+	+ | - | * | / |
+	<TBD>
+	
+special-form-operator ::= 
+	quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+
+macro-operator ::=
+	defmacro |
+	<TBD>
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	

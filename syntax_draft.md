@@ -160,6 +160,8 @@ Returns the sum of numbers
 
 setf {pair}* => result*
 
+pair ::= place newvalue
+
 place---a place.
 
 newvalue---a form.
