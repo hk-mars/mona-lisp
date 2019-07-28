@@ -7,6 +7,8 @@
 
 #include "syntax.h"
 
+#include "parser.h"
+
 #include "reader.h"
 
 #include "stack.h"
@@ -36,9 +38,11 @@ main (int argc, char **argv)
     lisp_rt_t rt = ml_init();
     if (rt != LISP_OK) return -1;
 
+#if 0    
     reader_s reader;
     reader_rt_t reader_rt = ml_reader_load_file(&reader, "demo_1.lisp");
     if (reader_rt != READER_OK) return -1;
+#endif
     
     
  #if 0
@@ -117,6 +121,10 @@ ml_init(void)
     syntax_rt_t syntax_rt = syntax_init();
     if (syntax_rt != SYNTAX_OK) return LISP_ERR_SYNTAX;
 
+
+    parser_rt_t parser_rt = parser_init();
+    if (parser_rt != PARSER_OK) return LISP_ERR_PARSER;
+    
     
     reader_rt_t reader_rt = ml_reader_init();
     if (reader_rt != READER_OK) return LISP_ERR_READER;
