@@ -1238,7 +1238,7 @@ parser_init(void)
   func_s();
   
   memset(&fi, 0, sizeof(fi));
-  fi.f_name = "monlisp1.0_syntax.txt";
+  fi.f_name = "monalisp1.0_syntax.txt";
   
   rt = load_syntax_file(&fi);
   if (!rt) return PARSER_ERR;
