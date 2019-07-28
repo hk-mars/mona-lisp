@@ -40,7 +40,9 @@ Those embedded systems need the database feature, but due to the limited footpri
 
 ### easy-for-layout-design
 
-### for exquisite products
+### for-minimalism
+
+### for-elegant-products
 
 
 
