@@ -77,6 +77,7 @@ express iteration in functional programming languages without looping constructs
 
 
 
+static hash_table_s syntax_htab;
 
 
 syntax_rt_t
@@ -98,4 +99,70 @@ syntax_check(form_s *form)
 
     func_ok();
     return SYNTAX_OK;
+}
+
+
+static void
+show_path(tr_node_s *s)
+{
+  fs();
+  
+  while(s) {
+    debug("%s \n", s->key);
+    s = s->next;
+  }
+  
+  fe();
+}
+
+
+int
+create_syntax_htab(int cnt)
+{
+  int rt;
+  
+  if (syntax_htab.table) return 0;
+  
+  rt = hcreate(&syntax_htab, cnt);
+  
+  return rt;
+}
+
+
+hash_table_s* 
+get_syntax_htab(void)
+{
+  if (!syntax_htab.table) return NULL;
+  
+  return &syntax_htab;
+}
+
+
+int 
+push_syntax_htab(char *key, tr_node_s *root)
+{
+  ENTRY item, *rti;
+  
+  if (!syntax_htab.table) return 0;
+  
+  item.key = key;
+  item.data = root;
+  rti = hsearch(&syntax_htab, item, ENTER); 
+  
+  return !!rti;
+}
+
+
+ENTRY*
+pop_syntax_htab(char *key)
+{
+  ENTRY item, *rti;
+  
+  if (!syntax_htab.table) return NULL;
+  
+  memset(&item, 0, sizeof(ENTRY));
+  item.key = key;
+  rti = hsearch(&syntax_htab, item, FIND);
+  
+  return rti;
 }

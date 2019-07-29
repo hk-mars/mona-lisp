@@ -14,6 +14,9 @@
 
 #include "form.h"
 
+#include "tree.h"
+#include "hsearch.h"
+
 
 typedef enum
 {
@@ -32,6 +35,11 @@ syntax_rt_t syntax_init(void);
 
 syntax_rt_t syntax_check(form_s *form);
 
+
+int create_syntax_htab(int cnt);
+hash_table_s* get_syntax_htab(void);
+int push_syntax_htab(char *key, tr_node_s *root);
+htab_entry_s* pop_syntax_htab(char *key);
 
 #endif /* ML_SYNTAX_H */
 

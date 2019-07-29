@@ -10,11 +10,12 @@
 #include "tree.h"
 #include "chars.h"
 
-//#include "lex.h"
-//#include "stack.h"
+#include "ast_tree.h"
+#include "asg_graph.h"
 
 
-const char *E_STR = " ::=";
+
+const char *E_STR = "::=";
 static tr_node_s *bnf_tree_root;
 
 
@@ -168,7 +169,7 @@ load_syntax_file(file_info *fi)
   
   fi->buf_e = fi->f_buf + fi->buf_sz - 1;
   
-  filter_bnf_buf(fi);
+  //filter_bnf_buf(fi);
   
   fe();
   return 1;
@@ -209,11 +210,11 @@ static int
 make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
 {
   if (key && ksz > 0) {
-    key = filter_buf(key, ksz, &ksz);
+      //key = filter_buf(key, ksz, &ksz);
   }
   
   if (dt && dsz > 0) {
-    dt = filter_buf(dt, dsz, &dsz);
+      //dt = filter_buf(dt, dsz, &dsz);
   }
   
   if (!key || ksz <= 0) return 0;
@@ -230,7 +231,8 @@ make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
   item->dt_sz = dsz;
   
   if (strcmp(item->key, " ") == 0) return 0;
-  
+
+  func_ok();
   return 1;
 }
 
@@ -260,7 +262,8 @@ push_htab(hash_table_s *htab, file_info *fi, char *key, int sz, char *dt)
   
   rti = hsearch(htab, item, ENTER);
   if (!rti) return 0;
-  
+
+  func_ok();
   return 1;
 }
 
@@ -344,74 +347,88 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s)
 
 
 static int 
-push_bnf_into_htab(hash_table_s *htab, file_info *fi)
+parse_syntax_object(hash_table_s *htab, file_info *fi)
 {
-  char *dt, *s, *e;
-  int sz;
-  int rt;
-  ENTRY item;
-  ENTRY *rti;
-  char buf[64];
+    char *dt, *s, *e, *ss;
+    int sz;
+    int rt;
+    ENTRY item;
+    ENTRY *rti;
+    char buf[64];
   
-  fs();
+    fs();
   
-  memset(&item, 0, sizeof(item));
+    memset(&item, 0, sizeof(item));
   
-  dt = fi->f_buf;
-  sz = fi->buf_sz;
-  
-  s = e = NULL;
-  while (sz >= strlen(E_STR)) {
-  
-    if (!s) {
-    
-      s = (char*)memchr(dt, '<', sz);
-      if (!s) break;
-      
-      e = s + 1;
-      while(e <= dt + sz - 1) {
-        if (*e == '>' ) break;
-        if (*e == '<' ) s = e;
-        e++;
-      }
-      e = NULL;
-      
-      sz -= (s - dt + 1);
-      dt = s + 1;
+    dt = fi->f_buf;
+    sz = fi->buf_sz;
+
+    s = dt;
+    while (sz >= strlen(E_STR)) {
+
+	ss = s;
+	
+	//debug("search \"%s\" \n", E_STR);
+	bool found = false;
+	while (sz >= strlen(E_STR)) {
+	
+	    //debug("%x %c \n", *s, *s);
+	    if (!memcmp(s, E_STR, strlen(E_STR))) {
+	    
+		//debug("\nfound \n");
+		found = true;
+		break;
+	    }
+
+	    s++;
+	    sz--;
+	}
+
+	if (!found) break;
+
+	//debug("move back to find the syntax object \n");
+	found = false;
+	e = s - 1;
+	while (s != ss) {
+
+	    //debug("%x %c \n", *s, *s);
+	    if (eq(*s, '\n') || eq(*s, '\r')) {
+
+		//debug("found \n");
+		found = true;
+		s++;
+		sz--;
+		break;
+	    }
+
+	    s--;
+	    sz++;
+	}
+
+	if (!found) break;
+
+	ml_util_show_buf(s, e-s);
+
+	if (push_htab(htab, fi, s, e - s + 1, e + strlen(E_STR))) {
+	    
+	    push_token_into_htab(htab, fi, e + strlen(E_STR));
+	}
+
+	s = e + strlen(E_STR);
+	sz = fi->buf_sz - (s-dt);
     }
-    else if (!e) {
     
-      e = (char*)memchr(dt, '>', sz);
-      if (!e) break;
-      
-      sz -= (e - dt + 1);
-      dt = e + 1;
-    }
-    else {
-    
-      if (memcmp(dt, E_STR, strlen(E_STR)) == 0) {
-        if (push_htab(htab, fi, s, e - s + 1, dt + strlen(E_STR)) == 1) {
-          push_token_into_htab(htab, fi, dt + strlen(E_STR));
-        }
-      }
-      
-      sz--;
-      dt++;
-      s = e = NULL;
-    }
-  }
   
+    memset(&item, 0, sizeof(item));
+    item.key = "@";
+    rti = hsearch(htab, item, ENTER);
+    if (!rti) return 0;
   
-  memset(&item, 0, sizeof(item));
-  item.key = "@";
-  rti = hsearch(htab, item, ENTER);
-  if (!rti) return 0;
+    debug("hash table %d entries, %d entries used, %d entries free. \n", 
+	  htab->size, htab->filled, htab->size - htab->filled);
   
-  debug("hash table %d entries, %d entries used, %d entries free. \n", 
-    htab->size, htab->filled, htab->size - htab->filled);
-  
-  fe();
-  return 1;
+    fe();
+    return 1;
 }
 
 
@@ -589,7 +606,7 @@ make_or_tree
   rt = make_hs_entry(&si, s, e - 1 - s + 1, s, e - 1 - s + 1);
   if (!rt) return 1;
   
-  lfn = insert_tree_left(root, "<tmp>");
+  lfn = tree_insert_left(root, "<tmp>");
   if (!lfn) return 0;
   
   make_bnf_tree(lfn, s, e - 1 - s + 1, htab, dep + 1);
@@ -1227,29 +1244,57 @@ static hash_table_s htab, kw_htab;
 parser_rt_t
 parser_init(void)
 {
-  int rt;
-  file_info fi;
-  char *sql_str;
-  tr_node_s *es;
-  //token_list tk_lst;
-  ENTRY *rti;
-  char *root_key;
+    int rt;
+    file_info fi;
+    char *sql_str;
+    tr_node_s *es;
+    //token_list tk_lst;
+    ENTRY *rti;
+    char *root_key;
   
-  func_s();
-  
-  memset(&fi, 0, sizeof(fi));
-  fi.f_name = "monalisp1.0_syntax.txt";
-  
-  rt = load_syntax_file(&fi);
-  if (!rt) return PARSER_ERR;
-  
-  memset(&htab, 0, sizeof(htab));
-  rt = hcreate(&htab, 1500);
-  if(!rt) return PARSER_ERR;
-  
-  rt = push_bnf_into_htab(&htab, &fi);
-  if (!rt) return PARSER_ERR;
+    func_s();
 
+    
+    /* load the syntax file
+     */
+    memset(&fi, 0, sizeof(fi));
+    fi.f_name = "monalisp1.0_syntax.txt";
+  
+    rt = load_syntax_file(&fi);
+    if (!rt) return PARSER_ERR;
+
+
+    /* create  a hash table for syntax objects
+     */
+    memset(&htab, 0, sizeof(htab));
+    rt = hcreate(&htab, 1500);
+    if(!rt) return PARSER_ERR;
+
+    
+    /* parse syntax objects from file and push them into hash table 
+     */
+    rt = parse_syntax_object(&htab, &fi);
+    if (!rt) return PARSER_ERR;
+
+
+    /* construct the leafs of the AST tree via token syntax
+     */
+    root_key = "token";
+  
+    debug("\n\n[make_bnf_tree]... root: %s \n", root_key);
+    (void)make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
+    debug("\n[make_bnf_tree], done. \n\n");
+  
+    debug("hash table %d entries, %d entries used, %d entries free. \n", 
+	  htab.size, htab.filled, htab.size - htab.filled);
+  
+    debug("\n\n[make_graph]... \n");	
+    es = make_graph(bnf_tree_root);
+    debug("\n[make_graph], done. \n\n");
+  
+    show_nodes(es);
+
+  
   /*  
   root_key = "<token>";
   
