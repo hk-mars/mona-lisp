@@ -46,7 +46,7 @@ form_create(void)
 
     f->list->obj.type = OBJ_LIST;
 
-    f->type = UNKOWN_FORM;
+    f->type = UNKNOWN_FORM;
     
     return f;
 }
@@ -111,7 +111,7 @@ form_set_type(form_s *form, form_t type)
 bool
 form_is_unkown(form_s *form)
 {
-    return (form->type == UNKOWN_FORM);
+    return (form->type == UNKNOWN_FORM);
 }
 
 

@@ -17,7 +17,7 @@
 
 typedef enum
 {
-    UNKOWN_FORM = 0,
+    UNKNOWN_FORM = 0,
     
     SYMBOL_FORM = 1,
 

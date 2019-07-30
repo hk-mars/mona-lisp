@@ -13,9 +13,10 @@
 #include "ast_tree.h"
 #include "asg_graph.h"
 
+#include "util.h"
 
 
-const char *E_STR = "::=";
+const char *BNF_OBJ_STRING = "::=";
 static tr_node_s *bnf_tree_root;
 
 
@@ -186,10 +187,10 @@ find_bnf_unit_len(char *dt, file_info *fi)
   s = dt;
   e = fi->buf_e;
   while (s++ < e){
-    s = memchr(s, E_STR[0], e-s+1);
+    s = memchr(s, BNF_OBJ_STRING[0], e-s+1);
     if (!s) return (e - dt);
     
-    if (memcmp(s, E_STR, strlen(E_STR)) == 0) break;
+    if (memcmp(s, BNF_OBJ_STRING, strlen(BNF_OBJ_STRING)) == 0) break;
   }
   
   while (--s > dt) {
@@ -364,16 +365,16 @@ parse_syntax_object(hash_table_s *htab, file_info *fi)
     sz = fi->buf_sz;
 
     s = dt;
-    while (sz >= strlen(E_STR)) {
+    while (sz >= strlen(BNF_OBJ_STRING)) {
 
 	ss = s;
 	
-	//debug("search \"%s\" \n", E_STR);
+	//debug("search \"%s\" \n", BNF_OBJ_STRING);
 	bool found = false;
-	while (sz >= strlen(E_STR)) {
+	while (sz >= strlen(BNF_OBJ_STRING)) {
 	
 	    //debug("%x %c \n", *s, *s);
-	    if (!memcmp(s, E_STR, strlen(E_STR))) {
+	    if (!memcmp(s, BNF_OBJ_STRING, strlen(BNF_OBJ_STRING))) {
 	    
 		//debug("\nfound \n");
 		found = true;
@@ -409,12 +410,12 @@ parse_syntax_object(hash_table_s *htab, file_info *fi)
 
 	ml_util_show_buf(s, e-s);
 
-	if (push_htab(htab, fi, s, e - s + 1, e + strlen(E_STR))) {
+	if (push_htab(htab, fi, s, e - s + 1, e + strlen(BNF_OBJ_STRING))) {
 	    
-	    push_token_into_htab(htab, fi, e + strlen(E_STR));
+	    push_token_into_htab(htab, fi, e + strlen(BNF_OBJ_STRING));
 	}
 
-	s = e + strlen(E_STR);
+	s = e + strlen(BNF_OBJ_STRING);
 	sz = fi->buf_sz - (s-dt);
     }
     
@@ -509,6 +510,30 @@ find_elipsis(char *s, int sz)
   
   return NULL;
 }
+
+
+static char* 
+find_bnf_obj_str(char *s, int sz)
+{
+
+    ml_util_show_buf(s, sz);
+    
+    while (sz >= strlen(BNF_OBJ_STRING)) {
+	if (!memcmp(s, BNF_OBJ_STRING, strlen(BNF_OBJ_STRING))) {
+
+	    debug("found ::= \n");
+	    return s;
+	}
+
+	
+	//if (*s != ' ' && *s != '\r' && *s != '\n') return NULL;
+	s++;
+	--sz;
+    }
+  
+    return NULL;
+}
+
 
 
 static ENTRY*
@@ -629,7 +654,7 @@ make_or_tree
 
 
 static int
-make_ls_gt_tree
+make_bnf_obj_tree
 (
   tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep
 )
@@ -640,14 +665,19 @@ make_ls_gt_tree
   ENTRY si, ei;
   tr_node_s *lfn, *rin, *rtn, *sub;
   
+
+  func_s();
+
+  debug("object: %s \n", bnf);
   
-  /* find <>
-   */
-  s = find_s_ch('<', bnf, size);
-  if (!s) return 0;
-  
-  e = find_e_ch('<', '>', s + 1, size - (s - bnf + 1));
+
+  e = find_bnf_obj_str(bnf, size);
   if (!e) return 0;
+
+  s = bnf;
+  e = e - 1;
+
+  ml_util_show_buf(s, e-s+1);
   
   
   /* insert the left node of the root node.
@@ -960,7 +990,8 @@ make_bnf_tree
   
   if (root && root->is_inside_loop_node) return 0;
   if (!bnf || size <= 0 || !htab) return 0;
-  
+
+  /*  
   s = find_s_ch('!', bnf, size);
   if (s) {
     s = find_s_ch('!', s + 1, size - (s - bnf + 1));
@@ -972,15 +1003,16 @@ make_bnf_tree
     e = find_e_ch('(', ')', s + 1, size - (s - bnf + 1));
     if (e) return 0;
   }
-  
+  */
+
+  if (make_bnf_obj_tree(root, bnf, size, htab, dep)) return 1;
   if (make_or_tree(root, bnf, size, htab, dep)) return 1;
-  if (make_ls_gt_tree(root, bnf, size, htab, dep)) return 1;
   if (make_brackets_tree(root, bnf, size, htab, dep)) return 1;
   if (make_braces_tree(root, bnf, size, htab, dep)) return 1;
   if (make_keyword_tree(root, bnf, size, htab, dep)) return 1;
   
-  #if 0
-  debug("%*c%d%s:", dep, ' ', dep, "unknow bnf:");
+  #if 1
+  debug("dep:%d, %s: \n", dep, "unknown syntax");
   show_buf(bnf, size, NULL);
   #endif
   
@@ -1279,10 +1311,10 @@ parser_init(void)
 
     /* construct the leafs of the AST tree via token syntax
      */
-    root_key = "token";
+    root_key = "token ::=";
   
     debug("\n\n[make_bnf_tree]... root: %s \n", root_key);
-    (void)make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
+    rt = make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
     debug("\n[make_bnf_tree], done. \n\n");
   
     debug("hash table %d entries, %d entries used, %d entries free. \n", 
