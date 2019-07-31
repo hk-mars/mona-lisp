@@ -9,7 +9,7 @@
 
 #include "config.h"
 
-#define TREE_DBG_ENABLE Y
+#define TREE_DBG_ENABLE 1
 
 typedef struct tr_node 
 {

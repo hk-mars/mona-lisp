@@ -144,7 +144,7 @@ push_syntax_htab(char *key, tr_node_s *root)
   ENTRY item, *rti;
   
   if (!syntax_htab.table) return 0;
-  
+
   item.key = key;
   item.data = root;
   rti = hsearch(&syntax_htab, item, ENTER); 

@@ -75,6 +75,10 @@ tree_insert_left(tr_node_s *root, char *key)
   nd->is_inside_loop_node = !!nd->loop;
   
   if (root) root->left = nd;
+
+#if TREE_DBG_ENABLE  
+  func_ok();
+#endif
   
   return nd;
 }
