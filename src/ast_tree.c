@@ -194,13 +194,15 @@ is_token(char *key)
   
   if (!lex_tr_root) return 0;
   if (!kw_htab) return 0;
-  
+
+  /*  
   if (is_like_keyword(key)) {
     memset(&item, 0, sizeof(item));
     item.key = key;
     rti = hsearch(kw_htab, item, FIND);
     if (rti) return 1;
   }
+  */
   
   root = search_key(lex_tr_root, key);
   if (!root) return 0;

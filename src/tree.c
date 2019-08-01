@@ -117,6 +117,10 @@ tree_insert_right(tr_node_s *root, char *key)
   nd->is_inside_loop_node = !!nd->loop;
   
   if (root) root->right = nd;
+
+ #if TREE_DBG_ENABLE  
+  func_ok();
+ #endif
   
   return nd;
 }
@@ -153,7 +157,10 @@ tree_insert_sub(tr_node_s *root, char *key)
   nd->is_inside_loop_node = !!nd->loop;
   
   if (root) root->sub = nd;
-  
+
+#if TREE_DBG_ENABLE  
+  func_ok();
+#endif  
   return nd;
 }
 
