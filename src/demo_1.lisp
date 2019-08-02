@@ -56,7 +56,7 @@
 ;(cons (list 4 5) (list 1 2 3))
 
 ;; wrong car syntax
-(car (list 1 2 3) (list 3 5))
-
+;(car (list 1 2 3) (list 3 5))
+(list 1 2 3)
 
 

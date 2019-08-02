@@ -27,6 +27,7 @@ typedef struct tr_node
   unsigned char is_sub_bnf;
   unsigned char is_token;
   unsigned char is_in_syntax_tree;
+  unsigned char is_more_plus;
 } tr_node_s;
 
 

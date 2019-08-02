@@ -203,9 +203,11 @@ is_token(char *key)
     if (rti) return 1;
   }
   */
+
   
   root = search_key(lex_tr_root, key);
   if (!root) return 0;
+  
   
   return 1;
 }

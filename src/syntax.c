@@ -31,18 +31,18 @@
 
 
 /* An abstract semantic graph (ASG) or term graph is a form of abstract syntax 
-in which an expression of a formal or programming language is represented by a 
-graph whose vertices are the expression's subterms. An ASG is at a higher level 
-of abstraction than an abstract syntax tree (or AST), which is used to express 
-the syntactic structure of an expression or program. 
-ASGs are more complex and concise than ASTs because they may contain shared subterms 
-(also known as "common subexpressions").[1] Abstract semantic graphs are often used 
-as an intermediate representation by compilers to store the results of performing 
-common subexpression elimination upon abstract syntax trees. ASTs are trees and are 
-thus incapable of representing shared terms. ASGs are usually directed acyclic graphs. 
-However, they may contain cycles, particularly in the field of graph rewriting. Graphs 
-that contain cycles may represent recursive expressions which are commonly used to 
-express iteration in functional programming languages without looping constructs.
+   in which an expression of a formal or programming language is represented by a 
+   graph whose vertices are the expression's subterms. An ASG is at a higher level 
+   of abstraction than an abstract syntax tree (or AST), which is used to express 
+   the syntactic structure of an expression or program. 
+   ASGs are more complex and concise than ASTs because they may contain shared subterms 
+   (also known as "common subexpressions").[1] Abstract semantic graphs are often used 
+   as an intermediate representation by compilers to store the results of performing 
+   common subexpression elimination upon abstract syntax trees. ASTs are trees and are 
+   thus incapable of representing shared terms. ASGs are usually directed acyclic graphs. 
+   However, they may contain cycles, particularly in the field of graph rewriting. Graphs 
+   that contain cycles may represent recursive expressions which are commonly used to 
+   express iteration in functional programming languages without looping constructs.
 */
 
 
@@ -91,11 +91,139 @@ syntax_init(void)
 }
 
 
+static syntax_rt_t
+find_path(tr_node_s *root, lisp_list_s *path)
+{
+    /* a path is a pattern sequence of which the element is constructed by lisp-characters.
+     * a syntax tree includes all the paths for syntax patterns of a language.
+     * if the path is found, then the syntax of given codes is valid.
+     *
+     * the leafs of the tree should be determinded.
+     * a leaf is an element.
+     * all the elements should be saved together in a hash table.
+     *
+     * a node may be:
+     * @ a leaf
+     * @ a pattern node
+     * @ a syntax-object node
+     * @ a temporary node.
+     * 
+     * if a pattern node or a syntax-object node has been found, then its sub-nodes
+     * can be ignored to track, this may work in macro-related context.
+     * 
+     */
+    
+    func_s();
+
+
+    func_ok();
+    return SYNTAX_OK;
+}
+
+
+static syntax_rt_t
+check_func_form_syntax(form_s *form)
+{
+    syntax_rt_t rt;
+    lisp_list_s *l;
+    
+    func_s();
+
+    
+    if (!form->list->next) {
+
+	debug("null form \n");
+	return SYNTAX_ERR;
+    }
+
+    l = form->list->next;
+    
+    debug("%s \n", l->obj.token.value.symbol);
+
+    htab_entry_s *item = pop_syntax_htab(l->obj.token.value.symbol);
+    if (!item) goto FAIL;
+
+#if 0    
+    l = l->next;
+
+    while (l && l != form->list) {
+
+	if (l->obj.type == OBJ_LIST) {
+
+	    debug("OBJ_LIST \n");
+
+	    form_s *subform = l->obj.sub;
+	    if (subform) {
+		debug("sub_form \n");
+	    }
+	    
+	    
+	}
+	else if (l->obj.type == OBJ_TYPE) {
+
+	    debug("OBJ_TYPE \n");
+	}
+	else {
+
+	    debug("unkown object, type: %d \n", l->obj.type);
+	}
+
+	
+	l = l->next;
+    }
+#endif
+    
+    
+    /* track the tree to find the given path
+     */
+    lisp_list_s *path = l;
+    rt = find_path((tr_node_s*)item->data, path);
+
+    
+    func_ok();
+    return SYNTAX_OK;
+
+  FAIL:
+    func_fail();
+    return SYNTAX_ERR;
+}
+
+
 syntax_rt_t
 syntax_check(form_s *form)
 {
+    syntax_rt_t rt;
+    
     func_s();
 
+    if (!form) return SYNTAX_ERR;
+
+    form_s *f = form->next;
+
+    while (f && f != form) {
+
+	switch (f->type) {
+
+	case COMPOUND_FUNCTION_FORM:
+	    debug("COMPOUND_FUNCTION_FORM \n");
+
+	    rt = check_func_form_syntax(f);
+	    if (rt != SYNTAX_OK) return rt;
+	    
+	    break;
+
+	case SYMBOL_FORM:
+	    debug("SYMBOL_FORM \n");
+	    break;
+
+	default:
+	    break;
+	}
+	
+	    
+	f = f->next;
+    }
+    
 
     func_ok();
     return SYNTAX_OK;
@@ -105,64 +233,69 @@ syntax_check(form_s *form)
 static void
 show_path(tr_node_s *s)
 {
-  fs();
+    fs();
   
-  while(s) {
-    debug("%s \n", s->key);
-    s = s->next;
-  }
+    while(s) {
+	debug("%s \n", s->key);
+	s = s->next;
+    }
   
-  fe();
+    fe();
 }
 
 
 int
 create_syntax_htab(int cnt)
 {
-  int rt;
+    int rt;
   
-  if (syntax_htab.table) return 0;
+    if (syntax_htab.table) return 0;
   
-  rt = hcreate(&syntax_htab, cnt);
+    rt = hcreate(&syntax_htab, cnt);
   
-  return rt;
+    return rt;
 }
 
 
 hash_table_s* 
 get_syntax_htab(void)
 {
-  if (!syntax_htab.table) return NULL;
+    if (!syntax_htab.table) return NULL;
   
-  return &syntax_htab;
+    return &syntax_htab;
 }
 
 
 int 
 push_syntax_htab(char *key, tr_node_s *root)
 {
-  ENTRY item, *rti;
+    ENTRY item, *rti;
   
-  if (!syntax_htab.table) return 0;
+    if (!syntax_htab.table) return 0;
 
-  item.key = key;
-  item.data = root;
-  rti = hsearch(&syntax_htab, item, ENTER); 
+    item.key = key;
+    item.data = root;
+    rti = hsearch(&syntax_htab, item, ENTER); 
   
-  return !!rti;
+    return !!rti;
 }
 
 
 ENTRY*
 pop_syntax_htab(char *key)
 {
-  ENTRY item, *rti;
+    ENTRY item, *rti;
+
+    func_s();
   
-  if (!syntax_htab.table) return NULL;
+    if (!syntax_htab.table) return NULL;
+
   
-  memset(&item, 0, sizeof(ENTRY));
-  item.key = key;
-  rti = hsearch(&syntax_htab, item, FIND);
   
-  return rti;
+    memset(&item, 0, sizeof(ENTRY));
+    item.key = key;
+    rti = hsearch(&syntax_htab, item, FIND);
+
+    func_ok();
+    return rti;
 }

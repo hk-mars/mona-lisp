@@ -643,6 +643,36 @@ find_elipsis(char *s, int sz)
 
 
 static char* 
+find_pattern_more(char *s, int sz)
+{
+    while (sz >= strlen("*")) {
+	if (memcmp(s, "*", strlen("*")) == 0) return s;
+	if (*s != ' ' && *s != '\r' && *s != '\n') return NULL;
+	s++;
+	--sz;
+    }
+  
+    return NULL;
+}
+
+
+static char* 
+find_pattern_more_plus(char *s, int sz)
+{
+    while (sz >= strlen("+")) {
+	if (memcmp(s, "+", strlen("+")) == 0) return s;
+	if (*s != ' ' && *s != '\r' && *s != '\n') return NULL;
+	s++;
+	--sz;
+    }
+  
+    return NULL;
+}
+
+
+
+
+static char* 
 find_bnf_obj_str(char *s, int sz)
 {
 
@@ -884,15 +914,18 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	    }
 	}
     }
-  
+
+    
     /* find ... of the remaining bnf
      */
+    /*
     ss = find_elipsis(e + 1, size - (e - bnf + 1));
     if (ss) {
 	lfn->is_outside_loop_node = 1;
 	e = ss + strlen("...") - 1;
     }
-  
+    */
+    
  
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
@@ -961,11 +994,14 @@ make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int
   
     /* find ... of the remainning bnf
      */
+    /*
     ss = find_elipsis(e + 1, size - (e - bnf + 1));
     if (ss) {
 	lfn->is_outside_loop_node = 1;
 	e = ss + strlen("...") - 1;
     }
+    */
+    
   
     /* insert the remainning bnf as a node to 
      * the right node of the root,
@@ -1037,10 +1073,23 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
   
     /* find {}*
      */
-    ss = find_elipsis(e + 1, size - (e - bnf + 1));
+    ss = find_pattern_more(e + 1, size - (e - bnf + 1));
     if (ss) {
 	lfn->is_outside_loop_node = 1;
 	e = ss + strlen("*") - 1;
+	debug("pattern: {}* \n");
+    }
+    else {
+
+	/* find {}+
+	 */
+	ss = find_pattern_more_plus(e + 1, size - (e - bnf + 1));
+	if (ss) {
+	    lfn->is_outside_loop_node = 1;
+	    lfn->is_more_plus = 1;
+	    e = ss + strlen("+") - 1;
+	    debug("pattern: {}+ \n");
+	}	
     }
   
   
@@ -1101,6 +1150,8 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	    return 0;
 	}
 
+	ml_util_show_buf(lfi->data, lfi->dt_sz);
+
     }
   
     if (si.key) {
@@ -1116,7 +1167,8 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
      */
     if (get_lex_tree())  lfn->is_token = is_token(lfn->key);
   
-  
+    ml_util_show_buf(e + 1, size - (e - bnf + 1));
+    
     /* insert the remainning bnf to 
      * the right node of the root node, if finding the |.
      * or 
@@ -1128,7 +1180,7 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
   
     lfn = tree_insert_left(lfn, "<tmp>");
     if (!lfn) return 0;
-  
+    
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
   
     return 1;
@@ -1431,12 +1483,13 @@ parser_init(void)
 {
     int rt;
     file_info fi;
-    char *sql_str;
+    //char *sql_str;
     tr_node_s *es;
     //token_list tk_lst;
     ENTRY *rti;
     char *root_key;
-  
+    tr_node_s *root;
+    
     func_s();
 
     
@@ -1462,22 +1515,21 @@ parser_init(void)
     if (!rt) return PARSER_ERR;
 
 
-    const char* lisp_chars[] =
-	{
-	    "$" , "%" , "&" , "*" , "+" , "-" , "." , "/" ,
-	    "0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" ,
-	    ":" , "<" , "=" , ">" , "@" , 
-	    "A" , "B" , "C" , "D" , "E" , "F" , "G" , "H" , "I" , "J" , "K" , "L" , "M" , 
-	    "N" , "O" , "P" , "Q" , "R" , "S" , "T" , "U" , "V" , "W" , "X" , "Y" , "Z" ,
-	    "a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , 
-	    "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z" ,	
-	    "^" , "_" , "~" , "0x7f",
+    const char* lisp_chars[] = {
+	"$" , "%" , "&" , "*" , "+" , "-" , "." , "/" ,
+	"0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" ,
+	":" , "<" , "=" , ">" , "@" , 
+	"A" , "B" , "C" , "D" , "E" , "F" , "G" , "H" , "I" , "J" , "K" , "L" , "M" , 
+	"N" , "O" , "P" , "Q" , "R" , "S" , "T" , "U" , "V" , "W" , "X" , "Y" , "Z" ,
+	"a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , 
+	"n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z" ,	
+	"^" , "_" , "~" , "0x7f",
 
-	    "\"", "'", "(", ")", ",", ";", "`",
+	"\"", "'", "(", ")", ",", ";", "`",
 
-	    "|", "\\",
+	"|", "\\",
 
-	};
+    };
 
     for (int i = 0; i < ARR_LEN(lisp_chars); i++) {
     
@@ -1485,8 +1537,6 @@ parser_init(void)
     }
     
 
-    /* construct the leafs of the AST tree via token syntax
-     */
     //root_key = "token ::=";
     root_key = "list ::=";
     
@@ -1501,10 +1551,19 @@ parser_init(void)
     es = make_graph(bnf_tree_root);
     debug("\n[make_graph], done. \n\n");
 
-    show_graph(es);
+    //show_graph(es);
     
-    //show_nodes(es);
+    show_nodes(es);
 
+    show_bnf_tree(bnf_tree_root);
+
+    rt = create_syntax_htab(500);
+    if (!rt) return PARSER_ERR;
+  
+    rt = push_syntax_htab("list", bnf_tree_root);
+    if (!rt) return PARSER_ERR;
+    
+    
   
     /*  
 	root_key = "<token>";
@@ -1833,7 +1892,7 @@ parser_init(void)
   root = (tr_node_s*)rti->data;
   
   rt = check_syntax(root, &lst);
-  if (!rt) goto ERR;
+  if (!rt) goto ERR; 
   
   rt = push_stack(&lst, obj);
   if (!rt) goto ERR;
