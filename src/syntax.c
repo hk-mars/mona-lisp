@@ -91,7 +91,58 @@ syntax_init(void)
 }
 
 
-static syntax_rt_t
+static tr_node_s*
+search_end(tr_node_s *root)
+{
+    tr_node_s *rtn;
+  
+    if (!root) return NULL;
+  
+    if (strcmp(root->key, "@") == 0) {
+  
+#if 0
+	debug("%s \n", root->key);
+	if (root->right) debug("still has a right: %s. \n", root->right->key);
+	if (root->left) debug("still has a left: %s. \n", root->left->key);
+	if (root->left && root->left->left) debug("still has a left left: %s. \n", 
+						  root->left->left->key);
+	if (root->sub) debug("still has a sub: %s. \n", root->sub->key);
+#endif
+    
+	if (!root->right && !root->left && !root->sub) {
+	    //debug("@e. \n");
+	    return root;
+	}
+    }
+  
+    if (root->is_token) {
+	//debug("token: %s \n", root->key);
+	return NULL;
+    }
+  
+    if (root->sub) {
+	//debug("sub %s \n", root->sub->key);
+	rtn = search_end(root->sub);
+	if (rtn) return rtn;
+    }
+  
+    if (root->left) {
+	//debug("left %s \n", root->left->key);
+	rtn = search_end(root->left);
+	if (rtn) return rtn;
+    } 
+  
+    if (root->right) {
+	//debug("right %s \n", root->right->key);
+	rtn = search_end(root->right);
+	if (rtn) return rtn;
+    }
+  
+    return NULL;
+}
+
+
+static tr_node_s*
 find_path(tr_node_s *root, lisp_list_s *path)
 {
     /* a path is a pattern sequence of which the element is constructed by lisp-characters.
@@ -113,11 +164,142 @@ find_path(tr_node_s *root, lisp_list_s *path)
      * 
      */
     
-    func_s();
+    tr_node_s *rtn, *nd;
+    ENTRY *rti;
+    lisp_list_s *lst, *sl, *el;
 
+    
+    nd = NULL;
+  
+    if (!root) return NULL;
+  
+    if (root->is_token) {
+	debug("token node: %s \n", root->key);
+    
+	root->next = NULL;
+	if (strcmp(root->key, path->obj.token.name) != 0) return NULL;
+    
+	debug("found token: %s \n", root->key);
+    
+	/* the end token, check the path if it's at the end.
+	 */
+	if (!path->next) {
+    
+	    if (!root->sub && !root->left && !root->right) return root;
+      
+	    rtn = search_end(root->sub);
+	    if (rtn) return root;
+      
+	    rtn = search_end(root->left);
+	    if (rtn) return root;
+      
+	    rtn = search_end(root->right);
+	    if (rtn) return root;
+      
+	    //debug("no end path. \n");
+	    return NULL;
+	}
+	else {
+	    path = path->next;
+	    //debug("try find: %s \n", path->tk.key);
+	}
+    }
+  
+  
+    if (root->loop) {
+	//debug("loop node: %s \n", root->key);
+	nd = root->loop;
+    }
+  
+  
+    if (root->is_in_syntax_tree && !nd) {
+  
+	/* get the root of sub tree from hash table.
+	 */
+	rti = pop_syntax_htab(root->key);
+	if (!rti) return NULL;
+	if (!rti->data) {
+	    //debug("sub tree not found: %s \n", root->key);
+	    return NULL;
+	}
+    
+	nd = rti->data;
+	debug("syntax sub tree found: %s \n", root->key);
+    }
+  
+    if (nd) {
+  
+	/* make new token list from the trail of old list, 
+	 * and search the sub solution path again and again until done.
+	 */
+	sl = path;
+	el = NULL;
+	while (1) {
+    
+	    rtn = find_path(nd, sl);
+      
+	    /* reconnect the list
+	     */
+	    lst = sl;
+	    while (lst) {
+		if (!lst->next) break;
+		lst = lst->next;
+	    }
+	    if (el) lst->next = el;
+      
+	    if (rtn) {
+		//debug("en token: %s \n", lst->tk.key);
+		//if (el) debug("sn token: %s \n\n", el->tk.key);
+		if (!el) return rtn;
+		path = el;
+        
+		break;
+	    }
+      
+	    el = lst;
+	    if (el == sl) return NULL;
+      
+	    /* cut the list from the trail.
+	     */
+	    lst = sl;
+	    while (lst) {
+		if (lst->next == el) break;
+		lst = lst->next;
+	    }
+	    lst->next = NULL;
+	}	
+    }
+  
+  
+    if (root->back) {
+      //debug("go back to node: %s \n", root->back->key);
+      //rtn = find_path(root->back, path);
+      //if (rtn) return rtn;
+    }
+  
+    if (root->sub) {
+	debug("sub: %s \n", root->sub->key);
+	root->next = root->sub;
+	rtn = find_path(root->sub, path);
+	if (rtn) return rtn;
+    }
+  
+    if (root->left) {
+	debug("left: %s \n", root->left->key);
+	root->next = root->left;
+	rtn = find_path(root->left, path);
+	if (rtn) return rtn;
+    }
+  
+    if (root->right) {
+	debug("right: %s \n", root->right->key);
+	root->next = root->right;
+	rtn = find_path(root->right, path);
+	if (rtn) return rtn;
+    }
 
-    func_ok();
-    return SYNTAX_OK;
+    
+    return NULL;
 }
 
 
@@ -177,8 +359,8 @@ check_func_form_syntax(form_s *form)
     /* track the tree to find the given path
      */
     lisp_list_s *path = l;
-    rt = find_path((tr_node_s*)item->data, path);
-
+    tr_node_s *nd = find_path((tr_node_s*)item->data, path);
+    if (!nd) goto FAIL;
     
     func_ok();
     return SYNTAX_OK;

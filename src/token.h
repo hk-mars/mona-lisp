@@ -49,6 +49,8 @@ typedef struct
 {
     token_t type;
 
+    char *name;
+
     token_value_s value;
     
 } token_s;

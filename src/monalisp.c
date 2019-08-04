@@ -38,7 +38,7 @@ main (int argc, char **argv)
     lisp_rt_t rt = ml_init();
     if (rt != LISP_OK) return -1;
 
-#if 1    
+#if 0    
     reader_s reader;
     reader_rt_t reader_rt = ml_reader_load_file(&reader, "demo_1.lisp");
     if (reader_rt != READER_OK) return -1;

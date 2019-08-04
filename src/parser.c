@@ -34,11 +34,8 @@ struct s_file_info
 } file_info;
 
 
-static tr_node_s*
-make_bnf_tree
-(
-    tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep
-    );
+static tr_node_s* make_bnf_tree(tr_node_s *root, char *bnf, int size,
+				hash_table_s *htab, int dep);
 
 
 static void
@@ -343,24 +340,31 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
 }
 
 
+
 static int 
-push_token_into_htab(hash_table_s *htab, file_info *fi, char *s)
+push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 {
-    char *e, *ss, *ee;
+    char *ss, *ee;
     unsigned char flag;
     char buf[64];
     int sz;
+    int rt;
+    ENTRY item;
+    ENTRY *rti;
 
     func_s();
   
-    e = fi->buf_e;
+    //e = fi->buf_e;
   
     if (s >= e) return 0;
+
+    ml_util_show_buf(s, e-s+1);
   
+
     /* cut whitespace of the head
      */
     while(s <= e) {
-	if (*s != ' ' && *s != '\r' && *s != '\n') break;
+	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;
 	s++;
     }
     if (s > e) return 0;
@@ -369,87 +373,136 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s)
     /* cut whitespace of the trail
      */
     while (e > s) {
-	if (*e != ' ' && *e != '\r' && *e != '\n') break;
+	if (*e != ' ' && *e != '\r' && *e != '\n' && *s != '\t') break;
 	e--;
     }    
+
+    ml_util_show_buf(s, e-s+1);
     
     
-    /* only one character
-     */
-    if (s == e) {
-
-	debug("only one character: %c \n", *s);
-
-	if (is_constituent_char(*s)) {
-
-	    //htab_add(
-	}
-	
-    }
-    
-  
-  
-    if (is_special_ch(*s)) {
-	buf[0] = *s;
-	if (!push_htab(htab, fi, buf, 1, NULL)) return 0;
-	return 1;
-    }
-  
-    if ((s+1) <= e && is_special_ch(*s) && is_special_ch(*(s+1))) {
-	buf[0] = *s;
-	buf[1] = *(s+1);
-	if (!push_htab(htab, fi, buf, 2, NULL)) return 0;
-	return 1;
-    }
-  
     flag = 0;
-    ss = --s;
-    ee = fi->buf_e;
-    while(++ss <= ee) {
-  
-	if (*ss == '|') flag = 1;
-	if (is_digit_ch(*ss)) continue;
-	if (is_latin_ch(*ss)) continue;
-	if (*ss == '_' || *ss == '-') continue;
-	if (*ss == ' ' || *ss == '|' || *ss == '\r' || *ss == '\n') continue;
-	if (*ss == '<') break;
-	return 0;
-    }
-    if (!flag) return 0;
-    e = ss-1;
-  
-    sz = 0;
-    while (++s <= e) {
-  
-	if (*s == ' ' && sz > 0 && s+1 <= e) {
-	    if (is_latin_ch(*(s+1))) return 0;
-	}
-    
-	if (*s == ' ' || *s == '\r' || *s == '\n') continue;
-    
-	buf[sz++] = *s;
-	if (is_digit_ch(*s)) continue;
-	if (is_latin_ch(*s)) continue;
-	if (*s == '_' || *s == '-') continue;
-    
-	if (*s == '|' && sz > 1) {
-	    if (!push_htab(htab, fi, buf, sz-1, NULL)) return 0;
-	    sz = 0;
-	}
-    }
-  
-    if (sz > 0) {
-	if (!push_htab(htab, fi, buf, sz, NULL)) return 0;
-	sz = 0;
-    }
+    ss = s;
+    ee = e;
+    while(ss <= ee) {
+	
+	//if (*ss == '|' || ss == ee || (flag && *ss == ' ')) {
+	if (*ss == '|' || ss == ee) {
+	    if (ss != ee) e = ss - 1;
+	    
+	    /* cut whitespace of the trail
+	     */
+	    while (e > s) {
+		if (*e != ' ' && *e != '\r' && *e != '\n' && *e != '\t') break;
+		e--;
+	    }
 
+	    ml_util_show_buf(s, e-s+1);
+
+	    /* if it's lisp-character or keyword
+	     */
+	    item.key = ml_util_buf2str(s, e-s+1);
+	    rti = hsearch(get_char_htab(), item, FIND);
+	    if (!rti)  {
+
+		rti = hsearch(get_kw_htab(), item, FIND);
+		if (!rti)  {
+		    
+		
+		    debug("%s is not a character or keyword \n", item.key);
+		    free(item.key);
+		    item.key = NULL;
+		}
+	
+	    }
+	    else {
+		debug("key found in hash table \n");
+	    }
+	    
+
+	    if (!rti) {
+		
+		ml_util_show_buf(s, e-s+1);
+		debug("search hash table to check if it's a syntax object \n");
+	    
+		char *key = ml_malloc(e-s+1 + strlen(" ::=") + 1);
+		if (!key) return 0;
+
+		memcpy(key, s, e-s+1);
+		strcat(key, " ::=");
+
+		debug("key: %s \n", key);
+
+		/* if it's a syntax object 
+		 */
+		item.key = key;
+		rti = hsearch(htab, item, FIND);
+		if (!rti)  {
+
+		    debug("%s is not syntax object \n", item.key);
+
+		    /* it can be a new character or a keyword or a combined object
+		     */
+
+		    
+		    /* if it's a character, add it to char-hash-table
+		     */
+		    if (e-s+1 == 1) {
+
+			debug("add a new character \n");
+		    }
+		    else {
+
+			/* but it may be a {}* {}+ [] combined object or a keyword
+			 * we would process this situation while constructing AST tree.
+			 */
+
+			
+		    }
+
+		}
+		else {
+		    debug("found syntax object \n");
+		}
+
+		free(item.key);
+		item.key = NULL;
+	    }
+
+	    if (ss == ee) break;
+	    
+	    ss++;
+	    
+	    /* cut whitespace of the head
+	     */
+	    while(ss <= ee) {
+		if (*ss != ' ' && *ss != '\r' && *ss != '\n' && *ss != '\t') break;
+		ss++;
+	    }
+	    if (ss > ee) return 0;
+
+	    s = ss;
+	    e = ee;
+
+	    ml_util_show_buf(s, e-s+1);
+
+	    continue;
+	}
+	else {
+
+	    //flag = 1;
+	}
+
+	ss++;
+    }
+   
+    
     func_ok();
     return 1;
 }
 
 
 static int 
-parse_syntax_object(hash_table_s *htab, file_info *fi)
+parse_syntax_object(hash_table_s *htab, file_info *fi, bool parsing_sub_obj)
 {
     char *dt, *s, *e, *ss;
     int sz;
@@ -515,22 +568,38 @@ parse_syntax_object(hash_table_s *htab, file_info *fi)
 
 	if (push_htab(htab, fi, s, e-s, e+1)) {
 	    
-	    //push_token_into_htab(htab, fi, e + strlen(BNF_OBJ_STRING) + 1);
 	}
+
+	if (parsing_sub_obj) {
+
+	    int dt_sz = find_bnf_unit_len(e+1, fi);
+	    if (dt_sz > 0) {
+		debug("element: \n");
+		ml_util_show_buf(e+1, dt_sz);
+
+		push_token_into_htab(htab, fi, e+1, e+1+dt_sz-1);
+	    }	    
+	}
+	
 
 	s = e;
 	sz = fi->buf_sz - (s-dt);
     }
+
     
-  
-    memset(&item, 0, sizeof(item));
-    item.key = "@";
-    rti = hsearch(htab, item, ENTER);
-    if (!rti) return 0;
-  
+    if (parsing_sub_obj) {
+
+	memset(&item, 0, sizeof(item));
+	item.key = "@";
+	rti = hsearch(htab, item, ENTER);
+	if (!rti) return 0;	
+    }
+
+    
     debug("hash table %d entries, %d entries used, %d entries free. \n", 
 	  htab->size, htab->filled, htab->size - htab->filled);
-  
+
+    
     fe();
     return 1;
 }
@@ -631,8 +700,8 @@ find_e_ch(char lc, char rc, char *s, int sz)
 static char* 
 find_elipsis(char *s, int sz)
 {
-    while (sz >= strlen("*")) {
-	if (memcmp(s, "*", strlen("*")) == 0) return s;
+    while (sz >= strlen("...")) {
+	if (memcmp(s, "...", strlen("...")) == 0) return s;
 	if (*s != ' ' && *s != '\r' && *s != '\n') return NULL;
 	s++;
 	--sz;
@@ -1475,7 +1544,7 @@ push_kw_htab(hash_table_s *htab, tr_node_s *sn)
 }
 
 
-static hash_table_s htab, kw_htab;
+static hash_table_s htab, kw_htab, char_htab;
 
 
 parser_rt_t
@@ -1504,17 +1573,24 @@ parser_init(void)
 
     /* create a hash table for syntax objects
      */
-    memset(&htab, 0, sizeof(htab));
+    memset(&htab, 0, sizeof(hash_table_s));
     rt = hcreate(&htab, 1500);
     if(!rt) return PARSER_ERR;
 
+
+    memset(&kw_htab, 0, sizeof(hash_table_s));
+    rt = hcreate(&kw_htab, 200);
+    if(!rt) return PARSER_ERR;
     
-    /* parse syntax objects from file and push them into hash table 
-     */
-    rt = parse_syntax_object(&htab, &fi);
-    if (!rt) return PARSER_ERR;
+    set_kw_htab(&kw_htab);
 
 
+    memset(&char_htab, 0, sizeof(hash_table_s));
+    rt = hcreate(&char_htab, 255);
+    if(!rt) return PARSER_ERR;
+    
+    set_char_htab(&char_htab);    
+    
     const char* lisp_chars[] = {
 	"$" , "%" , "&" , "*" , "+" , "-" , "." , "/" ,
 	"0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" ,
@@ -1523,7 +1599,7 @@ parser_init(void)
 	"N" , "O" , "P" , "Q" , "R" , "S" , "T" , "U" , "V" , "W" , "X" , "Y" , "Z" ,
 	"a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , 
 	"n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z" ,	
-	"^" , "_" , "~" , "0x7f",
+	"^" , "_" , "~" , "0x7F",
 
 	"\"", "'", "(", ")", ",", ";", "`",
 
@@ -1533,13 +1609,24 @@ parser_init(void)
 
     for (int i = 0; i < ARR_LEN(lisp_chars); i++) {
     
-	htab_add(&htab, lisp_chars[i], strlen(lisp_chars[i]), NULL, 0);
+	htab_add(&char_htab, lisp_chars[i], strlen(lisp_chars[i]), NULL, 0);
     }
     
+    /* parse syntax objects from file and push them into hash table 
+     */
+    rt = parse_syntax_object(&htab, &fi, false);
+    if (!rt) return PARSER_ERR;
+    rt = parse_syntax_object(&htab, &fi, true);
+    if (!rt) return PARSER_ERR;
 
-    //root_key = "token ::=";
-    root_key = "list ::=";
-    
+    rt = create_syntax_htab(500);
+    if (!rt) return PARSER_ERR;    
+
+
+    /* create leafs for syntax AST and ASG
+     */
+    root_key = "token ::=";
+ 
     debug("\n\n[make_bnf_tree]... root: %s \n", root_key);
     rt = make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
     debug("\n[make_bnf_tree], done. \n\n");
@@ -1555,14 +1642,34 @@ parser_init(void)
     
     show_nodes(es);
 
-    show_bnf_tree(bnf_tree_root);
+    set_lex_tree(bnf_tree_root);
+    
 
-    rt = create_syntax_htab(500);
-    if (!rt) return PARSER_ERR;
+#if 0    
+    /* create AST and ASG for syntax: "list ::=" 
+     */
+    root_key = "list ::=";
+    
+    debug("\n\n[make_bnf_tree]... root: %s \n", root_key);
+    rt = make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
+    debug("\n[make_bnf_tree], done. \n\n");
+  
+    debug("hash table %d entries, %d entries used, %d entries free. \n", 
+	  htab.size, htab.filled, htab.size - htab.filled);
+  
+    debug("\n\n[make_graph]... \n");	
+    es = make_graph(bnf_tree_root);
+    debug("\n[make_graph], done. \n\n");
+
+    //show_graph(es);
+    
+    //show_nodes(es);
+
+    //show_bnf_tree(bnf_tree_root);
   
     rt = push_syntax_htab("list", bnf_tree_root);
     if (!rt) return PARSER_ERR;
-    
+#endif    
     
   
     /*  

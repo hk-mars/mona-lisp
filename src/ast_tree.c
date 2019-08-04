@@ -13,6 +13,7 @@
 
 
 static tr_node_s *lex_tr_root;
+static hash_table_s *char_htab;
 static hash_table_s *kw_htab;
 
 void 
@@ -28,10 +29,32 @@ get_lex_tree(void)
   return lex_tr_root;
 }
 
+
+void 
+set_char_htab(hash_table_s *htab)
+{
+  char_htab = htab;
+}
+
+
+hash_table_s* 
+get_char_htab(void)
+{
+  return char_htab;
+}
+
+
 void 
 set_kw_htab(hash_table_s *htab)
 {
   kw_htab = htab;
+}
+
+
+hash_table_s* 
+get_kw_htab(void)
+{
+  return kw_htab;
 }
 
 
