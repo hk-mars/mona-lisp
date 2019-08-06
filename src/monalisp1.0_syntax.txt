@@ -19,13 +19,13 @@ whitespace ::=
 	return | 
 	space
 		
-backspace ::= \b
-tab ::= \t
-newline ::= \r
-linefeed ::= \n
-page ::= \p
-return ::= \r
-space ::= 0x20 
+backspace ::= #\b
+tab ::= #\t
+newline ::= #\r
+linefeed ::= #\n
+page ::= #\p
+return ::= #\r
+space ::= #\space 
 
 constituent-char ::= 
 	$ | % | & | * | + | - | . | / |
@@ -37,7 +37,7 @@ constituent-char ::=
 	n | o | p | q | r | s | t | u | v | w | x | y | z |	
 	^ | _ | ~ | rubout
 	
-rubout ::= 0x7F
+rubout ::= #\rubout
 
 single-escape ::= \
 
@@ -61,8 +61,8 @@ number-token ::=
 	float
 				          
 integer ::=
-	[sign] decimal-digit+ decimal-point |
-	[sign] digit+
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
 				         
 ratio ::=
 	[sign] {digit}+ slash {digit}+ 
@@ -80,7 +80,7 @@ slash ::= /
 
 decimal-point ::= .
 
-exponent-marker	::= 
+exponent-marker ::= 
 	e | s | f | d | l | E | S | F | D | L
 
 decimal-digit ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
@@ -91,7 +91,7 @@ symbol-token ::= <undefined>
 
 
 list ::= 
-	( { object [, object] }* )
+	( LIST { object [, object] }* )
 
 object ::= 
 	element |
@@ -152,6 +152,10 @@ macro-operator ::=
 	defmacro |
 	<TBD>
 	
+string ::= <TBD>
+
+
+
 
 
 

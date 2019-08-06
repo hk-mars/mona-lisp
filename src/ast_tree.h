@@ -36,6 +36,7 @@ tr_node_s* get_lex_tree(void);
 
 void set_char_htab(hash_table_s *htab);
 hash_table_s* get_char_htab(void);
+bool ast_is_character(char *s, int len);
 
 void set_kw_htab(hash_table_s *htab);
 hash_table_s* get_kw_htab(void);

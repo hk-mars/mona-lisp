@@ -236,7 +236,7 @@ make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
 	//dt = filter_buf(dt, dsz, &dsz);
     }
 
-    func_s();
+    //func_s();
     
     if (!key || ksz <= 0) return 0;
 
@@ -253,7 +253,7 @@ make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
   
     if (strcmp(item->key, " ") == 0) return 0;
 
-    func_ok();
+    //func_ok();
     return 1;
 }
 
@@ -292,10 +292,10 @@ push_htab(hash_table_s *htab, file_info *fi, char *key, int sz, char *dt)
     if (rti)  {
 	free(item.key);
 	item.key = NULL;
-	return 2;
+	return 0;
     }
   
-#if 1
+#if 0
     debug("%s, %d bytes \n", item.key, strlen(item.key));
 #endif
   
@@ -323,12 +323,16 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
   
     rti = hsearch(htab, item, FIND);
     if (rti)  {
+
+	debug("%s already in hash table \n", item.key);
+	
 	free(item.key);
 	item.key = NULL;
-	return 2;
+
+	return 0;
     }
   
-#if 1
+#if 0
     debug("%s, %d bytes \n", item.key, strlen(item.key));
 #endif
   
@@ -340,13 +344,77 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
 }
 
 
+static bool
+htab_find(hash_table_s *htab, char *key, int ksz)
+{
+    ENTRY item;
+    ENTRY *rti;
+
+    func_s();
+
+    item.key = ml_util_buf2str(key, ksz);
+    rti = hsearch(htab, item, FIND);
+    if (rti)  {
+	free(item.key);
+
+	//func_ok();
+	return true;
+    }
+
+    func_fail();
+    return false;
+}
+
+
+static char*
+find_s_ch(char c, char *s, int sz)
+{
+    while (--sz >= 0) {
+	if (*s == c) return s;
+	if (*s != ' ' && *s != '\r' && *s != '\n') return NULL;
+	s++;
+    } 
+  
+    return NULL;
+}
+
+
+static char* 
+find_e_ch(char lc, char rc, char *s, int sz)
+{
+    while (--sz >= 0) {
+	if (*s== rc) return s;
+	if (*s== lc) {
+	    while (--sz >= 0) {
+		if (*++s == rc) break;
+	    }
+	}
+	s++;
+    }
+  
+    return NULL;
+}
+
+
+static char*
+create_syntax_obj_key(char *s, char *e)
+{
+    char *key = ml_malloc(e-s+1 + strlen(" ::=") + 1);
+    if (!key) return NULL;
+
+    memcpy(key, s, e-s+1);
+    strcat(key, " ::=");
+
+    return key;
+}
+
 
 static int 
 push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 {
     char *ss, *ee;
     unsigned char flag;
-    char buf[64];
+    char buf[255];
     int sz;
     int rt;
     ENTRY item;
@@ -407,15 +475,16 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 		rti = hsearch(get_kw_htab(), item, FIND);
 		if (!rti)  {
 		    
-		
-		    debug("%s is not a character or keyword \n", item.key);
 		    free(item.key);
 		    item.key = NULL;
+		}
+		else {
+		    debug("key found in keyword hash table \n");
 		}
 	
 	    }
 	    else {
-		debug("key found in hash table \n");
+		debug("key found in character hash table \n");
 	    }
 	    
 
@@ -438,24 +507,127 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 		rti = hsearch(htab, item, FIND);
 		if (!rti)  {
 
-		    debug("%s is not syntax object \n", item.key);
+		    debug("not found \n");
 
 		    /* it can be a new character or a keyword or a combined object
 		     */
 
 		    
 		    /* if it's a character, add it to char-hash-table
+		     * character syntax: #\x
+		     * TODO
 		     */
-		    if (e-s+1 == 1) {
+		    if (0) {
 
-			debug("add a new character \n");
+			debug("add a new character \n");	     			
 		    }
 		    else {
 
 			/* but it may be a {}* {}+ [] combined object or a keyword
-			 * we would process this situation while constructing AST tree.
+			 * we need to add all keywords into hash table here.
+			 * first, filtering { } }* }+ [ ], split the buffer into parts
+			 * then check each part if it's a character or syntax object,
+			 * then it must be a keyword.
 			 */
 
+			debug("check if it's a combined object or a keyword \n");
+			
+			sz = 0;
+			while (s <= e) {
+
+			    if (*s == '}') {
+
+				if (s+1 <= e) {
+				    if (*(s+1) == '*' || *(s+1) == '+') {
+
+					s += 2;
+					continue;
+
+				    }
+				}
+			    }
+			    else if (*s == '{' || *s == '[' || *s == ']') {
+				
+			    }			    
+			    else if ( *s == '\r' || *s == '\n' || *s == '\t') {
+			
+			    }
+			    else {
+				buf[sz++] = *s;
+			    }
+
+			    s++;
+			    continue;
+			}
+
+			ml_util_show_buf(buf, sz);
+
+
+			char *sss;
+			sss = s = buf;
+			e = s + sz - 1;
+			while (s <= e) {
+
+			    if (*s == ' ') {
+
+				if (s > sss) {
+
+				    ml_util_show_buf(sss, s-sss);
+
+				    if (ast_is_character(sss, s-sss)) {
+
+					debug("character \n");
+				    }
+				    else {
+				    
+					/* if it is not a syntax object, then it must be a keyword
+					 */
+					item.key = create_syntax_obj_key(sss, s-1);
+					if (!hsearch(htab, item, FIND)) {
+
+					    debug("new keyword \n");
+					    htab_add(get_kw_htab(), sss, s-sss, NULL, 0);
+					}
+					else {
+
+					    debug("syntax object \n");
+					}
+				    }
+
+				    sss = s+1;
+				}
+				else {
+
+				    sss++;
+				}
+				
+			    }
+			    else if (s == e) {
+
+				debug("end \n");
+				ml_util_show_buf(sss, s-sss+1);
+				if (ast_is_character(sss, s-sss+1)) {
+
+				    debug("character \n");
+				}
+				else {
+				    
+				    /* if it is not a syntax object, then it must be a keyword
+				     */
+				    item.key = create_syntax_obj_key(sss, s);
+				    if (!hsearch(htab, item, FIND)) {
+
+					debug("new keyword \n");
+					htab_add(get_kw_htab(), sss, s-sss+1, NULL, 0);
+				    }
+				}
+				    
+			    }
+
+			    s++;
+			    
+			    
+			}
 			
 		    }
 
@@ -566,21 +738,25 @@ parse_syntax_object(hash_table_s *htab, file_info *fi, bool parsing_sub_obj)
 	
 	ml_util_show_buf(s, e-s);
 
-	if (push_htab(htab, fi, s, e-s, e+1)) {
+	if (ast_is_character(s, e-s)) {
+
+	    debug("character \n");
+	}
+	else {
 	    
+	    if (!push_htab(htab, fi, s, e-s, e+1)) {
+
+		if (parsing_sub_obj) {
+		    int dt_sz = find_bnf_unit_len(e+1, fi);
+		    if (dt_sz > 0) {
+			debug("element: \n");
+			ml_util_show_buf(e+1, dt_sz);
+
+			push_token_into_htab(htab, fi, e+1, e+1+dt_sz-1);
+		    }
+		}
+	    }
 	}
-
-	if (parsing_sub_obj) {
-
-	    int dt_sz = find_bnf_unit_len(e+1, fi);
-	    if (dt_sz > 0) {
-		debug("element: \n");
-		ml_util_show_buf(e+1, dt_sz);
-
-		push_token_into_htab(htab, fi, e+1, e+1+dt_sz-1);
-	    }	    
-	}
-	
 
 	s = e;
 	sz = fi->buf_sz - (s-dt);
@@ -662,35 +838,6 @@ find_word(ENTRY *item, char *dt, int sz)
 	
 	rt = make_hs_entry(item, s, e - s + 1, NULL, 0);
 	return (rt ? e : NULL);
-    }
-  
-    return NULL;
-}
-
-
-static char*
-find_s_ch(char c, char *s, int sz)
-{
-    while (--sz >= 0) {
-	if (*s == c) return s;
-	if (*s != ' ' && *s != '\r' && *s != '\n') return NULL;
-	s++;
-    } 
-  
-    return NULL;
-}
-
-static char* 
-find_e_ch(char lc, char rc, char *s, int sz)
-{
-    while (--sz >= 0) {
-	if (*s== rc) return s;
-	if (*s== lc) {
-	    while (--sz >= 0) {
-		if (*++s == rc) break;
-	    }
-	}
-	s++;
     }
   
     return NULL;
@@ -897,49 +1044,83 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
     ENTRY *rti, *lfi, *rii;
     ENTRY si, ei;
     tr_node_s *lfn, *rin, *rtn, *sub;
+    bool flag;
   
 
     func_s();
   
 
     e = find_bnf_obj_str(bnf, size);
-    if (!e) return 0;
-
+    if (!e) {
+	
+    }
+    
+    flag = !!e;
+    
     s = bnf;
     e = bnf + size - 1;
    
-    
-    while (*e == ' ' && e >= s) e--;
-
-    while (e >= s) {
-
-	//debug("%x %c \n", *s, *s);
-	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;      
+    /* cut whitespace of the head
+     */
+    while(s <= e) {
+	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;
 	s++;
     }
-
     if (s > e) return 0;
-    
-    
-    ml_util_show_buf(s, e-s+1);
-  
-  
-    /* insert the object to the left.
+
+
+    /* cut whitespace of the trail
      */
-    rt = make_hs_entry(&si, s, e - s + 1, NULL, 0);
-    if (!rt) return 1;
+    while (s < e) {
+	if (*e != ' ' && *e != '\r' && *e != '\n' && *e != '\t') break;
+	e--;
+    }
+    
+    if (s > e) goto FAIL;
+    ml_util_show_buf(s, e-s+1);
+
+    if (!flag) {
+	char *key2 = ml_malloc(e-s+1 + strlen(" ::=") + 1);
+	if (!key2) goto FAIL;
+
+	memcpy(key2, s, e-s+1);
+	strcat(key2, " ::=");
+
+	debug("key2: %s \n", key2);
+
+	si.key = key2;
+	lfi = hsearch(htab, si, FIND);
+	if (!lfi) {
+	    debug("%s not found in htab, %d bytes \n", si.key, strlen(si.key));
+	    goto FAIL;
+	}
+
+	debug("found \n");
+    }
+    else {
+	
+	rt = make_hs_entry(&si, s, e - s + 1, NULL, 0);
+	if (!rt) goto FAIL;
   
-    lfi = find_insert_htab(si, htab);
-    if (!lfi) return 0; 
-  
+	lfi = find_insert_htab(si, htab);
+	if (!lfi) goto FAIL; 
+    }
+
+    debug("sub: \n");
+    ml_util_show_buf(lfi->data, lfi->dt_sz);
+	
+    /* insert the object to the left.
+     */    
     lfn = tree_insert_left(root, lfi->key);
-    if (!lfn) return 0;
-  
+    if (!lfn) goto FAIL;
+    
     lfn->is_sub_bnf = 1;
   
     /* if lex tree is there, check the left node if it's a token or in tree.
      */
-    if (get_lex_tree() && root)  lfn->is_token = is_token(lfn->key);
+    //if (get_lex_tree() && root)  lfn->is_token = is_token(lfn->key);
+    if (root)  lfn->is_token = is_token(lfn->key);
+    
     if (lfn->is_token) debug("in lex tree, found: %s \n", lfn->key);
   
     /* if hash-table of sub syntax trees is there, check the left
@@ -975,11 +1156,11 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
       
       
 	    sub = tree_insert_sub(lfn, si.key);
-	    if (!sub) return 0;
+	    if (!sub) goto FAIL;
       
 	    if (strlen(si.key) > 1) {
 		make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
-		if (!root) return 1;
+		if (!root) goto DONE;
 	    }
 	}
     }
@@ -998,14 +1179,21 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
  
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
-    if (!rt) return 1;
+    if (!rt) goto DONE;
   
     lfn = tree_insert_left(lfn, "<tmp>");
-    if (!lfn) return 0;
+    if (!lfn) goto FAIL;
   
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
-  
+
+  DONE:
+    func_ok();
     return 1;
+
+  FAIL:
+
+    func_fail();
+    return 0;
 }
 
 
@@ -1028,7 +1216,6 @@ make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int
     if (!e) return 0;
 
     func_s();
-  
   
     /* insert the left node of the root node 
      */
@@ -1090,8 +1277,16 @@ make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int
     if (!lfn) return 0;
   
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
-  
+
+
+  DONE:
+    func_ok();
     return 1;
+
+  FAIL:
+
+    func_fail();
+    return 0;    
 }
 
 
@@ -1108,7 +1303,7 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
     /* find {} 
      */
     s = find_s_ch('{', bnf, size);
-    if (!s) return 0;
+    if (!s) goto FAIL;
   
     e = find_e_ch('{', '}', s + 1, size - (s - bnf + 1));
     if (!e) return 0;
@@ -1171,7 +1366,14 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
   
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
   
+  DONE:
+    func_ok();
     return 1;
+
+  FAIL:
+
+    func_fail();
+    return 0;
 }	
 
 
@@ -1197,31 +1399,37 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
     /* insert the keyword as a node to 
      * the left node of the root node.
      */
-    lfi = hsearch(htab, si, FIND);
+    lfi = hsearch(get_kw_htab(), si, FIND);
     if (!lfi) {
 
-	char *key2 = ml_malloc(strlen(si.key) + strlen(" ::=") + 1);
-	if (!key2) return 0;
+	/* check if it's a character
+	 */
+	lfi = hsearch(get_char_htab(), si, FIND);
+	if (lfi) {
 
-	strcat(strcat(key2, si.key), " ::=");
+	    debug("character \n");
 
-	debug("key2: %s \n", key2);
+	    lfn = tree_insert_left(root, lfi->key);
+	    if (!lfn) return 0;
+	    
+  	    lfn->is_token = 1;
 
+	    if (si.key) {
+		free(si.key);
+		si.key = NULL;
+	    }	    
+	    goto NEXT_STEP;
+	}
+	
 	if (si.key) {
 	    free(si.key);
 	    si.key = NULL;
 	}
 	
-	si.key = key2;
-	lfi = hsearch(htab, si, FIND);
-	if (!lfi) {
-	    debug("not found in htab: %s, %d bytes \n", si.key, strlen(si.key));
-	    return 0;
-	}
-
-	ml_util_show_buf(lfi->data, lfi->dt_sz);
-
+	return 0;
     }
+
+    debug("keyword \n");
   
     if (si.key) {
 	free(si.key);
@@ -1234,8 +1442,11 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
   
     /* if lex tree is there, check the left node if it's a token.
      */
-    if (get_lex_tree())  lfn->is_token = is_token(lfn->key);
-  
+    //if (get_lex_tree())  lfn->is_token = is_token(lfn->key);
+
+    
+  NEXT_STEP:
+	
     ml_util_show_buf(e + 1, size - (e - bnf + 1));
     
     /* insert the remainning bnf to 
@@ -1278,12 +1489,34 @@ make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 	}
     */
 
-  
-    if (make_or_tree(root, bnf, size, htab, dep)) return 1;
-    if (make_brackets_tree(root, bnf, size, htab, dep)) return 1;
-    if (make_braces_tree(root, bnf, size, htab, dep)) return 1;
-    if (make_bnf_obj_tree(root, bnf, size, htab, dep)) return 1;
-    if (make_keyword_tree(root, bnf, size, htab, dep)) return 1;
+    s = bnf;
+    e = bnf + size - 1;
+    /* cut whitespace of the head
+     */
+    while(s <= e) {
+	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;
+	s++;
+    }
+    if (s > e) return 0;
+
+
+    /* cut whitespace of the trail
+     */
+    while (e > s) {
+	if (*e != ' ' && *e != '\r' && *e != '\n' && *s != '\t') break;
+	e--;
+    }    
+    
+    size = e - s + 1;
+    if (size <= 0) return 0;
+
+    func_s();
+    
+    if (make_or_tree(root, s, size, htab, dep)) return 1;
+    if (make_brackets_tree(root, s, size, htab, dep)) return 1;
+    if (make_braces_tree(root, s, size, htab, dep)) return 1;
+    if (make_bnf_obj_tree(root, s, size, htab, dep)) return 1;
+    if (make_keyword_tree(root, s, size, htab, dep)) return 1;
   
 #if 1
     debug("dep:%d, %s: \n", dep, "unknown syntax");
@@ -1599,11 +1832,13 @@ parser_init(void)
 	"N" , "O" , "P" , "Q" , "R" , "S" , "T" , "U" , "V" , "W" , "X" , "Y" , "Z" ,
 	"a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , 
 	"n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z" ,	
-	"^" , "_" , "~" , "0x7F",
+	"^" , "_" , "~" , "#\\rubout",
 
 	"\"", "'", "(", ")", ",", ";", "`",
 
 	"|", "\\",
+
+	"#\\b", "#\\t", "#\\r", "#\\n", "#\\p", "\#\\space"
 
     };
 
@@ -1619,11 +1854,24 @@ parser_init(void)
     rt = parse_syntax_object(&htab, &fi, true);
     if (!rt) return PARSER_ERR;
 
+    
+   debug("syntax object hash table %d entries, %d entries used, %d entries free. \n\n", 
+	  htab.size, htab.filled, htab.size - htab.filled);
+   
+   debug("char hash table %d entries, %d entries used, %d entries free. \n\n", 
+	  char_htab.size, char_htab.filled, char_htab.size - char_htab.filled);
+
+   debug("keyword hash table %d entries, %d entries used, %d entries free. \n\n", 
+	  kw_htab.size, kw_htab.filled, kw_htab.size - kw_htab.filled);
+
+
+   
     rt = create_syntax_htab(500);
     if (!rt) return PARSER_ERR;    
+    
 
-
-    /* create leafs for syntax AST and ASG
+#if 1    
+    /* create lexical tree
      */
     root_key = "token ::=";
  
@@ -1643,6 +1891,7 @@ parser_init(void)
     show_nodes(es);
 
     set_lex_tree(bnf_tree_root);
+#endif
     
 
 #if 0    

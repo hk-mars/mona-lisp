@@ -1,0 +1,11667 @@
+Hello Monalisp 
+Ver: 1.0.0 
+
+
+ml_init 
+
+stack_init 
+init stack with 1032 bytes 
+stack_init ok 
+
+
+var_init 
+var_init ok 
+
+
+ml_lex_init 
+ml_lex_init ok 
+
+
+syntax_init 
+syntax_init ok 
+
+
+parser_init 
+
+load_syntax_file 
+file monalisp1.0_syntax.txt opened, size 2463 bytes.
+load_syntax_file end 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+htab_add 
+htab_add ok 
+
+
+parse_syntax_object 
+ml_util_show_buf, 13 bytes:
+lisp-char ::=
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+lisp-char ::=
+key: lisp-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 85 bytes:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+dt_sz: 85 
+push_htab ok 
+
+ml_util_show_buf, 14 bytes:
+whitespace ::=
+
+ast_is_character 
+ml_util_show_buf, 14 bytes:
+whitespace ::=
+key: whitespace ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 76 bytes:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+dt_sz: 76 
+push_htab ok 
+
+ml_util_show_buf, 13 bytes:
+backspace ::=
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+backspace ::=
+key: backspace ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\b
+dt_sz: 3 
+push_htab ok 
+
+ml_util_show_buf, 7 bytes:
+tab ::=
+
+ast_is_character 
+ml_util_show_buf, 7 bytes:
+tab ::=
+key: tab ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\t
+dt_sz: 3 
+push_htab ok 
+
+ml_util_show_buf, 11 bytes:
+newline ::=
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+newline ::=
+key: newline ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\r
+dt_sz: 3 
+push_htab ok 
+
+ml_util_show_buf, 12 bytes:
+linefeed ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+linefeed ::=
+key: linefeed ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\n
+dt_sz: 3 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+page ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+page ::=
+key: page ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\p
+dt_sz: 3 
+push_htab ok 
+
+ml_util_show_buf, 10 bytes:
+return ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+return ::=
+key: return ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\r
+dt_sz: 3 
+push_htab ok 
+
+ml_util_show_buf, 9 bytes:
+space ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+space ::=
+key: space ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 8 bytes:
+#\space 
+dt_sz: 8 
+push_htab ok 
+
+ml_util_show_buf, 20 bytes:
+constituent-char ::=
+
+ast_is_character 
+ml_util_show_buf, 20 bytes:
+constituent-char ::=
+key: constituent-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 332 bytes:
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+dt_sz: 332 
+push_htab ok 
+
+ml_util_show_buf, 10 bytes:
+rubout ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+rubout ::=
+key: rubout ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 8 bytes:
+#\rubout
+dt_sz: 8 
+push_htab ok 
+
+ml_util_show_buf, 17 bytes:
+single-escape ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+single-escape ::=
+key: single-escape ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+\
+dt_sz: 1 
+push_htab ok 
+
+ml_util_show_buf, 19 bytes:
+multiple-escape ::=
+
+ast_is_character 
+ml_util_show_buf, 19 bytes:
+multiple-escape ::=
+key: multiple-escape ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+|
+dt_sz: 1 
+push_htab ok 
+
+ml_util_show_buf, 14 bytes:
+macro-char ::=
+
+ast_is_character 
+ml_util_show_buf, 14 bytes:
+macro-char ::=
+key: macro-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 44 bytes:
+	terminating-char | 
+	non-terminating-char
+	
+dt_sz: 44 
+push_htab ok 
+
+ml_util_show_buf, 20 bytes:
+terminating-char ::=
+
+ast_is_character 
+ml_util_show_buf, 20 bytes:
+terminating-char ::=
+key: terminating-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+dt_sz: 25 
+push_htab ok 
+
+ml_util_show_buf, 24 bytes:
+non-terminating-char ::=
+
+ast_is_character 
+ml_util_show_buf, 24 bytes:
+non-terminating-char ::=
+key: non-terminating-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+#
+dt_sz: 1 
+push_htab ok 
+
+ml_util_show_buf, 9 bytes:
+token ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+token ::=
+key: token ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+dt_sz: 31 
+push_htab ok 
+
+ml_util_show_buf, 16 bytes:
+number-token ::=
+
+ast_is_character 
+ml_util_show_buf, 16 bytes:
+number-token ::=
+key: number-token ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 41 bytes:
+	integer |
+	ratio |
+	float
+				          
+dt_sz: 41 
+push_htab ok 
+
+ml_util_show_buf, 11 bytes:
+integer ::=
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+integer ::=
+key: integer ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 71 bytes:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				         
+dt_sz: 71 
+push_htab ok 
+
+ml_util_show_buf, 9 bytes:
+ratio ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+ratio ::=
+key: ratio ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 43 bytes:
+	[sign] {digit}+ slash {digit}+ 
+				      
+dt_sz: 43 
+push_htab ok 
+
+ml_util_show_buf, 9 bytes:
+float ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+float ::=
+key: float ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 169 bytes:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+dt_sz: 169 
+push_htab ok 
+
+ml_util_show_buf, 12 bytes:
+exponent ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+exponent ::=
+key: exponent ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+dt_sz: 39 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+sign ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+sign ::=
+key: sign ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 5 bytes:
++ | -
+dt_sz: 5 
+push_htab ok 
+
+ml_util_show_buf, 9 bytes:
+slash ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+slash ::=
+key: slash ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+/
+dt_sz: 1 
+push_htab ok 
+
+ml_util_show_buf, 17 bytes:
+decimal-point ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+decimal-point ::=
+key: decimal-point ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+.
+dt_sz: 1 
+push_htab ok 
+
+ml_util_show_buf, 19 bytes:
+exponent-marker ::=
+
+ast_is_character 
+ml_util_show_buf, 19 bytes:
+exponent-marker ::=
+key: exponent-marker ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 38 bytes:
+	e | s | f | d | l | E | S | F | D | L
+dt_sz: 38 
+push_htab ok 
+
+ml_util_show_buf, 17 bytes:
+decimal-digit ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+decimal-digit ::=
+key: decimal-digit ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+dt_sz: 37 
+push_htab ok 
+
+ml_util_show_buf, 9 bytes:
+digit ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+digit ::=
+key: digit ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+dt_sz: 13 
+push_htab ok 
+
+ml_util_show_buf, 16 bytes:
+symbol-token ::=
+
+ast_is_character 
+ml_util_show_buf, 16 bytes:
+symbol-token ::=
+key: symbol-token ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 11 bytes:
+<undefined>
+dt_sz: 11 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+list ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+list ::=
+key: list ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 32 bytes:
+	( LIST { object [, object] }* )
+dt_sz: 32 
+push_htab ok 
+
+ml_util_show_buf, 10 bytes:
+object ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+object ::=
+key: object ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+	element |
+	<undefined>
+	
+dt_sz: 25 
+push_htab ok 
+
+ml_util_show_buf, 11 bytes:
+element ::=
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+element ::=
+key: element ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 78 bytes:
+	list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+dt_sz: 78 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+cons ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+cons ::=
+key: cons ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+dt_sz: 22 
+push_htab ok 
+
+ml_util_show_buf, 7 bytes:
+car ::=
+
+ast_is_character 
+ml_util_show_buf, 7 bytes:
+car ::=
+key: car ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+dt_sz: 12 
+push_htab ok 
+
+ml_util_show_buf, 7 bytes:
+cdr ::=
+
+ast_is_character 
+ml_util_show_buf, 7 bytes:
+cdr ::=
+key: cdr ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+dt_sz: 12 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+setq ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+setq ::=
+key: setq ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+dt_sz: 21 
+push_htab ok 
+
+ml_util_show_buf, 13 bytes:
+setq-pair ::=
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+setq-pair ::=
+key: setq-pair ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+setq-var form
+dt_sz: 13 
+push_htab ok 
+
+ml_util_show_buf, 12 bytes:
+setq-var ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+setq-var ::=
+key: setq-var ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+symbol-token
+dt_sz: 12 
+push_htab ok 
+
+ml_util_show_buf, 15 bytes:
+defconstant ::=
+
+ast_is_character 
+ml_util_show_buf, 15 bytes:
+defconstant ::=
+key: defconstant ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+dt_sz: 41 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+name ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+name ::=
+key: name ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+symbol-token
+dt_sz: 12 
+push_htab ok 
+
+ml_util_show_buf, 8 bytes:
+form ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+form ::=
+key: form ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 37 bytes:
+object | symbol-token | compound-form
+dt_sz: 37 
+push_htab ok 
+
+ml_util_show_buf, 17 bytes:
+documentation ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+documentation ::=
+key: documentation ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 6 bytes:
+string
+dt_sz: 6 
+push_htab ok 
+
+ml_util_show_buf, 17 bytes:
+compound-form ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+compound-form ::=
+key: compound-form ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+operator form
+dt_sz: 13 
+push_htab ok 
+
+ml_util_show_buf, 12 bytes:
+operator ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+operator ::=
+key: operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 89 bytes:
+	function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+dt_sz: 89 
+push_htab ok 
+
+ml_util_show_buf, 26 bytes:
+function-call-operator ::=
+
+ast_is_character 
+ml_util_show_buf, 26 bytes:
+function-call-operator ::=
+key: function-call-operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+	+ | - | * | / |
+	<TBD>
+	
+dt_sz: 25 
+push_htab ok 
+
+ml_util_show_buf, 25 bytes:
+special-form-operator ::=
+
+ast_is_character 
+ml_util_show_buf, 25 bytes:
+special-form-operator ::=
+key: special-form-operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 69 bytes:
+	quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+dt_sz: 69 
+push_htab ok 
+
+ml_util_show_buf, 18 bytes:
+macro-operator ::=
+
+ast_is_character 
+ml_util_show_buf, 18 bytes:
+macro-operator ::=
+key: macro-operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 20 bytes:
+	defmacro |
+	<TBD>
+	
+dt_sz: 20 
+push_htab ok 
+
+ml_util_show_buf, 10 bytes:
+string ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+string ::=
+key: string ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 40 bytes:
+<TBD>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+dt_sz: 40 
+push_htab ok 
+
+hash table 1511 entries, 48 entries used, 1463 entries free. 
+parse_syntax_object end 
+
+
+parse_syntax_object 
+ml_util_show_buf, 13 bytes:
+lisp-char ::=
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+lisp-char ::=
+key: lisp-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 85 bytes:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+dt_sz: 85 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 85 bytes:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+element: 
+ml_util_show_buf, 85 bytes:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+
+push_token_into_htab 
+ml_util_show_buf, 85 bytes:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+ml_util_show_buf, 84 bytes:
+whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+ml_util_show_buf, 10 bytes:
+whitespace
+ml_util_show_buf, 10 bytes:
+whitespace
+search hash table to check if it's a syntax object 
+key: whitespace ::= 
+found syntax object 
+ml_util_show_buf, 69 bytes:
+constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+ml_util_show_buf, 16 bytes:
+constituent-char
+ml_util_show_buf, 16 bytes:
+constituent-char
+search hash table to check if it's a syntax object 
+key: constituent-char ::= 
+found syntax object 
+ml_util_show_buf, 49 bytes:
+single-escape | 
+	multiple-escape |
+	macro-char
+	
+ml_util_show_buf, 13 bytes:
+single-escape
+ml_util_show_buf, 13 bytes:
+single-escape
+search hash table to check if it's a syntax object 
+key: single-escape ::= 
+found syntax object 
+ml_util_show_buf, 31 bytes:
+multiple-escape |
+	macro-char
+	
+ml_util_show_buf, 15 bytes:
+multiple-escape
+ml_util_show_buf, 15 bytes:
+multiple-escape
+search hash table to check if it's a syntax object 
+key: multiple-escape ::= 
+found syntax object 
+ml_util_show_buf, 12 bytes:
+macro-char
+	
+ml_util_show_buf, 10 bytes:
+macro-char
+ml_util_show_buf, 10 bytes:
+macro-char
+search hash table to check if it's a syntax object 
+key: macro-char ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 14 bytes:
+whitespace ::=
+
+ast_is_character 
+ml_util_show_buf, 14 bytes:
+whitespace ::=
+key: whitespace ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 76 bytes:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+dt_sz: 76 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 76 bytes:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+element: 
+ml_util_show_buf, 76 bytes:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+
+push_token_into_htab 
+ml_util_show_buf, 76 bytes:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+ml_util_show_buf, 75 bytes:
+backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+ml_util_show_buf, 9 bytes:
+backspace
+ml_util_show_buf, 9 bytes:
+backspace
+search hash table to check if it's a syntax object 
+key: backspace ::= 
+found syntax object 
+ml_util_show_buf, 61 bytes:
+tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+ml_util_show_buf, 3 bytes:
+tab
+ml_util_show_buf, 3 bytes:
+tab
+search hash table to check if it's a syntax object 
+key: tab ::= 
+found syntax object 
+ml_util_show_buf, 53 bytes:
+newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+ml_util_show_buf, 7 bytes:
+newline
+ml_util_show_buf, 7 bytes:
+newline
+search hash table to check if it's a syntax object 
+key: newline ::= 
+found syntax object 
+ml_util_show_buf, 41 bytes:
+linefeed | 
+	page | 
+	return | 
+	space
+		
+ml_util_show_buf, 8 bytes:
+linefeed
+ml_util_show_buf, 8 bytes:
+linefeed
+search hash table to check if it's a syntax object 
+key: linefeed ::= 
+found syntax object 
+ml_util_show_buf, 28 bytes:
+page | 
+	return | 
+	space
+		
+ml_util_show_buf, 4 bytes:
+page
+ml_util_show_buf, 4 bytes:
+page
+search hash table to check if it's a syntax object 
+key: page ::= 
+found syntax object 
+ml_util_show_buf, 19 bytes:
+return | 
+	space
+		
+ml_util_show_buf, 6 bytes:
+return
+ml_util_show_buf, 6 bytes:
+return
+search hash table to check if it's a syntax object 
+key: return ::= 
+found syntax object 
+ml_util_show_buf, 8 bytes:
+space
+		
+ml_util_show_buf, 5 bytes:
+space
+ml_util_show_buf, 5 bytes:
+space
+search hash table to check if it's a syntax object 
+key: space ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 13 bytes:
+backspace ::=
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+backspace ::=
+key: backspace ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\b
+dt_sz: 3 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\b
+element: 
+ml_util_show_buf, 3 bytes:
+#\b
+
+push_token_into_htab 
+ml_util_show_buf, 3 bytes:
+#\b
+ml_util_show_buf, 3 bytes:
+#\b
+ml_util_show_buf, 3 bytes:
+#\b
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 7 bytes:
+tab ::=
+
+ast_is_character 
+ml_util_show_buf, 7 bytes:
+tab ::=
+key: tab ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\t
+dt_sz: 3 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\t
+element: 
+ml_util_show_buf, 3 bytes:
+#\t
+
+push_token_into_htab 
+ml_util_show_buf, 3 bytes:
+#\t
+ml_util_show_buf, 3 bytes:
+#\t
+ml_util_show_buf, 3 bytes:
+#\t
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 11 bytes:
+newline ::=
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+newline ::=
+key: newline ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\r
+dt_sz: 3 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\r
+element: 
+ml_util_show_buf, 3 bytes:
+#\r
+
+push_token_into_htab 
+ml_util_show_buf, 3 bytes:
+#\r
+ml_util_show_buf, 3 bytes:
+#\r
+ml_util_show_buf, 3 bytes:
+#\r
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 12 bytes:
+linefeed ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+linefeed ::=
+key: linefeed ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\n
+dt_sz: 3 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\n
+element: 
+ml_util_show_buf, 3 bytes:
+#\n
+
+push_token_into_htab 
+ml_util_show_buf, 3 bytes:
+#\n
+ml_util_show_buf, 3 bytes:
+#\n
+ml_util_show_buf, 3 bytes:
+#\n
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+page ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+page ::=
+key: page ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\p
+dt_sz: 3 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\p
+element: 
+ml_util_show_buf, 3 bytes:
+#\p
+
+push_token_into_htab 
+ml_util_show_buf, 3 bytes:
+#\p
+ml_util_show_buf, 3 bytes:
+#\p
+ml_util_show_buf, 3 bytes:
+#\p
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 10 bytes:
+return ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+return ::=
+key: return ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\r
+dt_sz: 3 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 3 bytes:
+#\r
+element: 
+ml_util_show_buf, 3 bytes:
+#\r
+
+push_token_into_htab 
+ml_util_show_buf, 3 bytes:
+#\r
+ml_util_show_buf, 3 bytes:
+#\r
+ml_util_show_buf, 3 bytes:
+#\r
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 9 bytes:
+space ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+space ::=
+key: space ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 8 bytes:
+#\space 
+dt_sz: 8 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 8 bytes:
+#\space 
+element: 
+ml_util_show_buf, 8 bytes:
+#\space 
+
+push_token_into_htab 
+ml_util_show_buf, 8 bytes:
+#\space 
+ml_util_show_buf, 7 bytes:
+#\space
+ml_util_show_buf, 7 bytes:
+#\space
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 20 bytes:
+constituent-char ::=
+
+ast_is_character 
+ml_util_show_buf, 20 bytes:
+constituent-char ::=
+key: constituent-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 332 bytes:
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+dt_sz: 332 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 333 bytes:
+
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+element: 
+ml_util_show_buf, 333 bytes:
+
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+
+push_token_into_htab 
+ml_util_show_buf, 333 bytes:
+
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 331 bytes:
+$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+$
+key found in character hash table 
+ml_util_show_buf, 327 bytes:
+% | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+%
+key found in character hash table 
+ml_util_show_buf, 323 bytes:
+& | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+&
+key found in character hash table 
+ml_util_show_buf, 319 bytes:
+* | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+*
+key found in character hash table 
+ml_util_show_buf, 315 bytes:
++ | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
++
+key found in character hash table 
+ml_util_show_buf, 311 bytes:
+- | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+-
+key found in character hash table 
+ml_util_show_buf, 307 bytes:
+. | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+.
+key found in character hash table 
+ml_util_show_buf, 303 bytes:
+/ |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+/
+key found in character hash table 
+ml_util_show_buf, 298 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+0
+key found in character hash table 
+ml_util_show_buf, 294 bytes:
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+1
+key found in character hash table 
+ml_util_show_buf, 290 bytes:
+2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+2
+key found in character hash table 
+ml_util_show_buf, 286 bytes:
+3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+3
+key found in character hash table 
+ml_util_show_buf, 282 bytes:
+4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+4
+key found in character hash table 
+ml_util_show_buf, 278 bytes:
+5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+5
+key found in character hash table 
+ml_util_show_buf, 274 bytes:
+6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+6
+key found in character hash table 
+ml_util_show_buf, 270 bytes:
+7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+7
+key found in character hash table 
+ml_util_show_buf, 266 bytes:
+8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+8
+key found in character hash table 
+ml_util_show_buf, 262 bytes:
+9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+9
+key found in character hash table 
+ml_util_show_buf, 257 bytes:
+: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+:
+key found in character hash table 
+ml_util_show_buf, 253 bytes:
+< | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+<
+key found in character hash table 
+ml_util_show_buf, 249 bytes:
+= | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+=
+key found in character hash table 
+ml_util_show_buf, 245 bytes:
+> | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+>
+key found in character hash table 
+ml_util_show_buf, 241 bytes:
+@ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+@
+key found in character hash table 
+ml_util_show_buf, 235 bytes:
+A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+A
+key found in character hash table 
+ml_util_show_buf, 231 bytes:
+B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+B
+key found in character hash table 
+ml_util_show_buf, 227 bytes:
+C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+C
+key found in character hash table 
+ml_util_show_buf, 223 bytes:
+D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+D
+key found in character hash table 
+ml_util_show_buf, 219 bytes:
+E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+E
+key found in character hash table 
+ml_util_show_buf, 215 bytes:
+F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+F
+key found in character hash table 
+ml_util_show_buf, 211 bytes:
+G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+G
+key found in character hash table 
+ml_util_show_buf, 207 bytes:
+H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+H
+key found in character hash table 
+ml_util_show_buf, 203 bytes:
+I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+I
+key found in character hash table 
+ml_util_show_buf, 199 bytes:
+J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+J
+key found in character hash table 
+ml_util_show_buf, 195 bytes:
+K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+K
+key found in character hash table 
+ml_util_show_buf, 191 bytes:
+L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+L
+key found in character hash table 
+ml_util_show_buf, 187 bytes:
+M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+M
+key found in character hash table 
+ml_util_show_buf, 181 bytes:
+N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+N
+key found in character hash table 
+ml_util_show_buf, 177 bytes:
+O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+O
+key found in character hash table 
+ml_util_show_buf, 173 bytes:
+P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+P
+key found in character hash table 
+ml_util_show_buf, 169 bytes:
+Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+Q
+key found in character hash table 
+ml_util_show_buf, 165 bytes:
+R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+R
+key found in character hash table 
+ml_util_show_buf, 161 bytes:
+S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+S
+key found in character hash table 
+ml_util_show_buf, 157 bytes:
+T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+T
+key found in character hash table 
+ml_util_show_buf, 153 bytes:
+U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+U
+key found in character hash table 
+ml_util_show_buf, 149 bytes:
+V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+V
+key found in character hash table 
+ml_util_show_buf, 145 bytes:
+W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+W
+key found in character hash table 
+ml_util_show_buf, 141 bytes:
+X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+X
+key found in character hash table 
+ml_util_show_buf, 137 bytes:
+Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+Y
+key found in character hash table 
+ml_util_show_buf, 133 bytes:
+Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+Z
+key found in character hash table 
+ml_util_show_buf, 128 bytes:
+a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+a
+key found in character hash table 
+ml_util_show_buf, 124 bytes:
+b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+b
+key found in character hash table 
+ml_util_show_buf, 120 bytes:
+c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+c
+key found in character hash table 
+ml_util_show_buf, 116 bytes:
+d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+d
+key found in character hash table 
+ml_util_show_buf, 112 bytes:
+e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+e
+key found in character hash table 
+ml_util_show_buf, 108 bytes:
+f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+f
+key found in character hash table 
+ml_util_show_buf, 104 bytes:
+g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+g
+key found in character hash table 
+ml_util_show_buf, 100 bytes:
+h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+h
+key found in character hash table 
+ml_util_show_buf, 96 bytes:
+i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+i
+key found in character hash table 
+ml_util_show_buf, 92 bytes:
+j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+j
+key found in character hash table 
+ml_util_show_buf, 88 bytes:
+k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+k
+key found in character hash table 
+ml_util_show_buf, 84 bytes:
+l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+l
+key found in character hash table 
+ml_util_show_buf, 80 bytes:
+m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+m
+key found in character hash table 
+ml_util_show_buf, 74 bytes:
+n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+n
+key found in character hash table 
+ml_util_show_buf, 70 bytes:
+o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+o
+key found in character hash table 
+ml_util_show_buf, 66 bytes:
+p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+p
+key found in character hash table 
+ml_util_show_buf, 62 bytes:
+q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+q
+key found in character hash table 
+ml_util_show_buf, 58 bytes:
+r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+r
+key found in character hash table 
+ml_util_show_buf, 54 bytes:
+s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+s
+key found in character hash table 
+ml_util_show_buf, 50 bytes:
+t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+t
+key found in character hash table 
+ml_util_show_buf, 46 bytes:
+u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+u
+key found in character hash table 
+ml_util_show_buf, 42 bytes:
+v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+v
+key found in character hash table 
+ml_util_show_buf, 38 bytes:
+w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+w
+key found in character hash table 
+ml_util_show_buf, 34 bytes:
+x | y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+x
+key found in character hash table 
+ml_util_show_buf, 30 bytes:
+y | z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+y
+key found in character hash table 
+ml_util_show_buf, 26 bytes:
+z |	
+	^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+z
+key found in character hash table 
+ml_util_show_buf, 20 bytes:
+^ | _ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+^
+key found in character hash table 
+ml_util_show_buf, 16 bytes:
+_ | ~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+_
+key found in character hash table 
+ml_util_show_buf, 12 bytes:
+~ | rubout
+	
+ml_util_show_buf, 1 bytes:
+~
+key found in character hash table 
+ml_util_show_buf, 8 bytes:
+rubout
+	
+ml_util_show_buf, 6 bytes:
+rubout
+ml_util_show_buf, 6 bytes:
+rubout
+search hash table to check if it's a syntax object 
+key: rubout ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 10 bytes:
+rubout ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+rubout ::=
+key: rubout ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 8 bytes:
+#\rubout
+dt_sz: 8 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 8 bytes:
+#\rubout
+element: 
+ml_util_show_buf, 8 bytes:
+#\rubout
+
+push_token_into_htab 
+ml_util_show_buf, 8 bytes:
+#\rubout
+ml_util_show_buf, 8 bytes:
+#\rubout
+ml_util_show_buf, 8 bytes:
+#\rubout
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 17 bytes:
+single-escape ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+single-escape ::=
+key: single-escape ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+\
+dt_sz: 1 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+\
+element: 
+ml_util_show_buf, 1 bytes:
+\
+
+push_token_into_htab 
+ml_util_show_buf, 19 bytes:
+multiple-escape ::=
+
+ast_is_character 
+ml_util_show_buf, 19 bytes:
+multiple-escape ::=
+key: multiple-escape ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+|
+dt_sz: 1 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+|
+element: 
+ml_util_show_buf, 1 bytes:
+|
+
+push_token_into_htab 
+ml_util_show_buf, 14 bytes:
+macro-char ::=
+
+ast_is_character 
+ml_util_show_buf, 14 bytes:
+macro-char ::=
+key: macro-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 44 bytes:
+	terminating-char | 
+	non-terminating-char
+	
+dt_sz: 44 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 45 bytes:
+
+	terminating-char | 
+	non-terminating-char
+	
+element: 
+ml_util_show_buf, 45 bytes:
+
+	terminating-char | 
+	non-terminating-char
+	
+
+push_token_into_htab 
+ml_util_show_buf, 45 bytes:
+
+	terminating-char | 
+	non-terminating-char
+	
+ml_util_show_buf, 43 bytes:
+terminating-char | 
+	non-terminating-char
+	
+ml_util_show_buf, 16 bytes:
+terminating-char
+ml_util_show_buf, 16 bytes:
+terminating-char
+search hash table to check if it's a syntax object 
+key: terminating-char ::= 
+found syntax object 
+ml_util_show_buf, 22 bytes:
+non-terminating-char
+	
+ml_util_show_buf, 20 bytes:
+non-terminating-char
+ml_util_show_buf, 20 bytes:
+non-terminating-char
+search hash table to check if it's a syntax object 
+key: non-terminating-char ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 20 bytes:
+terminating-char ::=
+
+ast_is_character 
+ml_util_show_buf, 20 bytes:
+terminating-char ::=
+key: terminating-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+dt_sz: 25 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+element: 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+
+push_token_into_htab 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+ml_util_show_buf, 1 bytes:
+"
+key found in character hash table 
+ml_util_show_buf, 21 bytes:
+' | ( | ) | , | ; | `
+ml_util_show_buf, 1 bytes:
+'
+key found in character hash table 
+ml_util_show_buf, 17 bytes:
+( | ) | , | ; | `
+ml_util_show_buf, 1 bytes:
+(
+key found in character hash table 
+ml_util_show_buf, 13 bytes:
+) | , | ; | `
+ml_util_show_buf, 1 bytes:
+)
+key found in character hash table 
+ml_util_show_buf, 9 bytes:
+, | ; | `
+ml_util_show_buf, 1 bytes:
+,
+key found in character hash table 
+ml_util_show_buf, 5 bytes:
+; | `
+ml_util_show_buf, 1 bytes:
+;
+key found in character hash table 
+ml_util_show_buf, 1 bytes:
+`
+ml_util_show_buf, 1 bytes:
+`
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 24 bytes:
+non-terminating-char ::=
+
+ast_is_character 
+ml_util_show_buf, 24 bytes:
+non-terminating-char ::=
+key: non-terminating-char ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+#
+dt_sz: 1 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+#
+element: 
+ml_util_show_buf, 1 bytes:
+#
+
+push_token_into_htab 
+ml_util_show_buf, 9 bytes:
+token ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+token ::=
+key: token ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+dt_sz: 31 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+element: 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+
+push_token_into_htab 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+ml_util_show_buf, 30 bytes:
+number-token |
+	symbol-token
+	
+ml_util_show_buf, 12 bytes:
+number-token
+ml_util_show_buf, 12 bytes:
+number-token
+search hash table to check if it's a syntax object 
+key: number-token ::= 
+found syntax object 
+ml_util_show_buf, 14 bytes:
+symbol-token
+	
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+search hash table to check if it's a syntax object 
+key: symbol-token ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 16 bytes:
+number-token ::=
+
+ast_is_character 
+ml_util_show_buf, 16 bytes:
+number-token ::=
+key: number-token ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 41 bytes:
+	integer |
+	ratio |
+	float
+				          
+dt_sz: 41 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 41 bytes:
+	integer |
+	ratio |
+	float
+				          
+element: 
+ml_util_show_buf, 41 bytes:
+	integer |
+	ratio |
+	float
+				          
+
+push_token_into_htab 
+ml_util_show_buf, 41 bytes:
+	integer |
+	ratio |
+	float
+				          
+ml_util_show_buf, 30 bytes:
+integer |
+	ratio |
+	float
+				
+ml_util_show_buf, 7 bytes:
+integer
+ml_util_show_buf, 7 bytes:
+integer
+search hash table to check if it's a syntax object 
+key: integer ::= 
+found syntax object 
+ml_util_show_buf, 19 bytes:
+ratio |
+	float
+				
+ml_util_show_buf, 5 bytes:
+ratio
+ml_util_show_buf, 5 bytes:
+ratio
+search hash table to check if it's a syntax object 
+key: ratio ::= 
+found syntax object 
+ml_util_show_buf, 10 bytes:
+float
+				
+ml_util_show_buf, 5 bytes:
+float
+ml_util_show_buf, 5 bytes:
+float
+search hash table to check if it's a syntax object 
+key: float ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 11 bytes:
+integer ::=
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+integer ::=
+key: integer ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 71 bytes:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				         
+dt_sz: 71 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 71 bytes:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				         
+element: 
+ml_util_show_buf, 71 bytes:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				         
+
+push_token_into_htab 
+ml_util_show_buf, 71 bytes:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				         
+ml_util_show_buf, 61 bytes:
+[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				
+ml_util_show_buf, 37 bytes:
+[sign] {decimal-digit}+ decimal-point
+ml_util_show_buf, 37 bytes:
+[sign] {decimal-digit}+ decimal-point
+search hash table to check if it's a syntax object 
+key: [sign] {decimal-digit}+ decimal-point ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 32 bytes:
+sign decimal-digit decimal-point
+ml_util_show_buf, 4 bytes:
+sign
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+sign
+key: sign 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key: decimal-digit 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-point
+key: decimal-point 
+ast_is_character failed 
+
+ml_util_show_buf, 20 bytes:
+[sign] {digit}+
+				
+ml_util_show_buf, 15 bytes:
+[sign] {digit}+
+ml_util_show_buf, 15 bytes:
+[sign] {digit}+
+search hash table to check if it's a syntax object 
+key: [sign] {digit}+ ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 10 bytes:
+sign digit
+ml_util_show_buf, 4 bytes:
+sign
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+sign
+key: sign 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 5 bytes:
+digit
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+digit
+key: digit 
+ast_is_character failed 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 9 bytes:
+ratio ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+ratio ::=
+key: ratio ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 43 bytes:
+	[sign] {digit}+ slash {digit}+ 
+				      
+dt_sz: 43 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 43 bytes:
+	[sign] {digit}+ slash {digit}+ 
+				      
+element: 
+ml_util_show_buf, 43 bytes:
+	[sign] {digit}+ slash {digit}+ 
+				      
+
+push_token_into_htab 
+ml_util_show_buf, 43 bytes:
+	[sign] {digit}+ slash {digit}+ 
+				      
+ml_util_show_buf, 36 bytes:
+[sign] {digit}+ slash {digit}+ 
+				
+ml_util_show_buf, 30 bytes:
+[sign] {digit}+ slash {digit}+
+ml_util_show_buf, 30 bytes:
+[sign] {digit}+ slash {digit}+
+search hash table to check if it's a syntax object 
+key: [sign] {digit}+ slash {digit}+ ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 22 bytes:
+sign digit slash digit
+ml_util_show_buf, 4 bytes:
+sign
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+sign
+key: sign 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 5 bytes:
+digit
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+digit
+key: digit 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 5 bytes:
+slash
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+slash
+key: slash 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 5 bytes:
+digit
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+digit
+key: digit 
+ast_is_character failed 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 9 bytes:
+float ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+float ::=
+key: float ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 169 bytes:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+dt_sz: 169 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 169 bytes:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+element: 
+ml_util_show_buf, 169 bytes:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+
+push_token_into_htab 
+ml_util_show_buf, 169 bytes:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+ml_util_show_buf, 161 bytes:
+[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				
+ml_util_show_buf, 65 bytes:
+[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent]
+ml_util_show_buf, 65 bytes:
+[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent]
+search hash table to check if it's a syntax object 
+key: [sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 55 bytes:
+sign decimal-digit decimal-point decimal-digit exponent
+ml_util_show_buf, 4 bytes:
+sign
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+sign
+key: sign 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key: decimal-digit 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-point
+key: decimal-point 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key: decimal-digit 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 8 bytes:
+exponent
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+exponent
+key: exponent 
+ast_is_character failed 
+
+ml_util_show_buf, 70 bytes:
+[sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				
+ml_util_show_buf, 65 bytes:
+[sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+ml_util_show_buf, 65 bytes:
+[sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+search hash table to check if it's a syntax object 
+key: [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 55 bytes:
+sign decimal-digit decimal-point decimal-digit exponent
+ml_util_show_buf, 4 bytes:
+sign
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+sign
+key: sign 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key: decimal-digit 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-point
+key: decimal-point 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key: decimal-digit 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 8 bytes:
+exponent
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+exponent
+key: exponent 
+ast_is_character failed 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 12 bytes:
+exponent ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+exponent ::=
+key: exponent ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+dt_sz: 39 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+element: 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+
+push_token_into_htab 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+ml_util_show_buf, 32 bytes:
+exponent-marker [sign] {digit}+	
+ml_util_show_buf, 31 bytes:
+exponent-marker [sign] {digit}+
+ml_util_show_buf, 31 bytes:
+exponent-marker [sign] {digit}+
+search hash table to check if it's a syntax object 
+key: exponent-marker [sign] {digit}+ ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 26 bytes:
+exponent-marker sign digit
+ml_util_show_buf, 15 bytes:
+exponent-marker
+
+ast_is_character 
+ml_util_show_buf, 15 bytes:
+exponent-marker
+key: exponent-marker 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 4 bytes:
+sign
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+sign
+key: sign 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 5 bytes:
+digit
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+digit
+key: digit 
+ast_is_character failed 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+sign ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+sign ::=
+key: sign ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 5 bytes:
++ | -
+dt_sz: 5 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 5 bytes:
++ | -
+element: 
+ml_util_show_buf, 5 bytes:
++ | -
+
+push_token_into_htab 
+ml_util_show_buf, 5 bytes:
++ | -
+ml_util_show_buf, 5 bytes:
++ | -
+ml_util_show_buf, 1 bytes:
++
+key found in character hash table 
+ml_util_show_buf, 1 bytes:
+-
+ml_util_show_buf, 1 bytes:
+-
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 9 bytes:
+slash ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+slash ::=
+key: slash ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+/
+dt_sz: 1 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+/
+element: 
+ml_util_show_buf, 1 bytes:
+/
+
+push_token_into_htab 
+ml_util_show_buf, 17 bytes:
+decimal-point ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+decimal-point ::=
+key: decimal-point ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+.
+dt_sz: 1 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 1 bytes:
+.
+element: 
+ml_util_show_buf, 1 bytes:
+.
+
+push_token_into_htab 
+ml_util_show_buf, 19 bytes:
+exponent-marker ::=
+
+ast_is_character 
+ml_util_show_buf, 19 bytes:
+exponent-marker ::=
+key: exponent-marker ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 38 bytes:
+	e | s | f | d | l | E | S | F | D | L
+dt_sz: 38 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 39 bytes:
+
+	e | s | f | d | l | E | S | F | D | L
+element: 
+ml_util_show_buf, 39 bytes:
+
+	e | s | f | d | l | E | S | F | D | L
+
+push_token_into_htab 
+ml_util_show_buf, 39 bytes:
+
+	e | s | f | d | l | E | S | F | D | L
+ml_util_show_buf, 37 bytes:
+e | s | f | d | l | E | S | F | D | L
+ml_util_show_buf, 1 bytes:
+e
+key found in character hash table 
+ml_util_show_buf, 33 bytes:
+s | f | d | l | E | S | F | D | L
+ml_util_show_buf, 1 bytes:
+s
+key found in character hash table 
+ml_util_show_buf, 29 bytes:
+f | d | l | E | S | F | D | L
+ml_util_show_buf, 1 bytes:
+f
+key found in character hash table 
+ml_util_show_buf, 25 bytes:
+d | l | E | S | F | D | L
+ml_util_show_buf, 1 bytes:
+d
+key found in character hash table 
+ml_util_show_buf, 21 bytes:
+l | E | S | F | D | L
+ml_util_show_buf, 1 bytes:
+l
+key found in character hash table 
+ml_util_show_buf, 17 bytes:
+E | S | F | D | L
+ml_util_show_buf, 1 bytes:
+E
+key found in character hash table 
+ml_util_show_buf, 13 bytes:
+S | F | D | L
+ml_util_show_buf, 1 bytes:
+S
+key found in character hash table 
+ml_util_show_buf, 9 bytes:
+F | D | L
+ml_util_show_buf, 1 bytes:
+F
+key found in character hash table 
+ml_util_show_buf, 5 bytes:
+D | L
+ml_util_show_buf, 1 bytes:
+D
+key found in character hash table 
+ml_util_show_buf, 1 bytes:
+L
+ml_util_show_buf, 1 bytes:
+L
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 17 bytes:
+decimal-digit ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+decimal-digit ::=
+key: decimal-digit ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+dt_sz: 37 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+element: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+push_token_into_htab 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+0
+key found in character hash table 
+ml_util_show_buf, 33 bytes:
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+1
+key found in character hash table 
+ml_util_show_buf, 29 bytes:
+2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+2
+key found in character hash table 
+ml_util_show_buf, 25 bytes:
+3 | 4 | 5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+3
+key found in character hash table 
+ml_util_show_buf, 21 bytes:
+4 | 5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+4
+key found in character hash table 
+ml_util_show_buf, 17 bytes:
+5 | 6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+5
+key found in character hash table 
+ml_util_show_buf, 13 bytes:
+6 | 7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+6
+key found in character hash table 
+ml_util_show_buf, 9 bytes:
+7 | 8 | 9
+ml_util_show_buf, 1 bytes:
+7
+key found in character hash table 
+ml_util_show_buf, 5 bytes:
+8 | 9
+ml_util_show_buf, 1 bytes:
+8
+key found in character hash table 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key found in character hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 9 bytes:
+digit ::=
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+digit ::=
+key: digit ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+dt_sz: 13 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+element: 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+push_token_into_htab 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 11 bytes:
+<undefined>
+ml_util_show_buf, 11 bytes:
+<undefined>
+search hash table to check if it's a syntax object 
+key: <undefined> ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 11 bytes:
+<undefined>
+end 
+ml_util_show_buf, 11 bytes:
+<undefined>
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+<undefined>
+key: <undefined> 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 16 bytes:
+symbol-token ::=
+
+ast_is_character 
+ml_util_show_buf, 16 bytes:
+symbol-token ::=
+key: symbol-token ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 11 bytes:
+<undefined>
+dt_sz: 11 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 11 bytes:
+<undefined>
+element: 
+ml_util_show_buf, 11 bytes:
+<undefined>
+
+push_token_into_htab 
+ml_util_show_buf, 11 bytes:
+<undefined>
+ml_util_show_buf, 11 bytes:
+<undefined>
+ml_util_show_buf, 11 bytes:
+<undefined>
+key found in keyword hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+list ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+list ::=
+key: list ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 32 bytes:
+	( LIST { object [, object] }* )
+dt_sz: 32 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 33 bytes:
+
+	( LIST { object [, object] }* )
+element: 
+ml_util_show_buf, 33 bytes:
+
+	( LIST { object [, object] }* )
+
+push_token_into_htab 
+ml_util_show_buf, 33 bytes:
+
+	( LIST { object [, object] }* )
+ml_util_show_buf, 31 bytes:
+( LIST { object [, object] }* )
+ml_util_show_buf, 31 bytes:
+( LIST { object [, object] }* )
+ml_util_show_buf, 31 bytes:
+( LIST { object [, object] }* )
+search hash table to check if it's a syntax object 
+key: ( LIST { object [, object] }* ) ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 26 bytes:
+( LIST  object , object  )
+ml_util_show_buf, 1 bytes:
+(
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+(
+key: ( 
+character 
+ml_util_show_buf, 4 bytes:
+LIST
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+LIST
+key: LIST 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 6 bytes:
+object
+
+ast_is_character 
+ml_util_show_buf, 6 bytes:
+object
+key: object 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 1 bytes:
+,
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+,
+key: , 
+character 
+ml_util_show_buf, 6 bytes:
+object
+
+ast_is_character 
+ml_util_show_buf, 6 bytes:
+object
+key: object 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 1 bytes:
+)
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+)
+key: ) 
+character 
+push_token_into_htab ok 
+
+ml_util_show_buf, 10 bytes:
+object ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+object ::=
+key: object ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+	element |
+	<undefined>
+	
+dt_sz: 25 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 26 bytes:
+
+	element |
+	<undefined>
+	
+element: 
+ml_util_show_buf, 26 bytes:
+
+	element |
+	<undefined>
+	
+
+push_token_into_htab 
+ml_util_show_buf, 26 bytes:
+
+	element |
+	<undefined>
+	
+ml_util_show_buf, 24 bytes:
+element |
+	<undefined>
+	
+ml_util_show_buf, 7 bytes:
+element
+ml_util_show_buf, 7 bytes:
+element
+search hash table to check if it's a syntax object 
+key: element ::= 
+found syntax object 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 11 bytes:
+<undefined>
+key found in keyword hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 11 bytes:
+element ::=
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+element ::=
+key: element ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 78 bytes:
+	list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+dt_sz: 78 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 78 bytes:
+	list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+element: 
+ml_util_show_buf, 78 bytes:
+	list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+
+push_token_into_htab 
+ml_util_show_buf, 78 bytes:
+	list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+ml_util_show_buf, 77 bytes:
+list |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+ml_util_show_buf, 4 bytes:
+list
+ml_util_show_buf, 4 bytes:
+list
+search hash table to check if it's a syntax object 
+key: list ::= 
+found syntax object 
+ml_util_show_buf, 69 bytes:
+array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+ml_util_show_buf, 5 bytes:
+array
+ml_util_show_buf, 5 bytes:
+array
+search hash table to check if it's a syntax object 
+key: array ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+array
+end 
+ml_util_show_buf, 5 bytes:
+array
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+array
+key: array 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 60 bytes:
+sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+ml_util_show_buf, 8 bytes:
+sequence
+ml_util_show_buf, 8 bytes:
+sequence
+search hash table to check if it's a syntax object 
+key: sequence ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 8 bytes:
+sequence
+end 
+ml_util_show_buf, 8 bytes:
+sequence
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+sequence
+key: sequence 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 48 bytes:
+type |
+	input-stream |
+	output-stream |
+	class
+	
+ml_util_show_buf, 4 bytes:
+type
+ml_util_show_buf, 4 bytes:
+type
+search hash table to check if it's a syntax object 
+key: type ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 4 bytes:
+type
+end 
+ml_util_show_buf, 4 bytes:
+type
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+type
+key: type 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 40 bytes:
+input-stream |
+	output-stream |
+	class
+	
+ml_util_show_buf, 12 bytes:
+input-stream
+ml_util_show_buf, 12 bytes:
+input-stream
+search hash table to check if it's a syntax object 
+key: input-stream ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 12 bytes:
+input-stream
+end 
+ml_util_show_buf, 12 bytes:
+input-stream
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+input-stream
+key: input-stream 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 24 bytes:
+output-stream |
+	class
+	
+ml_util_show_buf, 13 bytes:
+output-stream
+ml_util_show_buf, 13 bytes:
+output-stream
+search hash table to check if it's a syntax object 
+key: output-stream ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 13 bytes:
+output-stream
+end 
+ml_util_show_buf, 13 bytes:
+output-stream
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+output-stream
+key: output-stream 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 7 bytes:
+class
+	
+ml_util_show_buf, 5 bytes:
+class
+ml_util_show_buf, 5 bytes:
+class
+search hash table to check if it's a syntax object 
+key: class ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+class
+end 
+ml_util_show_buf, 5 bytes:
+class
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+class
+key: class 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+cons ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+cons ::=
+key: cons ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+dt_sz: 22 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+element: 
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+
+push_token_into_htab 
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+search hash table to check if it's a syntax object 
+key: ( CONS object object ) ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 22 bytes:
+( CONS object object )
+ml_util_show_buf, 1 bytes:
+(
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+(
+key: ( 
+character 
+ml_util_show_buf, 4 bytes:
+CONS
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+CONS
+key: CONS 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 6 bytes:
+object
+
+ast_is_character 
+ml_util_show_buf, 6 bytes:
+object
+key: object 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 6 bytes:
+object
+
+ast_is_character 
+ml_util_show_buf, 6 bytes:
+object
+key: object 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 1 bytes:
+)
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+)
+key: ) 
+character 
+push_token_into_htab ok 
+
+ml_util_show_buf, 7 bytes:
+car ::=
+
+ast_is_character 
+ml_util_show_buf, 7 bytes:
+car ::=
+key: car ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+dt_sz: 12 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+element: 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+
+push_token_into_htab 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+ml_util_show_buf, 12 bytes:
+( CAR list )
+ml_util_show_buf, 12 bytes:
+( CAR list )
+ml_util_show_buf, 12 bytes:
+( CAR list )
+search hash table to check if it's a syntax object 
+key: ( CAR list ) ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+ml_util_show_buf, 1 bytes:
+(
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+(
+key: ( 
+character 
+ml_util_show_buf, 3 bytes:
+CAR
+
+ast_is_character 
+ml_util_show_buf, 3 bytes:
+CAR
+key: CAR 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 4 bytes:
+list
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+list
+key: list 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 1 bytes:
+)
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+)
+key: ) 
+character 
+push_token_into_htab ok 
+
+ml_util_show_buf, 7 bytes:
+cdr ::=
+
+ast_is_character 
+ml_util_show_buf, 7 bytes:
+cdr ::=
+key: cdr ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+dt_sz: 12 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+element: 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+
+push_token_into_htab 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+ml_util_show_buf, 12 bytes:
+( CDR list )
+ml_util_show_buf, 12 bytes:
+( CDR list )
+ml_util_show_buf, 12 bytes:
+( CDR list )
+search hash table to check if it's a syntax object 
+key: ( CDR list ) ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+ml_util_show_buf, 1 bytes:
+(
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+(
+key: ( 
+character 
+ml_util_show_buf, 3 bytes:
+CDR
+
+ast_is_character 
+ml_util_show_buf, 3 bytes:
+CDR
+key: CDR 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 4 bytes:
+list
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+list
+key: list 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 1 bytes:
+)
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+)
+key: ) 
+character 
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+setq ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+setq ::=
+key: setq ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+dt_sz: 21 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+element: 
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+
+push_token_into_htab 
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+ml_util_show_buf, 21 bytes:
+( SETQ {setq-pair}* )
+search hash table to check if it's a syntax object 
+key: ( SETQ {setq-pair}* ) ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 18 bytes:
+( SETQ setq-pair )
+ml_util_show_buf, 1 bytes:
+(
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+(
+key: ( 
+character 
+ml_util_show_buf, 4 bytes:
+SETQ
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+SETQ
+key: SETQ 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 9 bytes:
+setq-pair
+
+ast_is_character 
+ml_util_show_buf, 9 bytes:
+setq-pair
+key: setq-pair 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 1 bytes:
+)
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+)
+key: ) 
+character 
+push_token_into_htab ok 
+
+ml_util_show_buf, 13 bytes:
+setq-pair ::=
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+setq-pair ::=
+key: setq-pair ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+setq-var form
+dt_sz: 13 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+setq-var form
+element: 
+ml_util_show_buf, 13 bytes:
+setq-var form
+
+push_token_into_htab 
+ml_util_show_buf, 13 bytes:
+setq-var form
+ml_util_show_buf, 13 bytes:
+setq-var form
+ml_util_show_buf, 13 bytes:
+setq-var form
+ml_util_show_buf, 13 bytes:
+setq-var form
+search hash table to check if it's a syntax object 
+key: setq-var form ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 13 bytes:
+setq-var form
+ml_util_show_buf, 8 bytes:
+setq-var
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+setq-var
+key: setq-var 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 4 bytes:
+form
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+form
+key: form 
+ast_is_character failed 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 12 bytes:
+setq-var ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+setq-var ::=
+key: setq-var ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+symbol-token
+dt_sz: 12 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+symbol-token
+element: 
+ml_util_show_buf, 12 bytes:
+symbol-token
+
+push_token_into_htab 
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+search hash table to check if it's a syntax object 
+key: symbol-token ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 15 bytes:
+defconstant ::=
+
+ast_is_character 
+ml_util_show_buf, 15 bytes:
+defconstant ::=
+key: defconstant ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+dt_sz: 41 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+element: 
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+
+push_token_into_htab 
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+ml_util_show_buf, 41 bytes:
+( DEFCONSTANT name form [documentation] )
+search hash table to check if it's a syntax object 
+key: ( DEFCONSTANT name form [documentation] ) ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 39 bytes:
+( DEFCONSTANT name form documentation )
+ml_util_show_buf, 1 bytes:
+(
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+(
+key: ( 
+character 
+ml_util_show_buf, 11 bytes:
+DEFCONSTANT
+
+ast_is_character 
+ml_util_show_buf, 11 bytes:
+DEFCONSTANT
+key: DEFCONSTANT 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 4 bytes:
+name
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+name
+key: name 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 4 bytes:
+form
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+form
+key: form 
+ast_is_character failed 
+
+syntax object 
+ml_util_show_buf, 13 bytes:
+documentation
+
+ast_is_character 
+ml_util_show_buf, 13 bytes:
+documentation
+key: documentation 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 1 bytes:
+)
+
+ast_is_character 
+ml_util_show_buf, 1 bytes:
+)
+key: ) 
+character 
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+name ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+name ::=
+key: name ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+symbol-token
+dt_sz: 12 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 12 bytes:
+symbol-token
+element: 
+ml_util_show_buf, 12 bytes:
+symbol-token
+
+push_token_into_htab 
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+search hash table to check if it's a syntax object 
+key: symbol-token ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 8 bytes:
+form ::=
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+form ::=
+key: form ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 37 bytes:
+object | symbol-token | compound-form
+dt_sz: 37 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 37 bytes:
+object | symbol-token | compound-form
+element: 
+ml_util_show_buf, 37 bytes:
+object | symbol-token | compound-form
+
+push_token_into_htab 
+ml_util_show_buf, 37 bytes:
+object | symbol-token | compound-form
+ml_util_show_buf, 37 bytes:
+object | symbol-token | compound-form
+ml_util_show_buf, 6 bytes:
+object
+ml_util_show_buf, 6 bytes:
+object
+search hash table to check if it's a syntax object 
+key: object ::= 
+found syntax object 
+ml_util_show_buf, 28 bytes:
+symbol-token | compound-form
+ml_util_show_buf, 12 bytes:
+symbol-token
+ml_util_show_buf, 12 bytes:
+symbol-token
+search hash table to check if it's a syntax object 
+key: symbol-token ::= 
+found syntax object 
+ml_util_show_buf, 13 bytes:
+compound-form
+ml_util_show_buf, 13 bytes:
+compound-form
+ml_util_show_buf, 13 bytes:
+compound-form
+search hash table to check if it's a syntax object 
+key: compound-form ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 17 bytes:
+documentation ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+documentation ::=
+key: documentation ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 6 bytes:
+string
+dt_sz: 6 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 6 bytes:
+string
+element: 
+ml_util_show_buf, 6 bytes:
+string
+
+push_token_into_htab 
+ml_util_show_buf, 6 bytes:
+string
+ml_util_show_buf, 6 bytes:
+string
+ml_util_show_buf, 6 bytes:
+string
+ml_util_show_buf, 6 bytes:
+string
+search hash table to check if it's a syntax object 
+key: string ::= 
+found syntax object 
+push_token_into_htab ok 
+
+ml_util_show_buf, 17 bytes:
+compound-form ::=
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+compound-form ::=
+key: compound-form ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+operator form
+dt_sz: 13 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 13 bytes:
+operator form
+element: 
+ml_util_show_buf, 13 bytes:
+operator form
+
+push_token_into_htab 
+ml_util_show_buf, 13 bytes:
+operator form
+ml_util_show_buf, 13 bytes:
+operator form
+ml_util_show_buf, 13 bytes:
+operator form
+ml_util_show_buf, 13 bytes:
+operator form
+search hash table to check if it's a syntax object 
+key: operator form ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 13 bytes:
+operator form
+ml_util_show_buf, 8 bytes:
+operator
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+operator
+key: operator 
+ast_is_character failed 
+
+syntax object 
+end 
+ml_util_show_buf, 4 bytes:
+form
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+form
+key: form 
+ast_is_character failed 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 12 bytes:
+operator ::=
+
+ast_is_character 
+ml_util_show_buf, 12 bytes:
+operator ::=
+key: operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 89 bytes:
+	function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+dt_sz: 89 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 90 bytes:
+
+	function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+element: 
+ml_util_show_buf, 90 bytes:
+
+	function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+
+push_token_into_htab 
+ml_util_show_buf, 90 bytes:
+
+	function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+ml_util_show_buf, 88 bytes:
+function-call-operator |
+	special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+ml_util_show_buf, 22 bytes:
+function-call-operator
+ml_util_show_buf, 22 bytes:
+function-call-operator
+search hash table to check if it's a syntax object 
+key: function-call-operator ::= 
+found syntax object 
+ml_util_show_buf, 62 bytes:
+special-form-operator |
+	macro-operator |
+	lambda-expression
+	
+ml_util_show_buf, 21 bytes:
+special-form-operator
+ml_util_show_buf, 21 bytes:
+special-form-operator
+search hash table to check if it's a syntax object 
+key: special-form-operator ::= 
+found syntax object 
+ml_util_show_buf, 37 bytes:
+macro-operator |
+	lambda-expression
+	
+ml_util_show_buf, 14 bytes:
+macro-operator
+ml_util_show_buf, 14 bytes:
+macro-operator
+search hash table to check if it's a syntax object 
+key: macro-operator ::= 
+found syntax object 
+ml_util_show_buf, 19 bytes:
+lambda-expression
+	
+ml_util_show_buf, 17 bytes:
+lambda-expression
+ml_util_show_buf, 17 bytes:
+lambda-expression
+search hash table to check if it's a syntax object 
+key: lambda-expression ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 17 bytes:
+lambda-expression
+end 
+ml_util_show_buf, 17 bytes:
+lambda-expression
+
+ast_is_character 
+ml_util_show_buf, 17 bytes:
+lambda-expression
+key: lambda-expression 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 26 bytes:
+function-call-operator ::=
+
+ast_is_character 
+ml_util_show_buf, 26 bytes:
+function-call-operator ::=
+key: function-call-operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+	+ | - | * | / |
+	<TBD>
+	
+dt_sz: 25 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 25 bytes:
+	+ | - | * | / |
+	<TBD>
+	
+element: 
+ml_util_show_buf, 25 bytes:
+	+ | - | * | / |
+	<TBD>
+	
+
+push_token_into_htab 
+ml_util_show_buf, 25 bytes:
+	+ | - | * | / |
+	<TBD>
+	
+ml_util_show_buf, 24 bytes:
++ | - | * | / |
+	<TBD>
+	
+ml_util_show_buf, 1 bytes:
++
+key found in character hash table 
+ml_util_show_buf, 20 bytes:
+- | * | / |
+	<TBD>
+	
+ml_util_show_buf, 1 bytes:
+-
+key found in character hash table 
+ml_util_show_buf, 16 bytes:
+* | / |
+	<TBD>
+	
+ml_util_show_buf, 1 bytes:
+*
+key found in character hash table 
+ml_util_show_buf, 12 bytes:
+/ |
+	<TBD>
+	
+ml_util_show_buf, 1 bytes:
+/
+key found in character hash table 
+ml_util_show_buf, 7 bytes:
+<TBD>
+	
+ml_util_show_buf, 5 bytes:
+<TBD>
+ml_util_show_buf, 5 bytes:
+<TBD>
+search hash table to check if it's a syntax object 
+key: <TBD> ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+<TBD>
+end 
+ml_util_show_buf, 5 bytes:
+<TBD>
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+<TBD>
+key: <TBD> 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+push_token_into_htab ok 
+
+ml_util_show_buf, 25 bytes:
+special-form-operator ::=
+
+ast_is_character 
+ml_util_show_buf, 25 bytes:
+special-form-operator ::=
+key: special-form-operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 69 bytes:
+	quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+dt_sz: 69 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 70 bytes:
+
+	quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+element: 
+ml_util_show_buf, 70 bytes:
+
+	quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+
+push_token_into_htab 
+ml_util_show_buf, 70 bytes:
+
+	quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 68 bytes:
+quote |
+	let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 5 bytes:
+quote
+ml_util_show_buf, 5 bytes:
+quote
+search hash table to check if it's a syntax object 
+key: quote ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+quote
+end 
+ml_util_show_buf, 5 bytes:
+quote
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+quote
+key: quote 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 59 bytes:
+let | let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 3 bytes:
+let
+ml_util_show_buf, 3 bytes:
+let
+search hash table to check if it's a syntax object 
+key: let ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 3 bytes:
+let
+end 
+ml_util_show_buf, 3 bytes:
+let
+
+ast_is_character 
+ml_util_show_buf, 3 bytes:
+let
+key: let 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 53 bytes:
+let* |
+	if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 4 bytes:
+let*
+ml_util_show_buf, 4 bytes:
+let*
+search hash table to check if it's a syntax object 
+key: let* ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 4 bytes:
+let*
+end 
+ml_util_show_buf, 4 bytes:
+let*
+
+ast_is_character 
+ml_util_show_buf, 4 bytes:
+let*
+key: let* 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 45 bytes:
+if |
+	block |
+	catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 2 bytes:
+if
+ml_util_show_buf, 2 bytes:
+if
+search hash table to check if it's a syntax object 
+key: if ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 2 bytes:
+if
+end 
+ml_util_show_buf, 2 bytes:
+if
+
+ast_is_character 
+ml_util_show_buf, 2 bytes:
+if
+key: if 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 39 bytes:
+block |
+	catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 5 bytes:
+block
+ml_util_show_buf, 5 bytes:
+block
+search hash table to check if it's a syntax object 
+key: block ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+block
+end 
+ml_util_show_buf, 5 bytes:
+block
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+block
+key: block 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 30 bytes:
+catch | throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 5 bytes:
+catch
+ml_util_show_buf, 5 bytes:
+catch
+search hash table to check if it's a syntax object 
+key: catch ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+catch
+end 
+ml_util_show_buf, 5 bytes:
+catch
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+catch
+key: catch 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 22 bytes:
+throw |
+	setq |
+	<TBD>
+ml_util_show_buf, 5 bytes:
+throw
+ml_util_show_buf, 5 bytes:
+throw
+search hash table to check if it's a syntax object 
+key: throw ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+throw
+end 
+ml_util_show_buf, 5 bytes:
+throw
+
+ast_is_character 
+ml_util_show_buf, 5 bytes:
+throw
+key: throw 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 13 bytes:
+setq |
+	<TBD>
+ml_util_show_buf, 4 bytes:
+setq
+ml_util_show_buf, 4 bytes:
+setq
+search hash table to check if it's a syntax object 
+key: setq ::= 
+found syntax object 
+ml_util_show_buf, 5 bytes:
+<TBD>
+ml_util_show_buf, 5 bytes:
+<TBD>
+key found in keyword hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 18 bytes:
+macro-operator ::=
+
+ast_is_character 
+ml_util_show_buf, 18 bytes:
+macro-operator ::=
+key: macro-operator ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 20 bytes:
+	defmacro |
+	<TBD>
+	
+dt_sz: 20 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 20 bytes:
+	defmacro |
+	<TBD>
+	
+element: 
+ml_util_show_buf, 20 bytes:
+	defmacro |
+	<TBD>
+	
+
+push_token_into_htab 
+ml_util_show_buf, 20 bytes:
+	defmacro |
+	<TBD>
+	
+ml_util_show_buf, 19 bytes:
+defmacro |
+	<TBD>
+	
+ml_util_show_buf, 8 bytes:
+defmacro
+ml_util_show_buf, 8 bytes:
+defmacro
+search hash table to check if it's a syntax object 
+key: defmacro ::= 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 8 bytes:
+defmacro
+end 
+ml_util_show_buf, 8 bytes:
+defmacro
+
+ast_is_character 
+ml_util_show_buf, 8 bytes:
+defmacro
+key: defmacro 
+ast_is_character failed 
+
+new keyword 
+
+htab_add 
+htab_add ok 
+
+ml_util_show_buf, 7 bytes:
+<TBD>
+	
+ml_util_show_buf, 5 bytes:
+<TBD>
+key found in keyword hash table 
+push_token_into_htab ok 
+
+ml_util_show_buf, 10 bytes:
+string ::=
+
+ast_is_character 
+ml_util_show_buf, 10 bytes:
+string ::=
+key: string ::= 
+ast_is_character failed 
+
+
+push_htab 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 40 bytes:
+<TBD>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+dt_sz: 40 
+
+find_bnf_unit_len 
+found 
+ml_util_show_buf, 40 bytes:
+<TBD>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+element: 
+ml_util_show_buf, 40 bytes:
+<TBD>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+
+push_token_into_htab 
+ml_util_show_buf, 40 bytes:
+<TBD>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+ml_util_show_buf, 40 bytes:
+<TBD>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+ml_util_show_buf, 5 bytes:
+<TBD>
+key found in keyword hash table 
+push_token_into_htab ok 
+
+hash table 1511 entries, 49 entries used, 1462 entries free. 
+parse_syntax_object end 
+
+syntax object hash table 1511 entries, 49 entries used, 1462 entries free. 
+
+char hash table 257 entries, 94 entries used, 163 entries free. 
+
+keyword hash table 211 entries, 23 entries used, 188 entries free. 
+
+
+
+[make_bnf_tree]... root: token ::= 
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 9 bytes:
+token ::=
+found ::= 
+ml_util_show_buf, 9 bytes:
+token ::=
+
+find_insert_htab 
+one found 
+sub: 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+
+tree_insert_left 
+father:
+NULL
+left:token ::=
+tree_insert_left ok 
+
+sub node, dt_sz: 31 
+
+tree_insert_sub 
+father:
+token ::=
+sub:
+	number-token |
+	symbol-token
+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+	number-token |
+	symbol-token
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 12 bytes:
+number-token
+ml_util_show_buf, 12 bytes:
+number-token
+key2: number-token ::= 
+found 
+sub: 
+ml_util_show_buf, 41 bytes:
+	integer |
+	ratio |
+	float
+				          
+
+tree_insert_left 
+father:
+<tmp>
+left:
+number-token ::=
+tree_insert_left ok 
+
+
+is_token 
+number-token ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 41 
+
+tree_insert_sub 
+father:
+number-token ::=
+sub:
+	integer |
+	ratio |
+	float
+				
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+	integer |
+	ratio |
+	float
+				
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 7 bytes:
+integer
+ml_util_show_buf, 7 bytes:
+integer
+key2: integer ::= 
+found 
+sub: 
+ml_util_show_buf, 71 bytes:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				         
+
+tree_insert_left 
+father:
+<tmp>
+left:
+integer ::=
+tree_insert_left ok 
+
+
+is_token 
+integer ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 71 
+
+tree_insert_sub 
+father:
+integer ::=
+sub:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+insert hash entry: [sign], 6B
+
+tree_insert_left 
+father:
+<tmp>
+left:
+[sign]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[sign]
+sub:
+sign
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+sign
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+sign
+left:
+sign
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+sign
+ml_util_show_buf, 4 bytes:
+sign
+key2: sign ::= 
+found 
+sub: 
+ml_util_show_buf, 5 bytes:
++ | -
+
+tree_insert_left 
+father:
+sign
+left:
+sign ::=
+tree_insert_left ok 
+
+
+is_token 
+sign ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 5 
+
+tree_insert_sub 
+father:
+sign ::=
+sub:
++ | -
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
++ | -
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
++
+ml_util_show_buf, 1 bytes:
++
+key2: + ::= 
++ ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
++
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
++
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
++ | -
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+-
+ml_util_show_buf, 1 bytes:
+-
+key2: - ::= 
+- ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+-
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+-
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+insert hash entry: {decimal-digit}, 15B
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{decimal-digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{decimal-digit}
+sub:
+decimal-digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key2: decimal-digit ::= 
+found 
+sub: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+tree_insert_left 
+father:
+decimal-digit
+left:
+decimal-digit ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 37 
+
+tree_insert_sub 
+father:
+decimal-digit ::=
+sub:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+0 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+0
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+1 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+1
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+2 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+2
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+3 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+3
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+4 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+4
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+5 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+5
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+6 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+6
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+7 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+7
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+8 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+8
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+9 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+9
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{decimal-digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-point
+ml_util_show_buf, 13 bytes:
+decimal-point
+key2: decimal-point ::= 
+found 
+sub: 
+ml_util_show_buf, 1 bytes:
+.
+
+tree_insert_left 
+father:
+<tmp>
+left:
+decimal-point ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-point ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 1 
+
+tree_insert_sub 
+father:
+decimal-point ::=
+sub:
+.
+tree_insert_sub ok 
+
+make_bnf_obj_tree ok 
+
+make_braces_tree ok 
+
+
+tree_insert_left 
+father:
+[sign]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{decimal-digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{decimal-digit}
+sub:
+decimal-digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key2: decimal-digit ::= 
+found 
+sub: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+tree_insert_left 
+father:
+decimal-digit
+left:
+decimal-digit ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 37 
+
+tree_insert_sub 
+father:
+decimal-digit ::=
+sub:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+0 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+0
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+1 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+1
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+2 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+2
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+3 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+3
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+4 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+4
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+5 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+5
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+6 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+6
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+7 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+7
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+8 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+8
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+9 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+9
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{decimal-digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-point
+ml_util_show_buf, 13 bytes:
+decimal-point
+key2: decimal-point ::= 
+found 
+sub: 
+ml_util_show_buf, 1 bytes:
+.
+
+tree_insert_left 
+father:
+<tmp>
+left:
+decimal-point ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-point ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 1 
+
+tree_insert_sub 
+father:
+decimal-point ::=
+sub:
+.
+tree_insert_sub ok 
+
+make_bnf_obj_tree ok 
+
+make_braces_tree ok 
+
+make_brackets_tree ok 
+
+
+tree_insert_right 
+father:
+	[sign] {decimal-digit}+ decimal-point |
+	[sign] {digit}+
+				
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+[sign]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[sign]
+sub:
+sign
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+sign
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+sign
+left:
+sign
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+sign
+ml_util_show_buf, 4 bytes:
+sign
+key2: sign ::= 
+found 
+sub: 
+ml_util_show_buf, 5 bytes:
++ | -
+
+tree_insert_left 
+father:
+sign
+left:
+sign ::=
+tree_insert_left ok 
+
+
+is_token 
+sign ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 5 
+
+tree_insert_sub 
+father:
+sign ::=
+sub:
++ | -
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
++ | -
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
++
+ml_util_show_buf, 1 bytes:
++
+key2: + ::= 
++ ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
++
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
++
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
++ | -
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+-
+ml_util_show_buf, 1 bytes:
+-
+key2: - ::= 
+- ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+-
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+-
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+insert hash entry: {digit}, 7B
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{digit}
+sub:
+digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+digit
+ml_util_show_buf, 5 bytes:
+digit
+key2: digit ::= 
+found 
+sub: 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+tree_insert_left 
+father:
+digit
+left:
+digit ::=
+tree_insert_left ok 
+
+
+is_token 
+digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 13 
+
+tree_insert_sub 
+father:
+digit ::=
+sub:
+<undefined>
+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+<undefined> ::= not found in htab, 15 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+make_keyword_tree 
+dep:8, unknown syntax: 
+13 bytes:
+<undefined>
+	
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+make_braces_tree ok 
+
+
+tree_insert_left 
+father:
+[sign]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{digit}
+sub:
+digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+digit
+ml_util_show_buf, 5 bytes:
+digit
+key2: digit ::= 
+found 
+sub: 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+tree_insert_left 
+father:
+digit
+left:
+digit ::=
+tree_insert_left ok 
+
+
+is_token 
+digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 13 
+
+tree_insert_sub 
+father:
+digit ::=
+sub:
+<undefined>
+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+<undefined> ::= not found in htab, 15 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+make_keyword_tree 
+dep:9, unknown syntax: 
+13 bytes:
+<undefined>
+	
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+make_braces_tree ok 
+
+make_brackets_tree ok 
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+	integer |
+	ratio |
+	float
+				
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+ratio
+ml_util_show_buf, 5 bytes:
+ratio
+key2: ratio ::= 
+found 
+sub: 
+ml_util_show_buf, 43 bytes:
+	[sign] {digit}+ slash {digit}+ 
+				      
+
+tree_insert_left 
+father:
+<tmp>
+left:
+ratio ::=
+tree_insert_left ok 
+
+
+is_token 
+ratio ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 43 
+
+tree_insert_sub 
+father:
+ratio ::=
+sub:
+	[sign] {digit}+ slash {digit}+ 
+				
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+	[sign] {digit}+ slash {digit}+ 
+				
+left:
+[sign]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[sign]
+sub:
+sign
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+sign
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+sign
+left:
+sign
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+sign
+ml_util_show_buf, 4 bytes:
+sign
+key2: sign ::= 
+found 
+sub: 
+ml_util_show_buf, 5 bytes:
++ | -
+
+tree_insert_left 
+father:
+sign
+left:
+sign ::=
+tree_insert_left ok 
+
+
+is_token 
+sign ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 5 
+
+tree_insert_sub 
+father:
+sign ::=
+sub:
++ | -
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
++ | -
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
++
+ml_util_show_buf, 1 bytes:
++
+key2: + ::= 
++ ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
++
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
++
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
++ | -
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+-
+ml_util_show_buf, 1 bytes:
+-
+key2: - ::= 
+- ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+-
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+-
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+	[sign] {digit}+ slash {digit}+ 
+				
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{digit}
+sub:
+digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+digit
+ml_util_show_buf, 5 bytes:
+digit
+key2: digit ::= 
+found 
+sub: 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+tree_insert_left 
+father:
+digit
+left:
+digit ::=
+tree_insert_left ok 
+
+
+is_token 
+digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 13 
+
+tree_insert_sub 
+father:
+digit ::=
+sub:
+<undefined>
+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+<undefined> ::= not found in htab, 15 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+make_keyword_tree 
+dep:8, unknown syntax: 
+13 bytes:
+<undefined>
+	
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 20 bytes:
+slash {digit}+ 
+				
+ml_util_show_buf, 14 bytes:
+slash {digit}+
+key2: slash {digit}+ ::= 
+slash {digit}+ ::= not found in htab, 18 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 5 bytes:
+slash
+
+make_keyword_tree 
+dep:7, unknown syntax: 
+20 bytes:
+ slash {digit}+ 
+			
+make_braces_tree ok 
+
+
+tree_insert_left 
+father:
+[sign]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{digit}
+sub:
+digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+digit
+ml_util_show_buf, 5 bytes:
+digit
+key2: digit ::= 
+found 
+sub: 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+tree_insert_left 
+father:
+digit
+left:
+digit ::=
+tree_insert_left ok 
+
+
+is_token 
+digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 13 
+
+tree_insert_sub 
+father:
+digit ::=
+sub:
+<undefined>
+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+<undefined> ::= not found in htab, 15 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+<undefined>
+	
+
+make_keyword_tree 
+dep:9, unknown syntax: 
+13 bytes:
+<undefined>
+	
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 20 bytes:
+slash {digit}+ 
+				
+ml_util_show_buf, 14 bytes:
+slash {digit}+
+key2: slash {digit}+ ::= 
+slash {digit}+ ::= not found in htab, 18 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 5 bytes:
+slash
+
+make_keyword_tree 
+dep:8, unknown syntax: 
+20 bytes:
+ slash {digit}+ 
+			
+make_braces_tree ok 
+
+make_brackets_tree ok 
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 10 bytes:
+float
+				
+ml_util_show_buf, 5 bytes:
+float
+key2: float ::= 
+found 
+sub: 
+ml_util_show_buf, 169 bytes:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				       
+
+tree_insert_left 
+father:
+<tmp>
+left:
+float ::=
+tree_insert_left ok 
+
+
+is_token 
+float ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 169 
+
+tree_insert_sub 
+father:
+float ::=
+sub:
+	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
+    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
+				
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+......
+left:
+......
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+[sign]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[sign]
+sub:
+sign
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+sign
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+sign
+left:
+sign
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+sign
+ml_util_show_buf, 4 bytes:
+sign
+key2: sign ::= 
+found 
+sub: 
+ml_util_show_buf, 5 bytes:
++ | -
+
+tree_insert_left 
+father:
+sign
+left:
+sign ::=
+tree_insert_left ok 
+
+
+is_token 
+sign ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 5 
+
+tree_insert_sub 
+father:
+sign ::=
+sub:
++ | -
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
++ | -
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
++
+ml_util_show_buf, 1 bytes:
++
+key2: + ::= 
++ ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
++
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
++
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
++ | -
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+-
+ml_util_show_buf, 1 bytes:
+-
+key2: - ::= 
+- ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+-
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+-
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{decimal-digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{decimal-digit}
+sub:
+decimal-digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key2: decimal-digit ::= 
+found 
+sub: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+tree_insert_left 
+father:
+decimal-digit
+left:
+decimal-digit ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 37 
+
+tree_insert_sub 
+father:
+decimal-digit ::=
+sub:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+0 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+0
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+1 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+1
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+2 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+2
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+3 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+3
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+4 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+4
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+5 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+5
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+6 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+6
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+7 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+7
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+8 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+8
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+9 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+9
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+pattern: {}* 
+
+tree_insert_left 
+father:
+{decimal-digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 41 bytes:
+decimal-point {decimal-digit}+ [exponent]
+ml_util_show_buf, 41 bytes:
+decimal-point {decimal-digit}+ [exponent]
+key2: decimal-point {decimal-digit}+ [exponent] ::= 
+decimal-point {decimal-digit}+ [exponent] ::= not found in htab, 45 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+make_keyword_tree 
+dep:8, unknown syntax: 
+41 bytes:
+ decimal-point {decimal-digit}+ [exponent
+make_braces_tree ok 
+
+
+tree_insert_left 
+father:
+[sign]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{decimal-digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{decimal-digit}
+sub:
+decimal-digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key2: decimal-digit ::= 
+found 
+sub: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+tree_insert_left 
+father:
+decimal-digit
+left:
+decimal-digit ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 37 
+
+tree_insert_sub 
+father:
+decimal-digit ::=
+sub:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+0 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+0
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+1 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+1
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+2 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+2
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+3 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+3
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+4 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+4
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+5 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+5
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+6 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+6
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+7 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+7
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+8 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+8
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+9 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+9
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+pattern: {}* 
+
+tree_insert_left 
+father:
+{decimal-digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 41 bytes:
+decimal-point {decimal-digit}+ [exponent]
+ml_util_show_buf, 41 bytes:
+decimal-point {decimal-digit}+ [exponent]
+key2: decimal-point {decimal-digit}+ [exponent] ::= 
+decimal-point {decimal-digit}+ [exponent] ::= not found in htab, 45 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+make_keyword_tree 
+dep:9, unknown syntax: 
+41 bytes:
+ decimal-point {decimal-digit}+ [exponent
+make_braces_tree ok 
+
+make_brackets_tree ok 
+
+
+tree_insert_right 
+father:
+......
+right:
+......
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+[sign]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[sign]
+sub:
+sign
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+sign
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+sign
+left:
+sign
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+sign
+ml_util_show_buf, 4 bytes:
+sign
+key2: sign ::= 
+found 
+sub: 
+ml_util_show_buf, 5 bytes:
++ | -
+
+tree_insert_left 
+father:
+sign
+left:
+sign ::=
+tree_insert_left ok 
+
+
+is_token 
+sign ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 5 
+
+tree_insert_sub 
+father:
+sign ::=
+sub:
++ | -
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
++ | -
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
++
+ml_util_show_buf, 1 bytes:
++
+key2: + ::= 
++ ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
++
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
++
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
++ | -
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+-
+ml_util_show_buf, 1 bytes:
+-
+key2: - ::= 
+- ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+-
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+-
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{decimal-digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{decimal-digit}
+sub:
+decimal-digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key2: decimal-digit ::= 
+found 
+sub: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+tree_insert_left 
+father:
+decimal-digit
+left:
+decimal-digit ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 37 
+
+tree_insert_sub 
+father:
+decimal-digit ::=
+sub:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+0 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+0
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+1 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+1
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+2 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+2
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+3 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+3
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+4 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+4
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+5 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+5
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+6 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+6
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+7 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+7
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+8 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+8
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+9 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+9
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{decimal-digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+insert hash entry: [decimal-point {decimal-digit}*], 32B
+
+tree_insert_left 
+father:
+<tmp>
+left:
+[decimal-point {decimal-digit}*]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[decimal-point {decimal-digit}*]
+sub:
+decimal-point {decimal-digit}*
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+decimal-point {decimal-digit}*
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+decimal-point {decimal-digit}*
+left:
+decimal-point {decimal-digit}*
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 30 bytes:
+decimal-point {decimal-digit}*
+ml_util_show_buf, 30 bytes:
+decimal-point {decimal-digit}*
+key2: decimal-point {decimal-digit}* ::= 
+decimal-point {decimal-digit}* ::= not found in htab, 34 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+make_keyword_tree 
+dep:9, unknown syntax: 
+30 bytes:
+decimal-point {decimal-digit}*
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+exponent
+				
+ml_util_show_buf, 8 bytes:
+exponent
+key2: exponent ::= 
+found 
+sub: 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+
+tree_insert_left 
+father:
+<tmp>
+left:
+exponent ::=
+tree_insert_left ok 
+
+
+is_token 
+exponent ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 39 
+
+tree_insert_sub 
+father:
+exponent ::=
+sub:
+	exponent-marker [sign] {digit}+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 32 bytes:
+exponent-marker [sign] {digit}+	
+ml_util_show_buf, 31 bytes:
+exponent-marker [sign] {digit}+
+key2: exponent-marker [sign] {digit}+ ::= 
+exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 15 bytes:
+exponent-marker
+
+make_keyword_tree 
+dep:9, unknown syntax: 
+32 bytes:
+	exponent-marker [sign] {digit}+
+
+tree_insert_left 
+father:
+exponent ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_left 
+father:
+[decimal-point {decimal-digit}*]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+exponent
+				
+ml_util_show_buf, 8 bytes:
+exponent
+key2: exponent ::= 
+found 
+sub: 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+
+tree_insert_left 
+father:
+<tmp>
+left:
+exponent ::=
+tree_insert_left ok 
+
+
+is_token 
+exponent ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 39 
+
+tree_insert_sub 
+father:
+exponent ::=
+sub:
+	exponent-marker [sign] {digit}+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 32 bytes:
+exponent-marker [sign] {digit}+	
+ml_util_show_buf, 31 bytes:
+exponent-marker [sign] {digit}+
+key2: exponent-marker [sign] {digit}+ ::= 
+exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 15 bytes:
+exponent-marker
+
+make_keyword_tree 
+dep:10, unknown syntax: 
+32 bytes:
+	exponent-marker [sign] {digit}+
+
+tree_insert_left 
+father:
+exponent ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+make_bnf_obj_tree ok 
+
+make_brackets_tree ok 
+
+make_braces_tree ok 
+
+
+tree_insert_left 
+father:
+[sign]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{decimal-digit}
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{decimal-digit}
+sub:
+decimal-digit
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-digit
+ml_util_show_buf, 13 bytes:
+decimal-digit
+key2: decimal-digit ::= 
+found 
+sub: 
+ml_util_show_buf, 37 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+tree_insert_left 
+father:
+decimal-digit
+left:
+decimal-digit ::=
+tree_insert_left ok 
+
+
+is_token 
+decimal-digit ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 37 
+
+tree_insert_sub 
+father:
+decimal-digit ::=
+sub:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+0 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+0
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+1 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+1
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+2 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+2
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+3 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+3
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+4 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+4
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+5 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+5
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+6 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+6
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+7 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+7
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+8 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+8
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+9 ::= not found in htab, 5 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 1 bytes:
+9
+
+make_keyword_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+make_bnf_obj_tree ok 
+
+pattern: {}+ 
+
+tree_insert_left 
+father:
+{decimal-digit}
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+
+make_brackets_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+[decimal-point {decimal-digit}*]
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+[decimal-point {decimal-digit}*]
+sub:
+decimal-point {decimal-digit}*
+tree_insert_sub ok 
+
+
+tree_insert_right 
+father:
+decimal-point {decimal-digit}*
+right:
+@
+tree_insert_right ok 
+
+
+tree_insert_left 
+father:
+decimal-point {decimal-digit}*
+left:
+decimal-point {decimal-digit}*
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 30 bytes:
+decimal-point {decimal-digit}*
+ml_util_show_buf, 30 bytes:
+decimal-point {decimal-digit}*
+key2: decimal-point {decimal-digit}* ::= 
+decimal-point {decimal-digit}* ::= not found in htab, 34 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 13 bytes:
+decimal-point
+
+make_keyword_tree 
+dep:10, unknown syntax: 
+30 bytes:
+decimal-point {decimal-digit}*
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+exponent
+				
+ml_util_show_buf, 8 bytes:
+exponent
+key2: exponent ::= 
+found 
+sub: 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+
+tree_insert_left 
+father:
+<tmp>
+left:
+exponent ::=
+tree_insert_left ok 
+
+
+is_token 
+exponent ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 39 
+
+tree_insert_sub 
+father:
+exponent ::=
+sub:
+	exponent-marker [sign] {digit}+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 32 bytes:
+exponent-marker [sign] {digit}+	
+ml_util_show_buf, 31 bytes:
+exponent-marker [sign] {digit}+
+key2: exponent-marker [sign] {digit}+ ::= 
+exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 15 bytes:
+exponent-marker
+
+make_keyword_tree 
+dep:10, unknown syntax: 
+32 bytes:
+	exponent-marker [sign] {digit}+
+
+tree_insert_left 
+father:
+exponent ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_left 
+father:
+[decimal-point {decimal-digit}*]
+left:
+<tmp>
+tree_insert_left ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+exponent
+				
+ml_util_show_buf, 8 bytes:
+exponent
+key2: exponent ::= 
+found 
+sub: 
+ml_util_show_buf, 39 bytes:
+	exponent-marker [sign] {digit}+	      
+
+tree_insert_left 
+father:
+<tmp>
+left:
+exponent ::=
+tree_insert_left ok 
+
+
+is_token 
+exponent ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 39 
+
+tree_insert_sub 
+father:
+exponent ::=
+sub:
+	exponent-marker [sign] {digit}+	
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 32 bytes:
+exponent-marker [sign] {digit}+	
+ml_util_show_buf, 31 bytes:
+exponent-marker [sign] {digit}+
+key2: exponent-marker [sign] {digit}+ ::= 
+exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 15 bytes:
+exponent-marker
+
+make_keyword_tree 
+dep:11, unknown syntax: 
+32 bytes:
+	exponent-marker [sign] {digit}+
+
+tree_insert_left 
+father:
+exponent ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+make_bnf_obj_tree ok 
+
+make_brackets_tree ok 
+
+make_braces_tree ok 
+
+make_brackets_tree ok 
+
+
+tree_insert_left 
+father:
+float ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+make_bnf_obj_tree ok 
+
+make_bnf_obj_tree ok 
+
+
+tree_insert_right 
+father:
+	number-token |
+	symbol-token
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 14 bytes:
+symbol-token
+	
+ml_util_show_buf, 12 bytes:
+symbol-token
+key2: symbol-token ::= 
+found 
+sub: 
+ml_util_show_buf, 11 bytes:
+<undefined>
+
+tree_insert_left 
+father:
+<tmp>
+left:
+symbol-token ::=
+tree_insert_left ok 
+
+
+is_token 
+symbol-token ::= 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 11 
+
+tree_insert_sub 
+father:
+symbol-token ::=
+sub:
+<undefined>
+tree_insert_sub ok 
+
+
+make_bnf_tree 
+make_braces_tree failed 
+
+
+make_bnf_obj_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+<undefined>
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+<undefined> ::= not found in htab, 15 bytes 
+make_bnf_obj_tree failed 
+
+ml_util_show_buf, 11 bytes:
+<undefined>
+
+make_keyword_tree 
+keyword 
+
+tree_insert_left 
+father:
+<undefined>
+left:
+<undefined>
+tree_insert_left ok 
+
+ml_util_show_buf, 0 bytes:
+
+
+tree_insert_left 
+father:
+symbol-token ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+make_bnf_obj_tree ok 
+
+make_bnf_obj_tree ok 
+
+
+[make_bnf_tree], done. 
+
+hash table 1511 entries, 53 entries used, 1458 entries free. 
+
+
+[make_graph]... 
+
+[make_graph], done. 
+
+parser_init ok 
+
+
+ml_reader_init 
+ml_reader_init ok 
+
+ml_init ok 
+
