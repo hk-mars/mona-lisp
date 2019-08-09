@@ -54,13 +54,13 @@
  *
  * @ Build the AST tree from a BNF syntax file.
  * @ Transform AST tree to ASG graph.
- * @ Remove duplicate nodes in ADG and do term-graph-rewriting as rules.
+ * @ Remove duplicate nodes in ASG and do term-graph-rewriting as rules.
  *   more: https://encyclopedia.thefreedictionary.com/Graph+rewriting
- * @ Check the syntax of codes given via ASG.
- * @ Evaluate the forms which the syntax has been checked to be right.
+ * @ Check the syntax of given codes via ASG.
+ * @ Evaluate the forms of which the syntax has been checked to be valid.
  * @ Transform the ASG to IR1 rules tree or list.
  * @ Transform the IR1 rules to rules based on C code.
- * @ Parse some macro codes and update the AST, ASG and IR1 dynamically.
+ * @ Parse given macro codes and update the AST, ASG and IR1 dynamically.
  * @ Create the complete syntax of monalisp based on BNF rule.
  * @ Create the baby parser of monalisp.
  *
