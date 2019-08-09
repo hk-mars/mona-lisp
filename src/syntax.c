@@ -272,9 +272,9 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
   
     if (root->back) {
-      //debug("go back to node: %s \n", root->back->key);
-      //rtn = find_path(root->back, path);
-      //if (rtn) return rtn;
+	debug("go back to node: %s \n", root->back->key);
+	rtn = find_path(root->back, path);
+	if (rtn) return rtn;
     }
   
     if (root->sub) {

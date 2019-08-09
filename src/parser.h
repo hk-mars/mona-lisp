@@ -17,6 +17,8 @@ typedef enum
     PARSER_OK = 0,
     PARSER_ERR = 1,
     PARSER_ERR_NULL = 2,
+    PARSER_ERR_MEM_FULL = 3,
+    
 
 } parser_rt_t;
 

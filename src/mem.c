@@ -9,13 +9,15 @@
 #include "gc.h"
 
 
+
 void*
 ml_malloc(size_t sz)
 {
     void *m = malloc(sz);
 
     if (!m) {
-	ml_err_proc_mem_full();
+      
+	ml_err_signal(ML_ERR_MEM_FULL);
 
 	return NULL;
     }

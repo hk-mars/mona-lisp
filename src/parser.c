@@ -34,8 +34,8 @@ struct s_file_info
 } file_info;
 
 
-static tr_node_s* make_bnf_tree(tr_node_s *root, char *bnf, int size,
-				hash_table_s *htab, int dep);
+static int make_bnf_tree(tr_node_s *root, char *bnf, int size,
+			 hash_table_s *htab, int dep);
 
 
 static void
@@ -227,22 +227,12 @@ find_bnf_unit_len(char *dt, file_info *fi)
 
 static int 
 make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
-{
-    if (key && ksz > 0) {
-	//key = filter_buf(key, ksz, &ksz);
-    }
-  
-    if (dt && dsz > 0) {
-	//dt = filter_buf(dt, dsz, &dsz);
-    }
-
-    //func_s();
-    
+{   
     if (!key || ksz <= 0) return 0;
 
     memset(item, 0, sizeof(ENTRY));
   
-    item->key = (char*)malloc(ksz + 1);
+    item->key = (char*)ml_malloc(ksz + 1);
     if (!item->key) return 0;
   
     memset(item->key, '\0', ksz + 1);
@@ -251,8 +241,6 @@ make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
     item->data = dt;
     item->dt_sz = dsz;
   
-    if (strcmp(item->key, " ") == 0) return 0;
-
     //func_ok();
     return 1;
 }
@@ -986,6 +974,36 @@ find_pair(char *s, char *e)
 }
 
 
+static void
+drop_head_trail_whitespace(char **start, char **end)
+{
+    char *s, *e;
+
+    s = *start;
+    e = *end;
+    
+    /* cut whitespace of the head
+     */
+    while(s < e) {
+	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;
+	s++;
+    }
+
+    /* cut whitespace of the trail
+     */
+    while (s < e) {
+	if (*e != ' ' && *e != '\r' && *e != '\n' && *e != '\t') break;
+	e--;
+    }
+
+    *start = s;
+    *end = e;
+
+    func_ok();
+}
+
+
+
 static int
 make_or_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
@@ -1004,40 +1022,52 @@ make_or_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 
     func_s();
   
-    ee = find_pair(s, e - 1);
-    if (!ee) return 0;
-  
+    //ee = find_pair(s, e - 1);
+    //if (!ee) return 0;
+
+    ee = e;
+    e--;
+    
+    drop_head_trail_whitespace(&s, &e);
+    
   
     /* insert the object to the left.
      */
-    rt = make_hs_entry(&si, s, e - 1 - s + 1, s, e - 1 - s + 1);
-    if (!rt) return 1;
+    rt = make_hs_entry(&si, s, e - s + 1, s, e - s + 1);
+    if (!rt) return 2;
   
     lfn = tree_insert_left(root, "<tmp>");
-    if (!lfn) return 0;
+    if (!lfn) goto END;
 
   
-    make_bnf_tree(lfn, s, e - 1 - s + 1, htab, dep + 1);
-  
-  
-    /* insert the object to the right.
+    make_bnf_tree(lfn, s, e - s + 1, htab, dep + 1);
+
+    
+    /* insert the remaining to the right.
      */
-    s = e;
+    s = ee;
     e = bnf + size - 1;
     rt = make_hs_entry(&ei, s, e - s + 1, s + 1, e - s);
-    if (!rt) return 1;
+    if (!rt) goto DONE;
   
     rin = tree_insert_right(root, "<tmp>");
-    if (!rin) return 0;
+    if (!rin) goto END;
   
     make_bnf_tree(rin, s + 1, e - s, htab, dep + 1);
   
+  DONE:
+    func_ok();
     return 1;
+
+  END:
+
+    func_e();
+    return 0;
 }
 
 
 static int
-make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
+make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     int rt;
     char *s, *e, *ss;
@@ -1047,41 +1077,20 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
     bool flag;
   
 
-    func_s();
-  
-
     e = find_bnf_obj_str(bnf, size);
-    if (!e) {
-	
-    }
-    
     flag = !!e;
     
     s = bnf;
     e = bnf + size - 1;
-   
-    /* cut whitespace of the head
-     */
-    while(s <= e) {
-	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;
-	s++;
-    }
+
+    drop_head_trail_whitespace(&s, &e);
     if (s > e) return 0;
-
-
-    /* cut whitespace of the trail
-     */
-    while (s < e) {
-	if (*e != ' ' && *e != '\r' && *e != '\n' && *e != '\t') break;
-	e--;
-    }
     
-    if (s > e) goto FAIL;
     ml_util_show_buf(s, e-s+1);
 
     if (!flag) {
 	char *key2 = ml_malloc(e-s+1 + strlen(" ::=") + 1);
-	if (!key2) goto FAIL;
+	if (!key2) return 0;
 
 	memcpy(key2, s, e-s+1);
 	strcat(key2, " ::=");
@@ -1091,28 +1100,33 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	si.key = key2;
 	lfi = hsearch(htab, si, FIND);
 	if (!lfi) {
-	    debug("%s not found in htab, %d bytes \n", si.key, strlen(si.key));
-	    goto FAIL;
+	    debug("not found \n");
+
+	    ml_free(key2);
+	    return 0;
 	}
 
+	ml_free(key2);
 	debug("found \n");
     }
     else {
 	
 	rt = make_hs_entry(&si, s, e - s + 1, NULL, 0);
-	if (!rt) goto FAIL;
+	if (!rt) return 2;
   
 	lfi = find_insert_htab(si, htab);
-	if (!lfi) goto FAIL; 
+	if (!lfi) goto END; 
     }
 
+    func_s();
+    
     debug("sub: \n");
     ml_util_show_buf(lfi->data, lfi->dt_sz);
 	
     /* insert the object to the left.
      */    
     lfn = tree_insert_left(root, lfi->key);
-    if (!lfn) goto FAIL;
+    if (!lfn) goto END;
     
     lfn->is_sub_bnf = 1;
   
@@ -1148,7 +1162,7 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	 */
 	if (!lfn->is_inside_loop_node && lfi->dt_sz > 0) {
 	    rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
-	    if (!rt) return 1;
+	    if (!rt) return 2;
 
 	    dump_trail(si.key, si.key + strlen(si.key) - 1);
 
@@ -1156,7 +1170,7 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
       
       
 	    sub = tree_insert_sub(lfn, si.key);
-	    if (!sub) goto FAIL;
+	    if (!sub) goto END;
       
 	    if (strlen(si.key) > 1) {
 		make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
@@ -1164,25 +1178,13 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	    }
 	}
     }
-
-    
-    /* find ... of the remaining bnf
-     */
-    /*
-    ss = find_elipsis(e + 1, size - (e - bnf + 1));
-    if (ss) {
-	lfn->is_outside_loop_node = 1;
-	e = ss + strlen("...") - 1;
-    }
-    */
-    
  
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
-    if (!rt) goto DONE;
+    if (!rt) return 2;
   
     lfn = tree_insert_left(lfn, "<tmp>");
-    if (!lfn) goto FAIL;
+    if (!lfn) goto END;
   
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
 
@@ -1190,9 +1192,9 @@ make_bnf_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
     func_ok();
     return 1;
 
-  FAIL:
+  END:
 
-    func_fail();
+    func_e();
     return 0;
 }
 
@@ -1220,61 +1222,48 @@ make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int
     /* insert the left node of the root node 
      */
     rt = make_hs_entry(&si, s, e - s + 1, s + 1, e - s - 1);
-    if (!rt) return 1;
+    if (!rt) return 2;
   
     lfi = find_insert_htab(si, htab);
-    if (!lfi) return 0; 
+    if (!lfi) goto END;
   
     lfn = tree_insert_left(root, lfi->key);
-    if (!lfn) return 0;
+    if (!lfn) goto END;
   
   
     /* insert the sub node of the left node
      */
     if (lfi->data && lfi->dt_sz > 0) {
 	rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
-	if (!rt) return 1;
+	if (!rt) return 2;
     
 	sub = tree_insert_sub(lfn, si.key);
-	if (!sub) return 0;
+	if (!sub) goto END;
     
 	rin = tree_insert_right(sub, "@");
-	if (!rin) return 0;	
+	if (!rin) goto END;	
     
 	sub = tree_insert_left(sub, si.key);
-	if (!sub) return 0;
+	if (!sub) goto END;
     
 	make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
     }
   
-  
-    /* find ... of the remainning bnf
-     */
-    /*
-    ss = find_elipsis(e + 1, size - (e - bnf + 1));
-    if (ss) {
-	lfn->is_outside_loop_node = 1;
-	e = ss + strlen("...") - 1;
-    }
-    */
-    
-  
+ 
     /* insert the remainning bnf as a node to 
-     * the right node of the root,
-     * or 
-     * the left node of the left node of the root node, if not finding |.
+     * the right node of the root
      */
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
-    if (!rt) return 1;
+    if (!rt) return 2;
   
     rin = tree_insert_right(root, "<tmp>");
-    if (!rin) return 0;
+    if (!rin) goto END;
   
     make_bnf_tree(rin, e + 1, size - (e - bnf + 1), htab, dep);
   
     lfn = tree_insert_left(lfn, "<tmp>");
-    if (!lfn) return 0;
+    if (!lfn) goto END;
   
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
 
@@ -1283,9 +1272,9 @@ make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int
     func_ok();
     return 1;
 
-  FAIL:
+  END:
 
-    func_fail();
+    func_e();
     return 0;    
 }
 
@@ -1303,7 +1292,7 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
     /* find {} 
      */
     s = find_s_ch('{', bnf, size);
-    if (!s) goto FAIL;
+    if (!s) return 0;
   
     e = find_e_ch('{', '}', s + 1, size - (s - bnf + 1));
     if (!e) return 0;
@@ -1313,23 +1302,23 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
     /* insert the left node of the root node 
      */
     rt = make_hs_entry(&si, s, e - s + 1, s + 1, e - s - 1);
-    if (!rt) return 1;
+    if (!rt) return 2;
   
     lfi = find_insert_htab(si, htab);
-    if (!lfi) return 0; 
+    if (!lfi) goto END;
   
     lfn = tree_insert_left(root, lfi->key);
-    if (!lfn) return 0;
+    if (!lfn) goto END;
   
   
     /* insert the sub node of the left node
      */
     if (lfi->data && lfi->dt_sz > 0) {
 	rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
-	if (!rt) return 1;
+	if (!rt) return 2;
   
 	sub = tree_insert_sub(lfn, si.key);
-	if (!sub) return 0;
+	if (!sub) goto END;
   
 	make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
     }
@@ -1359,10 +1348,10 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
   
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
-    if (!rt) return 1;
+    if (!rt) return 2;
   
     lfn = tree_insert_left(lfn, "<tmp>");
-    if (!lfn) return 0;
+    if (!lfn) goto END;
   
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
   
@@ -1370,25 +1359,25 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
     func_ok();
     return 1;
 
-  FAIL:
+  END:
 
-    func_fail();
+    func_e();
     return 0;
 }	
 
 
 
 static int 
-make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
+make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     int rt;
     char *s, *e, *ss;
     ENTRY *rti, *lfi;
     ENTRY si, ei;
-    tr_node_s *rtn, *lfn, *rin;
+    tr_node_s *rtn, *lfn, *rin, *sub;
   
   
-    /* find the word, including keyword and sql characters.
+    /* split the combined object
      */
     e = find_word(&si, bnf, size);
     if (!e) return 0;
@@ -1401,7 +1390,7 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
      */
     lfi = hsearch(get_kw_htab(), si, FIND);
     if (!lfi) {
-
+	
 	/* check if it's a character
 	 */
 	lfi = hsearch(get_char_htab(), si, FIND);
@@ -1410,64 +1399,112 @@ make_keyword_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	    debug("character \n");
 
 	    lfn = tree_insert_left(root, lfi->key);
-	    if (!lfn) return 0;
+	    if (!lfn) goto END;
 	    
   	    lfn->is_token = 1;
 
-	    if (si.key) {
-		free(si.key);
-		si.key = NULL;
-	    }	    
+	    free(si.key);
+	    
 	    goto NEXT_STEP;
 	}
 	
-	if (si.key) {
+	
+	s = create_syntax_obj_key(si.key, si.key + strlen(si.key) - 1);
+	free(si.key);
+	si.key = s;
+	lfi = hsearch(htab, si, FIND);
+	if (!lfi) {
+
+	    debug("unkown object: %s \n", si.key);
 	    free(si.key);
-	    si.key = NULL;
+	    goto FAIL;
 	}
 	
-	return 0;
+	debug("found syntax object \n");
+
+	free(si.key);
+
+	
+	lfn = tree_insert_left(root, lfi->key);
+	if (!lfn) goto END;
+
+	
+	/* insert the sub node of the left node
+	 */
+	if (lfi->data && lfi->dt_sz > 0) {
+
+	    debug("its sub: \n");
+	    ml_util_show_buf(lfi->data, lfi->dt_sz);
+	    
+	    rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
+	    if (!rt) return 2;
+
+	    debug("si.key: %s, %dbytes \n", si.key, strlen(si.key));
+	    //if (strlen(si.key) > 1) {
+
+	    sub = tree_insert_sub(lfn, "<sub>");
+	    if (!sub) goto END;
+	    make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
+	    //if (!root) goto DONE;
+	    //}
+
+		
+	    free(si.key);
+	}
+
+	
+
+	goto NEXT_STEP;
+    	
+    }
+    else {
+
+	debug("keyword \n");
     }
 
-    debug("keyword \n");
-  
-    if (si.key) {
-	free(si.key);
-	si.key = NULL;
-    }
+    free(si.key);
   
     lfn = tree_insert_left(root, lfi->key);
-    if (!lfn) return 0;
-  
-  
+    if (!lfn) goto END;
+
+  NEXT_STEP:    
+
+    if (size - (e - bnf + 1) <= 0) goto DONE;
+    
     /* if lex tree is there, check the left node if it's a token.
      */
     //if (get_lex_tree())  lfn->is_token = is_token(lfn->key);
-
-    
-  NEXT_STEP:
 	
     ml_util_show_buf(e + 1, size - (e - bnf + 1));
     
     /* insert the remainning bnf to 
-     * the right node of the root node, if finding the |.
-     * or 
-     * the left node of the left node of the root, if not finding the |. 
+     * the left node of the root node
      */
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
-    if (!rt) return 1;
+    if (!rt) return 2;
   
     lfn = tree_insert_left(lfn, "<tmp>");
-    if (!lfn) return 0;
+    if (!lfn) goto END;
     
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
   
+  DONE:
+    func_ok();
     return 1;
+
+  END:
+
+    func_e();
+    return 0;
+
+  FAIL:
+    func_fail();
+    return 0;
 }	
 
 
-static tr_node_s* 
+static int 
 make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     char *s, *e;
@@ -1475,37 +1512,11 @@ make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
     if (root && root->is_inside_loop_node) return 0;
     if (!bnf || size <= 0 || !htab) return 0;
 
-    /*  
-	s = find_s_ch('!', bnf, size);
-	if (s) {
-	s = find_s_ch('!', s + 1, size - (s - bnf + 1));
-	if (s) return 0;
-	}
-  
-	s = find_s_ch('(', bnf, size);
-	if (s) {
-	e = find_e_ch('(', ')', s + 1, size - (s - bnf + 1));
-	if (e) return 0;
-	}
-    */
-
+    
     s = bnf;
     e = bnf + size - 1;
-    /* cut whitespace of the head
-     */
-    while(s <= e) {
-	if (*s != ' ' && *s != '\r' && *s != '\n' && *s != '\t') break;
-	s++;
-    }
-    if (s > e) return 0;
 
-
-    /* cut whitespace of the trail
-     */
-    while (e > s) {
-	if (*e != ' ' && *e != '\r' && *e != '\n' && *s != '\t') break;
-	e--;
-    }    
+    drop_head_trail_whitespace(&s, &e);
     
     size = e - s + 1;
     if (size <= 0) return 0;
@@ -1515,8 +1526,8 @@ make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
     if (make_or_tree(root, s, size, htab, dep)) return 1;
     if (make_brackets_tree(root, s, size, htab, dep)) return 1;
     if (make_braces_tree(root, s, size, htab, dep)) return 1;
-    if (make_bnf_obj_tree(root, s, size, htab, dep)) return 1;
-    if (make_keyword_tree(root, s, size, htab, dep)) return 1;
+    if (make_sub_obj_tree(root, s, size, htab, dep)) return 1;
+    if (make_combined_obj_tree(root, s, size, htab, dep)) return 1;
   
 #if 1
     debug("dep:%d, %s: \n", dep, "unknown syntax");
@@ -1527,15 +1538,15 @@ make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 }
 
 
-static void 
+static int 
 show_nodes(tr_node_s *sn)
 {
-#if 0
+#if 1
     long cnt;
   
     fs();
   
-    if (!sn) return;
+    if (!sn) return 0;
   
     cnt = 0;
     while(sn) {
@@ -1548,6 +1559,8 @@ show_nodes(tr_node_s *sn)
     debug("end solutions cnt: %d \n", cnt);
   
     fe();
+
+    return cnt;
 #endif
 }
 
@@ -1649,17 +1662,44 @@ make_graph(tr_node_s *root)
     }
   
   END:
-    if (root->is_outside_loop_node) {
-	/* left loop node.
-	 * let all end nodes of root tree point back root node. 
-	 */
-	nd = es;
-	while (nd) {
-	    nd->back = root;
-	    nd = nd->next;
+
+    if (root->father) {
+
+	if (root->father->is_outside_loop_node) {
+
+	    if (root == root->father->sub) {
+
+		/* left loop node.
+		 * let all the end nodes points to the loop node. 
+		 * Note:
+		 * For the bnf syntax tree of monalisp, the loop node can only be 
+		 * the father of current node. 
+		 */	
+		nd = es;
+		while (nd) {
+
+#if 1
+		    debug("back-node of %s is: %s \n", nd->key, root->key);
+		    if (root->left) debug("left: %s \n", root->left->key);
+		    if (root->right) debug("right: %s \n", root->right->key);
+		    if (root->sub) debug("sub: %s \n", root->sub->key);
+
+		    if (root->father) debug("father: %s \n", root->father->key);
+		    if (root->father->father) debug("father-father: %s \n",
+						    root->father->father->key);	    
+#endif
+
+	    
+	    
+		    nd->back = root;
+		    nd = nd->next;
+		}
+	    }
+	    
 	}
     }
-  
+    
+    
     if (!es) {
 	debug("We can't believe that" 
 	      "there are no end nodes for \"%s\" \n", root->key);
@@ -1667,7 +1707,7 @@ make_graph(tr_node_s *root)
   
 #if 0
     debug("key %s \n", root->key);
-    show_nodes(es);
+    int cnt = show_nodes(es);    
 #endif
   
     return es;
@@ -1679,7 +1719,7 @@ show_graph(tr_node_s *root)
 {
     if (!root) return;
   
-    debug("%s %dbytes\n", root->key, strlen(root->key));
+    debug("%s %dbytes, %x \n", root->key, strlen(root->key), root);
   
     if (root->is_inside_loop_node) {
 	debug("loop node \n");
@@ -1690,7 +1730,7 @@ show_graph(tr_node_s *root)
     }
   
     if (root->back) {
-	debug("go back to %s \n", root->back->key);
+	debug("go to back-node %s \n", root->back->key);
     }
   
     if (root->sub) {
@@ -1855,13 +1895,13 @@ parser_init(void)
     if (!rt) return PARSER_ERR;
 
     
-   debug("syntax object hash table %d entries, %d entries used, %d entries free. \n\n", 
+    debug("syntax object hash table %d entries, %d entries used, %d entries free. \n\n", 
 	  htab.size, htab.filled, htab.size - htab.filled);
    
-   debug("char hash table %d entries, %d entries used, %d entries free. \n\n", 
+    debug("char hash table %d entries, %d entries used, %d entries free. \n\n", 
 	  char_htab.size, char_htab.filled, char_htab.size - char_htab.filled);
 
-   debug("keyword hash table %d entries, %d entries used, %d entries free. \n\n", 
+    debug("keyword hash table %d entries, %d entries used, %d entries free. \n\n", 
 	  kw_htab.size, kw_htab.filled, kw_htab.size - kw_htab.filled);
 
 
@@ -1881,16 +1921,22 @@ parser_init(void)
   
     debug("hash table %d entries, %d entries used, %d entries free. \n", 
 	  htab.size, htab.filled, htab.size - htab.filled);
-  
+
+    //show_bnf_tree(bnf_tree_root);
+    
     debug("\n\n[make_graph]... \n");	
     es = make_graph(bnf_tree_root);
     debug("\n[make_graph], done. \n\n");
 
-    //show_graph(es);
+    //show_graph(bnf_tree_root);
     
-    show_nodes(es);
+    //show_nodes(es);
 
     set_lex_tree(bnf_tree_root);
+
+    rt = ast_lex_debug();
+    if (!rt) return PARSER_ERR;
+    
 #endif
     
 
@@ -1918,6 +1964,9 @@ parser_init(void)
   
     rt = push_syntax_htab("list", bnf_tree_root);
     if (!rt) return PARSER_ERR;
+
+    //rt = syntax_list_debug();
+    
 #endif    
     
   

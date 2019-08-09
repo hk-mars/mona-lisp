@@ -52,7 +52,7 @@ ast_is_character(char *s, int len)
 {
     htab_entry_s item;
 
-    func_s();
+    //func_s();
 
     memset(&item, 0, sizeof(htab_entry_s));
     
@@ -70,7 +70,7 @@ ast_is_character(char *s, int len)
 	return true;
     }
 
-    func_fail();
+    //func_fail();
 
     ml_free(item.key);
     return false;
@@ -141,45 +141,6 @@ get_tk_key(char *s, char *e, char **ss, char **ee)
     return 0;
 }
 
-
-static tr_node_s*
-search_end(tr_node_s *root)
-{
-    tr_node_s *rtn;
-  
-    if (!root) return NULL;
-  
-    //debug("%s \n", root->key);
-  
-    if (strlen(root->key) == 1) {
-  
-	if (*root->key != '@') return NULL;
-	if (root->right || root->left || root->sub) return NULL;
-    
-	//debug("@e. \n");
-	return root;
-    }
-  
-    if (root->sub) {
-	//debug("sub %s \n", root->sub->key);
-	rtn = search_end(root->sub);
-	if (rtn) return rtn;
-    }
-  
-    if (root->left) {
-	//debug("left %s \n", root->left->key);
-	rtn = search_end(root->left);
-	if (rtn) return rtn;
-    } 
-  
-    if (root->right) {
-	//debug("right %s \n", root->right->key);
-	rtn = search_end(root->right);
-	if (rtn) return rtn;
-    }
-  
-    return NULL;
-}
 
 
 int 
@@ -262,9 +223,9 @@ is_token(char *key)
 	}
     */
 
-    func_s();
+    //func_s();
 
-    debug("%s \n", key);
+    //debug("%s \n", key);
 
     //memset(&item, 0, sizeof(item));
     //item.key = key;
@@ -280,3 +241,199 @@ is_token(char *key)
 }
 
 
+static tr_node_s*
+search_end(tr_node_s *root)
+{
+    tr_node_s *rtn;
+  
+    if (!root) return NULL;
+
+    func_s();
+  
+    debug("%s \n", root->key);
+  
+    if (strlen(root->key) == 1) {
+  
+	if (*root->key != '@') return NULL;
+	if (root->right || root->left || root->sub) return NULL;
+    
+	debug("@e. \n");
+	return root;
+    }
+  
+    if (root->sub) {
+	debug("sub %s \n", root->sub->key);
+	rtn = search_end(root->sub);
+	if (rtn) return rtn;
+    }
+  
+    if (root->left) {
+	debug("left %s \n", root->left->key);
+	rtn = search_end(root->left);
+	if (rtn) return rtn;
+    } 
+  
+    if (root->right) {
+	debug("right %s \n", root->right->key);
+	rtn = search_end(root->right);
+	if (rtn) return rtn;
+    }
+  
+    return NULL;
+}
+
+
+static tr_node_s*
+search_graph(tr_node_s *root, char *s, char *e)
+{
+    tr_node_s *rtn;
+  
+    if (!root) return NULL;
+
+    debug("%s, %s %c \n", __func__, root->key, *s);
+    if (root->is_outside_loop_node) {
+
+	debug("pattern: {} in %s \n", root->key);
+    }
+  
+    if (strlen(root->key) == 1 && *root->key != '@') {
+  
+	if (*root->key != *s) return NULL;
+    
+	debug("found %c \n", *s);
+    
+	s++;
+    
+	/* the end char, check is the end node.
+	 */
+	if (s > e) {
+    
+	    debug("all chars found. \n");
+      
+	    if (root->sub || root->left || root->right) {
+      
+		rtn = search_end(root->sub);
+		if (rtn) return root;
+        
+		rtn = search_end(root->left);
+		if (rtn) return root;
+        
+		rtn = search_end(root->right);
+		if (rtn) return root;
+        
+		return NULL;
+	    }
+	    debug("@e. \n");
+	    return root;
+	}
+    
+	debug("try find %c \n", *s);
+
+    
+	if (root->back) {
+	    debug("go to back-node: %s %x \n", root->back->key, root);
+	    rtn = search_graph(root->back, s, e);
+	    if (rtn) return rtn;
+      
+	    debug("not found %c \n", *s);	    
+	}
+	else {
+
+	    debug("%s %x has not back-node. \n", root->key, root);
+	}
+
+	
+	if (root->sub) debug("root sub %s \n", root->sub->key);
+	if (root->left) debug("root left %s \n", root->left->key);
+	if (root->right) debug("root right %s \n", root->right->key);
+    }
+
+    if (root->sub) {
+  
+	debug("sub %s \n", root->sub->key);
+	root->next = root->sub;
+	rtn = search_graph(root->sub, s, e);
+	if (rtn) return rtn;
+    }
+  
+    if (root->left) {
+
+      
+	debug("left %s \n", root->left->key);
+
+	if (!strcmp(root->key, root->left->key)) {
+
+	    debug("The same key: %s, the end \n", root->key);
+	    //return root;
+	}
+	
+
+	if (root->left->left) {
+	    debug("left-left %s \n", root->left->left->key);
+	}
+    
+	root->next = root->left;
+	rtn = search_graph(root->left, s, e);
+	if (rtn) return rtn;
+    }
+  
+    if (root->right) {
+  
+	debug("right %s \n", root->right->key);
+	root->next = root->right;
+	rtn = search_graph(root->right, s, e);
+	if (rtn) return rtn;
+    }
+  
+    root->next = NULL;
+    return NULL;
+}
+
+
+int
+ast_lex_debug(void)
+{
+    int rt;
+    tr_node_s *nd;
+    char *code;
+    char *s, *e;
+
+    char* cases[] = {
+
+	"-12.",
+	"-1234567890",
+	"24680",
+	"1234/56789",
+	"-34/67",	
+    };
+
+    if (!lex_tr_root) return 0;
+    
+    func_s();
+
+
+    for (int i = 0; i < ARR_LEN(cases); i++) {
+	
+	code = cases[i];
+	s = code;
+	e = s + strlen(s) - 1;
+	nd = search_graph(lex_tr_root, s, e);
+	if (!nd) {
+
+	    debug("not found a solution for code: %s \n", code);
+	    goto FAIL;
+	}
+	else {
+
+	    debug("solution found for code: %s \n", code);
+	}
+
+    }
+    
+    func_ok();
+    return 1;
+
+  FAIL:
+    func_fail();
+    return 0;
+}

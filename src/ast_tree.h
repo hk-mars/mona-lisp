@@ -45,5 +45,7 @@ int is_token(char *key);
 int check_lex(char *sql_str, token_list *tk_lst) ;
 void free_tokens(token_list *tk_lst);
 
+int ast_lex_debug(void);
+
 
 #endif /* _AST_TREE_H_ */

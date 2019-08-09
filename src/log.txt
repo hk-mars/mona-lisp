@@ -24,7 +24,7 @@ syntax_init ok
 parser_init 
 
 load_syntax_file 
-file monalisp1.0_syntax.txt opened, size 2463 bytes.
+file monalisp1.0_syntax.txt opened, size 2192 bytes.
 load_syntax_file end 
 
 
@@ -407,13 +407,9 @@ htab_add ok
 parse_syntax_object 
 ml_util_show_buf, 13 bytes:
 lisp-char ::=
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 lisp-char ::=
 key: lisp-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -431,13 +427,9 @@ push_htab ok
 
 ml_util_show_buf, 14 bytes:
 whitespace ::=
-
-ast_is_character 
 ml_util_show_buf, 14 bytes:
 whitespace ::=
 key: whitespace ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -457,13 +449,9 @@ push_htab ok
 
 ml_util_show_buf, 13 bytes:
 backspace ::=
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 backspace ::=
 key: backspace ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -476,13 +464,9 @@ push_htab ok
 
 ml_util_show_buf, 7 bytes:
 tab ::=
-
-ast_is_character 
 ml_util_show_buf, 7 bytes:
 tab ::=
 key: tab ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -495,13 +479,9 @@ push_htab ok
 
 ml_util_show_buf, 11 bytes:
 newline ::=
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 newline ::=
 key: newline ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -514,13 +494,9 @@ push_htab ok
 
 ml_util_show_buf, 12 bytes:
 linefeed ::=
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 linefeed ::=
 key: linefeed ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -533,13 +509,9 @@ push_htab ok
 
 ml_util_show_buf, 8 bytes:
 page ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 page ::=
 key: page ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -552,13 +524,9 @@ push_htab ok
 
 ml_util_show_buf, 10 bytes:
 return ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 return ::=
 key: return ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -571,13 +539,9 @@ push_htab ok
 
 ml_util_show_buf, 9 bytes:
 space ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 space ::=
 key: space ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -590,13 +554,9 @@ push_htab ok
 
 ml_util_show_buf, 20 bytes:
 constituent-char ::=
-
-ast_is_character 
 ml_util_show_buf, 20 bytes:
 constituent-char ::=
 key: constituent-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -617,13 +577,9 @@ push_htab ok
 
 ml_util_show_buf, 10 bytes:
 rubout ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 rubout ::=
 key: rubout ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -636,13 +592,9 @@ push_htab ok
 
 ml_util_show_buf, 17 bytes:
 single-escape ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 single-escape ::=
 key: single-escape ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -655,13 +607,9 @@ push_htab ok
 
 ml_util_show_buf, 19 bytes:
 multiple-escape ::=
-
-ast_is_character 
 ml_util_show_buf, 19 bytes:
 multiple-escape ::=
 key: multiple-escape ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -674,13 +622,9 @@ push_htab ok
 
 ml_util_show_buf, 14 bytes:
 macro-char ::=
-
-ast_is_character 
 ml_util_show_buf, 14 bytes:
 macro-char ::=
 key: macro-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -695,13 +639,9 @@ push_htab ok
 
 ml_util_show_buf, 20 bytes:
 terminating-char ::=
-
-ast_is_character 
 ml_util_show_buf, 20 bytes:
 terminating-char ::=
 key: terminating-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -714,13 +654,9 @@ push_htab ok
 
 ml_util_show_buf, 24 bytes:
 non-terminating-char ::=
-
-ast_is_character 
 ml_util_show_buf, 24 bytes:
 non-terminating-char ::=
 key: non-terminating-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -733,13 +669,9 @@ push_htab ok
 
 ml_util_show_buf, 9 bytes:
 token ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 token ::=
 key: token ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -754,13 +686,9 @@ push_htab ok
 
 ml_util_show_buf, 16 bytes:
 number-token ::=
-
-ast_is_character 
 ml_util_show_buf, 16 bytes:
 number-token ::=
 key: number-token ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -776,94 +704,25 @@ push_htab ok
 
 ml_util_show_buf, 11 bytes:
 integer ::=
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 integer ::=
 key: integer ::= 
-ast_is_character failed 
-
 
 push_htab 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 71 bytes:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				         
-dt_sz: 71 
-push_htab ok 
-
-ml_util_show_buf, 9 bytes:
-ratio ::=
-
-ast_is_character 
-ml_util_show_buf, 9 bytes:
-ratio ::=
-key: ratio ::= 
-ast_is_character failed 
-
-
-push_htab 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 43 bytes:
-	[sign] {digit}+ slash {digit}+ 
-				      
-dt_sz: 43 
-push_htab ok 
-
-ml_util_show_buf, 9 bytes:
-float ::=
-
-ast_is_character 
-ml_util_show_buf, 9 bytes:
-float ::=
-key: float ::= 
-ast_is_character failed 
-
-
-push_htab 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 169 bytes:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				       
-dt_sz: 169 
-push_htab ok 
-
-ml_util_show_buf, 12 bytes:
-exponent ::=
-
-ast_is_character 
-ml_util_show_buf, 12 bytes:
-exponent ::=
-key: exponent ::= 
-ast_is_character failed 
-
-
-push_htab 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-dt_sz: 39 
+ml_util_show_buf, 47 bytes:
+	[sign] {digit}+ decimal-point
+				            
+dt_sz: 47 
 push_htab ok 
 
 ml_util_show_buf, 8 bytes:
 sign ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 sign ::=
 key: sign ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -876,13 +735,9 @@ push_htab ok
 
 ml_util_show_buf, 9 bytes:
 slash ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 slash ::=
 key: slash ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -895,13 +750,9 @@ push_htab ok
 
 ml_util_show_buf, 17 bytes:
 decimal-point ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 decimal-point ::=
 key: decimal-point ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -914,13 +765,9 @@ push_htab ok
 
 ml_util_show_buf, 19 bytes:
 exponent-marker ::=
-
-ast_is_character 
 ml_util_show_buf, 19 bytes:
 exponent-marker ::=
 key: exponent-marker ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -933,13 +780,9 @@ push_htab ok
 
 ml_util_show_buf, 17 bytes:
 decimal-digit ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 decimal-digit ::=
 key: decimal-digit ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -952,33 +795,25 @@ push_htab ok
 
 ml_util_show_buf, 9 bytes:
 digit ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 digit ::=
 key: digit ::= 
-ast_is_character failed 
-
 
 push_htab 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
-dt_sz: 13 
+dt_sz: 53 
 push_htab ok 
 
 ml_util_show_buf, 16 bytes:
 symbol-token ::=
-
-ast_is_character 
 ml_util_show_buf, 16 bytes:
 symbol-token ::=
 key: symbol-token ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -991,13 +826,9 @@ push_htab ok
 
 ml_util_show_buf, 8 bytes:
 list ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 list ::=
 key: list ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1010,13 +841,9 @@ push_htab ok
 
 ml_util_show_buf, 10 bytes:
 object ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 object ::=
 key: object ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1031,13 +858,9 @@ push_htab ok
 
 ml_util_show_buf, 11 bytes:
 element ::=
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 element ::=
 key: element ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1057,13 +880,9 @@ push_htab ok
 
 ml_util_show_buf, 8 bytes:
 cons ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 cons ::=
 key: cons ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1076,13 +895,9 @@ push_htab ok
 
 ml_util_show_buf, 7 bytes:
 car ::=
-
-ast_is_character 
 ml_util_show_buf, 7 bytes:
 car ::=
 key: car ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1095,13 +910,9 @@ push_htab ok
 
 ml_util_show_buf, 7 bytes:
 cdr ::=
-
-ast_is_character 
 ml_util_show_buf, 7 bytes:
 cdr ::=
 key: cdr ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1114,13 +925,9 @@ push_htab ok
 
 ml_util_show_buf, 8 bytes:
 setq ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 setq ::=
 key: setq ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1133,13 +940,9 @@ push_htab ok
 
 ml_util_show_buf, 13 bytes:
 setq-pair ::=
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 setq-pair ::=
 key: setq-pair ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1152,13 +955,9 @@ push_htab ok
 
 ml_util_show_buf, 12 bytes:
 setq-var ::=
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 setq-var ::=
 key: setq-var ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1171,13 +970,9 @@ push_htab ok
 
 ml_util_show_buf, 15 bytes:
 defconstant ::=
-
-ast_is_character 
 ml_util_show_buf, 15 bytes:
 defconstant ::=
 key: defconstant ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1190,13 +985,9 @@ push_htab ok
 
 ml_util_show_buf, 8 bytes:
 name ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 name ::=
 key: name ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1209,13 +1000,9 @@ push_htab ok
 
 ml_util_show_buf, 8 bytes:
 form ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 form ::=
 key: form ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1228,13 +1015,9 @@ push_htab ok
 
 ml_util_show_buf, 17 bytes:
 documentation ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 documentation ::=
 key: documentation ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1247,13 +1030,9 @@ push_htab ok
 
 ml_util_show_buf, 17 bytes:
 compound-form ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 compound-form ::=
 key: compound-form ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1266,13 +1045,9 @@ push_htab ok
 
 ml_util_show_buf, 12 bytes:
 operator ::=
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 operator ::=
 key: operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1289,13 +1064,9 @@ push_htab ok
 
 ml_util_show_buf, 26 bytes:
 function-call-operator ::=
-
-ast_is_character 
 ml_util_show_buf, 26 bytes:
 function-call-operator ::=
 key: function-call-operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1310,13 +1081,9 @@ push_htab ok
 
 ml_util_show_buf, 25 bytes:
 special-form-operator ::=
-
-ast_is_character 
 ml_util_show_buf, 25 bytes:
 special-form-operator ::=
 key: special-form-operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1335,13 +1102,9 @@ push_htab ok
 
 ml_util_show_buf, 18 bytes:
 macro-operator ::=
-
-ast_is_character 
 ml_util_show_buf, 18 bytes:
 macro-operator ::=
 key: macro-operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1356,13 +1119,9 @@ push_htab ok
 
 ml_util_show_buf, 10 bytes:
 string ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 string ::=
 key: string ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1398,20 +1157,16 @@ ml_util_show_buf, 40 bytes:
 dt_sz: 40 
 push_htab ok 
 
-hash table 1511 entries, 48 entries used, 1463 entries free. 
+hash table 1511 entries, 45 entries used, 1466 entries free. 
 parse_syntax_object end 
 
 
 parse_syntax_object 
 ml_util_show_buf, 13 bytes:
 lisp-char ::=
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 lisp-char ::=
 key: lisp-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1516,13 +1271,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 14 bytes:
 whitespace ::=
-
-ast_is_character 
 ml_util_show_buf, 14 bytes:
 whitespace ::=
 key: whitespace ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1666,13 +1417,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 13 bytes:
 backspace ::=
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 backspace ::=
 key: backspace ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1702,13 +1449,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 7 bytes:
 tab ::=
-
-ast_is_character 
 ml_util_show_buf, 7 bytes:
 tab ::=
 key: tab ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1738,13 +1481,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 11 bytes:
 newline ::=
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 newline ::=
 key: newline ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1774,13 +1513,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 12 bytes:
 linefeed ::=
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 linefeed ::=
 key: linefeed ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1810,13 +1545,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 8 bytes:
 page ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 page ::=
 key: page ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1846,13 +1577,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 10 bytes:
 return ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 return ::=
 key: return ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1882,13 +1609,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 9 bytes:
 space ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 space ::=
 key: space ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -1918,13 +1641,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 20 bytes:
 constituent-char ::=
-
-ast_is_character 
 ml_util_show_buf, 20 bytes:
 constituent-char ::=
 key: constituent-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2733,13 +2452,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 10 bytes:
 rubout ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 rubout ::=
 key: rubout ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2769,13 +2484,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 17 bytes:
 single-escape ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 single-escape ::=
 key: single-escape ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2796,13 +2507,9 @@ ml_util_show_buf, 1 bytes:
 push_token_into_htab 
 ml_util_show_buf, 19 bytes:
 multiple-escape ::=
-
-ast_is_character 
 ml_util_show_buf, 19 bytes:
 multiple-escape ::=
 key: multiple-escape ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2823,13 +2530,9 @@ ml_util_show_buf, 1 bytes:
 push_token_into_htab 
 ml_util_show_buf, 14 bytes:
 macro-char ::=
-
-ast_is_character 
 ml_util_show_buf, 14 bytes:
 macro-char ::=
 key: macro-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2886,13 +2589,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 20 bytes:
 terminating-char ::=
-
-ast_is_character 
 ml_util_show_buf, 20 bytes:
 terminating-char ::=
 key: terminating-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2952,13 +2651,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 24 bytes:
 non-terminating-char ::=
-
-ast_is_character 
 ml_util_show_buf, 24 bytes:
 non-terminating-char ::=
 key: non-terminating-char ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -2979,13 +2674,9 @@ ml_util_show_buf, 1 bytes:
 push_token_into_htab 
 ml_util_show_buf, 9 bytes:
 token ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 token ::=
 key: token ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3039,13 +2730,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 16 bytes:
 number-token ::=
-
-ast_is_character 
 ml_util_show_buf, 16 bytes:
 number-token ::=
 key: number-token ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3100,7 +2787,21 @@ ml_util_show_buf, 5 bytes:
 ratio
 search hash table to check if it's a syntax object 
 key: ratio ::= 
-found syntax object 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+ratio
+end 
+ml_util_show_buf, 5 bytes:
+ratio
+ml_util_show_buf, 5 bytes:
+ratio
+key: ratio 
+new keyword 
+
+htab_add 
+htab_add ok 
+
 ml_util_show_buf, 10 bytes:
 float
 				
@@ -3110,461 +2811,90 @@ ml_util_show_buf, 5 bytes:
 float
 search hash table to check if it's a syntax object 
 key: float ::= 
-found syntax object 
+not found 
+check if it's a combined object or a keyword 
+ml_util_show_buf, 5 bytes:
+float
+end 
+ml_util_show_buf, 5 bytes:
+float
+ml_util_show_buf, 5 bytes:
+float
+key: float 
+new keyword 
+
+htab_add 
+htab_add ok 
+
 push_token_into_htab ok 
 
 ml_util_show_buf, 11 bytes:
 integer ::=
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 integer ::=
 key: integer ::= 
-ast_is_character failed 
-
 
 push_htab 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 71 bytes:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				         
-dt_sz: 71 
+ml_util_show_buf, 47 bytes:
+	[sign] {digit}+ decimal-point
+				            
+dt_sz: 47 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 71 bytes:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				         
+ml_util_show_buf, 47 bytes:
+	[sign] {digit}+ decimal-point
+				            
 element: 
-ml_util_show_buf, 71 bytes:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				         
+ml_util_show_buf, 47 bytes:
+	[sign] {digit}+ decimal-point
+				            
 
 push_token_into_htab 
-ml_util_show_buf, 71 bytes:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				         
-ml_util_show_buf, 61 bytes:
-[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
+ml_util_show_buf, 47 bytes:
+	[sign] {digit}+ decimal-point
+				            
+ml_util_show_buf, 34 bytes:
+[sign] {digit}+ decimal-point
 				
-ml_util_show_buf, 37 bytes:
-[sign] {decimal-digit}+ decimal-point
-ml_util_show_buf, 37 bytes:
-[sign] {decimal-digit}+ decimal-point
+ml_util_show_buf, 29 bytes:
+[sign] {digit}+ decimal-point
+ml_util_show_buf, 29 bytes:
+[sign] {digit}+ decimal-point
 search hash table to check if it's a syntax object 
-key: [sign] {decimal-digit}+ decimal-point ::= 
+key: [sign] {digit}+ decimal-point ::= 
 not found 
 check if it's a combined object or a keyword 
-ml_util_show_buf, 32 bytes:
-sign decimal-digit decimal-point
+ml_util_show_buf, 24 bytes:
+sign digit decimal-point
 ml_util_show_buf, 4 bytes:
 sign
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 sign
 key: sign 
-ast_is_character failed 
-
 syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key: decimal-digit 
-ast_is_character failed 
-
+ml_util_show_buf, 5 bytes:
+digit
+ml_util_show_buf, 5 bytes:
+digit
+key: digit 
 syntax object 
 end 
 ml_util_show_buf, 13 bytes:
 decimal-point
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 decimal-point
 key: decimal-point 
-ast_is_character failed 
-
-ml_util_show_buf, 20 bytes:
-[sign] {digit}+
-				
-ml_util_show_buf, 15 bytes:
-[sign] {digit}+
-ml_util_show_buf, 15 bytes:
-[sign] {digit}+
-search hash table to check if it's a syntax object 
-key: [sign] {digit}+ ::= 
-not found 
-check if it's a combined object or a keyword 
-ml_util_show_buf, 10 bytes:
-sign digit
-ml_util_show_buf, 4 bytes:
-sign
-
-ast_is_character 
-ml_util_show_buf, 4 bytes:
-sign
-key: sign 
-ast_is_character failed 
-
-syntax object 
-end 
-ml_util_show_buf, 5 bytes:
-digit
-
-ast_is_character 
-ml_util_show_buf, 5 bytes:
-digit
-key: digit 
-ast_is_character failed 
-
-push_token_into_htab ok 
-
-ml_util_show_buf, 9 bytes:
-ratio ::=
-
-ast_is_character 
-ml_util_show_buf, 9 bytes:
-ratio ::=
-key: ratio ::= 
-ast_is_character failed 
-
-
-push_htab 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 43 bytes:
-	[sign] {digit}+ slash {digit}+ 
-				      
-dt_sz: 43 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 43 bytes:
-	[sign] {digit}+ slash {digit}+ 
-				      
-element: 
-ml_util_show_buf, 43 bytes:
-	[sign] {digit}+ slash {digit}+ 
-				      
-
-push_token_into_htab 
-ml_util_show_buf, 43 bytes:
-	[sign] {digit}+ slash {digit}+ 
-				      
-ml_util_show_buf, 36 bytes:
-[sign] {digit}+ slash {digit}+ 
-				
-ml_util_show_buf, 30 bytes:
-[sign] {digit}+ slash {digit}+
-ml_util_show_buf, 30 bytes:
-[sign] {digit}+ slash {digit}+
-search hash table to check if it's a syntax object 
-key: [sign] {digit}+ slash {digit}+ ::= 
-not found 
-check if it's a combined object or a keyword 
-ml_util_show_buf, 22 bytes:
-sign digit slash digit
-ml_util_show_buf, 4 bytes:
-sign
-
-ast_is_character 
-ml_util_show_buf, 4 bytes:
-sign
-key: sign 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 5 bytes:
-digit
-
-ast_is_character 
-ml_util_show_buf, 5 bytes:
-digit
-key: digit 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 5 bytes:
-slash
-
-ast_is_character 
-ml_util_show_buf, 5 bytes:
-slash
-key: slash 
-ast_is_character failed 
-
-syntax object 
-end 
-ml_util_show_buf, 5 bytes:
-digit
-
-ast_is_character 
-ml_util_show_buf, 5 bytes:
-digit
-key: digit 
-ast_is_character failed 
-
-push_token_into_htab ok 
-
-ml_util_show_buf, 9 bytes:
-float ::=
-
-ast_is_character 
-ml_util_show_buf, 9 bytes:
-float ::=
-key: float ::= 
-ast_is_character failed 
-
-
-push_htab 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 169 bytes:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				       
-dt_sz: 169 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 169 bytes:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				       
-element: 
-ml_util_show_buf, 169 bytes:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				       
-
-push_token_into_htab 
-ml_util_show_buf, 169 bytes:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				       
-ml_util_show_buf, 161 bytes:
-[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				
-ml_util_show_buf, 65 bytes:
-[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent]
-ml_util_show_buf, 65 bytes:
-[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent]
-search hash table to check if it's a syntax object 
-key: [sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] ::= 
-not found 
-check if it's a combined object or a keyword 
-ml_util_show_buf, 55 bytes:
-sign decimal-digit decimal-point decimal-digit exponent
-ml_util_show_buf, 4 bytes:
-sign
-
-ast_is_character 
-ml_util_show_buf, 4 bytes:
-sign
-key: sign 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key: decimal-digit 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-point
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-point
-key: decimal-point 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key: decimal-digit 
-ast_is_character failed 
-
-syntax object 
-end 
-ml_util_show_buf, 8 bytes:
-exponent
-
-ast_is_character 
-ml_util_show_buf, 8 bytes:
-exponent
-key: exponent 
-ast_is_character failed 
-
-ml_util_show_buf, 70 bytes:
-[sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				
-ml_util_show_buf, 65 bytes:
-[sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-ml_util_show_buf, 65 bytes:
-[sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-search hash table to check if it's a syntax object 
-key: [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent ::= 
-not found 
-check if it's a combined object or a keyword 
-ml_util_show_buf, 55 bytes:
-sign decimal-digit decimal-point decimal-digit exponent
-ml_util_show_buf, 4 bytes:
-sign
-
-ast_is_character 
-ml_util_show_buf, 4 bytes:
-sign
-key: sign 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key: decimal-digit 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-point
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-point
-key: decimal-point 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-
-ast_is_character 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key: decimal-digit 
-ast_is_character failed 
-
-syntax object 
-end 
-ml_util_show_buf, 8 bytes:
-exponent
-
-ast_is_character 
-ml_util_show_buf, 8 bytes:
-exponent
-key: exponent 
-ast_is_character failed 
-
-push_token_into_htab ok 
-
-ml_util_show_buf, 12 bytes:
-exponent ::=
-
-ast_is_character 
-ml_util_show_buf, 12 bytes:
-exponent ::=
-key: exponent ::= 
-ast_is_character failed 
-
-
-push_htab 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-dt_sz: 39 
-
-find_bnf_unit_len 
-found 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-element: 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-
-push_token_into_htab 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-ml_util_show_buf, 32 bytes:
-exponent-marker [sign] {digit}+	
-ml_util_show_buf, 31 bytes:
-exponent-marker [sign] {digit}+
-ml_util_show_buf, 31 bytes:
-exponent-marker [sign] {digit}+
-search hash table to check if it's a syntax object 
-key: exponent-marker [sign] {digit}+ ::= 
-not found 
-check if it's a combined object or a keyword 
-ml_util_show_buf, 26 bytes:
-exponent-marker sign digit
-ml_util_show_buf, 15 bytes:
-exponent-marker
-
-ast_is_character 
-ml_util_show_buf, 15 bytes:
-exponent-marker
-key: exponent-marker 
-ast_is_character failed 
-
-syntax object 
-ml_util_show_buf, 4 bytes:
-sign
-
-ast_is_character 
-ml_util_show_buf, 4 bytes:
-sign
-key: sign 
-ast_is_character failed 
-
-syntax object 
-end 
-ml_util_show_buf, 5 bytes:
-digit
-
-ast_is_character 
-ml_util_show_buf, 5 bytes:
-digit
-key: digit 
-ast_is_character failed 
-
 push_token_into_htab ok 
 
 ml_util_show_buf, 8 bytes:
 sign ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 sign ::=
 key: sign ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3599,13 +2929,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 9 bytes:
 slash ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 slash ::=
 key: slash ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3626,13 +2952,9 @@ ml_util_show_buf, 1 bytes:
 push_token_into_htab 
 ml_util_show_buf, 17 bytes:
 decimal-point ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 decimal-point ::=
 key: decimal-point ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3653,13 +2975,9 @@ ml_util_show_buf, 1 bytes:
 push_token_into_htab 
 ml_util_show_buf, 19 bytes:
 exponent-marker ::=
-
-ast_is_character 
 ml_util_show_buf, 19 bytes:
 exponent-marker ::=
 key: exponent-marker ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3737,13 +3055,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 17 bytes:
 decimal-digit ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 decimal-digit ::=
 key: decimal-digit ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3818,37 +3132,93 @@ push_token_into_htab ok
 
 ml_util_show_buf, 9 bytes:
 digit ::=
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 digit ::=
 key: digit ::= 
-ast_is_character failed 
-
 
 push_htab 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
-dt_sz: 13 
+dt_sz: 53 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
 element: 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
 
 push_token_into_htab 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+0
+key found in character hash table 
+ml_util_show_buf, 49 bytes:
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+1
+key found in character hash table 
+ml_util_show_buf, 45 bytes:
+2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+2
+key found in character hash table 
+ml_util_show_buf, 41 bytes:
+3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+3
+key found in character hash table 
+ml_util_show_buf, 37 bytes:
+4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+4
+key found in character hash table 
+ml_util_show_buf, 33 bytes:
+5 | 6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+5
+key found in character hash table 
+ml_util_show_buf, 29 bytes:
+6 | 7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+6
+key found in character hash table 
+ml_util_show_buf, 25 bytes:
+7 | 8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+7
+key found in character hash table 
+ml_util_show_buf, 21 bytes:
+8 | 9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+8
+key found in character hash table 
+ml_util_show_buf, 17 bytes:
+9 | <undefined>
+	
+ml_util_show_buf, 1 bytes:
+9
+key found in character hash table 
 ml_util_show_buf, 13 bytes:
 <undefined>
 	
@@ -3865,13 +3235,9 @@ ml_util_show_buf, 11 bytes:
 end 
 ml_util_show_buf, 11 bytes:
 <undefined>
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 <undefined>
 key: <undefined> 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -3881,13 +3247,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 16 bytes:
 symbol-token ::=
-
-ast_is_character 
 ml_util_show_buf, 16 bytes:
 symbol-token ::=
 key: symbol-token ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3917,13 +3279,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 8 bytes:
 list ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 list ::=
 key: list ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -3961,21 +3319,15 @@ ml_util_show_buf, 26 bytes:
 ( LIST  object , object  )
 ml_util_show_buf, 1 bytes:
 (
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 (
 key: ( 
 character 
 ml_util_show_buf, 4 bytes:
 LIST
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 LIST
 key: LIST 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -3983,37 +3335,25 @@ htab_add ok
 
 ml_util_show_buf, 6 bytes:
 object
-
-ast_is_character 
 ml_util_show_buf, 6 bytes:
 object
 key: object 
-ast_is_character failed 
-
 syntax object 
 ml_util_show_buf, 1 bytes:
 ,
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 ,
 key: , 
 character 
 ml_util_show_buf, 6 bytes:
 object
-
-ast_is_character 
 ml_util_show_buf, 6 bytes:
 object
 key: object 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 1 bytes:
 )
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 )
 key: ) 
@@ -4022,13 +3362,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 10 bytes:
 object ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 object ::=
 key: object ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4081,13 +3417,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 11 bytes:
 element ::=
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 element ::=
 key: element ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4173,13 +3505,9 @@ array
 end 
 ml_util_show_buf, 5 bytes:
 array
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 array
 key: array 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4205,13 +3533,9 @@ sequence
 end 
 ml_util_show_buf, 8 bytes:
 sequence
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 sequence
 key: sequence 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4236,13 +3560,9 @@ type
 end 
 ml_util_show_buf, 4 bytes:
 type
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 type
 key: type 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4266,13 +3586,9 @@ input-stream
 end 
 ml_util_show_buf, 12 bytes:
 input-stream
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 input-stream
 key: input-stream 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4295,13 +3611,9 @@ output-stream
 end 
 ml_util_show_buf, 13 bytes:
 output-stream
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 output-stream
 key: output-stream 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4323,13 +3635,9 @@ class
 end 
 ml_util_show_buf, 5 bytes:
 class
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 class
 key: class 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4339,13 +3647,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 8 bytes:
 cons ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 cons ::=
 key: cons ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4380,21 +3684,15 @@ ml_util_show_buf, 22 bytes:
 ( CONS object object )
 ml_util_show_buf, 1 bytes:
 (
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 (
 key: ( 
 character 
 ml_util_show_buf, 4 bytes:
 CONS
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 CONS
 key: CONS 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4402,29 +3700,19 @@ htab_add ok
 
 ml_util_show_buf, 6 bytes:
 object
-
-ast_is_character 
 ml_util_show_buf, 6 bytes:
 object
 key: object 
-ast_is_character failed 
-
 syntax object 
 ml_util_show_buf, 6 bytes:
 object
-
-ast_is_character 
 ml_util_show_buf, 6 bytes:
 object
 key: object 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 1 bytes:
 )
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 )
 key: ) 
@@ -4433,13 +3721,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 7 bytes:
 car ::=
-
-ast_is_character 
 ml_util_show_buf, 7 bytes:
 car ::=
 key: car ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4474,21 +3758,15 @@ ml_util_show_buf, 12 bytes:
 ( CAR list )
 ml_util_show_buf, 1 bytes:
 (
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 (
 key: ( 
 character 
 ml_util_show_buf, 3 bytes:
 CAR
-
-ast_is_character 
 ml_util_show_buf, 3 bytes:
 CAR
 key: CAR 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4496,19 +3774,13 @@ htab_add ok
 
 ml_util_show_buf, 4 bytes:
 list
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 list
 key: list 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 1 bytes:
 )
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 )
 key: ) 
@@ -4517,13 +3789,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 7 bytes:
 cdr ::=
-
-ast_is_character 
 ml_util_show_buf, 7 bytes:
 cdr ::=
 key: cdr ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4558,21 +3826,15 @@ ml_util_show_buf, 12 bytes:
 ( CDR list )
 ml_util_show_buf, 1 bytes:
 (
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 (
 key: ( 
 character 
 ml_util_show_buf, 3 bytes:
 CDR
-
-ast_is_character 
 ml_util_show_buf, 3 bytes:
 CDR
 key: CDR 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4580,19 +3842,13 @@ htab_add ok
 
 ml_util_show_buf, 4 bytes:
 list
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 list
 key: list 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 1 bytes:
 )
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 )
 key: ) 
@@ -4601,13 +3857,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 8 bytes:
 setq ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 setq ::=
 key: setq ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4642,21 +3894,15 @@ ml_util_show_buf, 18 bytes:
 ( SETQ setq-pair )
 ml_util_show_buf, 1 bytes:
 (
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 (
 key: ( 
 character 
 ml_util_show_buf, 4 bytes:
 SETQ
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 SETQ
 key: SETQ 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4664,19 +3910,13 @@ htab_add ok
 
 ml_util_show_buf, 9 bytes:
 setq-pair
-
-ast_is_character 
 ml_util_show_buf, 9 bytes:
 setq-pair
 key: setq-pair 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 1 bytes:
 )
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 )
 key: ) 
@@ -4685,13 +3925,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 13 bytes:
 setq-pair ::=
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 setq-pair ::=
 key: setq-pair ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4726,35 +3962,23 @@ ml_util_show_buf, 13 bytes:
 setq-var form
 ml_util_show_buf, 8 bytes:
 setq-var
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 setq-var
 key: setq-var 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 4 bytes:
 form
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 form
 key: form 
-ast_is_character failed 
-
 push_token_into_htab ok 
 
 ml_util_show_buf, 12 bytes:
 setq-var ::=
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 setq-var ::=
 key: setq-var ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4788,13 +4012,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 15 bytes:
 defconstant ::=
-
-ast_is_character 
 ml_util_show_buf, 15 bytes:
 defconstant ::=
 key: defconstant ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4829,21 +4049,15 @@ ml_util_show_buf, 39 bytes:
 ( DEFCONSTANT name form documentation )
 ml_util_show_buf, 1 bytes:
 (
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 (
 key: ( 
 character 
 ml_util_show_buf, 11 bytes:
 DEFCONSTANT
-
-ast_is_character 
 ml_util_show_buf, 11 bytes:
 DEFCONSTANT
 key: DEFCONSTANT 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -4851,39 +4065,25 @@ htab_add ok
 
 ml_util_show_buf, 4 bytes:
 name
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 name
 key: name 
-ast_is_character failed 
-
 syntax object 
 ml_util_show_buf, 4 bytes:
 form
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 form
 key: form 
-ast_is_character failed 
-
 syntax object 
 ml_util_show_buf, 13 bytes:
 documentation
-
-ast_is_character 
 ml_util_show_buf, 13 bytes:
 documentation
 key: documentation 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 1 bytes:
 )
-
-ast_is_character 
 ml_util_show_buf, 1 bytes:
 )
 key: ) 
@@ -4892,13 +4092,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 8 bytes:
 name ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 name ::=
 key: name ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4932,13 +4128,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 8 bytes:
 form ::=
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 form ::=
 key: form ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -4990,13 +4182,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 17 bytes:
 documentation ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 documentation ::=
 key: documentation ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5030,13 +4218,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 17 bytes:
 compound-form ::=
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 compound-form ::=
 key: compound-form ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5071,35 +4255,23 @@ ml_util_show_buf, 13 bytes:
 operator form
 ml_util_show_buf, 8 bytes:
 operator
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 operator
 key: operator 
-ast_is_character failed 
-
 syntax object 
 end 
 ml_util_show_buf, 4 bytes:
 form
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 form
 key: form 
-ast_is_character failed 
-
 push_token_into_htab ok 
 
 ml_util_show_buf, 12 bytes:
 operator ::=
-
-ast_is_character 
 ml_util_show_buf, 12 bytes:
 operator ::=
 key: operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5191,13 +4363,9 @@ lambda-expression
 end 
 ml_util_show_buf, 17 bytes:
 lambda-expression
-
-ast_is_character 
 ml_util_show_buf, 17 bytes:
 lambda-expression
 key: lambda-expression 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5207,13 +4375,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 26 bytes:
 function-call-operator ::=
-
-ast_is_character 
 ml_util_show_buf, 26 bytes:
 function-call-operator ::=
 key: function-call-operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5286,13 +4450,9 @@ ml_util_show_buf, 5 bytes:
 end 
 ml_util_show_buf, 5 bytes:
 <TBD>
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 <TBD>
 key: <TBD> 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5302,13 +4462,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 25 bytes:
 special-form-operator ::=
-
-ast_is_character 
 ml_util_show_buf, 25 bytes:
 special-form-operator ::=
 key: special-form-operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5377,13 +4533,9 @@ quote
 end 
 ml_util_show_buf, 5 bytes:
 quote
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 quote
 key: quote 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5409,13 +4561,9 @@ let
 end 
 ml_util_show_buf, 3 bytes:
 let
-
-ast_is_character 
 ml_util_show_buf, 3 bytes:
 let
 key: let 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5441,13 +4589,9 @@ let*
 end 
 ml_util_show_buf, 4 bytes:
 let*
-
-ast_is_character 
 ml_util_show_buf, 4 bytes:
 let*
 key: let* 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5472,13 +4616,9 @@ if
 end 
 ml_util_show_buf, 2 bytes:
 if
-
-ast_is_character 
 ml_util_show_buf, 2 bytes:
 if
 key: if 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5502,13 +4642,9 @@ block
 end 
 ml_util_show_buf, 5 bytes:
 block
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 block
 key: block 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5531,13 +4667,9 @@ catch
 end 
 ml_util_show_buf, 5 bytes:
 catch
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 catch
 key: catch 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5560,13 +4692,9 @@ throw
 end 
 ml_util_show_buf, 5 bytes:
 throw
-
-ast_is_character 
 ml_util_show_buf, 5 bytes:
 throw
 key: throw 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5591,13 +4719,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 18 bytes:
 macro-operator ::=
-
-ast_is_character 
 ml_util_show_buf, 18 bytes:
 macro-operator ::=
 key: macro-operator ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5643,13 +4767,9 @@ defmacro
 end 
 ml_util_show_buf, 8 bytes:
 defmacro
-
-ast_is_character 
 ml_util_show_buf, 8 bytes:
 defmacro
 key: defmacro 
-ast_is_character failed 
-
 new keyword 
 
 htab_add 
@@ -5665,13 +4785,9 @@ push_token_into_htab ok
 
 ml_util_show_buf, 10 bytes:
 string ::=
-
-ast_is_character 
 ml_util_show_buf, 10 bytes:
 string ::=
 key: string ::= 
-ast_is_character failed 
-
 
 push_htab 
 
@@ -5824,34 +4940,36 @@ ml_util_show_buf, 5 bytes:
 key found in keyword hash table 
 push_token_into_htab ok 
 
-hash table 1511 entries, 49 entries used, 1462 entries free. 
+hash table 1511 entries, 46 entries used, 1465 entries free. 
 parse_syntax_object end 
 
-syntax object hash table 1511 entries, 49 entries used, 1462 entries free. 
+syntax object hash table 1511 entries, 46 entries used, 1465 entries free. 
 
 char hash table 257 entries, 94 entries used, 163 entries free. 
 
-keyword hash table 211 entries, 23 entries used, 188 entries free. 
+keyword hash table 211 entries, 25 entries used, 186 entries free. 
 
 
 
 [make_bnf_tree]... root: token ::= 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 9 bytes:
 token ::=
 found ::= 
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 9 bytes:
 token ::=
 
 find_insert_htab 
 one found 
+
+make_sub_obj_tree 
 sub: 
 ml_util_show_buf, 31 bytes:
 	number-token |
@@ -5875,10 +4993,14 @@ sub:
 	
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
 
 make_or_tree 
+drop_head_trail_whitespace ok 
+
 
 tree_insert_left 
 father:
@@ -5889,20 +5011,22 @@ left:
 <tmp>
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 12 bytes:
 number-token
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 12 bytes:
 number-token
 key2: number-token ::= 
 found 
+
+make_sub_obj_tree 
 sub: 
 ml_util_show_buf, 41 bytes:
 	integer |
@@ -5917,9 +5041,6 @@ left:
 number-token ::=
 tree_insert_left ok 
 
-
-is_token 
-number-token ::= 
 
 pop_syntax_htab 
 pop_syntax_htab ok 
@@ -5936,10 +5057,14 @@ sub:
 				
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
 
 make_or_tree 
+drop_head_trail_whitespace ok 
+
 
 tree_insert_left 
 father:
@@ -5951,25 +5076,26 @@ left:
 <tmp>
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 7 bytes:
 integer
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 7 bytes:
 integer
 key2: integer ::= 
 found 
+
+make_sub_obj_tree 
 sub: 
-ml_util_show_buf, 71 bytes:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				         
+ml_util_show_buf, 47 bytes:
+	[sign] {digit}+ decimal-point
+				            
 
 tree_insert_left 
 father:
@@ -5979,36 +5105,20 @@ integer ::=
 tree_insert_left ok 
 
 
-is_token 
-integer ::= 
-
 pop_syntax_htab 
 pop_syntax_htab ok 
 
-sub node, dt_sz: 71 
+sub node, dt_sz: 47 
 
 tree_insert_sub 
 father:
 integer ::=
 sub:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
+	[sign] {digit}+ decimal-point
 				
 tree_insert_sub ok 
 
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
-				
-left:
-<tmp>
-tree_insert_left ok 
+drop_head_trail_whitespace ok 
 
 
 make_bnf_tree 
@@ -6020,7 +5130,8 @@ insert hash entry: [sign], 6B
 
 tree_insert_left 
 father:
-<tmp>
+	[sign] {digit}+ decimal-point
+				
 left:
 [sign]
 tree_insert_left ok 
@@ -6049,20 +5160,22 @@ left:
 sign
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 4 bytes:
 sign
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 4 bytes:
 sign
 key2: sign ::= 
 found 
+
+make_sub_obj_tree 
 sub: 
 ml_util_show_buf, 5 bytes:
 + | -
@@ -6074,9 +5187,6 @@ left:
 sign ::=
 tree_insert_left ok 
 
-
-is_token 
-sign ::= 
 
 pop_syntax_htab 
 pop_syntax_htab ok 
@@ -6090,10 +5200,14 @@ sub:
 + | -
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
 
 make_or_tree 
+drop_head_trail_whitespace ok 
+
 
 tree_insert_left 
 father:
@@ -6102,26 +5216,24 @@ left:
 <tmp>
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 1 bytes:
 +
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 1 bytes:
 +
 key2: + ::= 
-+ ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
+not found 
 ml_util_show_buf, 1 bytes:
 +
 
-make_keyword_tree 
+make_combined_obj_tree 
 character 
 
 tree_insert_left 
@@ -6131,7 +5243,7 @@ left:
 +
 tree_insert_left ok 
 
-ml_util_show_buf, 0 bytes:
+make_combined_obj_tree ok 
 
 
 tree_insert_right 
@@ -6141,26 +5253,24 @@ right:
 <tmp>
 tree_insert_right ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 1 bytes:
 -
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 1 bytes:
 -
 key2: - ::= 
-- ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
+not found 
 ml_util_show_buf, 1 bytes:
 -
 
-make_keyword_tree 
+make_combined_obj_tree 
 character 
 
 tree_insert_left 
@@ -6170,1429 +5280,20 @@ left:
 -
 tree_insert_left ok 
 
-ml_util_show_buf, 0 bytes:
+make_combined_obj_tree ok 
 
-make_bnf_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-insert hash entry: {decimal-digit}, 15B
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{decimal-digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{decimal-digit}
-sub:
-decimal-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key2: decimal-digit ::= 
-found 
-sub: 
-ml_util_show_buf, 37 bytes:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
-tree_insert_left 
-father:
-decimal-digit
-left:
-decimal-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 37 
-
-tree_insert_sub 
-father:
-decimal-digit ::=
-sub:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-0
-ml_util_show_buf, 1 bytes:
-0
-key2: 0 ::= 
-0 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-0
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-0
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
+make_or_tree ok 
 
 
 tree_insert_right 
 father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-1
-ml_util_show_buf, 1 bytes:
-1
-key2: 1 ::= 
-1 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-1
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-1
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-2
-ml_util_show_buf, 1 bytes:
-2
-key2: 2 ::= 
-2 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-2
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-2
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-3
-ml_util_show_buf, 1 bytes:
-3
-key2: 3 ::= 
-3 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-3
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-3
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-4
-ml_util_show_buf, 1 bytes:
-4
-key2: 4 ::= 
-4 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-4
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-4
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-5
-ml_util_show_buf, 1 bytes:
-5
-key2: 5 ::= 
-5 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-5
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-5
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-6
-ml_util_show_buf, 1 bytes:
-6
-key2: 6 ::= 
-6 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-6
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-6
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-7
-ml_util_show_buf, 1 bytes:
-7
-key2: 7 ::= 
-7 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-7
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-7
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-8
-ml_util_show_buf, 1 bytes:
-8
-key2: 8 ::= 
-8 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-8
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-8
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-9
-ml_util_show_buf, 1 bytes:
-9
-key2: 9 ::= 
-9 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-9
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-9
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-pattern: {}+ 
-
-tree_insert_left 
-father:
-{decimal-digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-point
-ml_util_show_buf, 13 bytes:
-decimal-point
-key2: decimal-point ::= 
-found 
-sub: 
-ml_util_show_buf, 1 bytes:
-.
-
-tree_insert_left 
-father:
-<tmp>
-left:
-decimal-point ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-point ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 1 
-
-tree_insert_sub 
-father:
-decimal-point ::=
-sub:
-.
-tree_insert_sub ok 
-
-make_bnf_obj_tree ok 
-
-make_braces_tree ok 
-
-
-tree_insert_left 
-father:
-[sign]
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{decimal-digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{decimal-digit}
-sub:
-decimal-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key2: decimal-digit ::= 
-found 
-sub: 
-ml_util_show_buf, 37 bytes:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
-tree_insert_left 
-father:
-decimal-digit
-left:
-decimal-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 37 
-
-tree_insert_sub 
-father:
-decimal-digit ::=
-sub:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-0
-ml_util_show_buf, 1 bytes:
-0
-key2: 0 ::= 
-0 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-0
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-0
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-1
-ml_util_show_buf, 1 bytes:
-1
-key2: 1 ::= 
-1 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-1
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-1
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-2
-ml_util_show_buf, 1 bytes:
-2
-key2: 2 ::= 
-2 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-2
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-2
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-3
-ml_util_show_buf, 1 bytes:
-3
-key2: 3 ::= 
-3 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-3
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-3
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-4
-ml_util_show_buf, 1 bytes:
-4
-key2: 4 ::= 
-4 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-4
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-4
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-5
-ml_util_show_buf, 1 bytes:
-5
-key2: 5 ::= 
-5 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-5
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-5
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-6
-ml_util_show_buf, 1 bytes:
-6
-key2: 6 ::= 
-6 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-6
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-6
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-7
-ml_util_show_buf, 1 bytes:
-7
-key2: 7 ::= 
-7 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-7
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-7
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-8
-ml_util_show_buf, 1 bytes:
-8
-key2: 8 ::= 
-8 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-8
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-8
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-9
-ml_util_show_buf, 1 bytes:
-9
-key2: 9 ::= 
-9 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-9
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-9
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-pattern: {}+ 
-
-tree_insert_left 
-father:
-{decimal-digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-point
-ml_util_show_buf, 13 bytes:
-decimal-point
-key2: decimal-point ::= 
-found 
-sub: 
-ml_util_show_buf, 1 bytes:
-.
-
-tree_insert_left 
-father:
-<tmp>
-left:
-decimal-point ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-point ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 1 
-
-tree_insert_sub 
-father:
-decimal-point ::=
-sub:
-.
-tree_insert_sub ok 
-
-make_bnf_obj_tree ok 
-
-make_braces_tree ok 
-
-make_brackets_tree ok 
-
-
-tree_insert_right 
-father:
-	[sign] {decimal-digit}+ decimal-point |
-	[sign] {digit}+
+	[sign] {digit}+ decimal-point
 				
 right:
 <tmp>
 tree_insert_right ok 
 
-
-make_bnf_tree 
-
-make_brackets_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-[sign]
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-[sign]
-sub:
-sign
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-sign
-right:
-@
-tree_insert_right ok 
-
-
-tree_insert_left 
-father:
-sign
-left:
-sign
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 4 bytes:
-sign
-ml_util_show_buf, 4 bytes:
-sign
-key2: sign ::= 
-found 
-sub: 
-ml_util_show_buf, 5 bytes:
-+ | -
-
-tree_insert_left 
-father:
-sign
-left:
-sign ::=
-tree_insert_left ok 
-
-
-is_token 
-sign ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 5 
-
-tree_insert_sub 
-father:
-sign ::=
-sub:
-+ | -
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-+ | -
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-+
-ml_util_show_buf, 1 bytes:
-+
-key2: + ::= 
-+ ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-+
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-+
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-+ | -
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
--
-ml_util_show_buf, 1 bytes:
--
-key2: - ::= 
-- ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
--
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
--
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
+drop_head_trail_whitespace ok 
 
 
 make_bnf_tree 
@@ -7617,23 +5318,25 @@ sub:
 digit
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 5 bytes:
 digit
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 5 bytes:
 digit
 key2: digit ::= 
 found 
+
+make_sub_obj_tree 
 sub: 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
 
 tree_insert_left 
@@ -7644,49 +5347,599 @@ digit ::=
 tree_insert_left ok 
 
 
-is_token 
-digit ::= 
-
 pop_syntax_htab 
 pop_syntax_htab ok 
 
-sub node, dt_sz: 13 
+sub node, dt_sz: 53 
 
 tree_insert_sub 
 father:
 digit ::=
 sub:
-<undefined>
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
 
 
-make_bnf_obj_tree 
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
 
 find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 1 bytes:
+0
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+0
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+1
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+2
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+3
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+4
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+5
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+6
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+7
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+8
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+9
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+<undefined>
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 11 bytes:
 <undefined>
 key2: <undefined> ::= 
-<undefined> ::= not found in htab, 15 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
+not found 
+ml_util_show_buf, 11 bytes:
 <undefined>
-	
 
-make_keyword_tree 
-dep:8, unknown syntax: 
-13 bytes:
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
 <undefined>
-	
-make_bnf_obj_tree ok 
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
 
 pattern: {}+ 
 
@@ -7697,6 +5950,46 @@ left:
 <tmp>
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-point
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 13 bytes:
+decimal-point
+key2: decimal-point ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 1 bytes:
+.
+
+tree_insert_left 
+father:
+<tmp>
+left:
+decimal-point ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 1 
+
+tree_insert_sub 
+father:
+decimal-point ::=
+sub:
+.
+tree_insert_sub ok 
+
 make_braces_tree ok 
 
 
@@ -7706,6 +5999,8 @@ father:
 left:
 <tmp>
 tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
 
 
 make_bnf_tree 
@@ -7730,23 +6025,25 @@ sub:
 digit
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 5 bytes:
 digit
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 5 bytes:
 digit
 key2: digit ::= 
 found 
+
+make_sub_obj_tree 
 sub: 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 53 bytes:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
 
 tree_insert_left 
@@ -7757,49 +6054,599 @@ digit ::=
 tree_insert_left ok 
 
 
-is_token 
-digit ::= 
-
 pop_syntax_htab 
 pop_syntax_htab ok 
 
-sub node, dt_sz: 13 
+sub node, dt_sz: 53 
 
 tree_insert_sub 
 father:
 digit ::=
 sub:
-<undefined>
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
 
 
-make_bnf_obj_tree 
+tree_insert_left 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
 
 find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-<undefined>
+ml_util_show_buf, 1 bytes:
+0
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+0
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
 	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+1
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+2
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+3
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+4
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+5
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+6
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+7
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+8
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+9
+
+make_combined_obj_tree 
+character 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+<undefined>
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 11 bytes:
 <undefined>
 key2: <undefined> ::= 
-<undefined> ::= not found in htab, 15 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
+not found 
+ml_util_show_buf, 11 bytes:
 <undefined>
-	
 
-make_keyword_tree 
-dep:9, unknown syntax: 
-13 bytes:
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
 <undefined>
-	
-make_bnf_obj_tree ok 
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
 
 pattern: {}+ 
 
@@ -7810,11 +6657,49 @@ left:
 <tmp>
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+decimal-point
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 13 bytes:
+decimal-point
+key2: decimal-point ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 1 bytes:
+.
+
+tree_insert_left 
+father:
+<tmp>
+left:
+decimal-point ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+sub node, dt_sz: 1 
+
+tree_insert_sub 
+father:
+decimal-point ::=
+sub:
+.
+tree_insert_sub ok 
+
 make_braces_tree ok 
 
 make_brackets_tree ok 
-
-make_bnf_obj_tree ok 
 
 
 tree_insert_right 
@@ -7827,10 +6712,14 @@ right:
 <tmp>
 tree_insert_right ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
 
 make_or_tree 
+drop_head_trail_whitespace ok 
+
 
 tree_insert_left 
 father:
@@ -7839,494 +6728,34 @@ left:
 <tmp>
 tree_insert_left ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 5 bytes:
 ratio
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 5 bytes:
 ratio
 key2: ratio ::= 
-found 
-sub: 
-ml_util_show_buf, 43 bytes:
-	[sign] {digit}+ slash {digit}+ 
-				      
-
-tree_insert_left 
-father:
-<tmp>
-left:
-ratio ::=
-tree_insert_left ok 
-
-
-is_token 
-ratio ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 43 
-
-tree_insert_sub 
-father:
-ratio ::=
-sub:
-	[sign] {digit}+ slash {digit}+ 
-				
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_brackets_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-	[sign] {digit}+ slash {digit}+ 
-				
-left:
-[sign]
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-[sign]
-sub:
-sign
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-sign
-right:
-@
-tree_insert_right ok 
-
-
-tree_insert_left 
-father:
-sign
-left:
-sign
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 4 bytes:
-sign
-ml_util_show_buf, 4 bytes:
-sign
-key2: sign ::= 
-found 
-sub: 
+not found 
 ml_util_show_buf, 5 bytes:
-+ | -
+ratio
 
-tree_insert_left 
-father:
-sign
-left:
-sign ::=
-tree_insert_left ok 
-
-
-is_token 
-sign ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 5 
-
-tree_insert_sub 
-father:
-sign ::=
-sub:
-+ | -
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-+ | -
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-+
-ml_util_show_buf, 1 bytes:
-+
-key2: + ::= 
-+ ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-+
-
-make_keyword_tree 
-character 
+make_combined_obj_tree 
+keyword 
 
 tree_insert_left 
 father:
 <tmp>
 left:
-+
+ratio
 tree_insert_left ok 
 
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-+ | -
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
--
-ml_util_show_buf, 1 bytes:
--
-key2: - ::= 
-- ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
--
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
--
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-
-tree_insert_right 
-father:
-	[sign] {digit}+ slash {digit}+ 
-				
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{digit}
-sub:
-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 5 bytes:
-digit
-ml_util_show_buf, 5 bytes:
-digit
-key2: digit ::= 
-found 
-sub: 
-ml_util_show_buf, 13 bytes:
-<undefined>
-	
-
-tree_insert_left 
-father:
-digit
-left:
-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 13 
-
-tree_insert_sub 
-father:
-digit ::=
-sub:
-<undefined>
-	
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-<undefined>
-	
-ml_util_show_buf, 11 bytes:
-<undefined>
-key2: <undefined> ::= 
-<undefined> ::= not found in htab, 15 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
-<undefined>
-	
-
-make_keyword_tree 
-dep:8, unknown syntax: 
-13 bytes:
-<undefined>
-	
-make_bnf_obj_tree ok 
-
-pattern: {}+ 
-
-tree_insert_left 
-father:
-{digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 20 bytes:
-slash {digit}+ 
-				
-ml_util_show_buf, 14 bytes:
-slash {digit}+
-key2: slash {digit}+ ::= 
-slash {digit}+ ::= not found in htab, 18 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 5 bytes:
-slash
-
-make_keyword_tree 
-dep:7, unknown syntax: 
-20 bytes:
- slash {digit}+ 
-			
-make_braces_tree ok 
-
-
-tree_insert_left 
-father:
-[sign]
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{digit}
-sub:
-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 5 bytes:
-digit
-ml_util_show_buf, 5 bytes:
-digit
-key2: digit ::= 
-found 
-sub: 
-ml_util_show_buf, 13 bytes:
-<undefined>
-	
-
-tree_insert_left 
-father:
-digit
-left:
-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 13 
-
-tree_insert_sub 
-father:
-digit ::=
-sub:
-<undefined>
-	
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-<undefined>
-	
-ml_util_show_buf, 11 bytes:
-<undefined>
-key2: <undefined> ::= 
-<undefined> ::= not found in htab, 15 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
-<undefined>
-	
-
-make_keyword_tree 
-dep:9, unknown syntax: 
-13 bytes:
-<undefined>
-	
-make_bnf_obj_tree ok 
-
-pattern: {}+ 
-
-tree_insert_left 
-father:
-{digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 20 bytes:
-slash {digit}+ 
-				
-ml_util_show_buf, 14 bytes:
-slash {digit}+
-key2: slash {digit}+ ::= 
-slash {digit}+ ::= not found in htab, 18 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 5 bytes:
-slash
-
-make_keyword_tree 
-dep:8, unknown syntax: 
-20 bytes:
- slash {digit}+ 
-			
-make_braces_tree ok 
-
-make_brackets_tree ok 
-
-make_bnf_obj_tree ok 
+make_combined_obj_tree ok 
 
 
 tree_insert_right 
@@ -8336,3221 +6765,38 @@ right:
 <tmp>
 tree_insert_right ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
-ml_util_show_buf, 10 bytes:
+ml_util_show_buf, 5 bytes:
 float
-				
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 5 bytes:
 float
 key2: float ::= 
-found 
-sub: 
-ml_util_show_buf, 169 bytes:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				       
-
-tree_insert_left 
-father:
-<tmp>
-left:
-float ::=
-tree_insert_left ok 
-
-
-is_token 
-float ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 169 
-
-tree_insert_sub 
-father:
-float ::=
-sub:
-	[sign] {decimal-digit}* decimal-point {decimal-digit}+ [exponent] |                   
-    [sign] {decimal-digit}+ [decimal-point {decimal-digit}*] exponent
-				
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-......
-left:
-......
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_brackets_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-[sign]
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-[sign]
-sub:
-sign
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-sign
-right:
-@
-tree_insert_right ok 
-
-
-tree_insert_left 
-father:
-sign
-left:
-sign
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 4 bytes:
-sign
-ml_util_show_buf, 4 bytes:
-sign
-key2: sign ::= 
-found 
-sub: 
+not found 
 ml_util_show_buf, 5 bytes:
-+ | -
+float
 
-tree_insert_left 
-father:
-sign
-left:
-sign ::=
-tree_insert_left ok 
-
-
-is_token 
-sign ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 5 
-
-tree_insert_sub 
-father:
-sign ::=
-sub:
-+ | -
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-+ | -
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-+
-ml_util_show_buf, 1 bytes:
-+
-key2: + ::= 
-+ ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-+
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-+
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-+ | -
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
--
-ml_util_show_buf, 1 bytes:
--
-key2: - ::= 
-- ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
--
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
--
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{decimal-digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{decimal-digit}
-sub:
-decimal-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key2: decimal-digit ::= 
-found 
-sub: 
-ml_util_show_buf, 37 bytes:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
-tree_insert_left 
-father:
-decimal-digit
-left:
-decimal-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 37 
-
-tree_insert_sub 
-father:
-decimal-digit ::=
-sub:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-0
-ml_util_show_buf, 1 bytes:
-0
-key2: 0 ::= 
-0 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-0
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-0
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-1
-ml_util_show_buf, 1 bytes:
-1
-key2: 1 ::= 
-1 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-1
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-1
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-2
-ml_util_show_buf, 1 bytes:
-2
-key2: 2 ::= 
-2 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-2
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-2
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-3
-ml_util_show_buf, 1 bytes:
-3
-key2: 3 ::= 
-3 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-3
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-3
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-4
-ml_util_show_buf, 1 bytes:
-4
-key2: 4 ::= 
-4 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-4
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-4
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-5
-ml_util_show_buf, 1 bytes:
-5
-key2: 5 ::= 
-5 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-5
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-5
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-6
-ml_util_show_buf, 1 bytes:
-6
-key2: 6 ::= 
-6 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-6
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-6
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-7
-ml_util_show_buf, 1 bytes:
-7
-key2: 7 ::= 
-7 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-7
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-7
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-8
-ml_util_show_buf, 1 bytes:
-8
-key2: 8 ::= 
-8 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-8
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-8
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-9
-ml_util_show_buf, 1 bytes:
-9
-key2: 9 ::= 
-9 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-9
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-9
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-pattern: {}* 
-
-tree_insert_left 
-father:
-{decimal-digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 41 bytes:
-decimal-point {decimal-digit}+ [exponent]
-ml_util_show_buf, 41 bytes:
-decimal-point {decimal-digit}+ [exponent]
-key2: decimal-point {decimal-digit}+ [exponent] ::= 
-decimal-point {decimal-digit}+ [exponent] ::= not found in htab, 45 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
-decimal-point
-
-make_keyword_tree 
-dep:8, unknown syntax: 
-41 bytes:
- decimal-point {decimal-digit}+ [exponent
-make_braces_tree ok 
-
-
-tree_insert_left 
-father:
-[sign]
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{decimal-digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{decimal-digit}
-sub:
-decimal-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key2: decimal-digit ::= 
-found 
-sub: 
-ml_util_show_buf, 37 bytes:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
-tree_insert_left 
-father:
-decimal-digit
-left:
-decimal-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 37 
-
-tree_insert_sub 
-father:
-decimal-digit ::=
-sub:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-0
-ml_util_show_buf, 1 bytes:
-0
-key2: 0 ::= 
-0 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-0
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-0
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-1
-ml_util_show_buf, 1 bytes:
-1
-key2: 1 ::= 
-1 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-1
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-1
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-2
-ml_util_show_buf, 1 bytes:
-2
-key2: 2 ::= 
-2 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-2
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-2
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-3
-ml_util_show_buf, 1 bytes:
-3
-key2: 3 ::= 
-3 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-3
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-3
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-4
-ml_util_show_buf, 1 bytes:
-4
-key2: 4 ::= 
-4 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-4
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-4
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-5
-ml_util_show_buf, 1 bytes:
-5
-key2: 5 ::= 
-5 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-5
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-5
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-6
-ml_util_show_buf, 1 bytes:
-6
-key2: 6 ::= 
-6 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-6
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-6
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-7
-ml_util_show_buf, 1 bytes:
-7
-key2: 7 ::= 
-7 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-7
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-7
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-8
-ml_util_show_buf, 1 bytes:
-8
-key2: 8 ::= 
-8 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-8
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-8
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-9
-ml_util_show_buf, 1 bytes:
-9
-key2: 9 ::= 
-9 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-9
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-9
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-pattern: {}* 
-
-tree_insert_left 
-father:
-{decimal-digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 41 bytes:
-decimal-point {decimal-digit}+ [exponent]
-ml_util_show_buf, 41 bytes:
-decimal-point {decimal-digit}+ [exponent]
-key2: decimal-point {decimal-digit}+ [exponent] ::= 
-decimal-point {decimal-digit}+ [exponent] ::= not found in htab, 45 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
-decimal-point
-
-make_keyword_tree 
-dep:9, unknown syntax: 
-41 bytes:
- decimal-point {decimal-digit}+ [exponent
-make_braces_tree ok 
-
-make_brackets_tree ok 
-
-
-tree_insert_right 
-father:
-......
-right:
-......
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_brackets_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-[sign]
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-[sign]
-sub:
-sign
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-sign
-right:
-@
-tree_insert_right ok 
-
-
-tree_insert_left 
-father:
-sign
-left:
-sign
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 4 bytes:
-sign
-ml_util_show_buf, 4 bytes:
-sign
-key2: sign ::= 
-found 
-sub: 
-ml_util_show_buf, 5 bytes:
-+ | -
-
-tree_insert_left 
-father:
-sign
-left:
-sign ::=
-tree_insert_left ok 
-
-
-is_token 
-sign ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 5 
-
-tree_insert_sub 
-father:
-sign ::=
-sub:
-+ | -
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-+ | -
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-+
-ml_util_show_buf, 1 bytes:
-+
-key2: + ::= 
-+ ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-+
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-+
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-+ | -
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
--
-ml_util_show_buf, 1 bytes:
--
-key2: - ::= 
-- ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
--
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
--
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{decimal-digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{decimal-digit}
-sub:
-decimal-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key2: decimal-digit ::= 
-found 
-sub: 
-ml_util_show_buf, 37 bytes:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
-tree_insert_left 
-father:
-decimal-digit
-left:
-decimal-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 37 
-
-tree_insert_sub 
-father:
-decimal-digit ::=
-sub:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-0
-ml_util_show_buf, 1 bytes:
-0
-key2: 0 ::= 
-0 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-0
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-0
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-1
-ml_util_show_buf, 1 bytes:
-1
-key2: 1 ::= 
-1 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-1
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-1
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-2
-ml_util_show_buf, 1 bytes:
-2
-key2: 2 ::= 
-2 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-2
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-2
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-3
-ml_util_show_buf, 1 bytes:
-3
-key2: 3 ::= 
-3 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-3
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-3
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-4
-ml_util_show_buf, 1 bytes:
-4
-key2: 4 ::= 
-4 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-4
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-4
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-5
-ml_util_show_buf, 1 bytes:
-5
-key2: 5 ::= 
-5 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-5
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-5
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-6
-ml_util_show_buf, 1 bytes:
-6
-key2: 6 ::= 
-6 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-6
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-6
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-7
-ml_util_show_buf, 1 bytes:
-7
-key2: 7 ::= 
-7 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-7
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-7
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-8
-ml_util_show_buf, 1 bytes:
-8
-key2: 8 ::= 
-8 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-8
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-8
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-9
-ml_util_show_buf, 1 bytes:
-9
-key2: 9 ::= 
-9 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-9
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-9
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-pattern: {}+ 
-
-tree_insert_left 
-father:
-{decimal-digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_brackets_tree 
-
-find_insert_htab 
-insert hash entry: [decimal-point {decimal-digit}*], 32B
-
-tree_insert_left 
-father:
-<tmp>
-left:
-[decimal-point {decimal-digit}*]
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-[decimal-point {decimal-digit}*]
-sub:
-decimal-point {decimal-digit}*
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-decimal-point {decimal-digit}*
-right:
-@
-tree_insert_right ok 
-
-
-tree_insert_left 
-father:
-decimal-point {decimal-digit}*
-left:
-decimal-point {decimal-digit}*
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 30 bytes:
-decimal-point {decimal-digit}*
-ml_util_show_buf, 30 bytes:
-decimal-point {decimal-digit}*
-key2: decimal-point {decimal-digit}* ::= 
-decimal-point {decimal-digit}* ::= not found in htab, 34 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
-decimal-point
-
-make_keyword_tree 
-dep:9, unknown syntax: 
-30 bytes:
-decimal-point {decimal-digit}*
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-exponent
-				
-ml_util_show_buf, 8 bytes:
-exponent
-key2: exponent ::= 
-found 
-sub: 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-
-tree_insert_left 
-father:
-<tmp>
-left:
-exponent ::=
-tree_insert_left ok 
-
-
-is_token 
-exponent ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 39 
-
-tree_insert_sub 
-father:
-exponent ::=
-sub:
-	exponent-marker [sign] {digit}+	
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 32 bytes:
-exponent-marker [sign] {digit}+	
-ml_util_show_buf, 31 bytes:
-exponent-marker [sign] {digit}+
-key2: exponent-marker [sign] {digit}+ ::= 
-exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 15 bytes:
-exponent-marker
-
-make_keyword_tree 
-dep:9, unknown syntax: 
-32 bytes:
-	exponent-marker [sign] {digit}+
-
-tree_insert_left 
-father:
-exponent ::=
-left:
-<tmp>
-tree_insert_left ok 
-
-make_bnf_obj_tree ok 
-
-
-tree_insert_left 
-father:
-[decimal-point {decimal-digit}*]
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-exponent
-				
-ml_util_show_buf, 8 bytes:
-exponent
-key2: exponent ::= 
-found 
-sub: 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-
-tree_insert_left 
-father:
-<tmp>
-left:
-exponent ::=
-tree_insert_left ok 
-
-
-is_token 
-exponent ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 39 
-
-tree_insert_sub 
-father:
-exponent ::=
-sub:
-	exponent-marker [sign] {digit}+	
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 32 bytes:
-exponent-marker [sign] {digit}+	
-ml_util_show_buf, 31 bytes:
-exponent-marker [sign] {digit}+
-key2: exponent-marker [sign] {digit}+ ::= 
-exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 15 bytes:
-exponent-marker
-
-make_keyword_tree 
-dep:10, unknown syntax: 
-32 bytes:
-	exponent-marker [sign] {digit}+
-
-tree_insert_left 
-father:
-exponent ::=
-left:
-<tmp>
-tree_insert_left ok 
-
-make_bnf_obj_tree ok 
-
-make_brackets_tree ok 
-
-make_braces_tree ok 
-
-
-tree_insert_left 
-father:
-[sign]
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_braces_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-{decimal-digit}
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-{decimal-digit}
-sub:
-decimal-digit
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-decimal-digit
-ml_util_show_buf, 13 bytes:
-decimal-digit
-key2: decimal-digit ::= 
-found 
-sub: 
-ml_util_show_buf, 37 bytes:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
-tree_insert_left 
-father:
-decimal-digit
-left:
-decimal-digit ::=
-tree_insert_left ok 
-
-
-is_token 
-decimal-digit ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 37 
-
-tree_insert_sub 
-father:
-decimal-digit ::=
-sub:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-0
-ml_util_show_buf, 1 bytes:
-0
-key2: 0 ::= 
-0 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-0
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-0
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-1
-ml_util_show_buf, 1 bytes:
-1
-key2: 1 ::= 
-1 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-1
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-1
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-2
-ml_util_show_buf, 1 bytes:
-2
-key2: 2 ::= 
-2 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-2
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-2
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-3
-ml_util_show_buf, 1 bytes:
-3
-key2: 3 ::= 
-3 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-3
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-3
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-4
-ml_util_show_buf, 1 bytes:
-4
-key2: 4 ::= 
-4 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
+make_combined_obj_tree 
+keyword 
 
-ml_util_show_buf, 1 bytes:
-4
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-4
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-5
-ml_util_show_buf, 1 bytes:
-5
-key2: 5 ::= 
-5 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-5
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-5
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-6
-ml_util_show_buf, 1 bytes:
-6
-key2: 6 ::= 
-6 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-6
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-6
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-7
-ml_util_show_buf, 1 bytes:
-7
-key2: 7 ::= 
-7 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-7
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-7
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-8
-ml_util_show_buf, 1 bytes:
-8
-key2: 8 ::= 
-8 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-8
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-8
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-9
-ml_util_show_buf, 1 bytes:
-9
-key2: 9 ::= 
-9 ::= not found in htab, 5 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 1 bytes:
-9
-
-make_keyword_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-9
-tree_insert_left ok 
-
-ml_util_show_buf, 0 bytes:
-
-make_bnf_obj_tree ok 
-
-pattern: {}+ 
-
-tree_insert_left 
-father:
-{decimal-digit}
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-
-make_brackets_tree 
-
-find_insert_htab 
-one found 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-[decimal-point {decimal-digit}*]
-tree_insert_left ok 
-
-
-tree_insert_sub 
-father:
-[decimal-point {decimal-digit}*]
-sub:
-decimal-point {decimal-digit}*
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-decimal-point {decimal-digit}*
-right:
-@
-tree_insert_right ok 
-
-
-tree_insert_left 
-father:
-decimal-point {decimal-digit}*
-left:
-decimal-point {decimal-digit}*
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 30 bytes:
-decimal-point {decimal-digit}*
-ml_util_show_buf, 30 bytes:
-decimal-point {decimal-digit}*
-key2: decimal-point {decimal-digit}* ::= 
-decimal-point {decimal-digit}* ::= not found in htab, 34 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 13 bytes:
-decimal-point
-
-make_keyword_tree 
-dep:10, unknown syntax: 
-30 bytes:
-decimal-point {decimal-digit}*
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-exponent
-				
-ml_util_show_buf, 8 bytes:
-exponent
-key2: exponent ::= 
-found 
-sub: 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-
-tree_insert_left 
-father:
-<tmp>
-left:
-exponent ::=
-tree_insert_left ok 
-
-
-is_token 
-exponent ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 39 
-
-tree_insert_sub 
-father:
-exponent ::=
-sub:
-	exponent-marker [sign] {digit}+	
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 32 bytes:
-exponent-marker [sign] {digit}+	
-ml_util_show_buf, 31 bytes:
-exponent-marker [sign] {digit}+
-key2: exponent-marker [sign] {digit}+ ::= 
-exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 15 bytes:
-exponent-marker
-
-make_keyword_tree 
-dep:10, unknown syntax: 
-32 bytes:
-	exponent-marker [sign] {digit}+
-
-tree_insert_left 
-father:
-exponent ::=
-left:
-<tmp>
-tree_insert_left ok 
-
-make_bnf_obj_tree ok 
-
-
-tree_insert_left 
-father:
-[decimal-point {decimal-digit}*]
-left:
-<tmp>
-tree_insert_left ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-exponent
-				
-ml_util_show_buf, 8 bytes:
-exponent
-key2: exponent ::= 
-found 
-sub: 
-ml_util_show_buf, 39 bytes:
-	exponent-marker [sign] {digit}+	      
-
 tree_insert_left 
 father:
 <tmp>
-left:
-exponent ::=
-tree_insert_left ok 
-
-
-is_token 
-exponent ::= 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 39 
-
-tree_insert_sub 
-father:
-exponent ::=
-sub:
-	exponent-marker [sign] {digit}+	
-tree_insert_sub ok 
-
-
-make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 32 bytes:
-exponent-marker [sign] {digit}+	
-ml_util_show_buf, 31 bytes:
-exponent-marker [sign] {digit}+
-key2: exponent-marker [sign] {digit}+ ::= 
-exponent-marker [sign] {digit}+ ::= not found in htab, 35 bytes 
-make_bnf_obj_tree failed 
-
-ml_util_show_buf, 15 bytes:
-exponent-marker
-
-make_keyword_tree 
-dep:11, unknown syntax: 
-32 bytes:
-	exponent-marker [sign] {digit}+
-
-tree_insert_left 
-father:
-exponent ::=
 left:
-<tmp>
+float
 tree_insert_left ok 
-
-make_bnf_obj_tree ok 
 
-make_brackets_tree ok 
-
-make_braces_tree ok 
-
-make_brackets_tree ok 
-
-
-tree_insert_left 
-father:
-float ::=
-left:
-<tmp>
-tree_insert_left ok 
+make_combined_obj_tree ok 
 
-make_bnf_obj_tree ok 
+make_or_tree ok 
 
-make_bnf_obj_tree ok 
+make_or_tree ok 
 
 
 tree_insert_right 
@@ -11562,21 +6808,22 @@ right:
 <tmp>
 tree_insert_right ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
-ml_util_show_buf, 14 bytes:
+ml_util_show_buf, 12 bytes:
 symbol-token
-	
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 12 bytes:
 symbol-token
 key2: symbol-token ::= 
 found 
+
+make_sub_obj_tree 
 sub: 
 ml_util_show_buf, 11 bytes:
 <undefined>
@@ -11588,9 +6835,6 @@ left:
 symbol-token ::=
 tree_insert_left ok 
 
-
-is_token 
-symbol-token ::= 
 
 pop_syntax_htab 
 pop_syntax_htab ok 
@@ -11604,26 +6848,24 @@ sub:
 <undefined>
 tree_insert_sub ok 
 
+drop_head_trail_whitespace ok 
+
 
 make_bnf_tree 
-make_braces_tree failed 
-
-
-make_bnf_obj_tree 
 
 find_bnf_obj_str 
 ml_util_show_buf, 11 bytes:
 <undefined>
+drop_head_trail_whitespace ok 
+
 ml_util_show_buf, 11 bytes:
 <undefined>
 key2: <undefined> ::= 
-<undefined> ::= not found in htab, 15 bytes 
-make_bnf_obj_tree failed 
-
+not found 
 ml_util_show_buf, 11 bytes:
 <undefined>
 
-make_keyword_tree 
+make_combined_obj_tree 
 keyword 
 
 tree_insert_left 
@@ -11633,30 +6875,1271 @@ left:
 <undefined>
 tree_insert_left ok 
 
-ml_util_show_buf, 0 bytes:
+make_combined_obj_tree ok 
 
+make_or_tree ok 
 
-tree_insert_left 
-father:
-symbol-token ::=
-left:
-<tmp>
-tree_insert_left ok 
-
-make_bnf_obj_tree ok 
-
-make_bnf_obj_tree ok 
+make_sub_obj_tree ok 
 
 
 [make_bnf_tree], done. 
 
-hash table 1511 entries, 53 entries used, 1458 entries free. 
+hash table 1511 entries, 48 entries used, 1463 entries free. 
 
 
 [make_graph]... 
+key + 
+
+show_nodes 
++ 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
++ 
+end solutions cnt: 1 
+show_nodes end 
+
+key - 
+
+show_nodes 
+- 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+- 
+end solutions cnt: 1 
+show_nodes end 
+
+key + | - 
+
+show_nodes 
++ - 
+end solutions cnt: 2 
+show_nodes end 
+
+key sign ::= 
+
+show_nodes 
++ - 
+end solutions cnt: 2 
+show_nodes end 
+
+key sign 
+
+show_nodes 
++ - 
+end solutions cnt: 2 
+show_nodes end 
+
+key @ 
+
+show_nodes 
+@ 
+end solutions cnt: 1 
+show_nodes end 
+
+key sign 
+
+show_nodes 
++ - @ 
+end solutions cnt: 3 
+show_nodes end 
+
+key 0 
+
+show_nodes 
+0 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+0 
+end solutions cnt: 1 
+show_nodes end 
+
+key 1 
+
+show_nodes 
+1 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+1 
+end solutions cnt: 1 
+show_nodes end 
+
+key 2 
+
+show_nodes 
+2 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+2 
+end solutions cnt: 1 
+show_nodes end 
+
+key 3 
+
+show_nodes 
+3 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+3 
+end solutions cnt: 1 
+show_nodes end 
+
+key 4 
+
+show_nodes 
+4 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+4 
+end solutions cnt: 1 
+show_nodes end 
+
+key 5 
+
+show_nodes 
+5 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+5 
+end solutions cnt: 1 
+show_nodes end 
+
+key 6 
+
+show_nodes 
+6 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+6 
+end solutions cnt: 1 
+show_nodes end 
+
+key 7 
+
+show_nodes 
+7 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+7 
+end solutions cnt: 1 
+show_nodes end 
+
+key 8 
+
+show_nodes 
+8 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+8 
+end solutions cnt: 1 
+show_nodes end 
+
+key 9 
+
+show_nodes 
+9 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+9 
+end solutions cnt: 1 
+show_nodes end 
+
+key <undefined> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+9 <undefined> 
+end solutions cnt: 2 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+8 9 <undefined> 
+end solutions cnt: 3 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+7 8 9 <undefined> 
+end solutions cnt: 4 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+6 7 8 9 <undefined> 
+end solutions cnt: 5 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+5 6 7 8 9 <undefined> 
+end solutions cnt: 6 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+4 5 6 7 8 9 <undefined> 
+end solutions cnt: 7 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 8 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 9 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 10 
+show_nodes end 
+
+key 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 
+
+show_nodes 
+0 1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 11 
+show_nodes end 
+
+root: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 
+father: digit ::= 
+key digit ::= 
+
+show_nodes 
+0 1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 11 
+show_nodes end 
+
+root: digit ::= 
+father: digit 
+back-node of 0 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 1 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 2 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 3 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 4 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 5 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 6 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 7 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 8 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 9 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of <undefined> is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+key digit 
+
+show_nodes 
+0 1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 11 
+show_nodes end 
+
+root: digit 
+father: {digit} 
+key . 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key decimal-point ::= 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key {digit} 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key [sign] 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key 0 
+
+show_nodes 
+0 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+0 
+end solutions cnt: 1 
+show_nodes end 
+
+key 1 
+
+show_nodes 
+1 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+1 
+end solutions cnt: 1 
+show_nodes end 
+
+key 2 
+
+show_nodes 
+2 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+2 
+end solutions cnt: 1 
+show_nodes end 
+
+key 3 
+
+show_nodes 
+3 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+3 
+end solutions cnt: 1 
+show_nodes end 
+
+key 4 
+
+show_nodes 
+4 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+4 
+end solutions cnt: 1 
+show_nodes end 
+
+key 5 
+
+show_nodes 
+5 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+5 
+end solutions cnt: 1 
+show_nodes end 
+
+key 6 
+
+show_nodes 
+6 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+6 
+end solutions cnt: 1 
+show_nodes end 
+
+key 7 
+
+show_nodes 
+7 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+7 
+end solutions cnt: 1 
+show_nodes end 
+
+key 8 
+
+show_nodes 
+8 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+8 
+end solutions cnt: 1 
+show_nodes end 
+
+key 9 
+
+show_nodes 
+9 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+9 
+end solutions cnt: 1 
+show_nodes end 
+
+key <undefined> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+9 <undefined> 
+end solutions cnt: 2 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+8 9 <undefined> 
+end solutions cnt: 3 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+7 8 9 <undefined> 
+end solutions cnt: 4 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+6 7 8 9 <undefined> 
+end solutions cnt: 5 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+5 6 7 8 9 <undefined> 
+end solutions cnt: 6 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+4 5 6 7 8 9 <undefined> 
+end solutions cnt: 7 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 8 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 9 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 10 
+show_nodes end 
+
+key 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 
+
+show_nodes 
+0 1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 11 
+show_nodes end 
+
+root: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 
+father: digit ::= 
+key digit ::= 
+
+show_nodes 
+0 1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 11 
+show_nodes end 
+
+root: digit ::= 
+father: digit 
+back-node of 0 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 1 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 2 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 3 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 4 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 5 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 6 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 7 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 8 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of 9 is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+back-node of <undefined> is: digit 
+left: digit ::= 
+father: {digit} 
+father-father: <tmp> 
+key digit 
+
+show_nodes 
+0 1 2 3 4 5 6 7 8 9 <undefined> 
+end solutions cnt: 11 
+show_nodes end 
+
+root: digit 
+father: {digit} 
+key . 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key decimal-point ::= 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key {digit} 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+. 
+end solutions cnt: 1 
+show_nodes end 
+
+key 	[sign] {digit}+ decimal-point
+				 
+
+show_nodes 
+. . 
+end solutions cnt: 2 
+show_nodes end 
+
+key integer ::= 
+
+show_nodes 
+. . 
+end solutions cnt: 2 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+. . 
+end solutions cnt: 2 
+show_nodes end 
+
+key ratio 
+
+show_nodes 
+ratio 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+ratio 
+end solutions cnt: 1 
+show_nodes end 
+
+key float 
+
+show_nodes 
+float 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+float 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+ratio float 
+end solutions cnt: 2 
+show_nodes end 
+
+key 	integer |
+	ratio |
+	float
+				 
+
+show_nodes 
+. . ratio float 
+end solutions cnt: 4 
+show_nodes end 
+
+key number-token ::= 
+
+show_nodes 
+. . ratio float 
+end solutions cnt: 4 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+. . ratio float 
+end solutions cnt: 4 
+show_nodes end 
+
+key <undefined> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key <undefined> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key symbol-token ::= 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key <tmp> 
+
+show_nodes 
+<undefined> 
+end solutions cnt: 1 
+show_nodes end 
+
+key 	number-token |
+	symbol-token
+	 
+
+show_nodes 
+. . ratio float <undefined> 
+end solutions cnt: 5 
+show_nodes end 
+
+key token ::= 
+
+show_nodes 
+. . ratio float <undefined> 
+end solutions cnt: 5 
+show_nodes end 
+
 
 [make_graph], done. 
 
+token ::= 9bytes, d25001a0 
+@sub: 	number-token |
+	symbol-token
+	 31bytes, d2500210 
+@left: <tmp> 5bytes, d2500260 
+@left: number-token ::= 16bytes, d25002d0 
+@sub: 	integer |
+	ratio |
+	float
+				 31bytes, d2500350 
+@left: <tmp> 5bytes, d25003b0 
+@left: integer ::= 11bytes, d2500410 
+@sub: 	[sign] {digit}+ decimal-point
+				 35bytes, d2500490 
+@left: [sign] 6bytes, d25004e0 
+@sub: sign 4bytes, d2500530 
+@left: sign 4bytes, d25005d0 
+@left: sign ::= 8bytes, d2500620 
+@sub: + | - 5bytes, d2500670 
+@left: <tmp> 5bytes, d25006d0 
+@left: + 1bytes, d2500730 
+@left: <tmp> 5bytes, d24044d0 
+@left: {digit} 7bytes, d2404530 
+@sub: digit 5bytes, d2404580 
+@left: digit ::= 9bytes, d24045d0 
+@sub: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 53bytes, d2404660 
+@left: <tmp> 5bytes, d24046b0 
+@left: 0 1bytes, d2404700 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404790 
+@left: <tmp> 5bytes, d24047e0 
+@left: 1 1bytes, d2404840 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24048c0 
+@left: <tmp> 5bytes, d2404910 
+@left: 2 1bytes, d2404970 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24049f0 
+@left: <tmp> 5bytes, d2404a40 
+@left: 3 1bytes, d2404aa0 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404b20 
+@left: <tmp> 5bytes, d2404b70 
+@left: 4 1bytes, d2404bd0 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404c50 
+@left: <tmp> 5bytes, d2404ca0 
+@left: 5 1bytes, d2404d00 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404d70 
+@left: <tmp> 5bytes, d2404dc0 
+@left: 6 1bytes, d2404e20 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404e90 
+@left: <tmp> 5bytes, d2404ee0 
+@left: 7 1bytes, d2404f40 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404fb0 
+@left: <tmp> 5bytes, d2405000 
+@left: 8 1bytes, d2405060 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24050d0 
+@left: <tmp> 5bytes, d2405120 
+@left: 9 1bytes, d2405180 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24051d0 
+@left: <undefined> 11bytes, d2405230 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2500780 
+@left: - 1bytes, d25007e0 
+@left: <tmp> 5bytes, d24044d0 
+@left: {digit} 7bytes, d2404530 
+@sub: digit 5bytes, d2404580 
+@left: digit ::= 9bytes, d24045d0 
+@sub: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 53bytes, d2404660 
+@left: <tmp> 5bytes, d24046b0 
+@left: 0 1bytes, d2404700 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404790 
+@left: <tmp> 5bytes, d24047e0 
+@left: 1 1bytes, d2404840 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24048c0 
+@left: <tmp> 5bytes, d2404910 
+@left: 2 1bytes, d2404970 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24049f0 
+@left: <tmp> 5bytes, d2404a40 
+@left: 3 1bytes, d2404aa0 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404b20 
+@left: <tmp> 5bytes, d2404b70 
+@left: 4 1bytes, d2404bd0 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404c50 
+@left: <tmp> 5bytes, d2404ca0 
+@left: 5 1bytes, d2404d00 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404d70 
+@left: <tmp> 5bytes, d2404dc0 
+@left: 6 1bytes, d2404e20 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404e90 
+@left: <tmp> 5bytes, d2404ee0 
+@left: 7 1bytes, d2404f40 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404fb0 
+@left: <tmp> 5bytes, d2405000 
+@left: 8 1bytes, d2405060 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24050d0 
+@left: <tmp> 5bytes, d2405120 
+@left: 9 1bytes, d2405180 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24051d0 
+@left: <undefined> 11bytes, d2405230 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: @ 1bytes, d2500580 
+@left: <tmp> 5bytes, d24044d0 
+@left: {digit} 7bytes, d2404530 
+@sub: digit 5bytes, d2404580 
+@left: digit ::= 9bytes, d24045d0 
+@sub: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 53bytes, d2404660 
+@left: <tmp> 5bytes, d24046b0 
+@left: 0 1bytes, d2404700 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404790 
+@left: <tmp> 5bytes, d24047e0 
+@left: 1 1bytes, d2404840 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24048c0 
+@left: <tmp> 5bytes, d2404910 
+@left: 2 1bytes, d2404970 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24049f0 
+@left: <tmp> 5bytes, d2404a40 
+@left: 3 1bytes, d2404aa0 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404b20 
+@left: <tmp> 5bytes, d2404b70 
+@left: 4 1bytes, d2404bd0 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404c50 
+@left: <tmp> 5bytes, d2404ca0 
+@left: 5 1bytes, d2404d00 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404d70 
+@left: <tmp> 5bytes, d2404dc0 
+@left: 6 1bytes, d2404e20 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404e90 
+@left: <tmp> 5bytes, d2404ee0 
+@left: 7 1bytes, d2404f40 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2404fb0 
+@left: <tmp> 5bytes, d2405000 
+@left: 8 1bytes, d2405060 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24050d0 
+@left: <tmp> 5bytes, d2405120 
+@left: 9 1bytes, d2405180 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d24051d0 
+@left: <undefined> 11bytes, d2405230 
+go to back-node digit 
+@left: <tmp> 5bytes, d2405280 
+@left: decimal-point ::= 17bytes, d24052f0 
+@sub: . 1bytes, d2405350 
+@e. 
+@right: <tmp> 5bytes, d2500850 
+@left: {digit} 7bytes, d25008a0 
+@sub: digit 5bytes, d2500900 
+@left: digit ::= 9bytes, d2500960 
+@sub: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | <undefined>
+	 53bytes, d25009f0 
+@left: <tmp> 5bytes, d2500a40 
+@left: 0 1bytes, d2500aa0 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2500b30 
+@left: <tmp> 5bytes, d2500b80 
+@left: 1 1bytes, d2500be0 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2500c60 
+@left: <tmp> 5bytes, d2500cb0 
+@left: 2 1bytes, d2500d10 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2500d90 
+@left: <tmp> 5bytes, d2500de0 
+@left: 3 1bytes, d2500e40 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2403c70 
+@left: <tmp> 5bytes, d2403cc0 
+@left: 4 1bytes, d2403d20 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2403da0 
+@left: <tmp> 5bytes, d2403df0 
+@left: 5 1bytes, d2403e40 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2403eb0 
+@left: <tmp> 5bytes, d2403f00 
+@left: 6 1bytes, d2403f50 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2403fc0 
+@left: <tmp> 5bytes, d2404010 
+@left: 7 1bytes, d2404070 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d24040e0 
+@left: <tmp> 5bytes, d2404130 
+@left: 8 1bytes, d2404190 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2404200 
+@left: <tmp> 5bytes, d2404250 
+@left: 9 1bytes, d24042b0 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d2404300 
+@left: <undefined> 11bytes, d2404360 
+go to back-node digit 
+@left: <tmp> 5bytes, d24043b0 
+@left: decimal-point ::= 17bytes, d2404420 
+@sub: . 1bytes, d2404480 
+@e. 
+@right: <tmp> 5bytes, d24053a0 
+@left: <tmp> 5bytes, d2405400 
+@left: ratio 5bytes, d2405460 
+@e. 
+@right: <tmp> 5bytes, d24054b0 
+@left: float 5bytes, d2405510 
+@e. 
+@right: <tmp> 5bytes, d2405560 
+@left: symbol-token ::= 16bytes, d24055d0 
+@sub: <undefined> 11bytes, d2405630 
+@left: <undefined> 11bytes, d2405690 
+@e. 
 parser_init ok 
 
 
