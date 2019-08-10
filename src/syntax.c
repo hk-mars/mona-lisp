@@ -142,6 +142,107 @@ search_end(tr_node_s *root)
 }
 
 
+static char*
+get_token_name(token_s *tk)
+{
+    char *name;
+
+    name = NULL;
+    switch (tk->type) {
+
+    case TOKEN_SYMBOL:
+   
+	debug("TOKEN_SYMBOL: %s \n", tk->value.symbol);
+
+	name = tk->value.symbol;
+	break;
+
+    case TOKEN_NUM_INT:
+   
+	debug("TOKEN_NUM_INT \n");
+	name = "number-token ::";
+	break;
+
+    case TOKEN_NUM_FLOAT:
+   
+	debug("TOKEN_NUM_FLOAT \n");
+	name = "number-token ::";
+	break;
+
+    case TOKEN_NUM_RATIO:
+   
+	debug("TOKEN_NUM_RATIO \n");
+	name = "number-token ::";
+	break;
+
+    default:
+	debug("unknown token \n");
+	break;
+    }
+
+    return name;
+}
+
+
+static char*
+get_leaf_name(object_s *obj)
+{
+    char *name;
+
+    name = NULL;
+    switch (obj->type) {
+	
+    case OBJ_LIST:
+
+	debug("OBJ_LIST \n");
+
+	name = "(";
+	break;
+
+    case OBJ_ARRAY:
+
+	debug("OBJ_ARRAY \n");
+	break;
+	    
+    case OBJ_SEQUENCE:
+
+	debug("OBJ_SEQUENCE \n");
+	break;
+	    
+    case OBJ_TYPE:
+
+	debug("OBJ_TYPE \n");
+
+	name = get_token_name(&obj->token);
+	
+	break;
+	    
+    case OBJ_INPUT_STREAM:
+
+	debug("OBJ_INPUT_STREAM \n");
+	break;
+	    
+    case OBJ_OUTPUT_STREAM:
+
+	debug("OBJ_OUTPUT_STREAM \n");
+	break;
+	    
+    case OBJ_CLASS:
+
+	debug("OBJ_CLASS \n");
+	break;
+	    
+    default:
+
+	debug("unkown object \n");
+	break;
+    }
+
+    return name;
+}
+
+
+
 static tr_node_s*
 find_path(tr_node_s *root, lisp_list_s *path)
 {
@@ -168,6 +269,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
     ENTRY *rti;
     lisp_list_s *lst, *sl, *el;
 
+
+    func_s();
     
     nd = NULL;
   
@@ -175,11 +278,25 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
     if (root->is_token) {
 	debug("token node: %s \n", root->key);
-    
+
+	char *name = get_leaf_name(&path->obj);
+	
 	root->next = NULL;
-	if (strcmp(root->key, path->obj.token.name) != 0) return NULL;
-    
-	debug("found token: %s \n", root->key);
+	if (strcasecmp(root->key, name) != 0) {
+
+	    return NULL;
+	    
+	    /* check if it's a subset of leaf
+	     */
+	    //if (!match_subset_leaf(root->key, name)) return NULL;
+
+	    //debug("found %s token's subset: %s \n", root->key, name);
+	}
+	else {
+
+	    debug("found token: %s \n", root->key);
+	}
+   	
     
 	/* the end token, check the path if it's at the end.
 	 */
@@ -196,19 +313,19 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    rtn = search_end(root->right);
 	    if (rtn) return root;
       
-	    //debug("no end path. \n");
+	    debug("no end path. \n");
 	    return NULL;
 	}
 	else {
 	    path = path->next;
-	    //debug("try find: %s \n", path->tk.key);
+	    debug("try find: %s \n", get_leaf_name(&path->obj));
 	}
     }
   
   
     if (root->loop) {
-	//debug("loop node: %s \n", root->key);
-	nd = root->loop;
+	debug("loop node: %s \n", root->key);
+	//nd = root->loop;
     }
   
   
@@ -273,8 +390,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
     if (root->back) {
 	debug("go back to node: %s \n", root->back->key);
-	rtn = find_path(root->back, path);
-	if (rtn) return rtn;
+	//rtn = find_path(root->back, path);
+	//if (rtn) return rtn;
     }
   
     if (root->sub) {
@@ -358,7 +475,7 @@ check_func_form_syntax(form_s *form)
     
     /* track the tree to find the given path
      */
-    lisp_list_s *path = l;
+    lisp_list_s *path = form->list;
     tr_node_s *nd = find_path((tr_node_s*)item->data, path);
     if (!nd) goto FAIL;
     

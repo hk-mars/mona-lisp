@@ -91,20 +91,25 @@ symbol-token ::= <undefined>
 
 
 list ::= 
-	( LIST { object [, object] }* )
+	( LIST { object }* )
 
 object ::= 
 	element |
 	<undefined>
 	
 element ::=
-	list |
+	list_car_element |
 	array |
 	sequence |
 	type |
 	input-stream |
 	output-stream |
 	class
+	
+list_car_element ::=
+	token |
+	lisp-char |
+	object
 	
 
 cons ::= ( CONS object object )

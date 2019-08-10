@@ -1397,15 +1397,8 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 	if (lfi) {
 
 	    debug("character \n");
-
-	    lfn = tree_insert_left(root, lfi->key);
-	    if (!lfn) goto END;
 	    
-  	    lfn->is_token = 1;
-
-	    free(si.key);
-	    
-	    goto NEXT_STEP;
+	    goto FOUND_LEAF;
 	}
 	
 	
@@ -1454,20 +1447,26 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 
 	
 
-	goto NEXT_STEP;
+	goto BUILD_REMAIN;
     	
     }
     else {
 
 	debug("keyword \n");
+	//goto FOUND_LEAF;
     }
 
+    
+  FOUND_LEAF:
+    
     free(si.key);
   
     lfn = tree_insert_left(root, lfi->key);
     if (!lfn) goto END;
 
-  NEXT_STEP:    
+    lfn->is_token = 1;
+
+  BUILD_REMAIN:    
 
     if (size - (e - bnf + 1) <= 0) goto DONE;
     
@@ -1940,7 +1939,7 @@ parser_init(void)
 #endif
     
 
-#if 0    
+#if 1    
     /* create AST and ASG for syntax: "list ::=" 
      */
     root_key = "list ::=";
