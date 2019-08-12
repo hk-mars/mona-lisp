@@ -22,11 +22,9 @@ typedef enum
 {
     SYNTAX_OK = 0,
     SYNTAX_ERR = 1,
-    SYNTAX_ERR_FUNC = 2,
-    SYNTAX_ERR_ARG1 = 3,
-    SYNTAX_ERR_ARG2 = 4,
-    SYNTAX_ERR_ARG3 = 5,
-
+    SYNTAX_INVALID = 2,
+    SYNTAX_ERR_FUNC = 3,
+    
     
 } syntax_rt_t;
 

@@ -412,7 +412,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
   
     //e = fi->buf_e;
   
-    if (s >= e) return 0;
+    if (s > e) return 0;
 
     ml_util_show_buf(s, e-s+1);
   
@@ -1396,7 +1396,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 	lfi = hsearch(get_char_htab(), si, FIND);
 	if (lfi) {
 
-	    debug("character \n");
+	    debug("character %s \n", si.key);
 	    
 	    goto FOUND_LEAF;
 	}
@@ -1875,7 +1875,9 @@ parser_init(void)
 
 	"\"", "'", "(", ")", ",", ";", "`",
 
-	"|", "\\",
+	"##",
+
+	"#\\backslash", "#\\vertical-bar",
 
 	"#\\b", "#\\t", "#\\r", "#\\n", "#\\p", "\#\\space"
 
@@ -1935,7 +1937,8 @@ parser_init(void)
 
     rt = ast_lex_debug();
     if (!rt) return PARSER_ERR;
-    
+
+    bnf_tree_root = NULL;
 #endif
     
 

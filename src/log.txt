@@ -24,8 +24,12 @@ syntax_init ok
 parser_init 
 
 load_syntax_file 
-file monalisp1.0_syntax.txt opened, size 2557 bytes.
+file monalisp1.0_syntax.txt opened, size 2571 bytes.
 load_syntax_file end 
+
+
+htab_add 
+htab_add ok 
 
 
 htab_add 
@@ -600,9 +604,9 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-\
-dt_sz: 1 
+ml_util_show_buf, 11 bytes:
+#\backslash
+dt_sz: 11 
 push_htab ok 
 
 ml_util_show_buf, 19 bytes:
@@ -615,9 +619,9 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-|
-dt_sz: 1 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+dt_sz: 14 
 push_htab ok 
 
 ml_util_show_buf, 14 bytes:
@@ -662,9 +666,9 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-#
-dt_sz: 1 
+ml_util_show_buf, 2 bytes:
+##
+dt_sz: 2 
 push_htab ok 
 
 ml_util_show_buf, 9 bytes:
@@ -937,12 +941,11 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 31 bytes:
+ml_util_show_buf, 21 bytes:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
-dt_sz: 31 
+dt_sz: 21 
 push_htab ok 
 
 ml_util_show_buf, 8 bytes:
@@ -2559,19 +2562,28 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-\
-dt_sz: 1 
+ml_util_show_buf, 11 bytes:
+#\backslash
+dt_sz: 11 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-\
+ml_util_show_buf, 11 bytes:
+#\backslash
 element: 
-ml_util_show_buf, 1 bytes:
-\
+ml_util_show_buf, 11 bytes:
+#\backslash
 
 push_token_into_htab 
+ml_util_show_buf, 11 bytes:
+#\backslash
+ml_util_show_buf, 11 bytes:
+#\backslash
+ml_util_show_buf, 11 bytes:
+#\backslash
+key found in character hash table 
+push_token_into_htab ok 
+
 ml_util_show_buf, 19 bytes:
 multiple-escape ::=
 ml_util_show_buf, 19 bytes:
@@ -2582,19 +2594,28 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-|
-dt_sz: 1 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+dt_sz: 14 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-|
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
 element: 
-ml_util_show_buf, 1 bytes:
-|
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
 
 push_token_into_htab 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+key found in character hash table 
+push_token_into_htab ok 
+
 ml_util_show_buf, 14 bytes:
 macro-char ::=
 ml_util_show_buf, 14 bytes:
@@ -2726,19 +2747,28 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-#
-dt_sz: 1 
+ml_util_show_buf, 2 bytes:
+##
+dt_sz: 2 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 1 bytes:
-#
+ml_util_show_buf, 2 bytes:
+##
 element: 
-ml_util_show_buf, 1 bytes:
-#
+ml_util_show_buf, 2 bytes:
+##
 
 push_token_into_htab 
+ml_util_show_buf, 2 bytes:
+##
+ml_util_show_buf, 2 bytes:
+##
+ml_util_show_buf, 2 bytes:
+##
+key found in character hash table 
+push_token_into_htab ok 
+
 ml_util_show_buf, 9 bytes:
 token ::=
 ml_util_show_buf, 9 bytes:
@@ -3266,6 +3296,15 @@ ml_util_show_buf, 1 bytes:
 /
 
 push_token_into_htab 
+ml_util_show_buf, 1 bytes:
+/
+ml_util_show_buf, 1 bytes:
+/
+ml_util_show_buf, 1 bytes:
+/
+key found in character hash table 
+push_token_into_htab ok 
+
 ml_util_show_buf, 17 bytes:
 decimal-point ::=
 ml_util_show_buf, 17 bytes:
@@ -3289,6 +3328,15 @@ ml_util_show_buf, 1 bytes:
 .
 
 push_token_into_htab 
+ml_util_show_buf, 1 bytes:
+.
+ml_util_show_buf, 1 bytes:
+.
+ml_util_show_buf, 1 bytes:
+.
+key found in character hash table 
+push_token_into_htab ok 
+
 ml_util_show_buf, 19 bytes:
 exponent-marker ::=
 ml_util_show_buf, 19 bytes:
@@ -3959,37 +4007,32 @@ push_htab
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 31 bytes:
+ml_util_show_buf, 21 bytes:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
-dt_sz: 31 
+dt_sz: 21 
 
 find_bnf_unit_len 
 found 
-ml_util_show_buf, 31 bytes:
+ml_util_show_buf, 21 bytes:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 element: 
-ml_util_show_buf, 31 bytes:
+ml_util_show_buf, 21 bytes:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 
 push_token_into_htab 
-ml_util_show_buf, 31 bytes:
+ml_util_show_buf, 21 bytes:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
-ml_util_show_buf, 30 bytes:
+ml_util_show_buf, 20 bytes:
 token |
-	lisp-char |
-	object
+	lisp-char
 	
 ml_util_show_buf, 5 bytes:
 token
@@ -3998,9 +4041,8 @@ token
 search hash table to check if it's a syntax object 
 key: token ::= 
 found syntax object 
-ml_util_show_buf, 21 bytes:
-lisp-char |
-	object
+ml_util_show_buf, 11 bytes:
+lisp-char
 	
 ml_util_show_buf, 9 bytes:
 lisp-char
@@ -4008,16 +4050,6 @@ ml_util_show_buf, 9 bytes:
 lisp-char
 search hash table to check if it's a syntax object 
 key: lisp-char ::= 
-found syntax object 
-ml_util_show_buf, 8 bytes:
-object
-	
-ml_util_show_buf, 6 bytes:
-object
-ml_util_show_buf, 6 bytes:
-object
-search hash table to check if it's a syntax object 
-key: object ::= 
 found syntax object 
 push_token_into_htab ok 
 
@@ -5321,7 +5353,7 @@ parse_syntax_object end
 
 syntax object hash table 1511 entries, 50 entries used, 1461 entries free. 
 
-char hash table 257 entries, 94 entries used, 163 entries free. 
+char hash table 257 entries, 95 entries used, 162 entries free. 
 
 keyword hash table 211 entries, 23 entries used, 188 entries free. 
 
@@ -5629,7 +5661,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -5666,7 +5698,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -5786,7 +5818,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -5839,7 +5871,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -5892,7 +5924,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -5945,7 +5977,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -5998,7 +6030,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -6051,7 +6083,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -6104,7 +6136,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -6157,7 +6189,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -6210,7 +6242,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -6247,7 +6279,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -6434,7 +6466,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -6487,7 +6519,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -6540,7 +6572,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -6593,7 +6625,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -6646,7 +6678,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -6699,7 +6731,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -6752,7 +6784,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -6805,7 +6837,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -6858,7 +6890,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -6895,7 +6927,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -7102,7 +7134,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -7139,7 +7171,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -7262,7 +7294,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -7316,7 +7348,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -7369,7 +7401,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -7422,7 +7454,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -7475,7 +7507,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -7528,7 +7560,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -7581,7 +7613,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -7634,7 +7666,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -7687,7 +7719,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -7740,7 +7772,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -7919,7 +7951,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -7973,7 +8005,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -8026,7 +8058,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -8079,7 +8111,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -8132,7 +8164,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -8185,7 +8217,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -8238,7 +8270,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -8291,7 +8323,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -8344,7 +8376,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -8397,7 +8429,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -8655,7 +8687,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -8692,7 +8724,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -8816,7 +8848,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -8870,7 +8902,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -8923,7 +8955,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -8976,7 +9008,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -9029,7 +9061,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -9082,7 +9114,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -9135,7 +9167,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -9188,7 +9220,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -9241,7 +9273,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -9294,7 +9326,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -9428,7 +9460,7 @@ ml_util_show_buf, 1 bytes:
 /
 
 make_combined_obj_tree 
-character 
+character / 
 
 tree_insert_left 
 father:
@@ -9551,7 +9583,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -9605,7 +9637,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -9658,7 +9690,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -9711,7 +9743,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -9764,7 +9796,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -9817,7 +9849,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -9870,7 +9902,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -9923,7 +9955,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -9976,7 +10008,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -10029,7 +10061,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -10212,7 +10244,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -10266,7 +10298,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -10319,7 +10351,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -10372,7 +10404,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -10425,7 +10457,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -10478,7 +10510,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -10531,7 +10563,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -10584,7 +10616,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -10637,7 +10669,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -10690,7 +10722,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -10824,7 +10856,7 @@ ml_util_show_buf, 1 bytes:
 /
 
 make_combined_obj_tree 
-character 
+character / 
 
 tree_insert_left 
 father:
@@ -10947,7 +10979,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -11001,7 +11033,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -11054,7 +11086,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -11107,7 +11139,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -11160,7 +11192,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -11213,7 +11245,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -11266,7 +11298,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -11319,7 +11351,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -11372,7 +11404,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -11425,7 +11457,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -11683,7 +11715,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -11720,7 +11752,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -11840,7 +11872,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -11893,7 +11925,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -11946,7 +11978,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -11999,7 +12031,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -12052,7 +12084,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -12105,7 +12137,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -12158,7 +12190,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -12211,7 +12243,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -12264,7 +12296,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -12301,7 +12333,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -12396,7 +12428,7 @@ ml_util_show_buf, 1 bytes:
 .
 
 make_combined_obj_tree 
-character 
+character . 
 
 tree_insert_left 
 father:
@@ -12516,7 +12548,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -12569,7 +12601,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -12622,7 +12654,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -12675,7 +12707,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -12728,7 +12760,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -12781,7 +12813,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -12834,7 +12866,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -12887,7 +12919,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -12940,7 +12972,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -12977,7 +13009,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -13169,7 +13201,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -13222,7 +13254,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -13275,7 +13307,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -13328,7 +13360,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -13381,7 +13413,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -13434,7 +13466,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -13487,7 +13519,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -13540,7 +13572,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -13593,7 +13625,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -13630,7 +13662,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -13784,7 +13816,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -13821,7 +13853,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -13944,7 +13976,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -13998,7 +14030,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -14051,7 +14083,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -14104,7 +14136,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -14157,7 +14189,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -14210,7 +14242,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -14263,7 +14295,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -14316,7 +14348,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -14369,7 +14401,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -14422,7 +14454,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -14601,7 +14633,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -14655,7 +14687,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -14708,7 +14740,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -14761,7 +14793,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -14814,7 +14846,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -14867,7 +14899,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -14920,7 +14952,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -14973,7 +15005,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -15026,7 +15058,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -15079,7 +15111,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -15265,7 +15297,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -15318,7 +15350,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -15371,7 +15403,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -15424,7 +15456,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -15477,7 +15509,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -15530,7 +15562,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -15583,7 +15615,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -15636,7 +15668,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -15689,7 +15721,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -15726,7 +15758,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -15821,7 +15853,7 @@ ml_util_show_buf, 1 bytes:
 .
 
 make_combined_obj_tree 
-character 
+character . 
 
 tree_insert_left 
 father:
@@ -15941,7 +15973,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -15994,7 +16026,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -16047,7 +16079,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -16100,7 +16132,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -16153,7 +16185,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -16206,7 +16238,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -16259,7 +16291,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -16312,7 +16344,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -16365,7 +16397,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -16402,7 +16434,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -16594,7 +16626,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -16647,7 +16679,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -16700,7 +16732,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -16753,7 +16785,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -16806,7 +16838,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -16859,7 +16891,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -16912,7 +16944,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -16965,7 +16997,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -17018,7 +17050,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -17055,7 +17087,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -17209,7 +17241,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -17246,7 +17278,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -17369,7 +17401,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -17423,7 +17455,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -17476,7 +17508,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -17529,7 +17561,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -17582,7 +17614,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -17635,7 +17667,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -17688,7 +17720,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -17741,7 +17773,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -17794,7 +17826,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -17847,7 +17879,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -18026,7 +18058,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -18080,7 +18112,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -18133,7 +18165,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -18186,7 +18218,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -18239,7 +18271,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -18292,7 +18324,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -18345,7 +18377,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -18398,7 +18430,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -18451,7 +18483,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -18504,7 +18536,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -18708,7 +18740,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -18745,7 +18777,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -18865,7 +18897,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -18918,7 +18950,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -18971,7 +19003,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -19024,7 +19056,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -19077,7 +19109,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -19130,7 +19162,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -19183,7 +19215,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -19236,7 +19268,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -19289,7 +19321,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -19326,7 +19358,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -19462,7 +19494,7 @@ ml_util_show_buf, 1 bytes:
 .
 
 make_combined_obj_tree 
-character 
+character . 
 
 tree_insert_left 
 father:
@@ -19582,7 +19614,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -19635,7 +19667,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -19688,7 +19720,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -19741,7 +19773,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -19794,7 +19826,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -19847,7 +19879,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -19900,7 +19932,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -19953,7 +19985,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -20006,7 +20038,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -20043,7 +20075,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -20196,7 +20228,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -20249,7 +20281,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -20302,7 +20334,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -20355,7 +20387,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -20408,7 +20440,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -20461,7 +20493,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -20514,7 +20546,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -20567,7 +20599,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -20620,7 +20652,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -20657,7 +20689,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -20811,7 +20843,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -20848,7 +20880,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -20971,7 +21003,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -21025,7 +21057,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -21078,7 +21110,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -21131,7 +21163,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -21184,7 +21216,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -21237,7 +21269,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -21290,7 +21322,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -21343,7 +21375,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -21396,7 +21428,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -21449,7 +21481,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -21628,7 +21660,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -21682,7 +21714,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -21735,7 +21767,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -21788,7 +21820,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -21841,7 +21873,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -21894,7 +21926,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -21947,7 +21979,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -22000,7 +22032,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -22053,7 +22085,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -22106,7 +22138,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -22300,7 +22332,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -22353,7 +22385,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -22406,7 +22438,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -22459,7 +22491,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -22512,7 +22544,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -22565,7 +22597,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -22618,7 +22650,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -22671,7 +22703,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -22724,7 +22756,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -22761,7 +22793,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -22915,7 +22947,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -22952,7 +22984,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -23075,7 +23107,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -23129,7 +23161,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -23182,7 +23214,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -23235,7 +23267,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -23288,7 +23320,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -23341,7 +23373,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -23394,7 +23426,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -23447,7 +23479,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -23500,7 +23532,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -23553,7 +23585,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -23732,7 +23764,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -23786,7 +23818,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -23839,7 +23871,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -23892,7 +23924,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -23945,7 +23977,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -23998,7 +24030,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -24051,7 +24083,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -24104,7 +24136,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -24157,7 +24189,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -24210,7 +24242,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -24394,7 +24426,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -24447,7 +24479,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -24500,7 +24532,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -24553,7 +24585,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -24606,7 +24638,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -24659,7 +24691,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -24712,7 +24744,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -24765,7 +24797,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -24818,7 +24850,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -24855,7 +24887,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -24991,7 +25023,7 @@ ml_util_show_buf, 1 bytes:
 .
 
 make_combined_obj_tree 
-character 
+character . 
 
 tree_insert_left 
 father:
@@ -25111,7 +25143,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -25164,7 +25196,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -25217,7 +25249,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -25270,7 +25302,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -25323,7 +25355,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -25376,7 +25408,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -25429,7 +25461,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -25482,7 +25514,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -25535,7 +25567,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -25572,7 +25604,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -25725,7 +25757,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -25778,7 +25810,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -25831,7 +25863,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -25884,7 +25916,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -25937,7 +25969,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -25990,7 +26022,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -26043,7 +26075,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -26096,7 +26128,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -26149,7 +26181,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -26186,7 +26218,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -26340,7 +26372,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -26377,7 +26409,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -26500,7 +26532,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -26554,7 +26586,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -26607,7 +26639,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -26660,7 +26692,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -26713,7 +26745,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -26766,7 +26798,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -26819,7 +26851,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -26872,7 +26904,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -26925,7 +26957,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -26978,7 +27010,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -27157,7 +27189,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -27211,7 +27243,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -27264,7 +27296,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -27317,7 +27349,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -27370,7 +27402,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -27423,7 +27455,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -27476,7 +27508,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -27529,7 +27561,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -27582,7 +27614,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -27635,7 +27667,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -27829,7 +27861,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -27882,7 +27914,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -27935,7 +27967,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -27988,7 +28020,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -28041,7 +28073,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -28094,7 +28126,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -28147,7 +28179,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -28200,7 +28232,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -28253,7 +28285,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -28290,7 +28322,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -28444,7 +28476,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -28481,7 +28513,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -28604,7 +28636,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -28658,7 +28690,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -28711,7 +28743,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -28764,7 +28796,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -28817,7 +28849,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -28870,7 +28902,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -28923,7 +28955,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -28976,7 +29008,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -29029,7 +29061,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -29082,7 +29114,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -29261,7 +29293,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -29315,7 +29347,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -29368,7 +29400,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -29421,7 +29453,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -29474,7 +29506,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -29527,7 +29559,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -29580,7 +29612,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -29633,7 +29665,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -29686,7 +29718,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -29739,7 +29771,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -31170,7 +31202,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 1 
-- 86c03be0 has not back-node. 
+- 2404790 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {decimal-digit} 
@@ -31201,7 +31233,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 86c04cf0 
+go to back-node: decimal-digit 24058a0 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -31233,7 +31265,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find . 
-go to back-node: decimal-digit 86c04e00 
+go to back-node: decimal-digit 24059b0 
 search_graph, decimal-digit . 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= . 
@@ -31394,7 +31426,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 1 
-- 86c03be0 has not back-node. 
+- 2404790 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {decimal-digit} 
@@ -31425,7 +31457,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 86c04cf0 
+go to back-node: decimal-digit 24058a0 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -31457,7 +31489,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: decimal-digit 86c04e00 
+go to back-node: decimal-digit 24059b0 
 search_graph, decimal-digit 3 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 3 
@@ -31498,7 +31530,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 86c04f20 
+go to back-node: decimal-digit 2405ad0 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -31548,7 +31580,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find 5 
-go to back-node: decimal-digit 86c05040 
+go to back-node: decimal-digit 2405bf0 
 search_graph, decimal-digit 5 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 5 
@@ -31607,7 +31639,7 @@ left-left <tmp>
 search_graph, 5 5 
 found 5 
 try find 6 
-go to back-node: decimal-digit 86c05160 
+go to back-node: decimal-digit 2405d10 
 search_graph, decimal-digit 6 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 6 
@@ -31675,7 +31707,7 @@ left-left <tmp>
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: decimal-digit 86c05270 
+go to back-node: decimal-digit 2405e20 
 search_graph, decimal-digit 7 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 7 
@@ -31752,7 +31784,7 @@ left-left <tmp>
 search_graph, 7 7 
 found 7 
 try find 8 
-go to back-node: decimal-digit 86c05380 
+go to back-node: decimal-digit 2405f30 
 search_graph, decimal-digit 8 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 8 
@@ -31838,7 +31870,7 @@ left-left <tmp>
 search_graph, 8 8 
 found 8 
 try find 9 
-go to back-node: decimal-digit 86c05490 
+go to back-node: decimal-digit 2406040 
 search_graph, decimal-digit 9 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 9 
@@ -31929,7 +31961,7 @@ left-left <tmp>
 search_graph, 9 9 
 found 9 
 try find 0 
-go to back-node: decimal-digit 86c05540 
+go to back-node: decimal-digit 24060f0 
 search_graph, decimal-digit 0 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 0 
@@ -32622,7 +32654,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 1 
-- 86c05a20 has not back-node. 
+- 24065d0 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -32653,7 +32685,7 @@ left 1
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 86c06bd0 
+go to back-node: digit 2407780 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -32684,7 +32716,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 86c06d00 
+go to back-node: digit 24078b0 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -32723,7 +32755,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 86c06e30 
+go to back-node: digit 24079e0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -32770,7 +32802,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find 5 
-go to back-node: digit 86c06f60 
+go to back-node: digit 2407b10 
 search_graph, digit 5 
 left digit ::= 
 search_graph, digit ::= 5 
@@ -32825,7 +32857,7 @@ left 5
 search_graph, 5 5 
 found 5 
 try find 6 
-go to back-node: digit 86c07090 
+go to back-node: digit 2407c40 
 search_graph, digit 6 
 left digit ::= 
 search_graph, digit ::= 6 
@@ -32888,7 +32920,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: digit 86c071b0 
+go to back-node: digit 2407d60 
 search_graph, digit 7 
 left digit ::= 
 search_graph, digit ::= 7 
@@ -32959,7 +32991,7 @@ left 7
 search_graph, 7 7 
 found 7 
 try find 8 
-go to back-node: digit 86c072d0 
+go to back-node: digit 2407e80 
 search_graph, digit 8 
 left digit ::= 
 search_graph, digit ::= 8 
@@ -33038,7 +33070,7 @@ left 8
 search_graph, 8 8 
 found 8 
 try find 9 
-go to back-node: digit 86c073f0 
+go to back-node: digit 2407fa0 
 search_graph, digit 9 
 left digit ::= 
 search_graph, digit ::= 9 
@@ -33125,7 +33157,7 @@ left 9
 search_graph, 9 9 
 found 9 
 try find 0 
-go to back-node: digit 86c07510 
+go to back-node: digit 24080c0 
 search_graph, digit 0 
 left digit ::= 
 search_graph, digit ::= 0 
@@ -33239,7 +33271,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 4 
-go to back-node: decimal-digit 86c04e00 
+go to back-node: decimal-digit 24059b0 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -33289,7 +33321,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find 6 
-go to back-node: decimal-digit 86c05040 
+go to back-node: decimal-digit 2405bf0 
 search_graph, decimal-digit 6 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 6 
@@ -33357,7 +33389,7 @@ left-left <tmp>
 search_graph, 6 6 
 found 6 
 try find 8 
-go to back-node: decimal-digit 86c05270 
+go to back-node: decimal-digit 2405e20 
 search_graph, decimal-digit 8 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 8 
@@ -33443,7 +33475,7 @@ left-left <tmp>
 search_graph, 8 8 
 found 8 
 try find 0 
-go to back-node: decimal-digit 86c05490 
+go to back-node: decimal-digit 2406040 
 search_graph, decimal-digit 0 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 0 
@@ -33746,7 +33778,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 4 
-go to back-node: decimal-digit 86c040e0 
+go to back-node: decimal-digit 2404c90 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -33796,7 +33828,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find 6 
-go to back-node: decimal-digit 86c04320 
+go to back-node: decimal-digit 2404ed0 
 search_graph, decimal-digit 6 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 6 
@@ -33864,7 +33896,7 @@ left-left <tmp>
 search_graph, 6 6 
 found 6 
 try find 8 
-go to back-node: decimal-digit 86c04550 
+go to back-node: decimal-digit 2405100 
 search_graph, decimal-digit 8 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 8 
@@ -33950,7 +33982,7 @@ left-left <tmp>
 search_graph, 8 8 
 found 8 
 try find 0 
-go to back-node: decimal-digit 86c04770 
+go to back-node: decimal-digit 2405320 
 search_graph, decimal-digit 0 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 0 
@@ -34280,7 +34312,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 4 
-go to back-node: digit 86c06d00 
+go to back-node: digit 24078b0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -34327,7 +34359,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find 6 
-go to back-node: digit 86c06f60 
+go to back-node: digit 2407b10 
 search_graph, digit 6 
 left digit ::= 
 search_graph, digit ::= 6 
@@ -34390,7 +34422,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 8 
-go to back-node: digit 86c071b0 
+go to back-node: digit 2407d60 
 search_graph, digit 8 
 left digit ::= 
 search_graph, digit ::= 8 
@@ -34469,7 +34501,7 @@ left 8
 search_graph, 8 8 
 found 8 
 try find 0 
-go to back-node: digit 86c073f0 
+go to back-node: digit 2407fa0 
 search_graph, digit 0 
 left digit ::= 
 search_graph, digit ::= 0 
@@ -34574,7 +34606,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 86c04cf0 
+go to back-node: decimal-digit 24058a0 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -34606,7 +34638,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: decimal-digit 86c04e00 
+go to back-node: decimal-digit 24059b0 
 search_graph, decimal-digit 3 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 3 
@@ -34647,7 +34679,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 86c04f20 
+go to back-node: decimal-digit 2405ad0 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -34697,7 +34729,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: decimal-digit 86c05040 
+go to back-node: decimal-digit 2405bf0 
 search_graph, decimal-digit / 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= / 
@@ -35068,7 +35100,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 86c03fd0 
+go to back-node: decimal-digit 2404b80 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -35100,7 +35132,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: decimal-digit 86c040e0 
+go to back-node: decimal-digit 2404c90 
 search_graph, decimal-digit 3 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 3 
@@ -35141,7 +35173,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 86c04200 
+go to back-node: decimal-digit 2404db0 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -35191,7 +35223,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: decimal-digit 86c04320 
+go to back-node: decimal-digit 2404ed0 
 search_graph, decimal-digit / 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= / 
@@ -35590,7 +35622,7 @@ left 1
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 86c06bd0 
+go to back-node: digit 2407780 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -35621,7 +35653,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 86c06d00 
+go to back-node: digit 24078b0 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -35660,7 +35692,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 86c06e30 
+go to back-node: digit 24079e0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -35707,7 +35739,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 86c06f60 
+go to back-node: digit 2407b10 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -36052,7 +36084,7 @@ left 1
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 86c05e10 
+go to back-node: digit 24069c0 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -36083,7 +36115,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 86c05f40 
+go to back-node: digit 2406af0 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -36122,7 +36154,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 86c06070 
+go to back-node: digit 2406c20 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -36169,7 +36201,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 86c061a0 
+go to back-node: digit 2406d50 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -36554,7 +36586,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 86d021d0 
+go to back-node: digit 240a6f0 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -36588,7 +36620,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 86d02300 
+go to back-node: digit 240a820 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -36631,7 +36663,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 86d02430 
+go to back-node: digit 240a950 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -36683,7 +36715,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 86d02560 
+go to back-node: digit 25000b0 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -36795,7 +36827,7 @@ left-left <tmp>
 search_graph, / / 
 found / 
 try find 5 
-/ 86d02d40 has not back-node. 
+/ 2500890 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -36858,7 +36890,7 @@ left 5
 search_graph, 5 5 
 found 5 
 try find 6 
-go to back-node: digit 86d035b0 
+go to back-node: digit 2501100 
 search_graph, digit 6 
 left digit ::= 
 search_graph, digit ::= 6 
@@ -36921,7 +36953,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: digit 86d036d0 
+go to back-node: digit 2501220 
 search_graph, digit 7 
 left digit ::= 
 search_graph, digit ::= 7 
@@ -36992,7 +37024,7 @@ left 7
 search_graph, 7 7 
 found 7 
 try find 8 
-go to back-node: digit 86d037f0 
+go to back-node: digit 2501340 
 search_graph, digit 8 
 left digit ::= 
 search_graph, digit ::= 8 
@@ -37071,7 +37103,7 @@ left 8
 search_graph, 8 8 
 found 8 
 try find 9 
-go to back-node: digit 86d03910 
+go to back-node: digit 2501460 
 search_graph, digit 9 
 left digit ::= 
 search_graph, digit ::= 9 
@@ -37219,7 +37251,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 3 
-- 86c03be0 has not back-node. 
+- 2404790 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {decimal-digit} 
@@ -37268,7 +37300,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 86c04f20 
+go to back-node: decimal-digit 2405ad0 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -37318,7 +37350,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: decimal-digit 86c05040 
+go to back-node: decimal-digit 2405bf0 
 search_graph, decimal-digit / 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= / 
@@ -37734,7 +37766,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 3 
-- 86c05a20 has not back-node. 
+- 24065d0 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -37781,7 +37813,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 86c06e30 
+go to back-node: digit 24079e0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -37828,7 +37860,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 86c06f60 
+go to back-node: digit 2407b10 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -38243,7 +38275,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 3 
-- 86d00100 has not back-node. 
+- 2408670 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -38294,7 +38326,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 86d02430 
+go to back-node: digit 240a950 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -38346,7 +38378,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 86d02560 
+go to back-node: digit 25000b0 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -38458,7 +38490,7 @@ left-left <tmp>
 search_graph, / / 
 found / 
 try find 6 
-/ 86d02d40 has not back-node. 
+/ 2500890 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -38529,7 +38561,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: digit 86d036d0 
+go to back-node: digit 2501220 
 search_graph, digit 7 
 left digit ::= 
 search_graph, digit ::= 7 
@@ -38662,7 +38694,7 @@ ml_util_show_buf, 1 bytes:
 (
 
 make_combined_obj_tree 
-character 
+character ( 
 
 tree_insert_left 
 father:
@@ -38899,10 +38931,9 @@ found
 
 make_sub_obj_tree 
 sub: 
-ml_util_show_buf, 31 bytes:
+ml_util_show_buf, 21 bytes:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 
 tree_insert_left 
@@ -38916,15 +38947,14 @@ tree_insert_left ok
 pop_syntax_htab 
 pop_syntax_htab ok 
 
-sub node, dt_sz: 31 
+sub node, dt_sz: 21 
 
 tree_insert_sub 
 father:
 list_car_element ::=
 sub:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 tree_insert_sub ok 
 
@@ -38940,8 +38970,7 @@ drop_head_trail_whitespace ok
 tree_insert_left 
 father:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 left:
 <tmp>
@@ -38985,28 +39014,11 @@ pop_syntax_htab ok
 tree_insert_right 
 father:
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 right:
 <tmp>
 tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
 
 drop_head_trail_whitespace ok 
 
@@ -39214,7 +39226,7 @@ ml_util_show_buf, 3 bytes:
 #\b
 
 make_combined_obj_tree 
-character 
+character #\b 
 
 tree_insert_left 
 father:
@@ -39314,7 +39326,7 @@ ml_util_show_buf, 3 bytes:
 #\t
 
 make_combined_obj_tree 
-character 
+character #\t 
 
 tree_insert_left 
 father:
@@ -39407,7 +39419,7 @@ ml_util_show_buf, 3 bytes:
 #\r
 
 make_combined_obj_tree 
-character 
+character #\r 
 
 tree_insert_left 
 father:
@@ -39500,7 +39512,7 @@ ml_util_show_buf, 3 bytes:
 #\n
 
 make_combined_obj_tree 
-character 
+character #\n 
 
 tree_insert_left 
 father:
@@ -39593,7 +39605,7 @@ ml_util_show_buf, 3 bytes:
 #\p
 
 make_combined_obj_tree 
-character 
+character #\p 
 
 tree_insert_left 
 father:
@@ -39686,7 +39698,7 @@ ml_util_show_buf, 3 bytes:
 #\r
 
 make_combined_obj_tree 
-character 
+character #\r 
 
 tree_insert_left 
 father:
@@ -39763,7 +39775,7 @@ ml_util_show_buf, 7 bytes:
 #\space
 
 make_combined_obj_tree 
-character 
+character #\space 
 
 tree_insert_left 
 father:
@@ -39905,7 +39917,7 @@ ml_util_show_buf, 1 bytes:
 $
 
 make_combined_obj_tree 
-character 
+character $ 
 
 tree_insert_left 
 father:
@@ -39958,7 +39970,7 @@ ml_util_show_buf, 1 bytes:
 %
 
 make_combined_obj_tree 
-character 
+character % 
 
 tree_insert_left 
 father:
@@ -40011,7 +40023,7 @@ ml_util_show_buf, 1 bytes:
 &
 
 make_combined_obj_tree 
-character 
+character & 
 
 tree_insert_left 
 father:
@@ -40064,7 +40076,7 @@ ml_util_show_buf, 1 bytes:
 *
 
 make_combined_obj_tree 
-character 
+character * 
 
 tree_insert_left 
 father:
@@ -40117,7 +40129,7 @@ ml_util_show_buf, 1 bytes:
 +
 
 make_combined_obj_tree 
-character 
+character + 
 
 tree_insert_left 
 father:
@@ -40170,7 +40182,7 @@ ml_util_show_buf, 1 bytes:
 -
 
 make_combined_obj_tree 
-character 
+character - 
 
 tree_insert_left 
 father:
@@ -40223,7 +40235,7 @@ ml_util_show_buf, 1 bytes:
 .
 
 make_combined_obj_tree 
-character 
+character . 
 
 tree_insert_left 
 father:
@@ -40276,7 +40288,7 @@ ml_util_show_buf, 1 bytes:
 /
 
 make_combined_obj_tree 
-character 
+character / 
 
 tree_insert_left 
 father:
@@ -40329,7 +40341,7 @@ ml_util_show_buf, 1 bytes:
 0
 
 make_combined_obj_tree 
-character 
+character 0 
 
 tree_insert_left 
 father:
@@ -40382,7 +40394,7 @@ ml_util_show_buf, 1 bytes:
 1
 
 make_combined_obj_tree 
-character 
+character 1 
 
 tree_insert_left 
 father:
@@ -40435,7 +40447,7 @@ ml_util_show_buf, 1 bytes:
 2
 
 make_combined_obj_tree 
-character 
+character 2 
 
 tree_insert_left 
 father:
@@ -40488,7 +40500,7 @@ ml_util_show_buf, 1 bytes:
 3
 
 make_combined_obj_tree 
-character 
+character 3 
 
 tree_insert_left 
 father:
@@ -40541,7 +40553,7 @@ ml_util_show_buf, 1 bytes:
 4
 
 make_combined_obj_tree 
-character 
+character 4 
 
 tree_insert_left 
 father:
@@ -40594,7 +40606,7 @@ ml_util_show_buf, 1 bytes:
 5
 
 make_combined_obj_tree 
-character 
+character 5 
 
 tree_insert_left 
 father:
@@ -40647,7 +40659,7 @@ ml_util_show_buf, 1 bytes:
 6
 
 make_combined_obj_tree 
-character 
+character 6 
 
 tree_insert_left 
 father:
@@ -40700,7 +40712,7 @@ ml_util_show_buf, 1 bytes:
 7
 
 make_combined_obj_tree 
-character 
+character 7 
 
 tree_insert_left 
 father:
@@ -40753,7 +40765,7 @@ ml_util_show_buf, 1 bytes:
 8
 
 make_combined_obj_tree 
-character 
+character 8 
 
 tree_insert_left 
 father:
@@ -40806,7 +40818,7 @@ ml_util_show_buf, 1 bytes:
 9
 
 make_combined_obj_tree 
-character 
+character 9 
 
 tree_insert_left 
 father:
@@ -40859,7 +40871,7 @@ ml_util_show_buf, 1 bytes:
 :
 
 make_combined_obj_tree 
-character 
+character : 
 
 tree_insert_left 
 father:
@@ -40912,7 +40924,7 @@ ml_util_show_buf, 1 bytes:
 <
 
 make_combined_obj_tree 
-character 
+character < 
 
 tree_insert_left 
 father:
@@ -40965,7 +40977,7 @@ ml_util_show_buf, 1 bytes:
 =
 
 make_combined_obj_tree 
-character 
+character = 
 
 tree_insert_left 
 father:
@@ -41018,7 +41030,7 @@ ml_util_show_buf, 1 bytes:
 >
 
 make_combined_obj_tree 
-character 
+character > 
 
 tree_insert_left 
 father:
@@ -41071,7 +41083,7 @@ ml_util_show_buf, 1 bytes:
 @
 
 make_combined_obj_tree 
-character 
+character @ 
 
 tree_insert_left 
 father:
@@ -41124,7 +41136,7 @@ ml_util_show_buf, 1 bytes:
 A
 
 make_combined_obj_tree 
-character 
+character A 
 
 tree_insert_left 
 father:
@@ -41177,7 +41189,7 @@ ml_util_show_buf, 1 bytes:
 B
 
 make_combined_obj_tree 
-character 
+character B 
 
 tree_insert_left 
 father:
@@ -41230,7 +41242,7 @@ ml_util_show_buf, 1 bytes:
 C
 
 make_combined_obj_tree 
-character 
+character C 
 
 tree_insert_left 
 father:
@@ -41283,7 +41295,7 @@ ml_util_show_buf, 1 bytes:
 D
 
 make_combined_obj_tree 
-character 
+character D 
 
 tree_insert_left 
 father:
@@ -41336,7 +41348,7 @@ ml_util_show_buf, 1 bytes:
 E
 
 make_combined_obj_tree 
-character 
+character E 
 
 tree_insert_left 
 father:
@@ -41389,7 +41401,7 @@ ml_util_show_buf, 1 bytes:
 F
 
 make_combined_obj_tree 
-character 
+character F 
 
 tree_insert_left 
 father:
@@ -41442,7 +41454,7 @@ ml_util_show_buf, 1 bytes:
 G
 
 make_combined_obj_tree 
-character 
+character G 
 
 tree_insert_left 
 father:
@@ -41495,7 +41507,7 @@ ml_util_show_buf, 1 bytes:
 H
 
 make_combined_obj_tree 
-character 
+character H 
 
 tree_insert_left 
 father:
@@ -41548,7 +41560,7 @@ ml_util_show_buf, 1 bytes:
 I
 
 make_combined_obj_tree 
-character 
+character I 
 
 tree_insert_left 
 father:
@@ -41601,7 +41613,7 @@ ml_util_show_buf, 1 bytes:
 J
 
 make_combined_obj_tree 
-character 
+character J 
 
 tree_insert_left 
 father:
@@ -41654,7 +41666,7 @@ ml_util_show_buf, 1 bytes:
 K
 
 make_combined_obj_tree 
-character 
+character K 
 
 tree_insert_left 
 father:
@@ -41707,7 +41719,7 @@ ml_util_show_buf, 1 bytes:
 L
 
 make_combined_obj_tree 
-character 
+character L 
 
 tree_insert_left 
 father:
@@ -41760,7 +41772,7 @@ ml_util_show_buf, 1 bytes:
 M
 
 make_combined_obj_tree 
-character 
+character M 
 
 tree_insert_left 
 father:
@@ -41813,7 +41825,7 @@ ml_util_show_buf, 1 bytes:
 N
 
 make_combined_obj_tree 
-character 
+character N 
 
 tree_insert_left 
 father:
@@ -41866,7 +41878,7 @@ ml_util_show_buf, 1 bytes:
 O
 
 make_combined_obj_tree 
-character 
+character O 
 
 tree_insert_left 
 father:
@@ -41919,7 +41931,7 @@ ml_util_show_buf, 1 bytes:
 P
 
 make_combined_obj_tree 
-character 
+character P 
 
 tree_insert_left 
 father:
@@ -41972,7 +41984,7 @@ ml_util_show_buf, 1 bytes:
 Q
 
 make_combined_obj_tree 
-character 
+character Q 
 
 tree_insert_left 
 father:
@@ -42025,7 +42037,7 @@ ml_util_show_buf, 1 bytes:
 R
 
 make_combined_obj_tree 
-character 
+character R 
 
 tree_insert_left 
 father:
@@ -42078,7 +42090,7 @@ ml_util_show_buf, 1 bytes:
 S
 
 make_combined_obj_tree 
-character 
+character S 
 
 tree_insert_left 
 father:
@@ -42131,7 +42143,7 @@ ml_util_show_buf, 1 bytes:
 T
 
 make_combined_obj_tree 
-character 
+character T 
 
 tree_insert_left 
 father:
@@ -42184,7 +42196,7 @@ ml_util_show_buf, 1 bytes:
 U
 
 make_combined_obj_tree 
-character 
+character U 
 
 tree_insert_left 
 father:
@@ -42237,7 +42249,7 @@ ml_util_show_buf, 1 bytes:
 V
 
 make_combined_obj_tree 
-character 
+character V 
 
 tree_insert_left 
 father:
@@ -42290,7 +42302,7 @@ ml_util_show_buf, 1 bytes:
 W
 
 make_combined_obj_tree 
-character 
+character W 
 
 tree_insert_left 
 father:
@@ -42343,7 +42355,7 @@ ml_util_show_buf, 1 bytes:
 X
 
 make_combined_obj_tree 
-character 
+character X 
 
 tree_insert_left 
 father:
@@ -42396,7 +42408,7 @@ ml_util_show_buf, 1 bytes:
 Y
 
 make_combined_obj_tree 
-character 
+character Y 
 
 tree_insert_left 
 father:
@@ -42449,7 +42461,7 @@ ml_util_show_buf, 1 bytes:
 Z
 
 make_combined_obj_tree 
-character 
+character Z 
 
 tree_insert_left 
 father:
@@ -42502,7 +42514,7 @@ ml_util_show_buf, 1 bytes:
 a
 
 make_combined_obj_tree 
-character 
+character a 
 
 tree_insert_left 
 father:
@@ -42555,7 +42567,7 @@ ml_util_show_buf, 1 bytes:
 b
 
 make_combined_obj_tree 
-character 
+character b 
 
 tree_insert_left 
 father:
@@ -42608,7 +42620,7 @@ ml_util_show_buf, 1 bytes:
 c
 
 make_combined_obj_tree 
-character 
+character c 
 
 tree_insert_left 
 father:
@@ -42661,7 +42673,7 @@ ml_util_show_buf, 1 bytes:
 d
 
 make_combined_obj_tree 
-character 
+character d 
 
 tree_insert_left 
 father:
@@ -42714,7 +42726,7 @@ ml_util_show_buf, 1 bytes:
 e
 
 make_combined_obj_tree 
-character 
+character e 
 
 tree_insert_left 
 father:
@@ -42767,7 +42779,7 @@ ml_util_show_buf, 1 bytes:
 f
 
 make_combined_obj_tree 
-character 
+character f 
 
 tree_insert_left 
 father:
@@ -42820,7 +42832,7 @@ ml_util_show_buf, 1 bytes:
 g
 
 make_combined_obj_tree 
-character 
+character g 
 
 tree_insert_left 
 father:
@@ -42873,7 +42885,7 @@ ml_util_show_buf, 1 bytes:
 h
 
 make_combined_obj_tree 
-character 
+character h 
 
 tree_insert_left 
 father:
@@ -42926,7 +42938,7 @@ ml_util_show_buf, 1 bytes:
 i
 
 make_combined_obj_tree 
-character 
+character i 
 
 tree_insert_left 
 father:
@@ -42979,7 +42991,7 @@ ml_util_show_buf, 1 bytes:
 j
 
 make_combined_obj_tree 
-character 
+character j 
 
 tree_insert_left 
 father:
@@ -43032,7 +43044,7 @@ ml_util_show_buf, 1 bytes:
 k
 
 make_combined_obj_tree 
-character 
+character k 
 
 tree_insert_left 
 father:
@@ -43085,7 +43097,7 @@ ml_util_show_buf, 1 bytes:
 l
 
 make_combined_obj_tree 
-character 
+character l 
 
 tree_insert_left 
 father:
@@ -43138,7 +43150,7 @@ ml_util_show_buf, 1 bytes:
 m
 
 make_combined_obj_tree 
-character 
+character m 
 
 tree_insert_left 
 father:
@@ -43191,7 +43203,7 @@ ml_util_show_buf, 1 bytes:
 n
 
 make_combined_obj_tree 
-character 
+character n 
 
 tree_insert_left 
 father:
@@ -43244,7 +43256,7 @@ ml_util_show_buf, 1 bytes:
 o
 
 make_combined_obj_tree 
-character 
+character o 
 
 tree_insert_left 
 father:
@@ -43297,7 +43309,7 @@ ml_util_show_buf, 1 bytes:
 p
 
 make_combined_obj_tree 
-character 
+character p 
 
 tree_insert_left 
 father:
@@ -43350,7 +43362,7 @@ ml_util_show_buf, 1 bytes:
 q
 
 make_combined_obj_tree 
-character 
+character q 
 
 tree_insert_left 
 father:
@@ -43403,7 +43415,7 @@ ml_util_show_buf, 1 bytes:
 r
 
 make_combined_obj_tree 
-character 
+character r 
 
 tree_insert_left 
 father:
@@ -43456,7 +43468,7 @@ ml_util_show_buf, 1 bytes:
 s
 
 make_combined_obj_tree 
-character 
+character s 
 
 tree_insert_left 
 father:
@@ -43509,7 +43521,7 @@ ml_util_show_buf, 1 bytes:
 t
 
 make_combined_obj_tree 
-character 
+character t 
 
 tree_insert_left 
 father:
@@ -43562,7 +43574,7 @@ ml_util_show_buf, 1 bytes:
 u
 
 make_combined_obj_tree 
-character 
+character u 
 
 tree_insert_left 
 father:
@@ -43615,7 +43627,7 @@ ml_util_show_buf, 1 bytes:
 v
 
 make_combined_obj_tree 
-character 
+character v 
 
 tree_insert_left 
 father:
@@ -43668,7 +43680,7 @@ ml_util_show_buf, 1 bytes:
 w
 
 make_combined_obj_tree 
-character 
+character w 
 
 tree_insert_left 
 father:
@@ -43721,7 +43733,7 @@ ml_util_show_buf, 1 bytes:
 x
 
 make_combined_obj_tree 
-character 
+character x 
 
 tree_insert_left 
 father:
@@ -43774,7 +43786,7 @@ ml_util_show_buf, 1 bytes:
 y
 
 make_combined_obj_tree 
-character 
+character y 
 
 tree_insert_left 
 father:
@@ -43827,7 +43839,7 @@ ml_util_show_buf, 1 bytes:
 z
 
 make_combined_obj_tree 
-character 
+character z 
 
 tree_insert_left 
 father:
@@ -43880,7 +43892,7 @@ ml_util_show_buf, 1 bytes:
 ^
 
 make_combined_obj_tree 
-character 
+character ^ 
 
 tree_insert_left 
 father:
@@ -43933,4194 +43945,5 @@ ml_util_show_buf, 1 bytes:
 _
 
 make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-_
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-~
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-~
-key2: ~ ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-~
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-~
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 6 bytes:
-rubout
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 6 bytes:
-rubout
-key2: rubout ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 8 bytes:
-#\rubout
-
-tree_insert_left 
-father:
-<tmp>
-left:
-rubout ::=
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 8 
-
-tree_insert_sub 
-father:
-rubout ::=
-sub:
-#\rubout
-tree_insert_sub ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 8 bytes:
-#\rubout
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 8 bytes:
-#\rubout
-key2: #\rubout ::= 
-not found 
-ml_util_show_buf, 8 bytes:
-#\rubout
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-#\rubout
-left:
-#\rubout
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-single-escape
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 13 bytes:
-single-escape
-key2: single-escape ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 1 bytes:
-\
-
-tree_insert_left 
-father:
-<tmp>
-left:
-single-escape ::=
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 1 
-
-tree_insert_sub 
-father:
-single-escape ::=
-sub:
-\
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 15 bytes:
-multiple-escape
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 15 bytes:
-multiple-escape
-key2: multiple-escape ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 1 bytes:
-|
-
-tree_insert_left 
-father:
-<tmp>
-left:
-multiple-escape ::=
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 1 
-
-tree_insert_sub 
-father:
-multiple-escape ::=
-sub:
-|
-tree_insert_sub ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 10 bytes:
-macro-char
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 10 bytes:
-macro-char
-key2: macro-char ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 44 bytes:
-	terminating-char | 
-	non-terminating-char
-	
-
-tree_insert_left 
-father:
-<tmp>
-left:
-macro-char ::=
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 44 
-
-tree_insert_sub 
-father:
-macro-char ::=
-sub:
-	terminating-char | 
-	non-terminating-char
-	
-tree_insert_sub ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-	terminating-char | 
-	non-terminating-char
-	
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 16 bytes:
-terminating-char
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 16 bytes:
-terminating-char
-key2: terminating-char ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 25 bytes:
-" | ' | ( | ) | , | ; | `
-
-tree_insert_left 
-father:
-<tmp>
-left:
-terminating-char ::=
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 25 
-
-tree_insert_sub 
-father:
-terminating-char ::=
-sub:
-" | ' | ( | ) | , | ; | `
-tree_insert_sub ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-" | ' | ( | ) | , | ; | `
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-"
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-"
-key2: " ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-"
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-"
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-" | ' | ( | ) | , | ; | `
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-'
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-'
-key2: ' ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-'
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-'
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-(
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-(
-key2: ( ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-(
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-(
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-)
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-)
-key2: ) ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-)
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-)
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-,
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-,
-key2: , ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-,
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-,
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-;
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-;
-key2: ; ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-;
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-;
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-`
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-`
-key2: ` ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-`
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-`
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-
-tree_insert_right 
-father:
-	terminating-char | 
-	non-terminating-char
-	
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 20 bytes:
-non-terminating-char
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 20 bytes:
-non-terminating-char
-key2: non-terminating-char ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 1 bytes:
-#
-
-tree_insert_left 
-father:
-<tmp>
-left:
-non-terminating-char ::=
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 1 
-
-tree_insert_sub 
-father:
-non-terminating-char ::=
-sub:
-#
-tree_insert_sub ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 6 bytes:
-object
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 6 bytes:
-object
-key2: object ::= 
-found 
-
-make_sub_obj_tree 
-sub: 
-ml_util_show_buf, 25 bytes:
-	element |
-	<undefined>
-	
-
-tree_insert_left 
-father:
-<tmp>
-left:
-object ::=
-loop node: object ::= 
-tree_insert_left ok 
-
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-sub node, dt_sz: 25 
-make_or_tree ok 
-
-make_or_tree ok 
-
-
-tree_insert_right 
-father:
-	list_car_element |
-	array |
-	sequence |
-	type |
-	input-stream |
-	output-stream |
-	class
-	
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 5 bytes:
-array
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 5 bytes:
-array
-key2: array ::= 
-not found 
-ml_util_show_buf, 5 bytes:
-array
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-array
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 8 bytes:
-sequence
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 8 bytes:
-sequence
-key2: sequence ::= 
-not found 
-ml_util_show_buf, 8 bytes:
-sequence
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-sequence
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 4 bytes:
-type
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 4 bytes:
-type
-key2: type ::= 
-not found 
-ml_util_show_buf, 4 bytes:
-type
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-type
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 12 bytes:
-input-stream
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 12 bytes:
-input-stream
-key2: input-stream ::= 
-not found 
-ml_util_show_buf, 12 bytes:
-input-stream
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-input-stream
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-make_or_tree 
-drop_head_trail_whitespace ok 
-
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 13 bytes:
-output-stream
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 13 bytes:
-output-stream
-key2: output-stream ::= 
-not found 
-ml_util_show_buf, 13 bytes:
-output-stream
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-output-stream
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-
-tree_insert_right 
-father:
-<tmp>
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 5 bytes:
-class
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 5 bytes:
-class
-key2: class ::= 
-not found 
-ml_util_show_buf, 5 bytes:
-class
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-class
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-make_or_tree ok 
-
-
-tree_insert_right 
-father:
-	element |
-	<undefined>
-	
-right:
-<tmp>
-tree_insert_right ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 11 bytes:
-<undefined>
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 11 bytes:
-<undefined>
-key2: <undefined> ::= 
-not found 
-ml_util_show_buf, 11 bytes:
-<undefined>
-
-make_combined_obj_tree 
-keyword 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-<undefined>
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-make_or_tree ok 
-
-pattern: {}* 
-
-tree_insert_left 
-father:
-{ object }
-left:
-<tmp>
-tree_insert_left ok 
-
-drop_head_trail_whitespace ok 
-
-
-make_bnf_tree 
-
-find_bnf_obj_str 
-ml_util_show_buf, 1 bytes:
-)
-drop_head_trail_whitespace ok 
-
-ml_util_show_buf, 1 bytes:
-)
-key2: ) ::= 
-not found 
-ml_util_show_buf, 1 bytes:
-)
-
-make_combined_obj_tree 
-character 
-
-tree_insert_left 
-father:
-<tmp>
-left:
-)
-tree_insert_left ok 
-
-make_combined_obj_tree ok 
-
-make_braces_tree ok 
-
-make_combined_obj_tree ok 
-
-make_combined_obj_tree ok 
-
-make_sub_obj_tree ok 
-
-
-[make_bnf_tree], done. 
-
-hash table 1511 entries, 56 entries used, 1455 entries free. 
-
-
-[make_graph]... 
-back-node of token ::= is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\b is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\t is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\r is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\n is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\p is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\r is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\space is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of $ is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of % is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of & is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of * is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of + is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of - is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of . is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of / is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 0 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 1 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 2 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 3 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 4 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 5 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 6 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 7 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 8 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of 9 is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of : is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of < is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of = is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of > is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of @ is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of A is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of B is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of C is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of D is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of E is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of F is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of G is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of H is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of I is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of J is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of K is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of L is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of M is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of N is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of O is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of P is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of Q is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of R is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of S is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of T is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of U is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of V is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of W is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of X is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of Y is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of Z is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of a is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of b is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of c is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of d is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of e is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of f is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of g is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of h is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of i is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of j is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of k is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of l is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of m is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of n is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of o is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of p is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of q is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of r is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of s is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of t is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of u is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of v is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of w is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of x is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of y is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of z is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ^ is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of _ is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ~ is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of #\rubout is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of \ is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of | is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of " is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ' is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ( is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ) is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of , is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ; is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of ` is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of # is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of object ::= is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of array is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of sequence is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of type is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of input-stream is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of output-stream is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of class is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-back-node of <undefined> is:  object  
-left: object ::= 
-father: { object } 
-father-father: <tmp> 
-
-[make_graph], done. 
-
-parser_init ok 
-
-
-ml_reader_init 
-ml_reader_init ok 
-
-ml_init ok 
-
-
-ml_reader_load_file 
-
-load_file 
-file demo_1.lisp opened, size 820 bytes.
-load_file end 
-
-ml_util_show_buf, 820 bytes:
-
-;'abc
-;'\A\B\C
-
-;"hello world"
-;"\"\'\t"
-;""
-;"\"APL\\360?\" he cried."
-
-;(+ 1 1)
-
-;(+ 1b5000 777777q)
-
-;(1.7J  -3/4+6.7J  12/25/83)
-
-;(27^19 3^4/5 6//7 3.1.2.6 ^-43^)
-
-;(3.141_592_653_589_793_238_4 -3.7+2.6i-6.17j+19.6k)
-
-;; symbols but not likely numbers
-;(/ /5 + 1+  1- foo+  ab.cd _ ^ ^/- )
-
-;; list, number add
-;(+ 1 2)
-
-;(+ (* (/ +1 2) -34) (- 567 890))
-
-;(- 1 2)
-
-;(* 2 3)
-
-;(/ 3 0)
-
-;(* 1 (- 2 3))
-
-;(* (/ 200 (+ 2 (- 3 1)) 10) 5 2 2)
-
-;(+ (- 1 0) (+ (+ (+ 1 0) (+ 1 0)) 2) (+ 3 3))
-
-;(setq x (+ 1 2))
-;(setq x 1 y 2)
-;(setq x (+ 1 2) y (* 2 3))
-
-;(defconstant myname
-;  ; this is my english name
-;  "Toby M.")
-
-;(cons (car (list 1 2)) (cdr (list 3 4)))
-
-;(list 1 2 3)
-
-;(car (list 1 2 3))
-
-;(cdr (list 1 2 3))
-
-;(cons (list 4 5) (list 1 2 3))
-
-;; wrong car syntax
-;(car (list 1 2 3) (list 3 5))
-(list 1 2 3)
-
-
-
-
-ml_lex 
-ml_util_show_buf, 820 bytes:
-
-;'abc
-;'\A\B\C
-
-;"hello world"
-;"\"\'\t"
-;""
-;"\"APL\\360?\" he cried."
-
-;(+ 1 1)
-
-;(+ 1b5000 777777q)
-
-;(1.7J  -3/4+6.7J  12/25/83)
-
-;(27^19 3^4/5 6//7 3.1.2.6 ^-43^)
-
-;(3.141_592_653_589_793_238_4 -3.7+2.6i-6.17j+19.6k)
-
-;; symbols but not likely numbers
-;(/ /5 + 1+  1- foo+  ab.cd _ ^ ^/- )
-
-;; list, number add
-;(+ 1 2)
-
-;(+ (* (/ +1 2) -34) (- 567 890))
-
-;(- 1 2)
-
-;(* 2 3)
-
-;(/ 3 0)
-
-;(* 1 (- 2 3))
-
-;(* (/ 200 (+ 2 (- 3 1)) 10) 5 2 2)
-
-;(+ (- 1 0) (+ (+ (+ 1 0) (+ 1 0)) 2) (+ 3 3))
-
-;(setq x (+ 1 2))
-;(setq x 1 y 2)
-;(setq x (+ 1 2) y (* 2 3))
-
-;(defconstant myname
-;  ; this is my english name
-;  "Toby M.")
-
-;(cons (car (list 1 2)) (cdr (list 3 4)))
-
-;(list 1 2 3)
-
-;(car (list 1 2 3))
-
-;(cdr (list 1 2 3))
-
-;(cons (list 4 5) (list 1 2 3))
-
-;; wrong car syntax
-;(car (list 1 2 3) (list 3 5))
-(list 1 2 3)
-
-
-
-0x0a 
- 
-whitespace char 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:813 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:803 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:788 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:778 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:774 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:746 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:736 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:715 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:685 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:650 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:596 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:562 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:523 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:503 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:493 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:458 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:448 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:438 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:428 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:412 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:375 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:327 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:309 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:293 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:264 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:243 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:214 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:199 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:156 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:141 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:120 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:99 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:66 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:46 
-0x3b ; 
-macro char 
-
-read_macro 
-0x3b ; 
-
-read_comments 
-read_comments ok 
-
-read_macro end 
-
-
-show_form 
-show_form ok 
-
-remain code_sz:15 
-0x28 ( 
-macro char 
-
-read_macro 
-0x28 ( 
-
-read_list 
-0x6c l 
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-token_create ok 
-
-form_set_type, type: 5 
-list_add_token ok 
-
-identify_list_func ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-form_add_front ok 
-
-0x31 1 
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-digits len: 1 
-1 
-token_clone ok 
-
-list_add_token ok 
-
-identify_number_token ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-0x20   
-0x32 2 
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-digits len: 1 
-2 
-token_clone ok 
-
-list_add_token ok 
-
-identify_number_token ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-0x20   
-0x33 3 
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-
-stack_push 
-in size: 16, m_stack_top: 1 
-stack_push ok 
-
-digits len: 1 
-3 
-token_clone ok 
-
-list_add_token ok 
-
-identify_number_token ok 
-
-
-stack_pop 
-out size: 16, m_stack_top: 0 
-stack_pop ok 
-
-0x29 ) 
-read_macro end 
-
-
-show_form 
-COMPOUND_FUNCTION_FORM 
-
-list_show 
-OBJ_TYPE 
-OBJ_TYPE 
-OBJ_TYPE 
-OBJ_TYPE 
-list_show ok 
-
-show_form ok 
-
-remain code_sz:3 
-0x0a 
- 
-whitespace char 
-0x0a 
- 
-whitespace char 
-0x0a 
- 
-whitespace char 
-ml_lex ok 
-
-
-syntax_check 
-COMPOUND_FUNCTION_FORM 
-
-check_func_form_syntax 
-list 
-
-pop_syntax_htab 
-pop_syntax_htab ok 
-
-
-find_path 
-sub: 	( LIST { object }* ) 
-
-find_path 
-left: ( 
-
-find_path 
-token node: ( 
-OBJ_LIST 
-found token: ( 
-OBJ_TYPE 
-TOKEN_SYMBOL: list 
-try find: list 
-left: <tmp> 
-
-find_path 
-left: LIST 
-
-find_path 
-token node: LIST 
-OBJ_TYPE 
-TOKEN_SYMBOL: list 
-found token: LIST 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-try find: number-token :: 
-left: <tmp> 
-
-find_path 
-left: { object } 
-
-find_path 
-sub:  object  
-
-find_path 
-left: object ::= 
-
-find_path 
-sub: 	element |
-	<undefined>
-	 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: element ::= 
-
-find_path 
-sub: 	list_car_element |
-	array |
-	sequence |
-	type |
-	input-stream |
-	output-stream |
-	class
-	 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: list_car_element ::= 
-
-find_path 
-sub: 	token |
-	lisp-char |
-	object
-	 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: token ::= 
-
-find_path 
-token node: token ::= 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: lisp-char ::= 
-
-find_path 
-sub: 	whitespace | 
-	constituent-char |
-	single-escape | 
-	multiple-escape |
-	macro-char
-	 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: whitespace ::= 
-
-find_path 
-sub: 	backspace | 
-	tab | 
-	newline | 
-	linefeed | 
-	page | 
-	return | 
-	space
-		 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: backspace ::= 
-
-find_path 
-sub: #\b 
-
-find_path 
-left: #\b 
-
-find_path 
-token node: #\b 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: tab ::= 
-
-find_path 
-sub: #\t 
-
-find_path 
-left: #\t 
-
-find_path 
-token node: #\t 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: newline ::= 
-
-find_path 
-sub: #\r 
-
-find_path 
-left: #\r 
-
-find_path 
-token node: #\r 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: linefeed ::= 
-
-find_path 
-sub: #\n 
-
-find_path 
-left: #\n 
-
-find_path 
-token node: #\n 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: page ::= 
-
-find_path 
-sub: #\p 
-
-find_path 
-left: #\p 
-
-find_path 
-token node: #\p 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: return ::= 
-
-find_path 
-sub: #\r 
-
-find_path 
-left: #\r 
-
-find_path 
-token node: #\r 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: space ::= 
-
-find_path 
-sub: #\space 
-
-find_path 
-left: #\space 
-
-find_path 
-token node: #\space 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: constituent-char ::= 
-
-find_path 
-sub: 	$ | % | & | * | + | - | . | / |
-	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
-	: | < | = | > | @ | 
-	A | B | C | D | E | F | G | H | I | J | K | L | M | 
-	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
-	a | b | c | d | e | f | g | h | i | j | k | l | m | 
-	n | o | p | q | r | s | t | u | v | w | x | y | z |	
-	^ | _ | ~ | rubout
-	 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: $ 
-
-find_path 
-token node: $ 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: % 
-
-find_path 
-token node: % 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: & 
-
-find_path 
-token node: & 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: * 
-
-find_path 
-token node: * 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: + 
-
-find_path 
-token node: + 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: - 
-
-find_path 
-token node: - 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: . 
-
-find_path 
-token node: . 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: / 
-
-find_path 
-token node: / 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 0 
-
-find_path 
-token node: 0 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 1 
-
-find_path 
-token node: 1 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 2 
-
-find_path 
-token node: 2 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 3 
-
-find_path 
-token node: 3 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 4 
-
-find_path 
-token node: 4 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 5 
-
-find_path 
-token node: 5 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 6 
-
-find_path 
-token node: 6 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 7 
-
-find_path 
-token node: 7 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 8 
-
-find_path 
-token node: 8 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: 9 
-
-find_path 
-token node: 9 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: : 
-
-find_path 
-token node: : 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: < 
-
-find_path 
-token node: < 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: = 
-
-find_path 
-token node: = 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: > 
-
-find_path 
-token node: > 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: @ 
-
-find_path 
-token node: @ 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: A 
-
-find_path 
-token node: A 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: B 
-
-find_path 
-token node: B 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: C 
-
-find_path 
-token node: C 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: D 
-
-find_path 
-token node: D 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: E 
-
-find_path 
-token node: E 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: F 
-
-find_path 
-token node: F 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: G 
-
-find_path 
-token node: G 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: H 
-
-find_path 
-token node: H 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: I 
-
-find_path 
-token node: I 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: J 
-
-find_path 
-token node: J 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: K 
-
-find_path 
-token node: K 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: L 
-
-find_path 
-token node: L 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: M 
-
-find_path 
-token node: M 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: N 
-
-find_path 
-token node: N 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: O 
-
-find_path 
-token node: O 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: P 
-
-find_path 
-token node: P 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: Q 
-
-find_path 
-token node: Q 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: R 
-
-find_path 
-token node: R 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: S 
-
-find_path 
-token node: S 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: T 
-
-find_path 
-token node: T 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: U 
-
-find_path 
-token node: U 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: V 
-
-find_path 
-token node: V 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: W 
-
-find_path 
-token node: W 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: X 
-
-find_path 
-token node: X 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: Y 
-
-find_path 
-token node: Y 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: Z 
-
-find_path 
-token node: Z 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: a 
-
-find_path 
-token node: a 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: b 
-
-find_path 
-token node: b 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: c 
-
-find_path 
-token node: c 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: d 
-
-find_path 
-token node: d 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: e 
-
-find_path 
-token node: e 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: f 
-
-find_path 
-token node: f 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: g 
-
-find_path 
-token node: g 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: h 
-
-find_path 
-token node: h 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: i 
-
-find_path 
-token node: i 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: j 
-
-find_path 
-token node: j 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: k 
-
-find_path 
-token node: k 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: l 
-
-find_path 
-token node: l 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: m 
-
-find_path 
-token node: m 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: n 
-
-find_path 
-token node: n 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: o 
-
-find_path 
-token node: o 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: p 
-
-find_path 
-token node: p 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: q 
-
-find_path 
-token node: q 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: r 
-
-find_path 
-token node: r 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: s 
-
-find_path 
-token node: s 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: t 
-
-find_path 
-token node: t 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: u 
-
-find_path 
-token node: u 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: v 
-
-find_path 
-token node: v 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: w 
-
-find_path 
-token node: w 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: x 
-
-find_path 
-token node: x 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: y 
-
-find_path 
-token node: y 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: z 
-
-find_path 
-token node: z 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: ^ 
-
-find_path 
-token node: ^ 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: _ 
-
-find_path 
-token node: _ 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: ~ 
-
-find_path 
-token node: ~ 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: rubout ::= 
-
-find_path 
-sub: #\rubout 
-
-find_path 
-left: #\rubout 
-
-find_path 
-token node: #\rubout 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: single-escape ::= 
-
-find_path 
-sub: \ 
-
-find_path 
-go back to node:  object  
-left: <tmp> 
-
-find_path 
-left: ) 
-
-find_path 
-token node: ) 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: multiple-escape ::= 
-
-find_path 
-sub: | 
-
-find_path 
-go back to node:  object  
-left: <tmp> 
-
-find_path 
-left: ) 
-
-find_path 
-token node: ) 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: macro-char ::= 
-
-find_path 
-sub: 	terminating-char | 
-	non-terminating-char
-	 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: terminating-char ::= 
-
-find_path 
-sub: " | ' | ( | ) | , | ; | ` 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: " 
-
-find_path 
-token node: " 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: ' 
-
-find_path 
-token node: ' 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: ( 
-
-find_path 
-token node: ( 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: ) 
-
-find_path 
-token node: ) 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: , 
-
-find_path 
-token node: , 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: ; 
-
-find_path 
-token node: ; 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: ` 
-
-find_path 
-token node: ` 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: non-terminating-char ::= 
-
-find_path 
-sub: # 
-
-find_path 
-go back to node:  object  
-left: <tmp> 
-
-find_path 
-left: ) 
-
-find_path 
-token node: ) 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: object ::= 
-
-find_path 
-loop node: object ::= 
-go back to node:  object  
-left: <tmp> 
-
-find_path 
-left: ) 
-
-find_path 
-token node: ) 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: array 
-
-find_path 
-token node: array 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: sequence 
-
-find_path 
-token node: sequence 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: type 
-
-find_path 
-token node: type 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: input-stream 
-
-find_path 
-token node: input-stream 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <tmp> 
-
-find_path 
-left: output-stream 
-
-find_path 
-token node: output-stream 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: class 
-
-find_path 
-token node: class 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-right: <tmp> 
-
-find_path 
-left: <undefined> 
-
-find_path 
-token node: <undefined> 
-OBJ_TYPE 
-TOKEN_NUM_INT 
-check_func_form_syntax failed 
+character _ 
 

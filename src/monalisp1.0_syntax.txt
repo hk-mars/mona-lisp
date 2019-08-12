@@ -39,16 +39,16 @@ constituent-char ::=
 	
 rubout ::= #\rubout
 
-single-escape ::= \
+single-escape ::= #\backslash
 
-multiple-escape ::= |
+multiple-escape ::= #\vertical-bar
 
 macro-char ::= 
 	terminating-char | 
 	non-terminating-char
 	
 terminating-char ::= " | ' | ( | ) | , | ; | `
-non-terminating-char ::= #
+non-terminating-char ::= ##
 
 
 token ::=
@@ -108,8 +108,7 @@ element ::=
 	
 list_car_element ::=
 	token |
-	lisp-char |
-	object
+	lisp-char
 	
 
 cons ::= ( CONS object object )

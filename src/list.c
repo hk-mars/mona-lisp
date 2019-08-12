@@ -10,6 +10,7 @@
 
 #include "obj.h"
 
+#include "util.h"
 
 
 
@@ -50,20 +51,27 @@ list_add_object(lisp_list_s *list, object_s *obj)
 {
     if (!list || !obj) return false;
 
-   lisp_list_s *node = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
+    func_s();
+    
+    lisp_list_s *node = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
     if (!node) return false;
 
+    debug("new node \n");
     memcpy(&node->obj, obj, sizeof(object_s));
+
     
     if (!list->front) {
 
+	debug("null list \n");
+	
 	list->next = node;
 	list->front = node;
 	node->front = list;
 	node->next = list;
     }
     else {
-	
+
+	debug("new list \n");
 	list->front->next = node;
 	node->front = list->front;
 	node->next = list;
@@ -75,6 +83,19 @@ list_add_object(lisp_list_s *list, object_s *obj)
     return true;
 }
 
+
+bool
+list_add_char_obj(lisp_list_s *list, char *ch)
+{
+    object_s obj;
+    
+    memset(&obj, 0, sizeof(object_s));
+    
+    obj.type = OBJ_CHARACTER;
+    obj.character = ch;
+    
+    return list_add_object(list, &obj);    
+}
 
 
 void
@@ -89,6 +110,11 @@ list_show(lisp_list_s *list)
     while (l && l != list) {
 
 	switch (l->obj.type) {
+
+	case OBJ_CHARACTER:
+
+	    debug("OBJ_CHARACTER \n");
+	    break;
 
 	case OBJ_LIST:
 

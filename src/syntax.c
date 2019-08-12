@@ -91,6 +91,8 @@ syntax_init(void)
 }
 
 
+
+    
 static tr_node_s*
 search_end(tr_node_s *root)
 {
@@ -142,6 +144,63 @@ search_end(tr_node_s *root)
 }
 
 
+static tr_node_s*
+find_subset(tr_node_s *root, char *key)
+{
+    tr_node_s *rtn;
+
+    if (!root) return NULL;
+
+    //debug("%s %s  \n", __func__,  key);
+
+    if (!root->key) {
+	debug("root key is null \n");
+	return NULL;
+    }
+    else {
+	debug("%s %s %s \n", __func__, root->key, key);
+    }
+    
+    if (!strcmp(root->key, "<tmp>")) {
+
+
+	if (root->left) {
+
+	    
+	    rtn = find_subset(root->left, key);
+	    if (rtn) return rtn;
+	}
+    
+	if (root->right) {
+	
+	    rtn = find_subset(root->right, key);
+	    if (rtn) return rtn;
+	}	
+    }
+    else {
+    
+    
+	if (!strcmp(root->key, key)) {
+
+	    debug("found subset %s \n", key);
+	    return root;
+	}
+
+	if (root->sub) {
+	
+	    rtn = find_subset(root->sub, key);
+	    if (rtn) return rtn;
+	}
+	
+    }
+    
+  
+
+    return NULL;
+}
+
+
+
 static char*
 get_token_name(token_s *tk)
 {
@@ -159,20 +218,23 @@ get_token_name(token_s *tk)
 
     case TOKEN_NUM_INT:
    
-	debug("TOKEN_NUM_INT \n");
-	name = "number-token ::";
+	//debug("TOKEN_NUM_INT \n");
+	//name = "number-token ::=";
+	name = "token ::=";
 	break;
 
     case TOKEN_NUM_FLOAT:
    
-	debug("TOKEN_NUM_FLOAT \n");
-	name = "number-token ::";
+	//debug("TOKEN_NUM_FLOAT \n");
+	//name = "number-token ::=";
+	name = "token ::=";
 	break;
 
     case TOKEN_NUM_RATIO:
    
-	debug("TOKEN_NUM_RATIO \n");
-	name = "number-token ::";
+	//debug("TOKEN_NUM_RATIO \n");
+	//name = "number-token ::=";
+	name = "token ::=";
 	break;
 
     default:
@@ -191,27 +253,35 @@ get_leaf_name(object_s *obj)
 
     name = NULL;
     switch (obj->type) {
+
+    case OBJ_CHARACTER:
+
+	//debug("OBJ_CHARACTER \n");
+	name = obj->character;
+
+	//debug("character %s \n", name);
+	break;
 	
     case OBJ_LIST:
 
-	debug("OBJ_LIST \n");
-
-	name = "(";
+	//debug("OBJ_LIST \n");
+	name = "list ::=";
+	
 	break;
 
     case OBJ_ARRAY:
 
-	debug("OBJ_ARRAY \n");
+	//debug("OBJ_ARRAY \n");
 	break;
 	    
     case OBJ_SEQUENCE:
 
-	debug("OBJ_SEQUENCE \n");
+	//debug("OBJ_SEQUENCE \n");
 	break;
 	    
     case OBJ_TYPE:
 
-	debug("OBJ_TYPE \n");
+	//debug("OBJ_TYPE \n");
 
 	name = get_token_name(&obj->token);
 	
@@ -219,22 +289,22 @@ get_leaf_name(object_s *obj)
 	    
     case OBJ_INPUT_STREAM:
 
-	debug("OBJ_INPUT_STREAM \n");
+	//debug("OBJ_INPUT_STREAM \n");
 	break;
 	    
     case OBJ_OUTPUT_STREAM:
 
-	debug("OBJ_OUTPUT_STREAM \n");
+	//debug("OBJ_OUTPUT_STREAM \n");
 	break;
 	    
     case OBJ_CLASS:
 
-	debug("OBJ_CLASS \n");
+	//debug("OBJ_CLASS \n");
 	break;
 	    
     default:
 
-	debug("unkown object \n");
+	//debug("unkown object \n");
 	break;
     }
 
@@ -242,6 +312,7 @@ get_leaf_name(object_s *obj)
 }
 
 
+lisp_list_s *m_list_head = NULL;
 
 static tr_node_s*
 find_path(tr_node_s *root, lisp_list_s *path)
@@ -270,7 +341,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
     lisp_list_s *lst, *sl, *el;
 
 
-    func_s();
+    //func_s();
     
     nd = NULL;
   
@@ -279,29 +350,42 @@ find_path(tr_node_s *root, lisp_list_s *path)
     if (root->is_token) {
 	debug("token node: %s \n", root->key);
 
-	char *name = get_leaf_name(&path->obj);
-	
-	root->next = NULL;
-	if (strcasecmp(root->key, name) != 0) {
+	if (path->obj.type == OBJ_LIST) {
 
-	    return NULL;
-	    
-	    /* check if it's a subset of leaf
-	     */
-	    //if (!match_subset_leaf(root->key, name)) return NULL;
-
-	    //debug("found %s token's subset: %s \n", root->key, name);
+	    debug("subform \n");
+	    form_s *subform = path->obj.sub;
+	    rtn = find_path(pop_syntax_htab("list"), subform->next->list->next);
+	    if (!rtn) return NULL;
 	}
 	else {
+	    char *name = get_leaf_name(&path->obj);
+	
+	    root->next = NULL;
+	    if (strcasecmp(root->key, name) != 0) {
 
-	    debug("found token: %s \n", root->key);
-	}
-   	
+		return NULL;
+	    
+		//tr_node_s *lex_tree = get_lex_tree();
+		//if (lex_tree) debug("search lex tree \n");
+	    
+		/* check if it's a subset of leaf
+		 */	    
+		//if (!find_subset(root, name)) return NULL;
+		    
+		//debug("found %s token's subset: %s \n", root->key, name);		
+	    }
+	    else {
+
+		debug("found token: %s \n", root->key);
+	    }
+   	}
     
 	/* the end token, check the path if it's at the end.
-	 */
-	if (!path->next) {
-    
+	 */	
+	if (path->next->is_head) {
+
+	    debug("the end of path \n");
+
 	    if (!root->sub && !root->left && !root->right) return root;
       
 	    rtn = search_end(root->sub);
@@ -317,9 +401,11 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    return NULL;
 	}
 	else {
+
 	    path = path->next;
-	    debug("try find: %s \n", get_leaf_name(&path->obj));
+	    debug("find next: %s \n", get_leaf_name(&path->obj));
 	}
+
     }
   
   
@@ -389,27 +475,27 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
   
     if (root->back) {
-	debug("go back to node: %s \n", root->back->key);
-	//rtn = find_path(root->back, path);
-	//if (rtn) return rtn;
+	debug("go back to node: %s from %s \n", root->back->key, root->key);
+	rtn = find_path(root->back, path);
+	if (rtn) return rtn;
     }
   
     if (root->sub) {
-	debug("sub: %s \n", root->sub->key);
+	//debug("sub: %s \n", root->sub->key);
 	root->next = root->sub;
 	rtn = find_path(root->sub, path);
 	if (rtn) return rtn;
     }
   
     if (root->left) {
-	debug("left: %s \n", root->left->key);
+	//debug("left: %s \n", root->left->key);
 	root->next = root->left;
 	rtn = find_path(root->left, path);
 	if (rtn) return rtn;
     }
   
     if (root->right) {
-	debug("right: %s \n", root->right->key);
+	//debug("right: %s \n", root->right->key);
 	root->next = root->right;
 	rtn = find_path(root->right, path);
 	if (rtn) return rtn;
@@ -421,61 +507,35 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 
 static syntax_rt_t
-check_func_form_syntax(form_s *form)
+check_list_form_syntax(form_s *form)
 {
     syntax_rt_t rt;
     lisp_list_s *l;
     
     func_s();
 
+
+    if (!form->list) return SYNTAX_INVALID;
     
     if (!form->list->next) {
 
-	debug("null form \n");
+	debug_err("null list \n");
+	
 	return SYNTAX_ERR;
     }
 
-    l = form->list->next;
-    
-    debug("%s \n", l->obj.token.value.symbol);
 
-    htab_entry_s *item = pop_syntax_htab(l->obj.token.value.symbol);
+    debug("list form \n");
+    
+    list_show(form->list);
+
+    htab_entry_s *item = pop_syntax_htab("list");
     if (!item) goto FAIL;
-
-#if 0    
-    l = l->next;
-
-    while (l && l != form->list) {
-
-	if (l->obj.type == OBJ_LIST) {
-
-	    debug("OBJ_LIST \n");
-
-	    form_s *subform = l->obj.sub;
-	    if (subform) {
-		debug("sub_form \n");
-	    }
-	    
-	    
-	}
-	else if (l->obj.type == OBJ_TYPE) {
-
-	    debug("OBJ_TYPE \n");
-	}
-	else {
-
-	    debug("unkown object, type: %d \n", l->obj.type);
-	}
-
-	
-	l = l->next;
-    }
-#endif
     
-    
+     
     /* track the tree to find the given path
      */
-    lisp_list_s *path = form->list;
+    lisp_list_s *path = form->list->next;
     tr_node_s *nd = find_path((tr_node_s*)item->data, path);
     if (!nd) goto FAIL;
     
@@ -506,8 +566,14 @@ syntax_check(form_s *form)
 	case COMPOUND_FUNCTION_FORM:
 	    debug("COMPOUND_FUNCTION_FORM \n");
 
-	    rt = check_func_form_syntax(f);
-	    if (rt != SYNTAX_OK) return rt;
+	    if (f->list) {
+		
+		rt = check_list_form_syntax(f);
+		if (rt != SYNTAX_OK) return rt;
+	    }
+	    else {
+	    }
+
 	    
 	    break;
 

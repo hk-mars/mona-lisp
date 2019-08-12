@@ -14,17 +14,20 @@
 
 typedef enum
 {
-    OBJ_UNKOWN = 0,
-    OBJ_LIST = 1,
-    OBJ_ARRAY = 2,
-    OBJ_SEQUENCE = 3,
+    OBJ_UNKNOWN = 0,
     
-    OBJ_TYPE = 4,
-    OBJ_TYPE_FUNCTION = 5,
+    OBJ_CHARACTER = 1,
     
-    OBJ_INPUT_STREAM = 6,
-    OBJ_OUTPUT_STREAM = 7,
-    OBJ_CLASS = 8,
+    OBJ_LIST = 2,
+    OBJ_ARRAY = 3,
+    OBJ_SEQUENCE = 4,
+    
+    OBJ_TYPE = 5,
+    OBJ_TYPE_FUNCTION = 6,
+    
+    OBJ_INPUT_STREAM = 7,
+    OBJ_OUTPUT_STREAM = 8,
+    OBJ_CLASS = 9,
     
 } object_t;
 
@@ -38,6 +41,8 @@ typedef struct s_object
     void *self;
 
     void *sub;
+
+    char *character;
     
 } object_s;
 

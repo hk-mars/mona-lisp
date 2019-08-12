@@ -99,10 +99,10 @@ read_string(const char **code, size_t *code_sz, form_s *form)
 	    
 	    if (token.type != TOKEN_UNKOWN) {
 
-		token_s *t = token_clone(&token);
+		//token_s *t = token_clone(&token);
 
 		/* add the symbol token into the list form */
-		list_add_token(form->list, t);	
+		list_add_token(form->list, &token);	
 	
 		func_ok();
 		return true;
@@ -253,10 +253,10 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 
 	    if (token.type != TOKEN_UNKOWN) {
 
-		token_s *t = token_clone(&token);
+		//token_s *t = token_clone(&token);
 
 		/* add the symbol token into the list form */
-		list_add_token(form->list, t);	
+		list_add_token(form->list, &token);	
 	
 		func_ok();
 		return true;
@@ -512,10 +512,10 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
 	    
     if (token.type != TOKEN_UNKOWN) {
 
-	token_s *t = token_clone(&token);
+	//token_s *t = token_clone(&token);
 
 	/* add the number token into the list form */
-	list_add_token(form->list, t);	
+	list_add_token(form->list, &token);	
 	
 	func_ok();
 	return true;
@@ -528,7 +528,7 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
 static bool
 identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 {
-    token_s *t;
+    token_s *t, tk;
     char c;
     
     if (!eq(**code, '+') && !eq(**code, '-') &&
@@ -561,8 +561,12 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
     return false;
     
   DONE:
-    t = token_create();
-    if (!t) return false;
+    
+    memset(&tk, 0, sizeof(token_s));
+    t = &tk;
+    //t = token_create();
+    //if (!t) return false;
+    
     
     size_t len = 2;
     t->type = TOKEN_SYMBOL;
@@ -584,7 +588,7 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 static bool
 identify_list_func(const char **code, size_t *code_sz, form_s *form)
 {
-    token_s *t;
+    token_s *t, tk;
     
     if (!ml_util_strbufcmp("list", *code, *code_sz)) return false;
     
@@ -613,8 +617,10 @@ identify_list_func(const char **code, size_t *code_sz, form_s *form)
     return false;
     
   DONE:
-    t = token_create();
-    if (!t) return false;
+    memset(&tk, 0, sizeof(token_s));
+    t = &tk;
+    //t = token_create();
+    //if (!t) return false;
     
     t->type = TOKEN_SYMBOL;
     t->value.symbol = "list";
@@ -634,7 +640,7 @@ identify_list_func(const char **code, size_t *code_sz, form_s *form)
 static bool
 identify_car_cdr_cons_func(const char **code, size_t *code_sz, form_s *form)
 {
-    token_s *t;
+    token_s *t, tk;
     const char *str;
     
     if (ml_util_strbufcmp("car", *code, *code_sz)) {
@@ -683,8 +689,10 @@ identify_car_cdr_cons_func(const char **code, size_t *code_sz, form_s *form)
     return false;
     
   DONE:
-    t = token_create();
-    if (!t) return false;
+    memset(&tk, 0, sizeof(token_s));
+    t = &tk;
+    //t = token_create();
+    //if (!t) return false;
     
     t->type = TOKEN_SYMBOL;
     t->value.symbol = str;
@@ -806,16 +814,24 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 	if (*code == '(') {
 
-	    token_s *t = token_create();
-	    list_add_token(form->list, t);
+	    //token_s *t = token_create();
+	    token_s tk;
+	    memset(&tk, 0, sizeof(token_s));
+	    list_add_token(form->list, &tk);
 	    form->list->front->obj.type = OBJ_LIST;
-	    
-	    form_s *f = form_create();
-	    form->list->front->obj.sub = (void*)f;
+	 
+	    form_s *f_head = form_create();
+	    form->list->front->obj.sub = (void*)f_head;
 
-	    code_s cd = read_list(++code, --code_sz, f, form_create());
+	    form_s *f = form_create();
+	    
+	    list_add_char_obj(f->list, "(");
+	    
+	    code_s cd = read_list(++code, --code_sz, f_head, f);
 	    if (!cd.code) return cd;
 
+	    list_add_char_obj(f->list, ")");
+	    
 	    code = cd.code;
 	    code_sz = cd.code_sz;
 	}
@@ -873,15 +889,21 @@ read_macro(code_s *cd, lex_s *lex)
 
 	/* The left-parenthesis character initiates reading of a list. 
 	 */
-	
+
 	next_code(cd->code, cd->code_sz);
 
 	form_s *form = form_create();
 	if (!form) return false;
+
 	
+	list_add_char_obj(form->list, "(");
+		
 	code_s icode = read_list(cd->code, cd->code_sz, &lex->forms, form);
 	if (!icode.code) return false;
 
+	list_add_char_obj(form->list, ")");
+
+	
 	cd->code = icode.code;
 	cd->code_sz = icode.code_sz;
 

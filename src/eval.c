@@ -153,7 +153,7 @@ eval_list(void *left, void *right)
     lisp_list_s *list = &((eval_value_s*)left)->list;
     object_s *obj = ((eval_value_s*)right)->obj_in;
 
-    if (list->obj.type == OBJ_UNKOWN) {
+    if (list->obj.type == OBJ_UNKNOWN) {
 
 	list->obj.type = OBJ_LIST;
     }

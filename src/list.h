@@ -21,6 +21,8 @@ typedef struct s_lisp_list
 
     struct s_lisp_list *next;
     struct s_lisp_list *front;
+
+    bool is_head;
     
 } lisp_list_s;
 
@@ -28,6 +30,8 @@ typedef struct s_lisp_list
 bool list_add_token(lisp_list_s *list, token_s *token);
 
 bool list_add_object(lisp_list_s *list, object_s *obj);
+
+bool list_add_char_obj(lisp_list_s *list, char *ch);
 
 void list_show(lisp_list_s *list);
 

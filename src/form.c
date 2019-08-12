@@ -44,6 +44,7 @@ form_create(void)
     f->list = ml_malloc(sizeof(lisp_list_s));
     if (!f->list) return NULL;
 
+    f->list->is_head = true;
     f->list->obj.type = OBJ_LIST;
 
     f->type = UNKNOWN_FORM;
