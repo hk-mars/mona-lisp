@@ -14,6 +14,8 @@
 
 #include "variable.h"
 
+#include "printer.h"
+
 
 
 /** 
@@ -153,6 +155,12 @@ eval_list(void *left, void *right)
     lisp_list_s *list = &((eval_value_s*)left)->list;
     object_s *obj = ((eval_value_s*)right)->obj_in;
 
+    if (!obj) {
+
+	//debug_err("%s: object is null \r", __func__);
+	//return false;
+    }
+    
     if (list->obj.type == OBJ_UNKNOWN) {
 
 	list->obj.type = OBJ_LIST;
@@ -357,28 +365,46 @@ eval_function_form(form_s *form, eval_value_s *val)
     
     func_s();
 
+
     
     if (!form->list->next) {
 
-	debug("null form \n");
+	debug("null form \n");	
 	return EVAL_ERR;
     }
 
     l = form->list->next;
     
-    debug("%s \n", l->obj.token.value.symbol);
+    debug("list form \n");
+    list_show(form->list);
 
-    const eval_func_s *eval_func = match_func(l->obj.token.value.symbol);
+    /* get the function name
+     */
+    l = l->next;
+    if (!l) {
+      
+	debug_err("function name not found \n");
+	return EVAL_ERR_NULL;
+    }
+
+  
+    char *func_name = l->obj.token.value.symbol;
+    const eval_func_s *eval_func = match_func(func_name);
     if (!eval_func) {
 
-	debug_err("undefined function \n");
+	debug_err("undefined function: %s \n", func_name);
 	
 	return EVAL_ERR;
     }
 
-    l = l->next;
+    debug("function: %s \n", func_name);
+
     
-    while (l && l != form->list) {
+    /* evaluate the list
+     */
+    l = l->next;
+    list_add_char_obj(&val->list, ")");
+    while (l) {
 
 	if (l->obj.type == OBJ_LIST) {
 
@@ -394,7 +420,11 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    eval_rt_t rt = eval_function_form(subform->next, &value);
 	    if (rt != EVAL_OK) return rt;
 
-	    eval_func->eval(val, &value);
+	    debug("add sublist to the result \n");
+	    list_add_object(&val->list, &value.list.obj);
+	    
+	    //value.obj_in = &value.list.obj;
+	    //eval_func->eval(val, &value);
 	}
 	else if (l->obj.type == OBJ_TYPE) {
 
@@ -410,8 +440,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 	
 	l = l->next;
-    }
 
+	/* break if it's ")" as the end of list */
+	if (l && l->next == form->list) break;
+    }
+    
+    list_add_char_obj(&val->list, "(");
+
+    list_show(&val->list);
+    
 
     if (eval_func->get_result) {
 
@@ -487,7 +524,9 @@ eval(form_s *forms)
 		return EVAL_ERR;
 	    }
 
-	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+	    memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+
+	    printer_print(&value, OBJ_LIST);
 	    
 	    break;
 
@@ -500,7 +539,7 @@ eval(form_s *forms)
 		return EVAL_ERR;
 	    }
 
-	    // memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
 
 	    break;
 	    

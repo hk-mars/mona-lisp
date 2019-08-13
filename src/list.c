@@ -56,14 +56,11 @@ list_add_object(lisp_list_s *list, object_s *obj)
     lisp_list_s *node = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
     if (!node) return false;
 
-    debug("new node \n");
     memcpy(&node->obj, obj, sizeof(object_s));
 
     
     if (!list->front) {
 
-	debug("null list \n");
-	
 	list->next = node;
 	list->front = node;
 	node->front = list;
@@ -71,7 +68,6 @@ list_add_object(lisp_list_s *list, object_s *obj)
     }
     else {
 
-	debug("new list \n");
 	list->front->next = node;
 	node->front = list->front;
 	node->next = list;

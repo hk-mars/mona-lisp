@@ -519,14 +519,12 @@ check_list_form_syntax(form_s *form)
     
     if (!form->list->next) {
 
-	debug_err("null list \n");
-	
+	debug_err("null list \n");	
 	return SYNTAX_ERR;
     }
 
 
-    debug("list form \n");
-    
+    debug("list form \n");    
     list_show(form->list);
 
     htab_entry_s *item = pop_syntax_htab("list");

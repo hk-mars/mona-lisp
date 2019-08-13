@@ -33,6 +33,17 @@ hack parser
 
 hack parser
 
+- 2 weeks, from August 1 2019 to August 13 2019
+
+hack parser (syntax AST tree has been constructed and verified, a demo has been shown)
+
+- 2 weeks util the end of August 2019
+
+hack the core part of parser (show a demo)
+improve codes and warnings
+
+
+
 
 
 
