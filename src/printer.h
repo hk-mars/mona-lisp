@@ -25,6 +25,6 @@ typedef enum
 printer_rt_t printer_print(object_s *obj, object_t type);
 
 
-#endif /*  __PRINTER__ */
+#endif /* __PRINTER__ */
 
 

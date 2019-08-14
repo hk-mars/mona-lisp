@@ -871,6 +871,67 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 }
 
 
+static char*
+read_character(const char **code, size_t *code_sz)
+{
+    char *s, *ss;
+    
+    if (**code != '\\') return false;
+    next_code(*code, *code_sz);
+
+    func_s();
+    
+    if (*code_sz == 0) goto FAIL;
+
+    /* if the x is more than one character long, the x must be a symbol 
+     * with no embedded package markers. 
+     * the character name is (string-upcase x).
+     * if the name is invalid, then signaling a syntax error.
+     */
+    size_t len = 0;
+    ss = *code;
+    while (*code_sz > 1) {
+
+	if (**code == SPACE || **code == NEWLINE ||  **code == LINEFEED) {
+	    
+	    next_code(*code, *code_sz);
+	    break;
+	}
+
+	next_code(*code, *code_sz);
+	len++;
+    }
+
+    if (len == 0) {
+
+	debug_err("character name is null \n");
+	goto FAIL;
+	
+    }
+    
+    s = (char*)ml_malloc(len+1);
+    if (!s) return NULL;
+
+    memcpy(s, ss, len);
+
+    if (len == 1) {
+
+	debug("character: %s \n", s);
+    }
+    else {
+	debug("character name: %s \n", s);
+    }
+    
+    func_ok();
+    return true;
+    
+  FAIL:
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+    
+    return false;
+}
+
+
 static bool
 read_macro(code_s *cd, lex_s *lex)
 {
@@ -948,9 +1009,15 @@ read_macro(code_s *cd, lex_s *lex)
 
 	/* Sharpsign is a non-terminating dispatching macro character. It uses 
 	 * a character to select a function to run as a reader macro function.
+	 * 1. Sharpsign Backslash
+	 *    syntax: #\<x>
+	 * 2. TODO
 	 */
 
-	/* TODO: sharpsign syntax */
+	next_code(cd->code, cd->code_sz);
+
+	char *character = read_character(&cd->code, &cd->code_sz);
+	found = !!character;
 	
 	break;
 

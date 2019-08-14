@@ -35,14 +35,14 @@ typedef enum
 typedef struct s_object
 {
     object_t type;
+
+    char *character;
     
     token_s token;
 
     void *self;
 
     void *sub;
-
-    char *character;
     
 } object_s;
 
