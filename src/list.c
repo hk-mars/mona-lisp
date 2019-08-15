@@ -89,7 +89,7 @@ list_add_char_obj(lisp_list_s *list, char *ch)
     
     obj.type = OBJ_CHARACTER;
     obj.character = ch;
-    
+
     return list_add_object(list, &obj);    
 }
 

@@ -13,6 +13,8 @@
  */
 
 
+#define CHAR_UNKNOWN 0xFF
+
 /* '\b', #\backspace */
 #define BACKSPACE 0x08
 
@@ -32,7 +34,7 @@
 #define LINEFEED 0x0A
 
 /* TODO, #\page */
-#define PAGE 0xFF
+#define PAGE CHAR_UNKNOWN
 
 /* backward-delete-char (Rubout), #\rubout */
 #define RUBOUT 0x7F
@@ -42,7 +44,6 @@
 
 /* vertical bar */
 #define VERTICAL_BAR '|'
-
 
 
 #define is_digit(x) ((x) >= '0' && (x) <= '9')
@@ -198,6 +199,16 @@ typedef struct
     
 } char_type_s;
 
+
+typedef struct
+{
+    const char *name;
+    char *c;
+} character_s;
+
+char char_get(char *name);
+
+char* char_get_name(char c);
 
 #endif /* ML_CHARS_H */
 

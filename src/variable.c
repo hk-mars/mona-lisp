@@ -56,6 +56,27 @@ const var_binder_s m_binders[] =
 static void
 show_setq_pair(pair_s *pair)
 {
+    bool found;
+
+    func_s();
+    
+    switch (pair->val.type) {
+
+    case OBJ_CHARACTER:
+	debug("pair= var: %s, value: %s \n",
+	      pair->var_name,
+	      pair->val.character);
+
+	found = true;
+	break;
+
+    default:
+	found = false;
+	break;
+    }
+
+    if (found) return;
+    
     switch (pair->val.token.type) {
 
     case TOKEN_NUM_INT:
@@ -96,6 +117,70 @@ show_setq_pair(pair_s *pair)
 }
 
 
+static void
+var_show(variable_s *var)
+{
+    bool found;
+
+    func_s();
+    
+    switch (var->type) {
+
+    case OBJ_CHARACTER:
+	debug("var: %s, value: %s \n",
+	      var->name,
+	      var->val.character);
+
+	found = true;
+	break;
+
+    default:
+	found = false;
+	break;
+    }
+
+    if (found) return;
+    
+    switch (var->val.token.type) {
+
+    case TOKEN_NUM_INT:
+	debug("var: %s, value: %d \n",
+	      var->name,
+	      var->val.token.value.num_int);
+	
+	break;
+
+    case TOKEN_NUM_FLOAT:
+	debug("var: %s, value: %f \n",
+	      var->name,
+	      var->val.token.value.num_float);
+	
+	break;
+
+    case TOKEN_NUM_RATIO:
+	debug("var: %s, value: %d/%d \n",
+	      var->name,
+	      var->val.token.value.num_ratio.int_up,
+	      var->val.token.value.num_ratio.int_down);
+	
+	break;
+
+	
+    case TOKEN_SYMBOL:
+	debug("var: %s, value: %s \n",
+	      var->name,
+	      var->val.token.value.symbol);
+	break;
+	
+    default:
+
+	debug_err("unkown var type \n");
+	break;
+
+    }
+}
+
+
 static bool
 binding_setq(variable_s *var, void *context)
 {
@@ -107,8 +192,8 @@ binding_setq(variable_s *var, void *context)
     func_s();
 
     i = 1;
-    l = head->next->next->next;
-    while (l && l != head) {
+    l = head->next->next;
+    while (l) {
 
 	i++;
 	
@@ -145,6 +230,19 @@ binding_setq(variable_s *var, void *context)
 		pair.var_name = l->front->obj.token.value.symbol;
 	    }
 	}
+	else if (l->obj.type == OBJ_CHARACTER) {
+
+	    debug("OBJ_CHARACTER \n");
+
+	    if (i%2 == 0) {
+
+		memcpy(&pair.val, &l->obj, sizeof(var_value_s));
+			    
+		pair.var_name = l->front->obj.token.value.symbol;
+		//debug("%s %s \n", pair.var_name, pair.val.character);
+	    }	    
+
+	}
 	else {
 
 	    debug("unkown object, type: %d \n", l->obj.type);
@@ -171,6 +269,7 @@ binding_setq(variable_s *var, void *context)
 	}
 	
 	l = l->next;
+	if (l->next && l->next->is_head) break;
     }    
     
 
@@ -189,8 +288,8 @@ binding_defconstant(variable_s *var, void *context)
     func_s();
 
     i = 1;
-    l = head->next->next->next;
-    while (l && l != head) {
+    l = head;
+    while (l) {
 
 	i++;
 	
@@ -233,6 +332,8 @@ binding_defconstant(variable_s *var, void *context)
 	}
 	
 	l = l->next;
+
+	if (l->next && l->next->is_head) break;
     }    
 
     
@@ -292,7 +393,6 @@ var_init(void)
     func_ok();
     return VAR_OK;
 }
-
 
 
 /** 
@@ -385,7 +485,8 @@ var_get(char *name)
   FOUND:
 
     var = (variable_s*)entry_rt->data;
-    token_show(&var->val.token);
+    //token_show(&var->val.token);
+    var_show(var);
     
     func_ok();
     return entry_rt->data;;

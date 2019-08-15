@@ -28,11 +28,11 @@
     (code_sz)--;
 
 
-#define move_code(code, code_sz, sz_moved) \
-    int i = sz_moved; \
-    while ((code_sz) > 0 && i > 0) { \
-	next_code(code, code_sz);	    \
-	i--;			    \
+#define move_code(code, code_sz, sz_moved)	\
+    int i = sz_moved;				\
+    while ((code_sz) > 0 && i > 0) {		\
+	next_code(code, code_sz);		\
+	i--;					\
     }
 
 
@@ -733,6 +733,89 @@ identify_code_as_func(const char **code, size_t *code_sz,
 }
 
 
+
+static char*
+read_character(const char **code, size_t *code_sz)
+{
+    char *s, *ss;
+    
+    if (**code != '\\') return false;
+    next_code(*code, *code_sz);
+
+    func_s();
+    
+    if (*code_sz == 0) goto FAIL;
+
+    /* if the x is more than one character long, the x must be a symbol 
+     * with no embedded package markers. 
+     * the character name is (string-upcase x).
+     * if the name is invalid, then signaling a syntax error.
+     */
+    size_t len = 0;
+    ss = *code;
+    while (*code_sz > 1) {
+
+	if (**code == SPACE || **code == NEWLINE ||  **code == LINEFEED) {
+	    
+	    next_code(*code, *code_sz);
+	    break;
+	}
+
+	if (**code == ')') {
+	    
+	    break;
+	}	
+
+	next_code(*code, *code_sz);
+	len++;
+    }
+
+    if (len == 0) {
+
+	debug_err("character name is null \n");
+	goto FAIL;
+	
+    }
+    
+    s = (char*)ml_malloc(2);
+    if (!s) return NULL;
+
+    if (len == 1) {
+	
+	s[0] = *ss;
+	s[1] = 0;
+    }
+    else {
+
+	char *name = ml_util_buf2str(ss, len);	
+	debug("character name: %s \n", name);
+	
+	char c = char_get(name);
+	if (c == CHAR_UNKNOWN) {
+
+	    debug_err("unknown character name: %s \n", name);
+	    ml_free(name);
+	    goto FAIL;
+	}
+	
+	ml_free(name);
+	
+	s[0] = c;
+	s[1] = 0;
+    }
+
+    debug("character: %s\n", s);
+    
+    func_ok();
+    return s;
+    
+  FAIL:
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+    
+    return NULL;
+}
+
+
 /** 
  * The function read is called recursively to read successive objects until a right
  * parenthesis is found to be next in the code. A list of the objects read is returned.
@@ -812,6 +895,21 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    }
 	}
 
+
+	if (*code == '#') {
+
+	    next_code(code, code_sz);
+	    
+	    char *character = read_character(&code, &code_sz);
+	    if (character) {
+
+		list_add_char_obj(form->list, character);
+		
+		continue;
+	    }
+	    
+	}
+
 	if (*code == '(') {
 
 	    //token_s *t = token_create();
@@ -850,8 +948,6 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    if (binder) {
 
 		form->sub_type = SYMBOL_VARIABLE_FORM;
-
-		debug("%s \n", form->list->next->obj.token.value.symbol);
 		
 		form_add_front(form_head, form);
 	    }
@@ -868,67 +964,6 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 
     code_s cd = { NULL, 0 };
     return cd;
-}
-
-
-static char*
-read_character(const char **code, size_t *code_sz)
-{
-    char *s, *ss;
-    
-    if (**code != '\\') return false;
-    next_code(*code, *code_sz);
-
-    func_s();
-    
-    if (*code_sz == 0) goto FAIL;
-
-    /* if the x is more than one character long, the x must be a symbol 
-     * with no embedded package markers. 
-     * the character name is (string-upcase x).
-     * if the name is invalid, then signaling a syntax error.
-     */
-    size_t len = 0;
-    ss = *code;
-    while (*code_sz > 1) {
-
-	if (**code == SPACE || **code == NEWLINE ||  **code == LINEFEED) {
-	    
-	    next_code(*code, *code_sz);
-	    break;
-	}
-
-	next_code(*code, *code_sz);
-	len++;
-    }
-
-    if (len == 0) {
-
-	debug_err("character name is null \n");
-	goto FAIL;
-	
-    }
-    
-    s = (char*)ml_malloc(len+1);
-    if (!s) return NULL;
-
-    memcpy(s, ss, len);
-
-    if (len == 1) {
-
-	debug("character: %s \n", s);
-    }
-    else {
-	debug("character name: %s \n", s);
-    }
-    
-    func_ok();
-    return true;
-    
-  FAIL:
-    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
-    
-    return false;
 }
 
 

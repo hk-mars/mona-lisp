@@ -33,7 +33,7 @@ ALL_APPS = monalisp
 
 ALL_OBJS = monalisp.o lex.o syntax.o reader.o mem.o util.o error.o stack.o obj.o \
 	   list.o form.o token.o eval.o variable.o hsearch.o bin_tree.o tree.o \
-	   parser.o ast_tree.o asg_graph.o printer.o
+	   parser.o ast_tree.o asg_graph.o printer.o chars.o
 
 ALL_LIBS = lib_monalisp.a
 
@@ -80,7 +80,8 @@ macosx:
 
 monalisp.o:	monalisp.c lex.c syntax.c reader.c mem.c util.c error.c stack.c obj.c \
 		list.c form.c token.c eval.c variable.c hsearch.c bin_tree.c tree.c \
-		parser.c ast_tree.c asg_graph.c printer.c
+		parser.c ast_tree.c asg_graph.c printer.c chars.c
+
 
 
 

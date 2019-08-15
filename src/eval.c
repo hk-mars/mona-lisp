@@ -468,14 +468,28 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 
     func_s();
 
-    l = form->list->next;
+    if (!form->list->next) {
 
-    debug("%s \n", l->obj.token.value.symbol);
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
     
-    const var_binder_s *binder = var_match_binder(l->obj.token.value.symbol);
+    debug("list form \n");
+    list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = l->obj.token.value.symbol;
+    debug("name: %s \n", name);
+    
+    const var_binder_s *binder = var_match_binder(name);
     if (!binder) {
 
-	debug_err("undefined binder \n");
+	debug_err("undefined binder: %s \n", name);
 	
 	return EVAL_ERR;
     }
@@ -488,7 +502,7 @@ eval_symbol_form(form_s *form, eval_value_s *val)
     }
 
     variable_s var;
-    binder->bind(&var, form->list);  
+    binder->bind(&var, l);  
     
     func_ok();
 

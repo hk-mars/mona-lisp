@@ -67,5 +67,8 @@
 #\'
 #\space
 
+(setq x #\a)
+
+(setq y #\newline)
 
 
