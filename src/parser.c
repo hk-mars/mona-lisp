@@ -387,6 +387,14 @@ find_e_ch(char lc, char rc, char *s, int sz)
 static char*
 create_syntax_obj_key(char *s, char *e)
 {
+    if (!s) return NULL;
+    
+    if (!e) {
+
+	e = s + strlen(s);
+    }
+
+    
     char *key = ml_malloc(e-s+1 + strlen(" ::=") + 1);
     if (!key) return NULL;
 
@@ -1819,6 +1827,44 @@ push_kw_htab(hash_table_s *htab, tr_node_s *sn)
 static hash_table_s htab, kw_htab, char_htab;
 
 
+static parser_rt_t
+construct_ast_tree(char *key)
+{
+    int rt;
+    char *root_key;
+    tr_node_s *es;
+
+    func_s();
+    
+    root_key = create_syntax_obj_key(key, NULL);
+
+    debug("root key: %s \n", root_key);
+    
+    debug("\n\n[make_bnf_tree]... root: %s \n", root_key);
+    rt = make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
+    debug("\n[make_bnf_tree], done. \n\n");
+  
+    debug("hash table %d entries, %d entries used, %d entries free. \n", 
+	  htab.size, htab.filled, htab.size - htab.filled);
+  
+    debug("\n\n[make_graph]... \n");	
+    es = make_graph(bnf_tree_root);
+    debug("\n[make_graph], done. \n\n");
+
+    //show_graph(es);
+    
+    //show_nodes(es);
+
+    //show_bnf_tree(bnf_tree_root);
+  
+    rt = push_syntax_htab(key, bnf_tree_root);
+    if (!rt) return PARSER_ERR;
+
+    func_ok();
+    return PARSER_OK;
+}
+
+
 parser_rt_t
 parser_init(void)
 {
@@ -1879,7 +1925,7 @@ parser_init(void)
 
 	"#\\backslash", "#\\vertical-bar",
 
-	"#\\b", "#\\t", "#\\r", "#\\n", "#\\p", "\#\\space"
+	"#\\b", "#\\t", "#\\r", "#\\n", "#\\p", "#\\space"
 
     };
 
@@ -1941,36 +1987,12 @@ parser_init(void)
     bnf_tree_root = NULL;
 #endif
     
-
-#if 1    
-    /* create AST and ASG for syntax: "list ::=" 
-     */
-    root_key = "list ::=";
+    if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
     
-    debug("\n\n[make_bnf_tree]... root: %s \n", root_key);
-    rt = make_bnf_tree(NULL, root_key, strlen(root_key), &htab, 0);
-    debug("\n[make_bnf_tree], done. \n\n");
-  
-    debug("hash table %d entries, %d entries used, %d entries free. \n", 
-	  htab.size, htab.filled, htab.size - htab.filled);
-  
-    debug("\n\n[make_graph]... \n");	
-    es = make_graph(bnf_tree_root);
-    debug("\n[make_graph], done. \n\n");
+    if (construct_ast_tree("car") != PARSER_OK) return PARSER_ERR;
 
-    //show_graph(es);
+    if (construct_ast_tree("cdr") != PARSER_OK) return PARSER_ERR;
     
-    //show_nodes(es);
-
-    //show_bnf_tree(bnf_tree_root);
-  
-    rt = push_syntax_htab("list", bnf_tree_root);
-    if (!rt) return PARSER_ERR;
-
-    //rt = syntax_list_debug();
-    
-#endif    
-
     func_ok();
 
     return PARSER_OK;

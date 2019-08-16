@@ -5451,7 +5451,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 41 
 
@@ -5515,7 +5515,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 71 
 
@@ -5616,7 +5616,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -5773,7 +5773,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -6346,7 +6346,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 1 
 
@@ -6421,7 +6421,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -6994,7 +6994,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 1 
 
@@ -7089,7 +7089,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -7247,7 +7247,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -7904,7 +7904,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -8559,7 +8559,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 43 
 
@@ -8642,7 +8642,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -8801,7 +8801,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -9536,7 +9536,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -10197,7 +10197,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -10932,7 +10932,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -11571,7 +11571,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 169 
 
@@ -11670,7 +11670,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -11827,7 +11827,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -12503,7 +12503,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -13117,7 +13117,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 39 
 
@@ -13771,7 +13771,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -13929,7 +13929,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -14586,7 +14586,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -15252,7 +15252,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -15928,7 +15928,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -16542,7 +16542,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 39 
 
@@ -17196,7 +17196,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -17354,7 +17354,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -18011,7 +18011,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -18695,7 +18695,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -18852,7 +18852,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -19569,7 +19569,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -20144,7 +20144,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 39 
 
@@ -20798,7 +20798,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -20956,7 +20956,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -21613,7 +21613,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -22248,7 +22248,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 39 
 
@@ -22902,7 +22902,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -23060,7 +23060,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -23717,7 +23717,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -24381,7 +24381,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -25098,7 +25098,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 37 
 
@@ -25673,7 +25673,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 39 
 
@@ -26327,7 +26327,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -26485,7 +26485,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -27142,7 +27142,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -27777,7 +27777,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 39 
 
@@ -28431,7 +28431,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 5 
 
@@ -28589,7 +28589,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -29246,7 +29246,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 53 
 
@@ -29895,7 +29895,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 11 
 
@@ -31202,7 +31202,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 1 
-- 2404790 has not back-node. 
+- a8c04750 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {decimal-digit} 
@@ -31233,7 +31233,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 24058a0 
+go to back-node: decimal-digit a8c05860 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -31265,7 +31265,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find . 
-go to back-node: decimal-digit 24059b0 
+go to back-node: decimal-digit a8c05970 
 search_graph, decimal-digit . 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= . 
@@ -31426,7 +31426,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 1 
-- 2404790 has not back-node. 
+- a8c04750 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {decimal-digit} 
@@ -31457,7 +31457,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 24058a0 
+go to back-node: decimal-digit a8c05860 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -31489,7 +31489,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: decimal-digit 24059b0 
+go to back-node: decimal-digit a8c05970 
 search_graph, decimal-digit 3 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 3 
@@ -31530,7 +31530,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 2405ad0 
+go to back-node: decimal-digit a8c05a90 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -31580,7 +31580,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find 5 
-go to back-node: decimal-digit 2405bf0 
+go to back-node: decimal-digit a8c05bb0 
 search_graph, decimal-digit 5 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 5 
@@ -31639,7 +31639,7 @@ left-left <tmp>
 search_graph, 5 5 
 found 5 
 try find 6 
-go to back-node: decimal-digit 2405d10 
+go to back-node: decimal-digit a8c05cd0 
 search_graph, decimal-digit 6 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 6 
@@ -31707,7 +31707,7 @@ left-left <tmp>
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: decimal-digit 2405e20 
+go to back-node: decimal-digit a8c05de0 
 search_graph, decimal-digit 7 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 7 
@@ -31784,7 +31784,7 @@ left-left <tmp>
 search_graph, 7 7 
 found 7 
 try find 8 
-go to back-node: decimal-digit 2405f30 
+go to back-node: decimal-digit a8c05ef0 
 search_graph, decimal-digit 8 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 8 
@@ -31870,7 +31870,7 @@ left-left <tmp>
 search_graph, 8 8 
 found 8 
 try find 9 
-go to back-node: decimal-digit 2406040 
+go to back-node: decimal-digit a8c06000 
 search_graph, decimal-digit 9 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 9 
@@ -31961,7 +31961,7 @@ left-left <tmp>
 search_graph, 9 9 
 found 9 
 try find 0 
-go to back-node: decimal-digit 24060f0 
+go to back-node: decimal-digit a8c060b0 
 search_graph, decimal-digit 0 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 0 
@@ -32654,7 +32654,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 1 
-- 24065d0 has not back-node. 
+- a8c06590 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -32685,7 +32685,7 @@ left 1
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 2407780 
+go to back-node: digit a8c07740 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -32716,7 +32716,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 24078b0 
+go to back-node: digit a8c07870 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -32755,7 +32755,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 24079e0 
+go to back-node: digit a8c079a0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -32802,7 +32802,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find 5 
-go to back-node: digit 2407b10 
+go to back-node: digit a8c07ad0 
 search_graph, digit 5 
 left digit ::= 
 search_graph, digit ::= 5 
@@ -32857,7 +32857,7 @@ left 5
 search_graph, 5 5 
 found 5 
 try find 6 
-go to back-node: digit 2407c40 
+go to back-node: digit a8c07c00 
 search_graph, digit 6 
 left digit ::= 
 search_graph, digit ::= 6 
@@ -32920,7 +32920,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: digit 2407d60 
+go to back-node: digit a8c07d20 
 search_graph, digit 7 
 left digit ::= 
 search_graph, digit ::= 7 
@@ -32991,7 +32991,7 @@ left 7
 search_graph, 7 7 
 found 7 
 try find 8 
-go to back-node: digit 2407e80 
+go to back-node: digit a8c07e40 
 search_graph, digit 8 
 left digit ::= 
 search_graph, digit ::= 8 
@@ -33070,7 +33070,7 @@ left 8
 search_graph, 8 8 
 found 8 
 try find 9 
-go to back-node: digit 2407fa0 
+go to back-node: digit a8c07f60 
 search_graph, digit 9 
 left digit ::= 
 search_graph, digit ::= 9 
@@ -33157,7 +33157,7 @@ left 9
 search_graph, 9 9 
 found 9 
 try find 0 
-go to back-node: digit 24080c0 
+go to back-node: digit a8c08080 
 search_graph, digit 0 
 left digit ::= 
 search_graph, digit ::= 0 
@@ -33271,7 +33271,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 4 
-go to back-node: decimal-digit 24059b0 
+go to back-node: decimal-digit a8c05970 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -33321,7 +33321,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find 6 
-go to back-node: decimal-digit 2405bf0 
+go to back-node: decimal-digit a8c05bb0 
 search_graph, decimal-digit 6 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 6 
@@ -33389,7 +33389,7 @@ left-left <tmp>
 search_graph, 6 6 
 found 6 
 try find 8 
-go to back-node: decimal-digit 2405e20 
+go to back-node: decimal-digit a8c05de0 
 search_graph, decimal-digit 8 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 8 
@@ -33475,7 +33475,7 @@ left-left <tmp>
 search_graph, 8 8 
 found 8 
 try find 0 
-go to back-node: decimal-digit 2406040 
+go to back-node: decimal-digit a8c06000 
 search_graph, decimal-digit 0 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 0 
@@ -33778,7 +33778,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 4 
-go to back-node: decimal-digit 2404c90 
+go to back-node: decimal-digit a8c04c50 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -33828,7 +33828,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find 6 
-go to back-node: decimal-digit 2404ed0 
+go to back-node: decimal-digit a8c04e90 
 search_graph, decimal-digit 6 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 6 
@@ -33896,7 +33896,7 @@ left-left <tmp>
 search_graph, 6 6 
 found 6 
 try find 8 
-go to back-node: decimal-digit 2405100 
+go to back-node: decimal-digit a8c050c0 
 search_graph, decimal-digit 8 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 8 
@@ -33982,7 +33982,7 @@ left-left <tmp>
 search_graph, 8 8 
 found 8 
 try find 0 
-go to back-node: decimal-digit 2405320 
+go to back-node: decimal-digit a8c052e0 
 search_graph, decimal-digit 0 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 0 
@@ -34312,7 +34312,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 4 
-go to back-node: digit 24078b0 
+go to back-node: digit a8c07870 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -34359,7 +34359,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find 6 
-go to back-node: digit 2407b10 
+go to back-node: digit a8c07ad0 
 search_graph, digit 6 
 left digit ::= 
 search_graph, digit ::= 6 
@@ -34422,7 +34422,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 8 
-go to back-node: digit 2407d60 
+go to back-node: digit a8c07d20 
 search_graph, digit 8 
 left digit ::= 
 search_graph, digit ::= 8 
@@ -34501,7 +34501,7 @@ left 8
 search_graph, 8 8 
 found 8 
 try find 0 
-go to back-node: digit 2407fa0 
+go to back-node: digit a8c07f60 
 search_graph, digit 0 
 left digit ::= 
 search_graph, digit ::= 0 
@@ -34606,7 +34606,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 24058a0 
+go to back-node: decimal-digit a8c05860 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -34638,7 +34638,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: decimal-digit 24059b0 
+go to back-node: decimal-digit a8c05970 
 search_graph, decimal-digit 3 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 3 
@@ -34679,7 +34679,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 2405ad0 
+go to back-node: decimal-digit a8c05a90 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -34729,7 +34729,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: decimal-digit 2405bf0 
+go to back-node: decimal-digit a8c05bb0 
 search_graph, decimal-digit / 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= / 
@@ -35100,7 +35100,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: decimal-digit 2404b80 
+go to back-node: decimal-digit a8c04b40 
 search_graph, decimal-digit 2 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 2 
@@ -35132,7 +35132,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: decimal-digit 2404c90 
+go to back-node: decimal-digit a8c04c50 
 search_graph, decimal-digit 3 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 3 
@@ -35173,7 +35173,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 2404db0 
+go to back-node: decimal-digit a8c04d70 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -35223,7 +35223,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: decimal-digit 2404ed0 
+go to back-node: decimal-digit a8c04e90 
 search_graph, decimal-digit / 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= / 
@@ -35622,7 +35622,7 @@ left 1
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 2407780 
+go to back-node: digit a8c07740 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -35653,7 +35653,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 24078b0 
+go to back-node: digit a8c07870 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -35692,7 +35692,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 24079e0 
+go to back-node: digit a8c079a0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -35739,7 +35739,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 2407b10 
+go to back-node: digit a8c07ad0 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -36084,7 +36084,7 @@ left 1
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 24069c0 
+go to back-node: digit a8c06980 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -36115,7 +36115,7 @@ left 2
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 2406af0 
+go to back-node: digit a8c06ab0 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -36154,7 +36154,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 2406c20 
+go to back-node: digit a8c06be0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -36201,7 +36201,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 2406d50 
+go to back-node: digit a8c06d10 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -36586,7 +36586,7 @@ left-left <tmp>
 search_graph, 1 1 
 found 1 
 try find 2 
-go to back-node: digit 240a6f0 
+go to back-node: digit a8c0a700 
 search_graph, digit 2 
 left digit ::= 
 search_graph, digit ::= 2 
@@ -36620,7 +36620,7 @@ left-left <tmp>
 search_graph, 2 2 
 found 2 
 try find 3 
-go to back-node: digit 240a820 
+go to back-node: digit a8c0a830 
 search_graph, digit 3 
 left digit ::= 
 search_graph, digit ::= 3 
@@ -36663,7 +36663,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 240a950 
+go to back-node: digit a8c0a960 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -36715,7 +36715,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 25000b0 
+go to back-node: digit a8c0aa90 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -36827,7 +36827,7 @@ left-left <tmp>
 search_graph, / / 
 found / 
 try find 5 
-/ 2500890 has not back-node. 
+/ a8c0b270 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -36890,7 +36890,7 @@ left 5
 search_graph, 5 5 
 found 5 
 try find 6 
-go to back-node: digit 2501100 
+go to back-node: digit a8c0bae0 
 search_graph, digit 6 
 left digit ::= 
 search_graph, digit ::= 6 
@@ -36953,7 +36953,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: digit 2501220 
+go to back-node: digit a8c0bc00 
 search_graph, digit 7 
 left digit ::= 
 search_graph, digit ::= 7 
@@ -37024,7 +37024,7 @@ left 7
 search_graph, 7 7 
 found 7 
 try find 8 
-go to back-node: digit 2501340 
+go to back-node: digit a8c0bd20 
 search_graph, digit 8 
 left digit ::= 
 search_graph, digit ::= 8 
@@ -37103,7 +37103,7 @@ left 8
 search_graph, 8 8 
 found 8 
 try find 9 
-go to back-node: digit 2501460 
+go to back-node: digit a8c0be40 
 search_graph, digit 9 
 left digit ::= 
 search_graph, digit ::= 9 
@@ -37251,7 +37251,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 3 
-- 2404790 has not back-node. 
+- a8c04750 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {decimal-digit} 
@@ -37300,7 +37300,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: decimal-digit 2405ad0 
+go to back-node: decimal-digit a8c05a90 
 search_graph, decimal-digit 4 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= 4 
@@ -37350,7 +37350,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: decimal-digit 2405bf0 
+go to back-node: decimal-digit a8c05bb0 
 search_graph, decimal-digit / 
 left decimal-digit ::= 
 search_graph, decimal-digit ::= / 
@@ -37766,7 +37766,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 3 
-- 24065d0 has not back-node. 
+- a8c06590 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -37813,7 +37813,7 @@ left 3
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 24079e0 
+go to back-node: digit a8c079a0 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -37860,7 +37860,7 @@ left 4
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 2407b10 
+go to back-node: digit a8c07ad0 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -38275,7 +38275,7 @@ left-left <tmp>
 search_graph, - - 
 found - 
 try find 3 
-- 2408670 has not back-node. 
+- a8c08630 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -38326,7 +38326,7 @@ left-left <tmp>
 search_graph, 3 3 
 found 3 
 try find 4 
-go to back-node: digit 240a950 
+go to back-node: digit a8c0a960 
 search_graph, digit 4 
 left digit ::= 
 search_graph, digit ::= 4 
@@ -38378,7 +38378,7 @@ left-left <tmp>
 search_graph, 4 4 
 found 4 
 try find / 
-go to back-node: digit 25000b0 
+go to back-node: digit a8c0aa90 
 search_graph, digit / 
 left digit ::= 
 search_graph, digit ::= / 
@@ -38490,7 +38490,7 @@ left-left <tmp>
 search_graph, / / 
 found / 
 try find 6 
-/ 2500890 has not back-node. 
+/ a8c0b270 has not back-node. 
 root left <tmp> 
 left <tmp> 
 left-left {digit} 
@@ -38561,7 +38561,7 @@ left 6
 search_graph, 6 6 
 found 6 
 try find 7 
-go to back-node: digit 2501220 
+go to back-node: digit a8c0bc00 
 search_graph, digit 7 
 left digit ::= 
 search_graph, digit ::= 7 
@@ -38637,43 +38637,159 @@ solution found for code: -34/67
 ast_lex_debug ok 
 
 
+construct_ast_tree 
+root key: car ::= 
 
-[make_bnf_tree]... root: list ::= 
+
+[make_bnf_tree]... root: car ::= 
 drop_head_trail_whitespace ok 
 
 
 make_bnf_tree 
 
 find_bnf_obj_str 
-ml_util_show_buf, 8 bytes:
-list ::=
+ml_util_show_buf, 7 bytes:
+car ::=
 found ::= 
 drop_head_trail_whitespace ok 
 
-ml_util_show_buf, 8 bytes:
-list ::=
+ml_util_show_buf, 7 bytes:
+car ::=
 
 find_insert_htab 
 one found 
 
 make_sub_obj_tree 
 sub: 
-ml_util_show_buf, 21 bytes:
-	( LIST { object }* )
+ml_util_show_buf, 12 bytes:
+( CAR list )
 
 tree_insert_left 
 father:
 NULL
-left:list ::=
+left:car ::=
 tree_insert_left ok 
 
-sub node, dt_sz: 21 
+sub node, dt_sz: 12 
+
+tree_insert_sub 
+father:
+car ::=
+sub:
+( CAR list )
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 12 bytes:
+( CAR list )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 12 bytes:
+( CAR list )
+key2: ( CAR list ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+(
+
+make_combined_obj_tree 
+character ( 
+
+tree_insert_left 
+father:
+( CAR list )
+left:
+(
+tree_insert_left ok 
+
+ml_util_show_buf, 11 bytes:
+ CAR list )
+
+tree_insert_left 
+father:
+(
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 10 bytes:
+CAR list )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 10 bytes:
+CAR list )
+key2: CAR list ) ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+CAR
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+CAR
+tree_insert_left ok 
+
+ml_util_show_buf, 7 bytes:
+ list )
+
+tree_insert_left 
+father:
+CAR
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 6 bytes:
+list )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 6 bytes:
+list )
+key2: list ) ::= 
+not found 
+ml_util_show_buf, 4 bytes:
+list
+
+make_combined_obj_tree 
+found syntax object 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+list ::=
+tree_insert_left ok 
+
+its sub: 
+ml_util_show_buf, 21 bytes:
+	( LIST { object }* )
+si.key: 	( LIST { object }* ), 21bytes 
 
 tree_insert_sub 
 father:
 list ::=
 sub:
-	( LIST { object }* )
+<sub>
 tree_insert_sub ok 
 
 drop_head_trail_whitespace ok 
@@ -38698,7 +38814,7 @@ character (
 
 tree_insert_left 
 father:
-	( LIST { object }* )
+<sub>
 left:
 (
 tree_insert_left ok 
@@ -38806,7 +38922,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 25 
 
@@ -38873,7 +38989,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 90 
 
@@ -38945,7 +39061,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 21 
 
@@ -39008,7 +39124,7 @@ tree_insert_left ok
 in lex tree, found: token ::= 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 
 tree_insert_right 
@@ -39054,7 +39170,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 85 
 
@@ -39127,7 +39243,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 76 
 
@@ -39197,7 +39313,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 3 
 
@@ -39297,7 +39413,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 3 
 
@@ -39390,7 +39506,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 3 
 
@@ -39483,7 +39599,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 3 
 
@@ -39576,7 +39692,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 3 
 
@@ -39669,7 +39785,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 3 
 
@@ -39746,7 +39862,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 8 
 
@@ -39864,7 +39980,7 @@ tree_insert_left ok
 
 
 pop_syntax_htab 
-pop_syntax_htab ok 
+pop_syntax_htab failed 
 
 sub node, dt_sz: 332 
 
@@ -43946,4 +44062,10589 @@ _
 
 make_combined_obj_tree 
 character _ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+_
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+~
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+~
+key2: ~ ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+~
+
+make_combined_obj_tree 
+character ~ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+~
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 6 bytes:
+rubout
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 6 bytes:
+rubout
+key2: rubout ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 8 bytes:
+#\rubout
+
+tree_insert_left 
+father:
+<tmp>
+left:
+rubout ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 8 
+
+tree_insert_sub 
+father:
+rubout ::=
+sub:
+#\rubout
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 8 bytes:
+#\rubout
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 8 bytes:
+#\rubout
+key2: #\rubout ::= 
+not found 
+ml_util_show_buf, 8 bytes:
+#\rubout
+
+make_combined_obj_tree 
+character #\rubout 
+
+tree_insert_left 
+father:
+#\rubout
+left:
+#\rubout
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+single-escape
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 13 bytes:
+single-escape
+key2: single-escape ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 11 bytes:
+#\backslash
+
+tree_insert_left 
+father:
+<tmp>
+left:
+single-escape ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 11 
+
+tree_insert_sub 
+father:
+single-escape ::=
+sub:
+#\backslash
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+#\backslash
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 11 bytes:
+#\backslash
+key2: #\backslash ::= 
+not found 
+ml_util_show_buf, 11 bytes:
+#\backslash
+
+make_combined_obj_tree 
+character #\backslash 
+
+tree_insert_left 
+father:
+#\backslash
+left:
+#\backslash
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 15 bytes:
+multiple-escape
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 15 bytes:
+multiple-escape
+key2: multiple-escape ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+
+tree_insert_left 
+father:
+<tmp>
+left:
+multiple-escape ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 14 
+
+tree_insert_sub 
+father:
+multiple-escape ::=
+sub:
+#\vertical-bar
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+key2: #\vertical-bar ::= 
+not found 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+
+make_combined_obj_tree 
+character #\vertical-bar 
+
+tree_insert_left 
+father:
+#\vertical-bar
+left:
+#\vertical-bar
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 10 bytes:
+macro-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 10 bytes:
+macro-char
+key2: macro-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 44 bytes:
+	terminating-char | 
+	non-terminating-char
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+macro-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 44 
+
+tree_insert_sub 
+father:
+macro-char ::=
+sub:
+	terminating-char | 
+	non-terminating-char
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	terminating-char | 
+	non-terminating-char
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 16 bytes:
+terminating-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 16 bytes:
+terminating-char
+key2: terminating-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+
+tree_insert_left 
+father:
+<tmp>
+left:
+terminating-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 25 
+
+tree_insert_sub 
+father:
+terminating-char ::=
+sub:
+" | ' | ( | ) | , | ; | `
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+" | ' | ( | ) | , | ; | `
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+"
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+"
+key2: " ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+"
+
+make_combined_obj_tree 
+character " 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+"
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+" | ' | ( | ) | , | ; | `
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+'
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+'
+key2: ' ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+'
+
+make_combined_obj_tree 
+character ' 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+'
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+(
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+(
+key2: ( ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+(
+
+make_combined_obj_tree 
+character ( 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+(
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+)
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+)
+key2: ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+)
+
+make_combined_obj_tree 
+character ) 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+)
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+,
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+,
+key2: , ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+,
+
+make_combined_obj_tree 
+character , 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+,
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+;
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+;
+key2: ; ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+;
+
+make_combined_obj_tree 
+character ; 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+;
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+`
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+`
+key2: ` ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+`
+
+make_combined_obj_tree 
+character ` 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+`
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	terminating-char | 
+	non-terminating-char
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 20 bytes:
+non-terminating-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 20 bytes:
+non-terminating-char
+key2: non-terminating-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 2 bytes:
+##
+
+tree_insert_left 
+father:
+<tmp>
+left:
+non-terminating-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 2 
+
+tree_insert_sub 
+father:
+non-terminating-char ::=
+sub:
+##
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 2 bytes:
+##
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 2 bytes:
+##
+key2: ## ::= 
+not found 
+ml_util_show_buf, 2 bytes:
+##
+
+make_combined_obj_tree 
+character ## 
+
+tree_insert_left 
+father:
+##
+left:
+##
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	list_car_element |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+array
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 5 bytes:
+array
+key2: array ::= 
+not found 
+ml_util_show_buf, 5 bytes:
+array
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+array
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 8 bytes:
+sequence
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 8 bytes:
+sequence
+key2: sequence ::= 
+not found 
+ml_util_show_buf, 8 bytes:
+sequence
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+sequence
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+type
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 4 bytes:
+type
+key2: type ::= 
+not found 
+ml_util_show_buf, 4 bytes:
+type
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+type
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 12 bytes:
+input-stream
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 12 bytes:
+input-stream
+key2: input-stream ::= 
+not found 
+ml_util_show_buf, 12 bytes:
+input-stream
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+input-stream
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+output-stream
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 13 bytes:
+output-stream
+key2: output-stream ::= 
+not found 
+ml_util_show_buf, 13 bytes:
+output-stream
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+output-stream
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+class
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 5 bytes:
+class
+key2: class ::= 
+not found 
+ml_util_show_buf, 5 bytes:
+class
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+class
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	element |
+	<undefined>
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+<undefined>
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+not found 
+ml_util_show_buf, 11 bytes:
+<undefined>
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<undefined>
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+pattern: {}* 
+
+tree_insert_left 
+father:
+{ object }
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+)
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+)
+key2: ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+)
+
+make_combined_obj_tree 
+character ) 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+)
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_braces_tree ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+ml_util_show_buf, 2 bytes:
+ )
+
+tree_insert_left 
+father:
+list ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+)
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+)
+key2: ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+)
+
+make_combined_obj_tree 
+character ) 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+)
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+make_sub_obj_tree ok 
+
+
+[make_bnf_tree], done. 
+
+hash table 1511 entries, 56 entries used, 1455 entries free. 
+
+
+[make_graph]... 
+back-node of token ::= is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\b is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\t is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\r is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\n is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\p is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\r is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\space is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of $ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of % is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of & is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of * is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of + is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of - is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of . is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of / is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 0 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 1 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 2 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 3 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 4 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 5 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 6 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 7 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 8 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 9 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of : is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of < is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of = is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of > is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of @ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of A is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of B is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of C is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of D is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of E is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of F is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of G is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of H is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of I is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of J is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of K is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of L is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of M is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of N is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of O is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of P is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of Q is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of R is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of S is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of T is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of U is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of V is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of W is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of X is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of Y is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of Z is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of a is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of b is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of c is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of d is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of e is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of f is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of g is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of h is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of i is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of j is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of k is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of l is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of m is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of n is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of o is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of p is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of q is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of r is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of s is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of t is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of u is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of v is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of w is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of x is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of y is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of z is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ^ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of _ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ~ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\rubout is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\backslash is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\vertical-bar is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of " is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ' is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ( is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ) is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of , is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ; is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ` is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ## is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of array is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of sequence is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of type is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of input-stream is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of output-stream is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of class is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of <undefined> is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+
+[make_graph], done. 
+
+construct_ast_tree ok 
+
+
+construct_ast_tree 
+root key: cdr ::= 
+
+
+[make_bnf_tree]... root: cdr ::= 
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 7 bytes:
+cdr ::=
+found ::= 
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 7 bytes:
+cdr ::=
+
+find_insert_htab 
+one found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+
+tree_insert_left 
+father:
+NULL
+left:cdr ::=
+tree_insert_left ok 
+
+sub node, dt_sz: 12 
+
+tree_insert_sub 
+father:
+cdr ::=
+sub:
+( CDR list )
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 12 bytes:
+( CDR list )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 12 bytes:
+( CDR list )
+key2: ( CDR list ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+(
+
+make_combined_obj_tree 
+character ( 
+
+tree_insert_left 
+father:
+( CDR list )
+left:
+(
+tree_insert_left ok 
+
+ml_util_show_buf, 11 bytes:
+ CDR list )
+
+tree_insert_left 
+father:
+(
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 10 bytes:
+CDR list )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 10 bytes:
+CDR list )
+key2: CDR list ) ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+CDR
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+CDR
+tree_insert_left ok 
+
+ml_util_show_buf, 7 bytes:
+ list )
+
+tree_insert_left 
+father:
+CDR
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 6 bytes:
+list )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 6 bytes:
+list )
+key2: list ) ::= 
+not found 
+ml_util_show_buf, 4 bytes:
+list
+
+make_combined_obj_tree 
+found syntax object 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+list ::=
+tree_insert_left ok 
+
+its sub: 
+ml_util_show_buf, 21 bytes:
+	( LIST { object }* )
+si.key: 	( LIST { object }* ), 21bytes 
+
+tree_insert_sub 
+father:
+list ::=
+sub:
+<sub>
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 20 bytes:
+( LIST { object }* )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 20 bytes:
+( LIST { object }* )
+key2: ( LIST { object }* ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+(
+
+make_combined_obj_tree 
+character ( 
+
+tree_insert_left 
+father:
+<sub>
+left:
+(
+tree_insert_left ok 
+
+ml_util_show_buf, 19 bytes:
+ LIST { object }* )
+
+tree_insert_left 
+father:
+(
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 18 bytes:
+LIST { object }* )
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 18 bytes:
+LIST { object }* )
+key2: LIST { object }* ) ::= 
+not found 
+ml_util_show_buf, 4 bytes:
+LIST
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+LIST
+tree_insert_left ok 
+
+ml_util_show_buf, 14 bytes:
+ { object }* )
+
+tree_insert_left 
+father:
+LIST
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_braces_tree 
+
+find_insert_htab 
+one found 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+{ object }
+tree_insert_left ok 
+
+
+tree_insert_sub 
+father:
+{ object }
+sub:
+ object 
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 6 bytes:
+object
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 6 bytes:
+object
+key2: object ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 25 bytes:
+	element |
+	<undefined>
+	
+
+tree_insert_left 
+father:
+ object 
+left:
+object ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 25 
+
+tree_insert_sub 
+father:
+object ::=
+sub:
+	element |
+	<undefined>
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	element |
+	<undefined>
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 7 bytes:
+element
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 7 bytes:
+element
+key2: element ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 90 bytes:
+	list_car_element |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+element ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 90 
+
+tree_insert_sub 
+father:
+element ::=
+sub:
+	list_car_element |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	list_car_element |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 16 bytes:
+list_car_element
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 16 bytes:
+list_car_element
+key2: list_car_element ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 21 bytes:
+	token |
+	lisp-char
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+list_car_element ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 21 
+
+tree_insert_sub 
+father:
+list_car_element ::=
+sub:
+	token |
+	lisp-char
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	token |
+	lisp-char
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+token
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 5 bytes:
+token
+key2: token ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 31 bytes:
+	number-token |
+	symbol-token
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+token ::=
+tree_insert_left ok 
+
+in lex tree, found: token ::= 
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+
+tree_insert_right 
+father:
+	token |
+	lisp-char
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 9 bytes:
+lisp-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 9 bytes:
+lisp-char
+key2: lisp-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 85 bytes:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+lisp-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 85 
+
+tree_insert_sub 
+father:
+lisp-char ::=
+sub:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 10 bytes:
+whitespace
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 10 bytes:
+whitespace
+key2: whitespace ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 76 bytes:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+
+tree_insert_left 
+father:
+<tmp>
+left:
+whitespace ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 76 
+
+tree_insert_sub 
+father:
+whitespace ::=
+sub:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 9 bytes:
+backspace
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 9 bytes:
+backspace
+key2: backspace ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 3 bytes:
+#\b
+
+tree_insert_left 
+father:
+<tmp>
+left:
+backspace ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 3 
+
+tree_insert_sub 
+father:
+backspace ::=
+sub:
+#\b
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+#\b
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+#\b
+key2: #\b ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+#\b
+
+make_combined_obj_tree 
+character #\b 
+
+tree_insert_left 
+father:
+#\b
+left:
+#\b
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+	backspace | 
+	tab | 
+	newline | 
+	linefeed | 
+	page | 
+	return | 
+	space
+		
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+tab
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+tab
+key2: tab ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 3 bytes:
+#\t
+
+tree_insert_left 
+father:
+<tmp>
+left:
+tab ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 3 
+
+tree_insert_sub 
+father:
+tab ::=
+sub:
+#\t
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+#\t
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+#\t
+key2: #\t ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+#\t
+
+make_combined_obj_tree 
+character #\t 
+
+tree_insert_left 
+father:
+#\t
+left:
+#\t
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 7 bytes:
+newline
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 7 bytes:
+newline
+key2: newline ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 3 bytes:
+#\r
+
+tree_insert_left 
+father:
+<tmp>
+left:
+newline ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 3 
+
+tree_insert_sub 
+father:
+newline ::=
+sub:
+#\r
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+#\r
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+#\r
+key2: #\r ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+#\r
+
+make_combined_obj_tree 
+character #\r 
+
+tree_insert_left 
+father:
+#\r
+left:
+#\r
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 8 bytes:
+linefeed
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 8 bytes:
+linefeed
+key2: linefeed ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 3 bytes:
+#\n
+
+tree_insert_left 
+father:
+<tmp>
+left:
+linefeed ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 3 
+
+tree_insert_sub 
+father:
+linefeed ::=
+sub:
+#\n
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+#\n
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+#\n
+key2: #\n ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+#\n
+
+make_combined_obj_tree 
+character #\n 
+
+tree_insert_left 
+father:
+#\n
+left:
+#\n
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+page
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 4 bytes:
+page
+key2: page ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 3 bytes:
+#\p
+
+tree_insert_left 
+father:
+<tmp>
+left:
+page ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 3 
+
+tree_insert_sub 
+father:
+page ::=
+sub:
+#\p
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+#\p
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+#\p
+key2: #\p ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+#\p
+
+make_combined_obj_tree 
+character #\p 
+
+tree_insert_left 
+father:
+#\p
+left:
+#\p
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 6 bytes:
+return
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 6 bytes:
+return
+key2: return ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 3 bytes:
+#\r
+
+tree_insert_left 
+father:
+<tmp>
+left:
+return ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 3 
+
+tree_insert_sub 
+father:
+return ::=
+sub:
+#\r
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 3 bytes:
+#\r
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 3 bytes:
+#\r
+key2: #\r ::= 
+not found 
+ml_util_show_buf, 3 bytes:
+#\r
+
+make_combined_obj_tree 
+character #\r 
+
+tree_insert_left 
+father:
+#\r
+left:
+#\r
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+space
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 5 bytes:
+space
+key2: space ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 8 bytes:
+#\space 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+space ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 8 
+
+tree_insert_sub 
+father:
+space ::=
+sub:
+#\space
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 7 bytes:
+#\space
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 7 bytes:
+#\space
+key2: #\space ::= 
+not found 
+ml_util_show_buf, 7 bytes:
+#\space
+
+make_combined_obj_tree 
+character #\space 
+
+tree_insert_left 
+father:
+#\space
+left:
+#\space
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	whitespace | 
+	constituent-char |
+	single-escape | 
+	multiple-escape |
+	macro-char
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 16 bytes:
+constituent-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 16 bytes:
+constituent-char
+key2: constituent-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 332 bytes:
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+constituent-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 332 
+
+tree_insert_sub 
+father:
+constituent-char ::=
+sub:
+	$ | % | & | * | + | - | . | / |
+	0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+	: | < | = | > | @ | 
+	A | B | C | D | E | F | G | H | I | J | K | L | M | 
+	N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
+	a | b | c | d | e | f | g | h | i | j | k | l | m | 
+	n | o | p | q | r | s | t | u | v | w | x | y | z |	
+	^ | _ | ~ | rubout
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+......
+left:
+......
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+$
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+$
+key2: $ ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+$
+
+make_combined_obj_tree 
+character $ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+$
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+......
+right:
+......
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+%
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+%
+key2: % ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+%
+
+make_combined_obj_tree 
+character % 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+%
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+&
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+&
+key2: & ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+&
+
+make_combined_obj_tree 
+character & 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+&
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+*
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+*
+key2: * ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+*
+
+make_combined_obj_tree 
+character * 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+*
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
++
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
++
+key2: + ::= 
+not found 
+ml_util_show_buf, 1 bytes:
++
+
+make_combined_obj_tree 
+character + 
+
+tree_insert_left 
+father:
+<tmp>
+left:
++
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+-
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+-
+key2: - ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+-
+
+make_combined_obj_tree 
+character - 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+-
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+.
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+.
+key2: . ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+.
+
+make_combined_obj_tree 
+character . 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+.
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+/
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+/
+key2: / ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+/
+
+make_combined_obj_tree 
+character / 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+/
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+0
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+0
+key2: 0 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+0
+
+make_combined_obj_tree 
+character 0 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+0
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+1
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+1
+key2: 1 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+1
+
+make_combined_obj_tree 
+character 1 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+1
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+2
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+2
+key2: 2 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+2
+
+make_combined_obj_tree 
+character 2 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+2
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+3
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+3
+key2: 3 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+3
+
+make_combined_obj_tree 
+character 3 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+3
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+4
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+4
+key2: 4 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+4
+
+make_combined_obj_tree 
+character 4 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+4
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+5
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+5
+key2: 5 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+5
+
+make_combined_obj_tree 
+character 5 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+5
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+6
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+6
+key2: 6 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+6
+
+make_combined_obj_tree 
+character 6 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+6
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+7
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+7
+key2: 7 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+7
+
+make_combined_obj_tree 
+character 7 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+7
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+8
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+8
+key2: 8 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+8
+
+make_combined_obj_tree 
+character 8 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+8
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+9
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+9
+key2: 9 ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+9
+
+make_combined_obj_tree 
+character 9 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+9
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+:
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+:
+key2: : ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+:
+
+make_combined_obj_tree 
+character : 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+:
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+<
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+<
+key2: < ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+<
+
+make_combined_obj_tree 
+character < 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+=
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+=
+key2: = ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+=
+
+make_combined_obj_tree 
+character = 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+=
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+>
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+>
+key2: > ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+>
+
+make_combined_obj_tree 
+character > 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+>
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+@
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+@
+key2: @ ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+@
+
+make_combined_obj_tree 
+character @ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+@
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+A
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+A
+key2: A ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+A
+
+make_combined_obj_tree 
+character A 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+A
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+B
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+B
+key2: B ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+B
+
+make_combined_obj_tree 
+character B 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+B
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+C
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+C
+key2: C ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+C
+
+make_combined_obj_tree 
+character C 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+C
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+D
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+D
+key2: D ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+D
+
+make_combined_obj_tree 
+character D 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+D
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+E
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+E
+key2: E ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+E
+
+make_combined_obj_tree 
+character E 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+E
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+F
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+F
+key2: F ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+F
+
+make_combined_obj_tree 
+character F 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+F
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+G
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+G
+key2: G ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+G
+
+make_combined_obj_tree 
+character G 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+G
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+H
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+H
+key2: H ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+H
+
+make_combined_obj_tree 
+character H 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+H
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+I
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+I
+key2: I ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+I
+
+make_combined_obj_tree 
+character I 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+I
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+J
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+J
+key2: J ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+J
+
+make_combined_obj_tree 
+character J 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+J
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+K
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+K
+key2: K ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+K
+
+make_combined_obj_tree 
+character K 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+K
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+L
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+L
+key2: L ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+L
+
+make_combined_obj_tree 
+character L 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+L
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+M
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+M
+key2: M ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+M
+
+make_combined_obj_tree 
+character M 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+M
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+N
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+N
+key2: N ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+N
+
+make_combined_obj_tree 
+character N 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+N
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+O
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+O
+key2: O ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+O
+
+make_combined_obj_tree 
+character O 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+O
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+P
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+P
+key2: P ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+P
+
+make_combined_obj_tree 
+character P 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+P
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+Q
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+Q
+key2: Q ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+Q
+
+make_combined_obj_tree 
+character Q 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+Q
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+R
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+R
+key2: R ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+R
+
+make_combined_obj_tree 
+character R 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+R
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+S
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+S
+key2: S ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+S
+
+make_combined_obj_tree 
+character S 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+S
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+T
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+T
+key2: T ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+T
+
+make_combined_obj_tree 
+character T 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+T
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+U
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+U
+key2: U ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+U
+
+make_combined_obj_tree 
+character U 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+U
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+V
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+V
+key2: V ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+V
+
+make_combined_obj_tree 
+character V 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+V
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+W
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+W
+key2: W ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+W
+
+make_combined_obj_tree 
+character W 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+W
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+X
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+X
+key2: X ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+X
+
+make_combined_obj_tree 
+character X 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+X
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+Y
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+Y
+key2: Y ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+Y
+
+make_combined_obj_tree 
+character Y 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+Y
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+Z
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+Z
+key2: Z ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+Z
+
+make_combined_obj_tree 
+character Z 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+Z
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+a
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+a
+key2: a ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+a
+
+make_combined_obj_tree 
+character a 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+a
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+b
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+b
+key2: b ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+b
+
+make_combined_obj_tree 
+character b 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+b
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+c
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+c
+key2: c ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+c
+
+make_combined_obj_tree 
+character c 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+c
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+d
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+d
+key2: d ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+d
+
+make_combined_obj_tree 
+character d 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+d
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+e
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+e
+key2: e ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+e
+
+make_combined_obj_tree 
+character e 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+e
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+f
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+f
+key2: f ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+f
+
+make_combined_obj_tree 
+character f 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+f
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+g
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+g
+key2: g ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+g
+
+make_combined_obj_tree 
+character g 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+g
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+h
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+h
+key2: h ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+h
+
+make_combined_obj_tree 
+character h 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+h
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+i
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+i
+key2: i ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+i
+
+make_combined_obj_tree 
+character i 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+i
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+j
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+j
+key2: j ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+j
+
+make_combined_obj_tree 
+character j 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+j
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+k
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+k
+key2: k ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+k
+
+make_combined_obj_tree 
+character k 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+k
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+l
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+l
+key2: l ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+l
+
+make_combined_obj_tree 
+character l 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+l
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+m
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+m
+key2: m ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+m
+
+make_combined_obj_tree 
+character m 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+m
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+n
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+n
+key2: n ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+n
+
+make_combined_obj_tree 
+character n 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+n
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+o
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+o
+key2: o ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+o
+
+make_combined_obj_tree 
+character o 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+o
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+p
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+p
+key2: p ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+p
+
+make_combined_obj_tree 
+character p 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+p
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+q
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+q
+key2: q ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+q
+
+make_combined_obj_tree 
+character q 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+q
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+r
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+r
+key2: r ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+r
+
+make_combined_obj_tree 
+character r 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+r
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+s
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+s
+key2: s ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+s
+
+make_combined_obj_tree 
+character s 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+s
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+t
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+t
+key2: t ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+t
+
+make_combined_obj_tree 
+character t 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+t
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+u
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+u
+key2: u ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+u
+
+make_combined_obj_tree 
+character u 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+u
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+v
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+v
+key2: v ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+v
+
+make_combined_obj_tree 
+character v 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+v
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+w
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+w
+key2: w ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+w
+
+make_combined_obj_tree 
+character w 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+w
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+x
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+x
+key2: x ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+x
+
+make_combined_obj_tree 
+character x 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+x
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+y
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+y
+key2: y ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+y
+
+make_combined_obj_tree 
+character y 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+y
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+z
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+z
+key2: z ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+z
+
+make_combined_obj_tree 
+character z 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+z
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+^
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+^
+key2: ^ ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+^
+
+make_combined_obj_tree 
+character ^ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+^
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+_
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+_
+key2: _ ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+_
+
+make_combined_obj_tree 
+character _ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+_
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+~
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+~
+key2: ~ ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+~
+
+make_combined_obj_tree 
+character ~ 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+~
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 6 bytes:
+rubout
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 6 bytes:
+rubout
+key2: rubout ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 8 bytes:
+#\rubout
+
+tree_insert_left 
+father:
+<tmp>
+left:
+rubout ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 8 
+
+tree_insert_sub 
+father:
+rubout ::=
+sub:
+#\rubout
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 8 bytes:
+#\rubout
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 8 bytes:
+#\rubout
+key2: #\rubout ::= 
+not found 
+ml_util_show_buf, 8 bytes:
+#\rubout
+
+make_combined_obj_tree 
+character #\rubout 
+
+tree_insert_left 
+father:
+#\rubout
+left:
+#\rubout
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+single-escape
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 13 bytes:
+single-escape
+key2: single-escape ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 11 bytes:
+#\backslash
+
+tree_insert_left 
+father:
+<tmp>
+left:
+single-escape ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 11 
+
+tree_insert_sub 
+father:
+single-escape ::=
+sub:
+#\backslash
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+#\backslash
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 11 bytes:
+#\backslash
+key2: #\backslash ::= 
+not found 
+ml_util_show_buf, 11 bytes:
+#\backslash
+
+make_combined_obj_tree 
+character #\backslash 
+
+tree_insert_left 
+father:
+#\backslash
+left:
+#\backslash
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 15 bytes:
+multiple-escape
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 15 bytes:
+multiple-escape
+key2: multiple-escape ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+
+tree_insert_left 
+father:
+<tmp>
+left:
+multiple-escape ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 14 
+
+tree_insert_sub 
+father:
+multiple-escape ::=
+sub:
+#\vertical-bar
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+key2: #\vertical-bar ::= 
+not found 
+ml_util_show_buf, 14 bytes:
+#\vertical-bar
+
+make_combined_obj_tree 
+character #\vertical-bar 
+
+tree_insert_left 
+father:
+#\vertical-bar
+left:
+#\vertical-bar
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 10 bytes:
+macro-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 10 bytes:
+macro-char
+key2: macro-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 44 bytes:
+	terminating-char | 
+	non-terminating-char
+	
+
+tree_insert_left 
+father:
+<tmp>
+left:
+macro-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 44 
+
+tree_insert_sub 
+father:
+macro-char ::=
+sub:
+	terminating-char | 
+	non-terminating-char
+	
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+	terminating-char | 
+	non-terminating-char
+	
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 16 bytes:
+terminating-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 16 bytes:
+terminating-char
+key2: terminating-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 25 bytes:
+" | ' | ( | ) | , | ; | `
+
+tree_insert_left 
+father:
+<tmp>
+left:
+terminating-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 25 
+
+tree_insert_sub 
+father:
+terminating-char ::=
+sub:
+" | ' | ( | ) | , | ; | `
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+" | ' | ( | ) | , | ; | `
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+"
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+"
+key2: " ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+"
+
+make_combined_obj_tree 
+character " 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+"
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+" | ' | ( | ) | , | ; | `
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+'
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+'
+key2: ' ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+'
+
+make_combined_obj_tree 
+character ' 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+'
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+(
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+(
+key2: ( ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+(
+
+make_combined_obj_tree 
+character ( 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+(
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+)
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+)
+key2: ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+)
+
+make_combined_obj_tree 
+character ) 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+)
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+,
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+,
+key2: , ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+,
+
+make_combined_obj_tree 
+character , 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+,
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+;
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+;
+key2: ; ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+;
+
+make_combined_obj_tree 
+character ; 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+;
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+`
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+`
+key2: ` ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+`
+
+make_combined_obj_tree 
+character ` 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+`
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	terminating-char | 
+	non-terminating-char
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 20 bytes:
+non-terminating-char
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 20 bytes:
+non-terminating-char
+key2: non-terminating-char ::= 
+found 
+
+make_sub_obj_tree 
+sub: 
+ml_util_show_buf, 2 bytes:
+##
+
+tree_insert_left 
+father:
+<tmp>
+left:
+non-terminating-char ::=
+tree_insert_left ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+sub node, dt_sz: 2 
+
+tree_insert_sub 
+father:
+non-terminating-char ::=
+sub:
+##
+tree_insert_sub ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 2 bytes:
+##
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 2 bytes:
+##
+key2: ## ::= 
+not found 
+ml_util_show_buf, 2 bytes:
+##
+
+make_combined_obj_tree 
+character ## 
+
+tree_insert_left 
+father:
+##
+left:
+##
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	list_car_element |
+	array |
+	sequence |
+	type |
+	input-stream |
+	output-stream |
+	class
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+array
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 5 bytes:
+array
+key2: array ::= 
+not found 
+ml_util_show_buf, 5 bytes:
+array
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+array
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 8 bytes:
+sequence
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 8 bytes:
+sequence
+key2: sequence ::= 
+not found 
+ml_util_show_buf, 8 bytes:
+sequence
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+sequence
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 4 bytes:
+type
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 4 bytes:
+type
+key2: type ::= 
+not found 
+ml_util_show_buf, 4 bytes:
+type
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+type
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 12 bytes:
+input-stream
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 12 bytes:
+input-stream
+key2: input-stream ::= 
+not found 
+ml_util_show_buf, 12 bytes:
+input-stream
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+input-stream
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+make_or_tree 
+drop_head_trail_whitespace ok 
+
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 13 bytes:
+output-stream
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 13 bytes:
+output-stream
+key2: output-stream ::= 
+not found 
+ml_util_show_buf, 13 bytes:
+output-stream
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+output-stream
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+
+tree_insert_right 
+father:
+<tmp>
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 5 bytes:
+class
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 5 bytes:
+class
+key2: class ::= 
+not found 
+ml_util_show_buf, 5 bytes:
+class
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+class
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+make_or_tree ok 
+
+
+tree_insert_right 
+father:
+	element |
+	<undefined>
+	
+right:
+<tmp>
+tree_insert_right ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 11 bytes:
+<undefined>
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 11 bytes:
+<undefined>
+key2: <undefined> ::= 
+not found 
+ml_util_show_buf, 11 bytes:
+<undefined>
+
+make_combined_obj_tree 
+keyword 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+<undefined>
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_or_tree ok 
+
+pattern: {}* 
+
+tree_insert_left 
+father:
+{ object }
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+)
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+)
+key2: ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+)
+
+make_combined_obj_tree 
+character ) 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+)
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_braces_tree ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+ml_util_show_buf, 2 bytes:
+ )
+
+tree_insert_left 
+father:
+list ::=
+left:
+<tmp>
+tree_insert_left ok 
+
+drop_head_trail_whitespace ok 
+
+
+make_bnf_tree 
+
+find_bnf_obj_str 
+ml_util_show_buf, 1 bytes:
+)
+drop_head_trail_whitespace ok 
+
+ml_util_show_buf, 1 bytes:
+)
+key2: ) ::= 
+not found 
+ml_util_show_buf, 1 bytes:
+)
+
+make_combined_obj_tree 
+character ) 
+
+tree_insert_left 
+father:
+<tmp>
+left:
+)
+tree_insert_left ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+make_combined_obj_tree ok 
+
+make_sub_obj_tree ok 
+
+
+[make_bnf_tree], done. 
+
+hash table 1511 entries, 56 entries used, 1455 entries free. 
+
+
+[make_graph]... 
+back-node of token ::= is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\b is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\t is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\r is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\n is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\p is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\r is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\space is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of $ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of % is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of & is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of * is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of + is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of - is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of . is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of / is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 0 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 1 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 2 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 3 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 4 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 5 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 6 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 7 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 8 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of 9 is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of : is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of < is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of = is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of > is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of @ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of A is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of B is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of C is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of D is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of E is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of F is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of G is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of H is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of I is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of J is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of K is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of L is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of M is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of N is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of O is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of P is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of Q is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of R is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of S is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of T is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of U is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of V is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of W is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of X is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of Y is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of Z is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of a is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of b is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of c is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of d is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of e is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of f is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of g is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of h is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of i is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of j is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of k is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of l is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of m is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of n is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of o is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of p is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of q is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of r is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of s is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of t is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of u is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of v is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of w is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of x is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of y is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of z is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ^ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of _ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ~ is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\rubout is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\backslash is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of #\vertical-bar is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of " is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ' is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ( is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ) is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of , is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ; is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ` is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of ## is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of array is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of sequence is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of type is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of input-stream is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of output-stream is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of class is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+back-node of <undefined> is:  object  
+left: object ::= 
+father: { object } 
+father-father: <tmp> 
+
+[make_graph], done. 
+
+construct_ast_tree ok 
+
+parser_init ok 
+
+
+ml_reader_init 
+ml_reader_init ok 
+
+ml_init ok 
+
+
+ml_reader_load_file 
+
+load_file 
+file demo_1.lisp opened, size 964 bytes.
+load_file end 
+
+ml_util_show_buf, 964 bytes:
+
+;'abc
+;'\A\B\C
+
+;"hello world"
+;"\"\'\t"
+;""
+;"\"APL\\360?\" he cried."
+
+;(+ 1 1)
+
+;(+ 1b5000 777777q)
+
+;(1.7J  -3/4+6.7J  12/25/83)
+
+;(27^19 3^4/5 6//7 3.1.2.6 ^-43^)
+
+;(3.141_592_653_589_793_238_4 -3.7+2.6i-6.17j+19.6k)
+
+;; symbols but not likely numbers
+;(/ /5 + 1+  1- foo+  ab.cd _ ^ ^/- )
+
+;; list, number add
+;(+ 1 2)
+
+;(+ (* (/ +1 2) -34) (- 567 890))
+
+;(- 1 2)
+
+;(* 2 3)
+
+;(/ 3 0)
+
+;(* 1 (- 2 3))
+
+;(* (/ 200 (+ 2 (- 3 1)) 10) 5 2 2)
+
+;(+ (- 1 0) (+ (+ (+ 1 0) (+ 1 0)) 2) (+ 3 3))
+
+;(setq x (+ 1 2))
+;(setq x 1 y 2)
+;(setq x (+ 1 2) y (* 2 3))
+
+;(defconstant myname
+;  ; this is my english name
+;  "Toby M.")
+
+;(cons (car (list 1 2)) (cdr (list 3 4)))
+
+;(list 1 2 3)
+
+;(car (list 1 2 3))
+
+;(cdr (list 1 2 3))
+
+;(cons (list 4 5) (list 1 2 3))
+
+;; wrong car syntax
+;(car (list 1 2 3) (list 3 5))
+;(list 1 2 3)
+
+;(list (list 1 2 3) 4)
+
+;(list (list 1 2) (list 3 4) 5)
+
+#\a
+#\'
+#\space
+
+(setq x #\a)
+
+;(setq y #\tab)
+
+;(setq z 'z)
+
+
+(car (list 1 2 3))
+
+
+
+
+
+
+
+ml_lex 
+ml_util_show_buf, 964 bytes:
+
+;'abc
+;'\A\B\C
+
+;"hello world"
+;"\"\'\t"
+;""
+;"\"APL\\360?\" he cried."
+
+;(+ 1 1)
+
+;(+ 1b5000 777777q)
+
+;(1.7J  -3/4+6.7J  12/25/83)
+
+;(27^19 3^4/5 6//7 3.1.2.6 ^-43^)
+
+;(3.141_592_653_589_793_238_4 -3.7+2.6i-6.17j+19.6k)
+
+;; symbols but not likely numbers
+;(/ /5 + 1+  1- foo+  ab.cd _ ^ ^/- )
+
+;; list, number add
+;(+ 1 2)
+
+;(+ (* (/ +1 2) -34) (- 567 890))
+
+;(- 1 2)
+
+;(* 2 3)
+
+;(/ 3 0)
+
+;(* 1 (- 2 3))
+
+;(* (/ 200 (+ 2 (- 3 1)) 10) 5 2 2)
+
+;(+ (- 1 0) (+ (+ (+ 1 0) (+ 1 0)) 2) (+ 3 3))
+
+;(setq x (+ 1 2))
+;(setq x 1 y 2)
+;(setq x (+ 1 2) y (* 2 3))
+
+;(defconstant myname
+;  ; this is my english name
+;  "Toby M.")
+
+;(cons (car (list 1 2)) (cdr (list 3 4)))
+
+;(list 1 2 3)
+
+;(car (list 1 2 3))
+
+;(cdr (list 1 2 3))
+
+;(cons (list 4 5) (list 1 2 3))
+
+;; wrong car syntax
+;(car (list 1 2 3) (list 3 5))
+;(list 1 2 3)
+
+;(list (list 1 2 3) 4)
+
+;(list (list 1 2) (list 3 4) 5)
+
+#\a
+#\'
+#\space
+
+(setq x #\a)
+
+;(setq y #\tab)
+
+;(setq z 'z)
+
+
+(car (list 1 2 3))
+
+
+
+
+
+
+0x0a 
+ 
+whitespace char 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:957 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:947 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:932 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:922 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:918 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:890 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:880 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:859 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:829 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:794 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:740 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:706 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:667 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:647 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:637 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:602 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:592 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:582 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:572 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:556 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:519 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:471 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:453 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:437 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:408 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:387 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:358 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:343 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:300 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:285 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:264 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:243 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:210 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:190 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:159 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:144 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:120 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:87 
+0x23 # 
+macro char 
+
+read_macro 
+0x23 # 
+
+read_character 
+character: a
+read_character ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:83 
+0x23 # 
+macro char 
+
+read_macro 
+0x23 # 
+
+read_character 
+character: '
+read_character ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:79 
+0x23 # 
+macro char 
+
+read_macro 
+0x23 # 
+
+read_character 
+character name: space 
+character:  
+read_character ok 
+
+read_macro end 
+
+
+show_form 
+show_form ok 
+
+remain code_sz:71 
+0x0a 
+ 
+whitespace char 
+0x28 ( 
+macro char 
+
+read_macro 
+0x28 ( 
+
+list_add_object 
+list_add_object ok 
+
+
+read_list 
+0x73 s 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+form_set_type, type: 1 
+
+read_symbol 
+0x73 s 
+0x65 e 
+0x74 t 
+0x71 q 
+0x20   
+symbol: setq 
+list_add_token ok 
+
+read_symbol ok 
+
+
+var_match_binder 
+var_match_binder ok 
+
+form_add_front ok 
+
+0x78 x 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+read_symbol 
+0x78 x 
+0x20   
+symbol: x 
+list_add_token ok 
+
+read_symbol ok 
+
+
+var_match_binder 
+0x23 # 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+read_character 
+character: a
+read_character ok 
+
+
+list_add_object 
+list_add_object ok 
+
+0x29 ) 
+
+list_add_object 
+list_add_object ok 
+
+read_macro end 
+
+
+show_form 
+SYMBOL_FORM 
+show_form ok 
+
+remain code_sz:58 
+0x0a 
+ 
+whitespace char 
+0x0a 
+ 
+whitespace char 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+SYMBOL_FORM 
+show_form ok 
+
+remain code_sz:39 
+0x3b ; 
+macro char 
+
+read_macro 
+0x3b ; 
+
+read_comments 
+read_comments ok 
+
+read_macro end 
+
+
+show_form 
+SYMBOL_FORM 
+show_form ok 
+
+remain code_sz:24 
+0x28 ( 
+macro char 
+
+read_macro 
+0x28 ( 
+
+list_add_object 
+list_add_object ok 
+
+
+read_list 
+0x63 c 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+car 
+form_set_type, type: 5 
+list_add_token ok 
+
+identify_car_cdr_cons_func ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+form_add_front ok 
+
+0x28 ( 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+list_add_token ok 
+
+
+list_add_object 
+list_add_object ok 
+
+
+read_list 
+0x6c l 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+form_set_type, type: 5 
+list_add_token ok 
+
+identify_list_func ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+form_add_front ok 
+
+0x31 1 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+digits len: 1 
+1 
+list_add_token ok 
+
+identify_number_token ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+0x20   
+0x32 2 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+digits len: 1 
+2 
+list_add_token ok 
+
+identify_number_token ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+0x20   
+0x33 3 
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+
+stack_push 
+in size: 16, m_stack_top: 1 
+stack_push ok 
+
+digits len: 1 
+3 
+list_add_token ok 
+
+identify_number_token ok 
+
+
+stack_pop 
+out size: 16, m_stack_top: 0 
+stack_pop ok 
+
+0x29 ) 
+
+list_add_object 
+list_add_object ok 
+
+0x29 ) 
+
+list_add_object 
+list_add_object ok 
+
+read_macro end 
+
+
+show_form 
+SYMBOL_FORM 
+COMPOUND_FUNCTION_FORM 
+
+list_show 
+is_head: 1 
+OBJ_CHARACTER 
+OBJ_TYPE 
+OBJ_LIST 
+OBJ_CHARACTER 
+list_show ok 
+
+show_form ok 
+
+remain code_sz:6 
+0x0a 
+ 
+whitespace char 
+0x0a 
+ 
+whitespace char 
+0x0a 
+ 
+whitespace char 
+0x0a 
+ 
+whitespace char 
+0x0a 
+ 
+whitespace char 
+0x0a 
+ 
+whitespace char 
+ml_lex ok 
+
+
+syntax_check 
+SYMBOL_FORM 
+COMPOUND_FUNCTION_FORM 
+
+check_list_form_syntax 
+list form 
+
+list_show 
+is_head: 1 
+OBJ_CHARACTER 
+OBJ_TYPE 
+OBJ_LIST 
+OBJ_CHARACTER 
+list_show ok 
+
+find syntax object: car 
+
+pop_syntax_htab 
+pop_syntax_htab ok 
+
+found 
+token node: ( 
+found token: ( 
+TOKEN_SYMBOL: car 
+find next: car 
+token node: CAR 
+TOKEN_SYMBOL: car 
+found token: CAR 
+find next: list ::= 
+token node: ( 
+subform 
+
+list_show 
+is_head: 1 
+OBJ_CHARACTER 
+OBJ_TYPE 
+OBJ_TYPE 
+OBJ_TYPE 
+OBJ_TYPE 
+OBJ_CHARACTER 
+list_show ok 
+
+
+pop_syntax_htab 
+pop_syntax_htab failed 
+
+check_list_form_syntax failed 
 

@@ -101,6 +101,8 @@ list_show(lisp_list_s *list)
 
     func_s();
 
+    debug("is_head: %d \n", list->is_head);
+
     lisp_list_s *l = list->next;
 
     while (l && l != list) {

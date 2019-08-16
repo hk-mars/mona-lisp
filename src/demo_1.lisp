@@ -69,6 +69,16 @@
 
 (setq x #\a)
 
-(setq y #\newline)
+;(setq y #\tab)
+
+;(setq z 'z)
+
+
+(car (list 1 2 3))
+
+(cdr (list 1 2 3))
+
+
+
 
 

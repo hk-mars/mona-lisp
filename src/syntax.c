@@ -99,10 +99,12 @@ search_end(tr_node_s *root)
     tr_node_s *rtn;
   
     if (!root) return NULL;
-  
+
+    //func_s();
+    
     if (strcmp(root->key, "@") == 0) {
   
-#if 0
+#if 1
 	debug("%s \n", root->key);
 	if (root->right) debug("still has a right: %s. \n", root->right->key);
 	if (root->left) debug("still has a left: %s. \n", root->left->key);
@@ -112,14 +114,14 @@ search_end(tr_node_s *root)
 #endif
     
 	if (!root->right && !root->left && !root->sub) {
-	    //debug("@e. \n");
+	    debug("@e. \n");
 	    return root;
 	}
     }
   
     if (root->is_token) {
-	//debug("token: %s \n", root->key);
-	return NULL;
+	debug("end as a token: %s \n", root->key);
+	return root;
     }
   
     if (root->sub) {
@@ -354,8 +356,14 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 	    debug("subform \n");
 	    form_s *subform = path->obj.sub;
+	    list_show(subform->next->list);
 	    rtn = find_path(pop_syntax_htab("list"), subform->next->list->next);
 	    if (!rtn) return NULL;
+
+	    debug("subform found \n");
+	    nd = rtn;
+	    debug("node: %s \n", root->key);
+	    
 	}
 	else {
 	    char *name = get_leaf_name(&path->obj);
@@ -445,7 +453,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	     */
 	    lst = sl;
 	    while (lst) {
-		if (!lst->next) break;
+		if (lst->next->is_head) break;
 		lst = lst->next;
 	    }
 	    if (el) lst->next = el;
@@ -527,9 +535,33 @@ check_list_form_syntax(form_s *form)
     debug("list form \n");    
     list_show(form->list);
 
-    htab_entry_s *item = pop_syntax_htab("list");
-    if (!item) goto FAIL;
+    l = form->list->next->next;
+    if (!l) {
+
+	debug_err("function name not found in list form \n");
+	ml_err_signal(ML_ERR_SYNTAX);
+	goto FAIL;
+    }
+
+
+    char *syntax_obj_name = l->obj.token.value.symbol;
+    debug("find syntax object: %s \n", syntax_obj_name);
     
+    htab_entry_s *item = pop_syntax_htab(syntax_obj_name);
+    if (!item) {
+
+	debug_err("syntax object \"%s\" is not created \n", syntax_obj_name);
+	goto FAIL;
+    }
+    
+    if (!item->data) {
+
+	debug_err("AST tree of \"%s\" is not constructed \n", syntax_obj_name);
+	goto FAIL;
+    }
+
+
+    debug("found \n");
      
     /* track the tree to find the given path
      */
@@ -658,7 +690,12 @@ pop_syntax_htab(char *key)
     memset(&item, 0, sizeof(ENTRY));
     item.key = key;
     rti = hsearch(&syntax_htab, item, FIND);
+    if (!rti) {
 
+	func_fail();
+	return NULL;
+    }
+    
     func_ok();
     return rti;
 }

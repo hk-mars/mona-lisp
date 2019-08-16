@@ -63,9 +63,9 @@ show_setq_pair(pair_s *pair)
     switch (pair->val.type) {
 
     case OBJ_CHARACTER:
-	debug("pair= var: %s, value: %s \n",
+	debug("pair= var: %s, character, value: 0x%x \n",
 	      pair->var_name,
-	      pair->val.character);
+	      pair->val.character[0]);
 
 	found = true;
 	break;
