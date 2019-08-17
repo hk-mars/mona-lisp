@@ -106,7 +106,7 @@ list_show(lisp_list_s *list)
     lisp_list_s *l = list->next;
 
     while (l && l != list) {
-
+	
 	switch (l->obj.type) {
 
 	case OBJ_CHARACTER:

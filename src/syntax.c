@@ -357,7 +357,16 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    debug("subform \n");
 	    form_s *subform = path->obj.sub;
 	    list_show(subform->next->list);
-	    rtn = find_path(pop_syntax_htab("list"), subform->next->list->next);
+
+	    char *name = subform->next->list->next->next->obj.token.value.symbol;
+	    debug("find syntax object: %s \n", name);
+	    rti = pop_syntax_htab(name);
+	    if (!rti) {
+		debug("syntax tree not found for: %s \n", name);
+		return NULL;
+	    }
+	    
+	    rtn = find_path(rti, subform->next->list->next);
 	    if (!rtn) return NULL;
 
 	    debug("subform found \n");
@@ -430,7 +439,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	rti = pop_syntax_htab(root->key);
 	if (!rti) return NULL;
 	if (!rti->data) {
-	    //debug("sub tree not found: %s \n", root->key);
+	    debug("sub tree not found: %s \n", root->key);
 	    return NULL;
 	}
     

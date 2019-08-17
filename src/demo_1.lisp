@@ -74,9 +74,11 @@
 ;(setq z 'z)
 
 
-(car (list 1 2 3))
+;(car (list 1 2 3))
 
-(cdr (list 1 2 3))
+;(cdr (list 1 2 3))
+
+(car (cdr (list 1 2 3)))
 
 
 

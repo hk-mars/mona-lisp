@@ -47,6 +47,9 @@ typedef struct s_object
 } object_s;
 
 
+void obj_show(object_s *obj);
+
+
 
 #endif /* ML_OBJ_H */
 

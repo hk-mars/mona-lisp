@@ -164,6 +164,7 @@ eval_list(void *left, void *right)
     if (list->obj.type == OBJ_UNKNOWN) {
 
 	list->obj.type = OBJ_LIST;
+	list->is_head = true;
     }
     
     
@@ -210,10 +211,10 @@ eval_car(void *left, void *right)
     }
    
     
-    debug("car of list: ");
-    debug("%d \n", list_in->next->obj.token.value.num_int);
+    debug("car of list is: ");
+    debug("%d \n", list_in->next->next->obj.token.value.num_int);
     
-    memcpy(obj_out, &list_in->next->obj, sizeof(object_s));
+    memcpy(obj_out, &list_in->next->next->obj, sizeof(object_s));
 	    
     func_ok();
     return true;
@@ -241,7 +242,7 @@ eval_cdr(void *left, void *right)
 	return true;
     }
 
-    lisp_list_s *l = list_in->next->next;
+    lisp_list_s *l = list_in->next->next->next;
     
     while (l && l != list_in) {
 	
@@ -252,6 +253,8 @@ eval_cdr(void *left, void *right)
 	}
 
 	l = l->next;
+
+	if (l->next && l->next->is_head) break;
     }
 
     list_show(list_out);
@@ -403,7 +406,7 @@ eval_function_form(form_s *form, eval_value_s *val)
     /* evaluate the list
      */
     l = l->next;
-    list_add_char_obj(&val->list, ")");
+    val->list.is_head = true;
     while (l) {
 
 	if (l->obj.type == OBJ_LIST) {
@@ -420,11 +423,13 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    eval_rt_t rt = eval_function_form(subform->next, &value);
 	    if (rt != EVAL_OK) return rt;
 
-	    debug("add sublist to the result \n");
-	    list_add_object(&val->list, &value.list.obj);
+	    debug("eval sub_form done \n");
 	    
-	    //value.obj_in = &value.list.obj;
-	    //eval_func->eval(val, &value);
+	    debug("add sublist to the result \n");
+
+	    debug("eval %s \n", func_name);
+	    value.obj_in = &value.list.obj;
+	    eval_func->eval(val, &value);
 	}
 	else if (l->obj.type == OBJ_TYPE) {
 
@@ -444,12 +449,23 @@ eval_function_form(form_s *form, eval_value_s *val)
 	/* break if it's ")" as the end of list */
 	if (l && l->next == form->list) break;
     }
-    
-    list_add_char_obj(&val->list, "(");
 
-    list_show(&val->list);
-    
+    if (val->obj_out.type != OBJ_UNKNOWN) {
+	debug("result is an object with type: %d \n", val->obj_out.type);
+	obj_show(&val->obj_out);
+    }
+    else {
 
+	debug("add ( \n");
+	list_add_char_obj(val->list.next, "(");
+    
+	debug("add ) \n");
+	list_add_char_obj(&val->list, ")");
+
+	list_show(&val->list);
+    }
+    
+    
     if (eval_func->get_result) {
 
 	eval_func->get_result(val, &value);
