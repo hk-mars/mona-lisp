@@ -824,9 +824,11 @@ static code_s
 read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 {
     bool found;
+    bool is_nil_list;
     
     func_s();
-    
+
+    is_nil_list = true;
     while (code_sz > 0) {
 
 	debug("0x%02x %c \n", *code, *code);
@@ -846,10 +848,20 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	
 	if (*code == ')') {
 
+	    /* nil list: () 
+	     */
+	    if (form->list->next->next == form->list) {
+		form->list->is_nil = true;
+		form_add_front(form_head, form);		
+		form_set_type(form, NIL_LIST_FORM);
+	    }
+	    
 	    next_code(code, code_sz);
 	    code_s cd = { code, code_sz };
 	    return cd;
 	}
+
+	is_nil_list = false;
 
 	if (like_arithmetic_func(code)) {
 
@@ -880,6 +892,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    if (found) {
 
 		form_add_front(form_head, form);
+		
 		continue;
 	    }
 	}
@@ -1067,45 +1080,6 @@ read_macro(code_s *cd, lex_s *lex)
 }
 
 
-static void
-show_form(form_s *form)
-{
-    if (!form) return;
-
-    func_s();
-
-    form_s *f = form->next;
-    
-    while (f && f != form) {
-
-	switch (f->type) {
-
-	case SYMBOL_FORM:
-	    debug_err("SYMBOL_FORM \n");
-	    
-	    break;
-
-	case COMPOUND_FUNCTION_FORM:
-	    debug_err("COMPOUND_FUNCTION_FORM \n");
-
-	    list_show(f->list);
-	    break;
-
-	    
-	default:
-	    debug_err("unkown form \n");
-	    break;
-
-	}
-	
-	
-	f = f->next;
-    }
-
-    func_ok();
-}
-
-
 
 /**
  * Initialize lexer 
@@ -1202,7 +1176,7 @@ ml_lex(lex_s *lex, code_s *cd)
         
 	    if (!read_macro(cd, lex)) return LEX_ERR;
 
-	    show_form(&lex->forms);
+	    form_show(&lex->forms);
 	    
 	    debug("remain code_sz:%d \n",cd->code_sz);
 	    if (cd->code_sz == 0) break;

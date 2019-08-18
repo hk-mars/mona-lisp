@@ -23,6 +23,7 @@ typedef struct s_lisp_list
     struct s_lisp_list *front;
 
     bool is_head;
+    bool is_nil;
     
 } lisp_list_s;
 

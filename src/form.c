@@ -10,6 +10,9 @@
 
 #include "error.h"
 
+#include "list.h"
+
+
 
 /**
  * Conses as Forms
@@ -125,23 +128,29 @@ form_show(form_s *form)
 
     form_s *f = form->next;
     
-    while (f != form) {
+    while (f && f != form) {
 
 	switch (f->type) {
 
 	case SYMBOL_FORM:
-	    debug_err("SYMBOL_FORM \n");
+	    debug("SYMBOL_FORM \n");
+
+	    list_show(f->list);
 	    
 	    break;
 
 	case COMPOUND_FUNCTION_FORM:
-	    debug_err("COMPOUND_FUNCTION_FORM \n");
-	    
+	    debug("COMPOUND_FUNCTION_FORM \n");
+
+	    list_show(f->list);
 	    break;
 
+	case NIL_LIST_FORM:
+	    debug("NIL_LIST_FORM \n");
+	    break;
 	    
 	default:
-	    debug_err("unkown form \n");
+	    debug("unkown form \n");
 	    break;
 
 	}

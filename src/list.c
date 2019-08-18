@@ -103,6 +103,13 @@ list_show(lisp_list_s *list)
 
     debug("is_head: %d \n", list->is_head);
 
+    if (list->is_nil) {
+
+	debug("nil list \n");
+	return;
+    }
+    
+    
     lisp_list_s *l = list->next;
 
     while (l && l != list) {

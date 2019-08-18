@@ -35,6 +35,8 @@ typedef enum
 
     SELF_EVALUATING_FORM = 6,
 
+    NIL_LIST_FORM = 7,
+
 } form_t;
 
 

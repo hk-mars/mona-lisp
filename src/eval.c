@@ -554,14 +554,14 @@ eval(form_s *forms)
 		return EVAL_ERR;
 	    }
 
-	    memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
 
 	    printer_print(&value, OBJ_LIST);
 	    
 	    break;
 
 	case SYMBOL_FORM:
-
+	    
 	    rt = eval_symbol_form(f, &value); 
 	    if (rt != EVAL_OK) {
 		
@@ -571,6 +571,11 @@ eval(form_s *forms)
 
 	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
 
+	    break;
+
+	case NIL_LIST_FORM:
+
+	    debug("() \n");
 	    break;
 	    
 	default:
