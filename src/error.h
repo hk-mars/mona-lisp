@@ -25,6 +25,8 @@ typedef enum
     ML_ERR_SYNTAX_CAR = 11,
     ML_ERR_SYNTAX_CDR = 12,
     ML_ERR_SYNTAX_CONS = 13,
+    ML_ERR_VARIABLE_UNBOUND = 14,
+    
     
 } ml_err_t;
 

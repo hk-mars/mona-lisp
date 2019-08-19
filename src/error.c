@@ -90,18 +90,22 @@ ml_err_signal(ml_err_t err)
 
     case ML_ERR_SYNTAX_CAR:
 
-	debug_err("syntax err: car \n");
+	debug_err("illegal car syntax \n");
 	break;
 	
     case ML_ERR_SYNTAX_CDR:
 
-	debug_err("syntax err: cdr \n");
+	debug_err("illegal cdr syntax \n");
 	break;	
 
     case ML_ERR_SYNTAX_CONS:
 
-	debug_err("syntax err: cons \n");
-	break;		
+	debug_err("illegal cons syntax \n");
+	break;
+
+    case ML_ERR_VARIABLE_UNBOUND:
+	debug_err("unbound variable \n");
+	break;
 	
     default:
 	debug_err("unkown error \n");

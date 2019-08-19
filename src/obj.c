@@ -11,7 +11,7 @@
 void
 obj_show(object_s *obj)
 {
-    func_s();
+    //func_s();
 
  
     switch (obj->type) {
@@ -69,6 +69,23 @@ obj_show(object_s *obj)
 
     }
 
-    func_ok();
+    //func_ok();
 }
+
+
+bool
+obj_is_symbol(object_s *obj)
+{
+    return (obj->token.type == TOKEN_SYMBOL);
+}
+
+
+char*
+obj_get_symbol(object_s *obj)
+{
+    if (!obj_is_symbol(obj)) return NULL;
+    
+    return obj->token.value.symbol;
+}
+
 

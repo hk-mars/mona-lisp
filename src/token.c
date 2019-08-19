@@ -35,7 +35,7 @@ token_clone(token_s *token)
 void
 token_show(token_s *token)
 {
-    func_s();
+    //func_s();
 
     switch (token->type) {
 
@@ -69,5 +69,5 @@ token_show(token_s *token)
 
     }
     
-    func_e();
+    //func_e();
 }

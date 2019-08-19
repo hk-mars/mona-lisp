@@ -503,3 +503,13 @@ var_update(var_value_s *value)
     func_ok();
     return true;
 }
+
+
+bool
+var_is_bound(char *name)
+{
+    if (!name) return false;
+    
+    return var_get(name);
+}
+

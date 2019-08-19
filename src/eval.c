@@ -435,6 +435,14 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 	    debug("OBJ_TYPE \n");
 
+	    char *sym = obj_get_symbol(&l->obj);
+	    if (sym && !var_is_bound(sym)) {
+
+		debug_err("symbol %s is unbound \n", sym);
+		ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
+		return EVAL_ERR;		
+	    }
+	    
 	    value.obj_in = &l->obj;
 	    eval_func->eval(val, &value);
 	}

@@ -104,6 +104,9 @@ variable_s* var_get(char *name);
 bool var_update(var_value_s *value);
 
 
+bool var_is_bound(char *name);
+
+
 #endif /* ML_VARIABLE_H */
 
 

@@ -80,7 +80,13 @@
 
 ;(car (cdr (list 1 2 3)))
 
-()
+;()
+
+(list x 2 3)
+
+; y is unbound
+;(list y 2 3)
+
 
 
 
