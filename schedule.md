@@ -42,6 +42,7 @@ hack parser (syntax AST tree has been constructed and verified, a demo has been 
 [**goals**]
 
 @ hack the core parts of parser (show a demo)  **#1**
+
 @ improve codes and warnings  **#2**
 
 [**#1**]
@@ -51,16 +52,22 @@ hack parser (syntax AST tree has been constructed and verified, a demo has been 
 @ implementing for below features:
 
 when + do
+
 if + do
+
 return + return-from
+
 macro feature
 
 cond
-loop + as + in
-loop + for + in
-out + out-from
-dolist
 
+loop + as + in
+
+loop + for + in
+
+out + out-from
+
+dolist
 
 
 ## 2019
