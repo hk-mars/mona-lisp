@@ -63,7 +63,7 @@
 ;#\'
 ;#\space
 
-(setq x #\a)
+;(setq x #\a)
 
 ;(setq y #\tab)
 
@@ -84,9 +84,14 @@
 ;(list y 2 3)
 
 
-(defconstant myname
-  ; this is my english name
-  "Toby M.")
+;(defconstant myname
+;  ; this is my english name
+;  "Toby M.")
+
+(eq #\a #\a)
+
+(if (eq #\a #\b) (list t) (list nil))
+
 
 
 

@@ -1997,6 +1997,11 @@ parser_init(void)
 
     if (construct_ast_tree("defconstant") != PARSER_OK) return PARSER_ERR;
 
+    if (construct_ast_tree("eq") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("eql") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("equal") != PARSER_OK) return PARSER_ERR;
+    
+    if (construct_ast_tree("if") != PARSER_OK) return PARSER_ERR;
     
     func_ok();
 

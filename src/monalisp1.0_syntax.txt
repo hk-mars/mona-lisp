@@ -159,7 +159,21 @@ macro-operator ::=
 string ::= <TBD>
 
 
+if ::=
+	IF test-form then-form [else-form]
 
+
+test-form ::= form
+
+then-form ::= form
+
+else-form ::= form
+
+eq ::= object object
+
+eql ::= object object
+
+equal ::= object object
 
 
 
