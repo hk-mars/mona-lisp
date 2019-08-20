@@ -816,6 +816,59 @@ read_character(const char **code, size_t *code_sz)
 }
 
 
+static bool
+identify_eq_form(const char **code, size_t *code_sz, form_s *form)
+{
+    token_s *t, tk;
+    
+    if (!ml_util_strbufcmp("eq", *code, *code_sz)) return false;
+    
+    move_code(*code, *code_sz, 2);
+    
+    if (*code_sz == 0) goto DONE;
+
+    if (eq(**code, SPACE)) {
+	
+	next_code(*code, *code_sz);
+	goto DONE;
+    }
+    
+    if (is_whitespace_char(**code)) {
+
+	next_code(*code, *code_sz);
+	goto DONE;
+    }
+ 
+    if (**code == ')') {
+	
+	next_code(*code, *code_sz);
+	goto DONE;
+    }    
+     
+    return false;
+    
+  DONE:
+    memset(&tk, 0, sizeof(token_s));
+    t = &tk;
+   
+    
+    t->type = TOKEN_SYMBOL;
+    t->value.symbol = "eq";
+
+        
+    if (form_is_unkown(form)) {
+	form_set_type(form, COMPOUND_SPECIAL_FORM);
+    }
+    
+    list_add_token(form->list, t);
+  
+    func_ok();
+    return true;
+}
+
+
+
+
 /** 
  * The function read is called recursively to read successive objects until a right
  * parenthesis is found to be next in the code. A list of the objects read is returned.
@@ -897,6 +950,20 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 		continue;
 	    }
 	}
+
+	if (tolower(*code) == 'e') {
+
+	    found = identify_eq_form(&code, &code_sz, form);
+	    
+	    if (found) {
+
+		form_add_front(form_head, form);
+		
+		continue;
+	    }
+	    
+	}
+	
 	
 
 	if (like_num_token(code, code_sz)) {

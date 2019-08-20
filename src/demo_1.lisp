@@ -88,9 +88,11 @@
 ;  ; this is my english name
 ;  "Toby M.")
 
+;(if (eq #\a #\b) (list t) (list nil))
+
 (eq #\a #\a)
 
-(if (eq #\a #\b) (list t) (list nil))
+
 
 
 

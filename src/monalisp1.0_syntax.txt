@@ -169,11 +169,12 @@ then-form ::= form
 
 else-form ::= form
 
-eq ::= object object
+eq ::= ( EQ object object )
 
-eql ::= object object
+eql ::= (EQL object object )
 
-equal ::= object object
+equal ::= (EQUAL object object )
+
 
 
 
