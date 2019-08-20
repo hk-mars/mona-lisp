@@ -376,12 +376,25 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	}
 	else {
 	    char *name = get_leaf_name(&path->obj);
-	
-	    root->next = NULL;
+
 	    if (strcasecmp(root->key, name) != 0) {
 
-		return NULL;
-	    
+
+		if (!strcmp(root->key, "symbol-token ::=")) {
+
+		    if (path->obj.token.type == TOKEN_SYMBOL) {
+
+			debug("found token: %s \n", root->key);
+		    }
+		    else {
+
+			return NULL;
+		    }
+		}
+		else {    
+		    return NULL;
+		}
+		
 		//tr_node_s *lex_tree = get_lex_tree();
 		//if (lex_tree) debug("search lex tree \n");
 	    
@@ -603,7 +616,7 @@ syntax_check(form_s *form)
 	switch (f->type) {
 
 	case COMPOUND_FUNCTION_FORM:
-	    debug("COMPOUND_FUNCTION_FORM \n");
+	    //debug("COMPOUND_FUNCTION_FORM \n");
 
 	    if (f->list) {
 		
@@ -616,6 +629,20 @@ syntax_check(form_s *form)
 	    
 	    break;
 
+	case COMPOUND_SPECIAL_FORM:
+	    //debug("COMPOUND_SPECIAL_FORM \n");
+
+	    if (f->list) {
+		
+		rt = check_list_form_syntax(f);
+		if (rt != SYNTAX_OK) return rt;
+	    }
+	    else {
+	    }
+
+	    
+	    break;
+	    
 	case SYMBOL_FORM:
 	    debug("SYMBOL_FORM \n");
 	    break;

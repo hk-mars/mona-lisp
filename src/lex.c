@@ -244,7 +244,7 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 		debug("symbol: %s \n", token.value.symbol);
 		token.type = TOKEN_SYMBOL;
 	    }
-	    
+	  
 			    
 	    if (eq(**code, SPACE)) {
 		next_code(*code, *code_sz);
@@ -853,7 +853,8 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    if (form->list->next->next == form->list) {
 		form->list->is_nil = true;
 		form_add_front(form_head, form);		
-		form_set_type(form, NIL_LIST_FORM);
+		form_set_type(form, SELF_EVALUATING_FORM);
+		form->subtype = NIL_LIST_FORM;
 	    }
 	    
 	    next_code(code, code_sz);
@@ -948,10 +949,6 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	}
 	else {
 
-	    if (form_is_unkown(form)) {
-		form_set_type(form, SYMBOL_FORM);
-	    }
-
 	    found = read_symbol(&code, &code_sz, form);
 	    if (!found) break;
 
@@ -959,14 +956,18 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    const var_binder_s *binder;
 	    binder = var_match_binder(form->list->front->obj.token.value.symbol);
 	    if (binder) {
-
-		form->sub_type = SYMBOL_VARIABLE_FORM;
+		if (form_is_unkown(form)) {
+		    form_set_type(form, COMPOUND_SPECIAL_FORM);
+		}
 		
 		form_add_front(form_head, form);
 	    }
 	    else {
-
-		form->sub_type = SYMBOL_MACRO_FORM;
+		
+		if (form_is_unkown(form)) {
+		    form_set_type(form, SYMBOL_FORM);
+		}
+		
 	    }
 	    
 	}

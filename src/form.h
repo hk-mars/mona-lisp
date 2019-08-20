@@ -35,8 +35,6 @@ typedef enum
 
     SELF_EVALUATING_FORM = 6,
 
-    NIL_LIST_FORM = 7,
-
 } form_t;
 
 
@@ -48,12 +46,20 @@ typedef enum
 } symbol_form_t;
 
 
+typedef enum
+{
+    NIL_LIST_FORM = 1,
+    
+} self_evaluating_form_t;
+
+
+
 /* a form is any object meant to be evaluated.
  */
 typedef struct s_form
 {
     form_t type;
-    unsigned char sub_type; /* the sub type of this form */
+    unsigned char subtype; /* the sub type of this form */
 
     symbol_s *symbol;
     

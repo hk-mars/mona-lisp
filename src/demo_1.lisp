@@ -41,10 +41,6 @@
 ;(setq x 1 y 2)
 ;(setq x (+ 1 2) y (* 2 3))
 
-;(defconstant myname
-;  ; this is my english name
-;  "Toby M.")
-
 ;(cons (car (list 1 2)) (cdr (list 3 4)))
 
 ;(list 1 2 3)
@@ -63,9 +59,9 @@
 
 ;(list (list 1 2) (list 3 4) 5)
 
-#\a
-#\'
-#\space
+;#\a
+;#\'
+;#\space
 
 (setq x #\a)
 
@@ -82,11 +78,15 @@
 
 ;()
 
-(list x 2 3)
+;(list x 2 3)
 
 ; y is unbound
 ;(list y 2 3)
 
+
+(defconstant myname
+  ; this is my english name
+  "Toby M.")
 
 
 

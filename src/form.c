@@ -145,8 +145,8 @@ form_show(form_s *form)
 	    list_show(f->list);
 	    break;
 
-	case NIL_LIST_FORM:
-	    debug("NIL_LIST_FORM \n");
+	case COMPOUND_SPECIAL_FORM:
+	    debug("COMPOUND_SPECIAL_FORM \n");
 	    break;
 	    
 	default:

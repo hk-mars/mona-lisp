@@ -534,6 +534,55 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 }
 
 
+eval_rt_t
+eval_special_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+
+    func_s();
+
+    if (!form->list->next) {
+
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
+    
+    debug("list form \n");
+    list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = l->obj.token.value.symbol;
+    debug("name: %s \n", name);
+    
+    const var_binder_s *binder = var_match_binder(name);
+    if (!binder) {
+
+	debug_err("undefined binder: %s \n", name);
+	
+	return EVAL_ERR;
+    }
+
+    if (!binder->bind) {
+
+	debug_err("binding function is null \n");
+	
+	return EVAL_ERR;
+    }
+
+    variable_s var;
+    binder->bind(&var, l);  
+    
+    func_ok();
+
+    return EVAL_OK;
+}
+
+
 
 eval_rt_t
 eval(form_s *forms)
@@ -553,16 +602,17 @@ eval(form_s *forms)
     
 	switch (f->type) {
 
+	case COMPOUND_SPECIAL_FORM:
+
+	    rt = eval_special_form(f, &value);
+	    if (rt != EVAL_OK) goto FAIL;
+	    
+	    break;
+	    
 	case COMPOUND_FUNCTION_FORM:
 	    
 	    rt = eval_function_form(f, &value);
-	    if (rt != EVAL_OK) {
-		
-		ml_err_signal(ML_ERR_EVAL);
-		return EVAL_ERR;
-	    }
-
-	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
+	    if (rt != EVAL_OK) goto FAIL;
 
 	    printer_print(&value, OBJ_LIST);
 	    
@@ -571,19 +621,16 @@ eval(form_s *forms)
 	case SYMBOL_FORM:
 	    
 	    rt = eval_symbol_form(f, &value); 
-	    if (rt != EVAL_OK) {
-		
-		ml_err_signal(ML_ERR_EVAL);
-		return EVAL_ERR;
-	    }
-
-	    //memcpy(&f->list->obj.token, &value, sizeof(eval_value_s));
-
+	    if (rt != EVAL_OK) goto FAIL;
+	 
 	    break;
 
-	case NIL_LIST_FORM:
+	case SELF_EVALUATING_FORM:
 
-	    debug("() \n");
+	    if (f->subtype == NIL_LIST_FORM) {
+		debug("() \n");
+	    }
+	    
 	    break;
 	    
 	default:
@@ -599,4 +646,9 @@ eval(form_s *forms)
     func_ok();
 
     return EVAL_OK;
+
+
+  FAIL:
+    ml_err_signal(ML_ERR_EVAL);
+    return EVAL_ERR;    
 }

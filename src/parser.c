@@ -1992,6 +1992,11 @@ parser_init(void)
     if (construct_ast_tree("car") != PARSER_OK) return PARSER_ERR;
 
     if (construct_ast_tree("cdr") != PARSER_OK) return PARSER_ERR;
+
+    if (construct_ast_tree("setq") != PARSER_OK) return PARSER_ERR;
+
+    if (construct_ast_tree("defconstant") != PARSER_OK) return PARSER_ERR;
+
     
     func_ok();
 
