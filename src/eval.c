@@ -304,6 +304,68 @@ eval_cons(void *left, void *right)
 }
 
 
+static bool
+eval_eq(void *left, void *right)
+{
+    func_s();
+
+    object_s *obj_l = &((eval_value_s*)left)->obj_out;
+    object_s *obj_r = ((eval_value_s*)right)->obj_in;
+  
+    if (obj_l->type == OBJ_UNKNOWN) {
+
+	memcpy(obj_l, obj_r, sizeof(object_s));
+	goto DONE;
+    }
+    
+    
+    if (obj_l->type != obj_r->type) {
+
+	debug_err("deferrent object type \n");
+	
+	goto FAIL;
+    }
+
+
+    
+    bool result;
+    
+    switch (obj_l->type) {
+
+    case OBJ_CHARACTER:
+
+	result = (obj_l->character[0] == obj_r->character[0]);
+	break;
+
+    default:
+	
+	
+	break;
+    }
+
+    
+    debug("result: %d \n", result);
+
+    memset(obj_l, 0, sizeof(object_s));
+    obj_l->type = OBJ_TYPE;
+    obj_l->subtype = (result ? OBJ_SUBTYPE_BOOL_TRUE : OBJ_SUBTYPE_BOOL_FALSE);
+    
+
+  DONE:
+    obj_show(obj_l);
+    
+    func_ok();
+    return true;
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_EQ);
+    
+    func_fail();
+    return false;
+}
+
+
+
 typedef bool (*eval_func_f)(void *left, void *right);
 typedef bool (*get_result_f)(void *in, void *out);
 
@@ -331,7 +393,9 @@ static const eval_func_s m_funcs[] =
     { "cdr", eval_cdr, NULL},
     { "cons", eval_cons, NULL},
 
-    
+    { "eq", eval_eq, NULL},
+    //{ "eql", eval_eql, NULL},
+    //{ "equal", eval_equal, NULL},
 
 };
 
@@ -409,7 +473,9 @@ eval_function_form(form_s *form, eval_value_s *val)
     val->list.is_head = true;
     while (l) {
 
-	if (l->obj.type == OBJ_LIST) {
+	switch (l->obj.type) {
+
+	case OBJ_LIST:
 
 	    debug("OBJ_LIST \n");
 
@@ -430,8 +496,10 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    debug("eval %s \n", func_name);
 	    value.obj_in = &value.list.obj;
 	    eval_func->eval(val, &value);
-	}
-	else if (l->obj.type == OBJ_TYPE) {
+
+	    break;
+
+	case OBJ_TYPE:
 
 	    debug("OBJ_TYPE \n");
 
@@ -445,10 +513,20 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    
 	    value.obj_in = &l->obj;
 	    eval_func->eval(val, &value);
-	}
-	else {
+	    break;
+	    
+	case OBJ_CHARACTER:
+
+	    debug("OBJ_CHARACTER \n");
+
+	    value.obj_in = &l->obj;
+	    eval_func->eval(val, &value);
+	    break;
+
+	default:
 
 	    debug("unkown object, type: %d \n", l->obj.type);
+	    break;
 	}
 
 	

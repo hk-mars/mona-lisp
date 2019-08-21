@@ -32,9 +32,17 @@ typedef enum
 } object_t;
 
 
+typedef enum
+{
+    OBJ_SUBTYPE_BOOL_TRUE = 1,
+    OBJ_SUBTYPE_BOOL_FALSE = 2,
+    
+} object_sub_t;
+
 typedef struct s_object
 {
     object_t type;
+    object_t subtype;
 
     char *character;
     

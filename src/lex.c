@@ -857,7 +857,7 @@ identify_eq_form(const char **code, size_t *code_sz, form_s *form)
 
         
     if (form_is_unkown(form)) {
-	form_set_type(form, COMPOUND_SPECIAL_FORM);
+	form_set_type(form, COMPOUND_FUNCTION_FORM);
     }
     
     list_add_token(form->list, t);

@@ -43,7 +43,15 @@ obj_show(object_s *obj)
 
       debug("OBJ_TYPE \n");
 
-      token_show(&obj->token);
+      if (obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ||
+	  obj->subtype == OBJ_SUBTYPE_BOOL_FALSE) {
+
+	  debug("%s \n", obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ? "t" : "nil");
+      }
+      else {
+	
+	token_show(&obj->token);
+      }
       
       break;
 	    

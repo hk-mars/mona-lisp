@@ -106,6 +106,10 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_VARIABLE_UNBOUND:
 	debug_err("unbound variable \n");
 	break;
+
+    case ML_ERR_SYNTAX_EQ:
+	debug_err("ML_ERR_SYNTAX_EQ \n");
+	break;
 	
     default:
 	debug_err("unkown error \n");
