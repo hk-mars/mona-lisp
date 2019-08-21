@@ -464,7 +464,8 @@ var_get(char *name)
     
     func_s();
     
-    debug("name: %s \n", name);
+    debug("name: %s, %dbytes\n", name, strlen(name));
+    
     
     entry.key = name;
     
@@ -485,7 +486,7 @@ var_get(char *name)
   FOUND:
 
     var = (variable_s*)entry_rt->data;
-    //token_show(&var->val.token);
+    
     var_show(var);
     
     func_ok();
@@ -510,6 +511,6 @@ var_is_bound(char *name)
 {
     if (!name) return false;
     
-    return var_get(name);
+    return !!var_get(name);
 }
 

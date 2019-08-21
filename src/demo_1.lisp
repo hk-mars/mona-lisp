@@ -90,7 +90,24 @@
 
 ;(if (eq #\a #\b) (list t) (list nil))
 
-(eq #\a #\a)
+;(eq #\a #\a)
+
+;(eq #\a #\b)
+
+;(eq #\a 2)
+
+(setq x #\a)
+
+(setq y #\a)
+
+;(eq x y)
+
+(eq x #\a)
+(eq #\a y)
+
+
+
+
 
 
 

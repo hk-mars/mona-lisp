@@ -116,4 +116,9 @@ ml_err_signal(ml_err_t err)
 	break;
     }
 
+    #if 1
+    while (1) {
+    }
+    #endif
+    
 }

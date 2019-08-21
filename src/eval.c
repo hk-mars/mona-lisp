@@ -307,6 +307,8 @@ eval_cons(void *left, void *right)
 static bool
 eval_eq(void *left, void *right)
 {
+    variable_s *var1, *var2;
+    
     func_s();
 
     object_s *obj_l = &((eval_value_s*)left)->obj_out;
@@ -318,10 +320,27 @@ eval_eq(void *left, void *right)
 	goto DONE;
     }
     
+
+    if (obj_is_symbol(obj_l)) {
+
+	 var1 = var_get(obj_get_symbol(obj_l));
+	 if (var1) {
+	     obj_l = &var1->val;
+	 }
+    }
+
+    if (obj_is_symbol(obj_r)) {
+
+	var2 = var_get(obj_get_symbol(obj_r));
+	 if (var2) {
+	     obj_r = &var2->val;
+	 }	
+    }   
+
     
     if (obj_l->type != obj_r->type) {
 
-	debug_err("deferrent object type \n");
+	debug_err("object type is inconsistent \n");
 	
 	goto FAIL;
     }
@@ -337,6 +356,7 @@ eval_eq(void *left, void *right)
 	result = (obj_l->character[0] == obj_r->character[0]);
 	break;
 
+	
     default:
 	
 	
