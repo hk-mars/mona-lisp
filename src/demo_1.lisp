@@ -96,14 +96,21 @@
 
 ;(eq #\a 2)
 
-(setq x #\a)
+;(setq x #\a)
 
-(setq y #\a)
+;(setq y #\a)
 
 ;(eq x y)
 
-(eq x #\a)
-(eq #\a y)
+;(eq x #\a)
+;(eq #\a y)
+
+(eq 2 2)
+
+(setq z 123)
+
+(eq z 123)
+
 
 
 

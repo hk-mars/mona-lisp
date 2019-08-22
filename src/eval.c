@@ -356,10 +356,23 @@ eval_eq(void *left, void *right)
 	result = (obj_l->character[0] == obj_r->character[0]);
 	break;
 
+    case OBJ_TYPE:
+
+	//debug("OBJ_TYPE \n");
+	if (obj_l->token.type == TOKEN_NUM_INT) {
+
+	    result = (obj_l->token.value.num_int == obj_r->token.value.num_int);	    
+	}
+	else {
+
+	    goto FAIL;
+	}
+	
+	break;
 	
     default:
 	
-	
+	goto FAIL;
 	break;
     }
 
@@ -378,7 +391,7 @@ eval_eq(void *left, void *right)
     return true;
 
   FAIL:
-    ml_err_signal(ML_ERR_SYNTAX_EQ);
+    ml_err_signal(ML_ERR_EVAL);
     
     func_fail();
     return false;

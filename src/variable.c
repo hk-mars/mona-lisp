@@ -59,10 +59,15 @@ show_setq_pair(pair_s *pair)
     bool found;
 
     func_s();
+
+    
     
     switch (pair->val.type) {
 
     case OBJ_CHARACTER:
+
+	//debug("OBJ_CHARACTER \n");
+	
 	debug("pair= var: %s, character, value: 0x%x \n",
 	      pair->var_name,
 	      pair->val.character[0]);
@@ -76,6 +81,8 @@ show_setq_pair(pair_s *pair)
     }
 
     if (found) return;
+
+    //debug("check token \n");
     
     switch (pair->val.token.type) {
 
@@ -124,9 +131,11 @@ var_show(variable_s *var)
 
     func_s();
     
-    switch (var->type) {
+    switch (var->val.type) {
 
     case OBJ_CHARACTER:
+	//debug("OBJ_CHARACTER \n");
+	
 	debug("var: %s, value: %s \n",
 	      var->name,
 	      var->val.character);
@@ -140,10 +149,14 @@ var_show(variable_s *var)
     }
 
     if (found) return;
-    
+
+    //debug("check token \n");
+     
     switch (var->val.token.type) {
 
     case TOKEN_NUM_INT:
+	//debug("TOKEN_NUM_INT \n");
+	
 	debug("var: %s, value: %d \n",
 	      var->name,
 	      var->val.token.value.num_int);
@@ -167,6 +180,7 @@ var_show(variable_s *var)
 
 	
     case TOKEN_SYMBOL:
+	//debug("TOKEN_SYMBOL \n");
 	debug("var: %s, value: %s \n",
 	      var->name,
 	      var->val.token.value.symbol);
@@ -225,9 +239,10 @@ binding_setq(variable_s *var, void *context)
 
 	    if (i%2 == 0) {
 
-		memcpy(&pair.val.token, &l->obj.token, sizeof(token_s));
+		memcpy(&pair.val, &l->obj, sizeof(var_value_s));
 			    
 		pair.var_name = l->front->obj.token.value.symbol;
+		
 	    }
 	}
 	else if (l->obj.type == OBJ_CHARACTER) {
@@ -254,13 +269,16 @@ binding_setq(variable_s *var, void *context)
 
 
 	if (i%2 == 0) {
-	    
+
 	    show_setq_pair(&pair);
 
 	    var->name = pair.var_name;
+	    
 	    memcpy(&var->val, &pair.val, sizeof(var_value_s));
 
 	    var->type = VAR_LEXICAL;
+
+	    obj_show(&var->val);
 	    
 	    if (!var_add(var)) {
 

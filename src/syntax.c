@@ -375,25 +375,22 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    
 	}
 	else {
+
+
+	    if (path->obj.token.type == TOKEN_SYMBOL) {
+
+		if (!strcmp(root->key, "symbol-token ::=")) {
+
+		    debug("found token: %s \n", root->key);
+		    goto FOUND;
+		}
+	    }
+		
 	    char *name = get_leaf_name(&path->obj);
 
 	    if (strcasecmp(root->key, name) != 0) {
 
-
-		if (!strcmp(root->key, "symbol-token ::=")) {
-
-		    if (path->obj.token.type == TOKEN_SYMBOL) {
-
-			debug("found token: %s \n", root->key);
-		    }
-		    else {
-
-			return NULL;
-		    }
-		}
-		else {    
-		    return NULL;
-		}
+		return NULL;
 		
 		//tr_node_s *lex_tree = get_lex_tree();
 		//if (lex_tree) debug("search lex tree \n");
@@ -409,7 +406,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
 		debug("found token: %s \n", root->key);
 	    }
    	}
-    
+
+      FOUND:
 	/* the end token, check the path if it's at the end.
 	 */	
 	if (path->next->is_head) {
