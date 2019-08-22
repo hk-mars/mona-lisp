@@ -131,7 +131,13 @@ form ::= object | symbol-token | compound-form
 
 documentation ::= string
 
-compound-form ::= operator form
+compound-form ::= ( operator form1 )
+
+form1 ::= 
+	( operator form1 ) | 
+	object form1 | 
+	symbol-token form1 | 
+	@
 
 operator ::= 
 	function-call-operator |
@@ -140,16 +146,18 @@ operator ::=
 	lambda-expression
 	
 function-call-operator ::=
-	+ | - | * | / |
+	+ | - | * | / | 
+	list | car | cdr | cons |
+	eq |
 	<TBD>
 	
 special-form-operator ::= 
-	quote |
-	let | let* |
-	if |
-	block |
-	catch | throw |
-	setq |
+	QUOTE |
+	LET | LET* |
+	IF |
+	BLOCK |
+	CATCH | THROW |
+	SETQ |
 	<TBD>
 
 macro-operator ::=
@@ -160,7 +168,7 @@ string ::= <TBD>
 
 
 if ::=
-	IF test-form then-form [else-form]
+	( IF test-form then-form [else-form] )
 
 
 test-form ::= form

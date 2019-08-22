@@ -388,7 +388,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
 		
 	    char *name = get_leaf_name(&path->obj);
 
-	    if (strcasecmp(root->key, name) != 0) {
+	    //debug("%s, %s \n", root->key, name);
+	    if (strcasecmp(root->key, name)) {
 
 		return NULL;
 		
@@ -438,7 +439,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
   
     if (root->loop) {
-	debug("loop node: %s \n", root->key);
+      //debug("loop node: %s \n", root->key);
 	//nd = root->loop;
     }
   

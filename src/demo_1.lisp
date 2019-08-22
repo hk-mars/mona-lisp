@@ -96,7 +96,7 @@
 
 ;(eq #\a 2)
 
-;(setq x #\a)
+(setq x #\a)
 
 ;(setq y #\a)
 
@@ -105,11 +105,18 @@
 ;(eq x #\a)
 ;(eq #\a y)
 
-(eq 2 2)
+;(eq 2 2)
 
 (setq z 123)
 
-(eq z 123)
+;(eq z 123)
+
+(if (eq x #\b) 1 0)
+
+(if (eq z 123) 1 0)
+
+
+
 
 
 

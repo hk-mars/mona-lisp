@@ -817,13 +817,28 @@ read_character(const char **code, size_t *code_sz)
 
 
 static bool
-identify_eq_form(const char **code, size_t *code_sz, form_s *form)
+identify_special_form(const char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
+    int len;
+    char *name;
     
-    if (!ml_util_strbufcmp("eq", *code, *code_sz)) return false;
-    
-    move_code(*code, *code_sz, 2);
+    if (ml_util_strbufcmp("eq", *code, *code_sz)) {
+
+	len = 2;
+	name = "eq";
+    }    
+    else if (ml_util_strbufcmp("if", *code, *code_sz)) {
+
+	len = 2;
+	name = "if";
+    }
+    else {
+
+	return false;
+    }
+        
+    move_code(*code, *code_sz, len);
     
     if (*code_sz == 0) goto DONE;
 
@@ -853,7 +868,7 @@ identify_eq_form(const char **code, size_t *code_sz, form_s *form)
    
     
     t->type = TOKEN_SYMBOL;
-    t->value.symbol = "eq";
+    t->value.symbol = name;
 
         
     if (form_is_unkown(form)) {
@@ -951,9 +966,10 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    }
 	}
 
-	if (tolower(*code) == 'e') {
+	if (tolower(*code) == 'e' ||
+	    tolower(*code) == 'i') {
 
-	    found = identify_eq_form(&code, &code_sz, form);
+	    found = identify_special_form(&code, &code_sz, form);
 	    
 	    if (found) {
 
@@ -963,7 +979,6 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    }
 	    
 	}
-	
 	
 
 	if (like_num_token(code, code_sz)) {
