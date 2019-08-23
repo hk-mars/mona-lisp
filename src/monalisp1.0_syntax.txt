@@ -131,7 +131,7 @@ form ::= object | symbol-token | compound-form
 
 documentation ::= string
 
-compound-form ::= ( operator form1 )
+compound-form ::= form1
 
 form1 ::= 
 	( operator form1 ) | 

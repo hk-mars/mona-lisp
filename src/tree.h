@@ -28,6 +28,7 @@ typedef struct tr_node
   unsigned char is_token;
   unsigned char is_in_syntax_tree;
   unsigned char is_more_plus;
+  unsigned char is_keyword;
 } tr_node_s;
 
 
@@ -35,6 +36,7 @@ tr_node_s* tree_insert_left(tr_node_s *root, char *key);
 tr_node_s* tree_insert_right(tr_node_s *root, char *key);
 tr_node_s* tree_insert_sub(tr_node_s *root, char *key);
 
+void tree_show_node(tr_node_s *node);
 
 #endif /* _TREE_H_ */
 

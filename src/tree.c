@@ -165,3 +165,15 @@ tree_insert_sub(tr_node_s *root, char *key)
 }
 
 
+void
+tree_show_node(tr_node_s *node)
+{
+    if (!node) return;
+
+    debug("node: %s \n", node->key);
+    if (node->left) debug("left: %s \n", node->left->key);
+    if (node->right) debug("right: %s \n", node->right->key);
+    if (node->sub) debug("sub: %s \n", node->sub->key);  
+}
+
+

@@ -84,15 +84,12 @@ syntax_rt_t
 syntax_init(void)
 {
     func_s();
-
-
+    
     func_ok();
     return SYNTAX_OK;
 }
 
 
-
-    
 static tr_node_s*
 search_end(tr_node_s *root)
 {
@@ -348,12 +345,16 @@ find_path(tr_node_s *root, lisp_list_s *path)
     nd = NULL;
   
     if (!root) return NULL;
-  
+
+    //debug("node: %s \n", root->key);
+    
     if (root->is_token) {
 	debug("token node: %s \n", root->key);
 
+	/* TBD:
+	 */
 	if (path->obj.type == OBJ_LIST) {
-
+	    
 	    debug("subform \n");
 	    form_s *subform = path->obj.sub;
 	    list_show(subform->next->list);
@@ -363,49 +364,69 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    rti = pop_syntax_htab(name);
 	    if (!rti) {
 		debug("syntax tree not found for: %s \n", name);
-		return NULL;
+		goto NEXT;
 	    }
-	    
-	    rtn = find_path(rti, subform->next->list->next);
+
+	
+	    rtn = find_path(rti->data, subform->next->list->next);
 	    if (!rtn) return NULL;
 
 	    debug("subform found \n");
+
 	    nd = rtn;
 	    debug("node: %s \n", root->key);
 	    
 	}
 	else {
 
-
-	    if (path->obj.token.type == TOKEN_SYMBOL) {
-
-		if (!strcmp(root->key, "symbol-token ::=")) {
-
-		    debug("found token: %s \n", root->key);
-		    goto FOUND;
-		}
-	    }
+	    //obj_show(&path->obj);
 		
 	    char *name = get_leaf_name(&path->obj);
 
 	    //debug("%s, %s \n", root->key, name);
-	    if (strcasecmp(root->key, name)) {
 
-		return NULL;
+	    if (path->obj.token.type != TOKEN_SYMBOL) {
+		if (strcmp(root->key, name)) {
+
+		    return NULL;
 		
-		//tr_node_s *lex_tree = get_lex_tree();
-		//if (lex_tree) debug("search lex tree \n");
+		    //tr_node_s *lex_tree = get_lex_tree();
+		    //if (lex_tree) debug("search lex tree \n");
 	    
-		/* check if it's a subset of leaf
-		 */	    
-		//if (!find_subset(root, name)) return NULL;
+		    /* check if it's a subset of leaf
+		     */	    
+		    //if (!find_subset(root, name)) return NULL;
 		    
-		//debug("found %s token's subset: %s \n", root->key, name);		
+		    //debug("found %s token's subset: %s \n", root->key, name);		
+		}
+		else {
+
+		    debug("found token: %s \n", root->key);
+		    goto FOUND;
+		}
+
 	    }
 	    else {
 
-		debug("found token: %s \n", root->key);
+		if (root->is_keyword) {
+
+		    if (!strcasecmp(root->key, name)) {
+
+	       
+			debug("found token: %s \n", root->key);
+			goto FOUND;
+		    }
+		    
+		}
+		else {
+
+		    debug("variable as symbol \n");
+		    goto FOUND;
+		}
+		
 	    }
+
+	    return NULL;
    	}
 
       FOUND:
@@ -437,7 +458,19 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
     }
   
-  
+    /* TBD: the first step is to search the "list" node in the tree,
+     * it means to search an end node named "list ::".
+     */
+    if (path->obj.type == OBJ_LIST) {
+
+	
+    }
+
+
+    /* TBD: for the subform as "list" node, we need to reconstruct the @path 
+     */
+    
+    
     if (root->loop) {
       //debug("loop node: %s \n", root->key);
 	//nd = root->loop;
@@ -469,6 +502,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	while (1) {
     
 	    rtn = find_path(nd, sl);
+	    if (!rtn) break;
       
 	    /* reconnect the list
 	     */
@@ -502,7 +536,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	}	
     }
   
-  
+
+  NEXT:    
     if (root->back) {
 	debug("go back to node: %s from %s \n", root->back->key, root->key);
 	rtn = find_path(root->back, path);
@@ -703,6 +738,7 @@ push_syntax_htab(char *key, tr_node_s *root)
   
     if (!syntax_htab.table) return 0;
 
+    //root->is_in_syntax_tree = 1;
     item.key = key;
     item.data = root;
     rti = hsearch(&syntax_htab, item, ENTER); 

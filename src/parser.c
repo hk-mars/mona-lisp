@@ -1185,6 +1185,12 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 		if (!root) goto DONE;
 	    }
 	}
+	else {
+
+	    if (lfn->is_inside_loop_node) {
+		debug("is_inside_loop_node \n");
+	    }
+	}
     }
  
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
@@ -1383,6 +1389,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     ENTRY *rti, *lfi;
     ENTRY si, ei;
     tr_node_s *rtn, *lfn, *rin, *sub;
+    bool keyword_flag;
   
   
     /* split the combined object
@@ -1392,7 +1399,8 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 
     func_s();
     
-  
+    keyword_flag = false;
+    
     /* insert the keyword as a node to 
      * the left node of the root node.
      */
@@ -1432,7 +1440,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 	
 	/* insert the sub node of the left node
 	 */
-	if (lfi->data && lfi->dt_sz > 0) {
+	if (!lfn->is_inside_loop_node && lfi->data && lfi->dt_sz > 0) {
 
 	    debug("its sub: \n");
 	    ml_util_show_buf(lfi->data, lfi->dt_sz);
@@ -1461,6 +1469,8 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     else {
 
 	debug("keyword \n");
+	keyword_flag = true;
+	
 	//goto FOUND_LEAF;
     }
 
@@ -1473,6 +1483,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     if (!lfn) goto END;
 
     lfn->is_token = 1;
+    lfn->is_keyword = keyword_flag;
 
   BUILD_REMAIN:    
 
@@ -1685,7 +1696,7 @@ make_graph(tr_node_s *root)
 		nd = es;
 		while (nd) {
 
-#if 1
+#if 0
 		    debug("back-node of %s is: %s \n", nd->key, root->key);
 		    if (root->left) debug("left: %s \n", root->left->key);
 		    if (root->right) debug("right: %s \n", root->right->key);
