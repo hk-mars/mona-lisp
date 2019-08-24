@@ -131,13 +131,14 @@ form ::= object | symbol-token | compound-form
 
 documentation ::= string
 
-compound-form ::= form1
+compound-form ::=
+	list |
+	car |
+	cdr |
+	cons |
+	eq |
+	if
 
-form1 ::= 
-	( operator form1 ) | 
-	object form1 | 
-	symbol-token form1 | 
-	@
 
 operator ::= 
 	function-call-operator |
@@ -147,8 +148,7 @@ operator ::=
 	
 function-call-operator ::=
 	+ | - | * | / | 
-	list | car | cdr | cons |
-	eq |
+	CAR | CDR | CONS |
 	<TBD>
 	
 special-form-operator ::= 
@@ -169,7 +169,6 @@ string ::= <TBD>
 
 if ::=
 	( IF test-form then-form [else-form] )
-
 
 test-form ::= form
 

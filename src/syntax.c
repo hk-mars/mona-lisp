@@ -199,6 +199,59 @@ find_subset(tr_node_s *root, char *key)
 }
 
 
+static tr_node_s*
+find_syntax_node(tr_node_s *root, char *name)
+{
+    tr_node_s *rtn;
+  
+    if (!root) return NULL;
+
+    func_s();
+  
+    if (root->is_token) {
+	//debug("end as a token: %s \n", root->key);
+	//return NULL;
+    }
+    
+
+    debug("%s, %s \n", root->key, name);
+    if (!strcasecmp(root->key, name)) {
+
+	debug("found syntax obj: %s \n", name);
+	return root;
+    }
+
+    if (root->loop) {
+	debug("loop node: %s \n", root->key);
+
+	tree_show_node(root->loop);
+
+	//rtn = find_syntax_node(root->loop, name);
+	//if (rtn) return rtn;
+    }
+    
+    if (root->sub) {
+	//debug("sub %s \n", root->sub->key);
+	rtn = find_syntax_node(root->sub, name);
+	if (rtn) return rtn;
+    }
+  
+    if (root->left) {
+	//debug("left %s \n", root->left->key);
+	rtn = find_syntax_node(root->left, name);
+	if (rtn) return rtn;
+    } 
+  
+    if (root->right) {
+	//debug("right %s \n", root->right->key);
+	rtn = find_syntax_node(root->right, name);
+	if (rtn) return rtn;
+    }
+  
+    return NULL;
+}
+
+
 
 static char*
 get_token_name(token_s *tk)
@@ -346,88 +399,62 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
     if (!root) return NULL;
 
-    //debug("node: %s \n", root->key);
+    //char *name1 = get_leaf_name(&path->obj);
+    //debug("cur node: %s, find node: %s \n", root->key, name1);
+    //token_show(&path->obj.token);
     
     if (root->is_token) {
-	debug("token node: %s \n", root->key);
+	//debug("token node: %s \n", root->key);
 
-	/* TBD:
-	 */
-	if (path->obj.type == OBJ_LIST) {
-	    
-	    debug("subform \n");
-	    form_s *subform = path->obj.sub;
-	    list_show(subform->next->list);
-
-	    char *name = subform->next->list->next->next->obj.token.value.symbol;
-	    debug("find syntax object: %s \n", name);
-	    rti = pop_syntax_htab(name);
-	    if (!rti) {
-		debug("syntax tree not found for: %s \n", name);
-		goto NEXT;
-	    }
-
-	
-	    rtn = find_path(rti->data, subform->next->list->next);
-	    if (!rtn) return NULL;
-
-	    debug("subform found \n");
-
-	    nd = rtn;
-	    debug("node: %s \n", root->key);
-	    
-	}
-	else {
-
-	    //obj_show(&path->obj);
+	//obj_show(&path->obj);
 		
-	    char *name = get_leaf_name(&path->obj);
+	char *name = get_leaf_name(&path->obj);
 
-	    //debug("%s, %s \n", root->key, name);
+	//debug("%s, %s \n", root->key, name);
 
-	    if (path->obj.token.type != TOKEN_SYMBOL) {
-		if (strcmp(root->key, name)) {
+	if (path->obj.token.type != TOKEN_SYMBOL) {
+	    if (strcmp(root->key, name)) {
 
-		    return NULL;
+		return NULL;
 		
-		    //tr_node_s *lex_tree = get_lex_tree();
-		    //if (lex_tree) debug("search lex tree \n");
+		//tr_node_s *lex_tree = get_lex_tree();
+		//if (lex_tree) debug("search lex tree \n");
 	    
-		    /* check if it's a subset of leaf
-		     */	    
-		    //if (!find_subset(root, name)) return NULL;
+		/* check if it's a subset of leaf
+		 */	    
+		//if (!find_subset(root, name)) return NULL;
 		    
-		    //debug("found %s token's subset: %s \n", root->key, name);		
-		}
-		else {
-
-		    debug("found token: %s \n", root->key);
-		    goto FOUND;
-		}
-
+		//debug("found %s token's subset: %s \n", root->key, name);		
 	    }
 	    else {
 
-		if (root->is_keyword) {
-
-		    if (!strcasecmp(root->key, name)) {
-
-	       
-			debug("found token: %s \n", root->key);
-			goto FOUND;
-		    }
-		    
-		}
-		else {
-
-		    debug("variable as symbol \n");
-		    goto FOUND;
-		}
-		
+		debug("found token: %s \n", root->key);
+		token_show(&path->obj.token);
+		goto FOUND;
 	    }
 
-	    return NULL;
-   	}
+	}
+	else {
+
+	    if (root->is_keyword) {
+
+		if (!strcasecmp(root->key, name)) {
+
+	       
+		    debug("found token: %s \n", root->key);
+		    goto FOUND;
+		}
+		    
+	    }
+	    else {
+
+		debug("variable as symbol \n");
+		goto FOUND;
+	    }
+	}	
+	
+
+	return NULL;
 
       FOUND:
 	/* the end token, check the path if it's at the end.
@@ -458,25 +485,96 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
     }
   
-    /* TBD: the first step is to search the "list" node in the tree,
-     * it means to search an end node named "list ::".
-     */
+ 
     if (path->obj.type == OBJ_LIST) {
+	    
+	debug("subform \n");
+	form_s *subform = path->obj.sub;
+	list_show(subform->next->list);
+
+	char *name = subform->next->list->next->next->obj.token.value.symbol;
+	//debug("find %s in tree: %s \n", name, root->key);
+
+	/*	
+	nd = find_syntax_node(root, name);
+	if (!nd) return NULL;
 
 	
-    }
+	rti = pop_syntax_htab(name);
+	if (!rti) {
+	    debug("syntax tree not found for: %s \n", name);
+	    goto NEXT;
+	}
+	*/
 
+	if (root->loop) {
 
-    /* TBD: for the subform as "list" node, we need to reconstruct the @path 
-     */
-    
+	    
+	    debug("find subform in loop node %s \n", root->key);
+	    
+	    rtn = find_path(nd, subform->next->list->next);
+	    if (rtn) {
+
+		
+		if (root->loop) debug("subform found in loop node %s \n", root->loop->key);
+		//rtn = root->loop;
+		goto FIND_SUBFORM_DONE; 
+	    }
+	
+	}
+
+	
+	rtn = find_path(root->sub, subform->next->list->next);
+	if (rtn) {
+
+	    if (root->sub) debug("subform found in sub node %s \n", root->sub->key);
+	    goto FIND_SUBFORM_DONE;
+	}
+	
+	rtn = find_path(root->left, subform->next->list->next);
+	if (rtn) {
+
+	    if (root->left) debug("subform found in left node %s \n", root->left->key);
+	    goto FIND_SUBFORM_DONE;
+	}
+
+	rtn = find_path(root->right, subform->next->list->next);
+	if (rtn) {
+
+	    if (root->right) debug("subform found in right node %s \n", root->right->key);
+	    goto FIND_SUBFORM_DONE;
+	}
+	else {
+	    return NULL;
+	}
+
+	
+
+      FIND_SUBFORM_DONE:
+	root = rtn;
+
+	debug("subform found \n");
+
+	
+	debug("root: %s \n", root->key);
+
+	path = path->next;
+	debug("find next: %s \n", get_leaf_name(&path->obj));
+
+	if (root->loop) goto NEXT;
+	    
+    } 
     
     if (root->loop) {
-      //debug("loop node: %s \n", root->key);
-	//nd = root->loop;
+	debug("loop node: %s \n", root->key);
+	nd = root->loop;
+
+	rtn = find_path(nd, path);
+	if (rtn) return rtn;
     }
   
-  
+
+#if 0
     if (root->is_in_syntax_tree && !nd) {
   
 	/* get the root of sub tree from hash table.
@@ -491,6 +589,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	nd = rti->data;
 	debug("syntax sub tree found: %s \n", root->key);
     }
+
+    
   
     if (nd) {
   
@@ -535,15 +635,16 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    lst->next = NULL;
 	}	
     }
-  
+#endif    
 
-  NEXT:    
+   
     if (root->back) {
 	debug("go back to node: %s from %s \n", root->back->key, root->key);
 	rtn = find_path(root->back, path);
 	if (rtn) return rtn;
     }
-  
+
+   NEXT:    
     if (root->sub) {
 	//debug("sub: %s \n", root->sub->key);
 	root->next = root->sub;
@@ -624,6 +725,7 @@ check_list_form_syntax(form_s *form)
     lisp_list_s *path = form->list->next;
     tr_node_s *nd = find_path((tr_node_s*)item->data, path);
     if (!nd) goto FAIL;
+
     
     func_ok();
     return SYNTAX_OK;

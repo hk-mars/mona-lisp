@@ -111,12 +111,13 @@
 
 ;(eq z 123)
 
-(if (eq x #\b) 1 0)
+;(if (eq x #\b) 1 0)
 
-(if (eq z 123) (list 1 2) 0)
+;(if (eq z 123) (list 1 2) 0)
 
+;(if z (if (eq z 123) (list 1 2) 3) 0)
 
-
+(if (eq z 100) 1 (list 2))
 
 
 
