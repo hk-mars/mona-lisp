@@ -50,7 +50,7 @@ obj_show(object_s *obj)
       }
       else {
 	
-	token_show(&obj->token);
+	  token_show(&obj->token);
       }
       
       break;
@@ -96,4 +96,17 @@ obj_get_symbol(object_s *obj)
     return obj->token.value.symbol;
 }
 
+
+bool
+obj_is_true(object_s *obj)
+{
+    return (obj->subtype == OBJ_SUBTYPE_BOOL_TRUE);
+}
+
+
+bool
+obj_is_nil(object_s *obj)
+{
+    return (obj->subtype == OBJ_SUBTYPE_BOOL_FALSE);
+}
 

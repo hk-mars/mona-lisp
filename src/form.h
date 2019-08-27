@@ -65,7 +65,7 @@ typedef struct s_form
     
     lisp_list_s *list;
 
-    object_s *self_eval;
+    object_s *self_eval_obj;
     
     struct s_form *next; /* next form */
     struct s_form *front; /* front form */

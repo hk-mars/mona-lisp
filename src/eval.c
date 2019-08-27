@@ -38,6 +38,27 @@
  */
 
 
+
+void
+eval_result_show(eval_value_s *result)
+{
+    if (!result) return;
+
+    func_s();
+    
+    if (result->obj_out.type != OBJ_UNKNOWN) {
+
+	obj_show(&result->obj_out);
+    }
+    else {
+
+	list_show(&result->list);
+    }
+
+    func_ok();
+}
+
+
 static bool
 arithmetic_add(void *left, void *right)
 {
@@ -313,7 +334,7 @@ eval_eq(void *left, void *right)
 
     object_s *obj_l = &((eval_value_s*)left)->obj_out;
     object_s *obj_r = ((eval_value_s*)right)->obj_in;
-  
+    
     if (obj_l->type == OBJ_UNKNOWN) {
 
 	memcpy(obj_l, obj_r, sizeof(object_s));
@@ -379,6 +400,7 @@ eval_eq(void *left, void *right)
     
     debug("result: %d \n", result);
 
+    obj_l = &((eval_value_s*)left)->obj_out;
     memset(obj_l, 0, sizeof(object_s));
     obj_l->type = OBJ_TYPE;
     obj_l->subtype = (result ? OBJ_SUBTYPE_BOOL_TRUE : OBJ_SUBTYPE_BOOL_FALSE);
@@ -386,7 +408,7 @@ eval_eq(void *left, void *right)
 
   DONE:
     obj_show(obj_l);
-    
+ 
     func_ok();
     return true;
 
@@ -399,22 +421,37 @@ eval_eq(void *left, void *right)
 
 
 
-typedef bool (*eval_func_f)(void *left, void *right);
+static bool
+eval_if(void *left, void *right)
+{
+    func_s();
+
+    
+
+    
+    func_ok();
+
+    return true;
+}
+
+
+
+typedef bool (*eval_call_f)(void *left, void *right);
 typedef bool (*get_result_f)(void *in, void *out);
 
 typedef struct
 {
     char *name;
     
-    eval_func_f eval;
+    eval_call_f eval;
 
     get_result_f get_result;
     
     
-} eval_func_s;
+} eval_call_s;
 
 
-static const eval_func_s m_funcs[] =
+static const eval_call_s m_funcs[] =
 {
     { "+", arithmetic_add, NULL},
     { "-", arithmetic_minus, NULL},
@@ -430,12 +467,13 @@ static const eval_func_s m_funcs[] =
     //{ "eql", eval_eql, NULL},
     //{ "equal", eval_equal, NULL},
 
+    { "if", eval_if, NULL},
 };
 
 
 
-const eval_func_s*
-match_func(char *name)
+const eval_call_s*
+match_eval_call(char *name)
 {
     int len = (int)sizeof(m_funcs) / sizeof(m_funcs[0]);
     for (int i = 0; i < len; i++) {
@@ -489,8 +527,8 @@ eval_function_form(form_s *form, eval_value_s *val)
 
   
     char *func_name = l->obj.token.value.symbol;
-    const eval_func_s *eval_func = match_func(func_name);
-    if (!eval_func) {
+    const eval_call_s *eval_call = match_eval_call(func_name);
+    if (!eval_call) {
 
 	debug_err("undefined function: %s \n", func_name);
 	
@@ -528,7 +566,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 	    debug("eval %s \n", func_name);
 	    value.obj_in = &value.list.obj;
-	    eval_func->eval(val, &value);
+	    eval_call->eval(val, &value);
 
 	    break;
 
@@ -545,7 +583,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    }
 	    
 	    value.obj_in = &l->obj;
-	    eval_func->eval(val, &value);
+	    eval_call->eval(val, &value);	    
 	    break;
 	    
 	case OBJ_CHARACTER:
@@ -553,7 +591,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    debug("OBJ_CHARACTER \n");
 
 	    value.obj_in = &l->obj;
-	    eval_func->eval(val, &value);
+	    eval_call->eval(val, &value);
 	    break;
 
 	default:
@@ -569,6 +607,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	if (l && l->next == form->list) break;
     }
 
+    
     if (val->obj_out.type != OBJ_UNKNOWN) {
 	debug("result is an object with type: %d \n", val->obj_out.type);
 	obj_show(&val->obj_out);
@@ -585,9 +624,9 @@ eval_function_form(form_s *form, eval_value_s *val)
     }
     
     
-    if (eval_func->get_result) {
+    if (eval_call->get_result) {
 
-	eval_func->get_result(val, &value);
+	eval_call->get_result(val, &value);
     }
 	    
     func_ok();
@@ -646,7 +685,56 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 
 
 eval_rt_t
-eval_special_form(form_s *form, eval_value_s *val)
+eval_binder_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+
+    if (!form->list->next) {
+
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+  
+    l = form->list->next;
+    
+    debug("list form \n");
+    list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = l->obj.token.value.symbol;
+    debug("name: %s \n", name);
+    
+    const var_binder_s *binder = var_match_binder(name);
+    if (!binder) {
+
+	debug("%s is not binder's name \n", name);
+	
+	return EVAL_ERR;
+    }
+
+    func_s();
+
+    if (!binder->bind) {
+
+	debug_err("binding function is null \n");
+	
+	return EVAL_ERR;
+    }
+
+    variable_s var;
+    binder->bind(&var, l);  
+    
+    func_ok();
+
+    return EVAL_OK;
+}
+
+
+eval_rt_t
+eval_if_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
 
@@ -669,34 +757,91 @@ eval_special_form(form_s *form, eval_value_s *val)
     
     char *name = l->obj.token.value.symbol;
     debug("name: %s \n", name);
-    
-    const var_binder_s *binder = var_match_binder(name);
-    if (!binder) {
 
-	debug_err("undefined binder: %s \n", name);
-	
-	return EVAL_ERR;
+    
+    /* evaluating test-form
+     */
+    debug("eval test-form \n"); 
+    l = l->next;
+    form_s *subform = l->obj.sub;
+    if (subform) {
+	debug("eval sub_form \n");
     }
 
-    if (!binder->bind) {
+    eval_value_s result;
+    memset(&result, 0, sizeof(eval_value_s));
+    eval_rt_t rt = eval(subform, &result);
+    if (rt == EVAL_ERR) goto FAIL;
+    obj_show(&result.obj_out);
+    
 
-	debug_err("binding function is null \n");
+    /* evaluating then-form and else-form
+     */ 
+    if (obj_is_true(&result.obj_out)) {
 	
-	return EVAL_ERR;
+	debug("t, eval then-form \n");
+	l = l->next;
+    }
+    else {
+
+	debug("nil, eval else-form \n");
+	l = l->next->next;
+    }
+    
+    subform = l->obj.sub;
+    if (subform) {
+	debug("eval sub_form \n");
+
+	memset(&result, 0, sizeof(eval_value_s));
+	rt = eval(subform, &result);
+	if (rt == EVAL_ERR) goto FAIL;
+    }
+    else {
+
+	obj_show(&l->obj);
+	
+	/* self-evaluating obj
+	 */
+	//rt = eval_myself(&l->obj, &result);
+	//if (rt == EVAL_ERR) goto FAIL;
+
+	memcpy(&result.obj_out, &l->obj, sizeof(object_s));
     }
 
-    variable_s var;
-    binder->bind(&var, l);  
+    eval_result_show(&result);
     
+  
+  DONE:
     func_ok();
-
     return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
 }
 
 
 
 eval_rt_t
-eval(form_s *forms)
+eval_special_form(form_s *form, eval_value_s *val)
+{
+    func_s();
+
+    if (eval_binder_form(form, val) == EVAL_OK) goto DONE;
+
+    if (eval_if_form(form, val) == EVAL_OK) goto DONE;
+    
+    
+  DONE:
+    func_ok();
+    return EVAL_OK;
+}
+
+
+
+
+eval_rt_t
+eval(form_s *forms, eval_value_s *result)
 {
     eval_rt_t rt;
     eval_value_s value;
@@ -709,31 +854,33 @@ eval(form_s *forms)
 
     while (f && f != forms) {
 	
-	memset(&value, 0, sizeof(eval_value_s));
+	memset(result, 0, sizeof(eval_value_s));
     
 	switch (f->type) {
 
 	case COMPOUND_SPECIAL_FORM:
 
-	    rt = eval_special_form(f, &value);
-	    if (rt != EVAL_OK) goto FAIL;
-	    
+	    rt = eval_special_form(f, result);
+	    if (rt != EVAL_OK) goto FAIL;	    
+
 	    break;
 	    
 	case COMPOUND_FUNCTION_FORM:
 	    
-	    rt = eval_function_form(f, &value);
+	    rt = eval_function_form(f, result);
 	    if (rt != EVAL_OK) goto FAIL;
 
 	    printer_print(&value, OBJ_LIST);
-	    
+
+	    eval_result_show(&value);
+	   
 	    break;
 
 	case SYMBOL_FORM:
 	    
-	    rt = eval_symbol_form(f, &value); 
+	    rt = eval_symbol_form(f, result); 
 	    if (rt != EVAL_OK) goto FAIL;
-	 
+	   
 	    break;
 
 	case SELF_EVALUATING_FORM:
@@ -752,7 +899,6 @@ eval(form_s *forms)
 	f = f->next;
     }
     
-
 
     func_ok();
 

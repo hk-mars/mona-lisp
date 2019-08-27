@@ -224,7 +224,9 @@ binding_setq(variable_s *var, void *context)
 
 	    form_s *subform = l->obj.sub;
 
-	    eval_rt_t rt = eval(subform);
+	    eval_value_s result;
+	    memset(&result, 0, sizeof(eval_value_s));
+	    eval_rt_t rt = eval(subform, &result);
 	    if (rt != EVAL_OK) return false;
 
 	    memcpy(&pair.val.token,
@@ -324,7 +326,9 @@ binding_defconstant(variable_s *var, void *context)
 
 	    form_s *subform = l->obj.sub;
 
-	    eval_rt_t rt = eval(subform);
+	    eval_value_s result;
+	    memset(&result, 0, sizeof(eval_value_s));	    
+	    eval_rt_t rt = eval(subform, &result);
 	    if (rt != EVAL_OK) return false;
 
 	    var->name = l->front->obj.token.value.symbol;

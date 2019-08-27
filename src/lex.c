@@ -299,9 +299,11 @@ like_list_func(const char *code)
 
 
 static bool
-like_car_cdr_cons_func(const char *code)
+like_other_func(const char *code)
 {
     if (eq(*code, 'c') || !eq(*code, 'C')) return true;
+
+    if (eq(*code, 'e') || !eq(*code, 'E')) return true;
     
     return false;
 }
@@ -638,34 +640,37 @@ identify_list_func(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-identify_car_cdr_cons_func(const char **code, size_t *code_sz, form_s *form)
+identify_other_func(const char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
     const char *str;
+    int len;
     
     if (ml_util_strbufcmp("car", *code, *code_sz)) {
 
-	debug("car \n");
-	move_code(*code, *code_sz, 3);
 	str = "car";
     }
     else if (ml_util_strbufcmp("cdr", *code, *code_sz)) {
 
-	debug("cdr \n");
-	move_code(*code, *code_sz, 3);
 	str = "cdr";
     }
     else if (ml_util_strbufcmp("cons", *code, *code_sz)) {
 
-	debug("cons \n");
-	move_code(*code, *code_sz, 4);
 	str = "cons";
     }
+    else if (ml_util_strbufcmp("eq", *code, *code_sz)) {
+
+	str = "eq";	
+    }       
     else {
 
 	return false;
     }
 
+    len = strlen(str);
+    debug("%s \n", str);
+    
+    move_code(*code, *code_sz, len);   
     if (*code_sz == 0) goto DONE;
 
     if (eq(**code, SPACE)) {
@@ -822,13 +827,9 @@ identify_special_form(const char **code, size_t *code_sz, form_s *form)
     token_s *t, tk;
     int len;
     char *name;
-    
-    if (ml_util_strbufcmp("eq", *code, *code_sz)) {
 
-	len = 2;
-	name = "eq";
-    }    
-    else if (ml_util_strbufcmp("if", *code, *code_sz)) {
+    
+    if (ml_util_strbufcmp("if", *code, *code_sz)) {
 
 	len = 2;
 	name = "if";
@@ -872,7 +873,7 @@ identify_special_form(const char **code, size_t *code_sz, form_s *form)
 
         
     if (form_is_unkown(form)) {
-	form_set_type(form, COMPOUND_FUNCTION_FORM);
+	form_set_type(form, COMPOUND_SPECIAL_FORM);
     }
     
     list_add_token(form->list, t);
@@ -954,10 +955,10 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    }
 	}
 
-	if (like_car_cdr_cons_func(code)) {
+	if (like_other_func(code)) {
 
 	    found = identify_code_as_func(&code, &code_sz,
-					  identify_car_cdr_cons_func, form);
+					  identify_other_func, form);
 	    if (found) {
 
 		form_add_front(form_head, form);

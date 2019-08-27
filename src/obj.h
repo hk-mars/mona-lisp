@@ -61,6 +61,9 @@ bool obj_is_symbol(object_s *obj);
 
 char* obj_get_symbol(object_s *obj);
 
+bool obj_is_true(object_s *obj);
+bool obj_is_nil(object_s *obj);
+
 #endif /* ML_OBJ_H */
 
 

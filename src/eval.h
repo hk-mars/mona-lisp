@@ -37,7 +37,9 @@ typedef struct
 } eval_value_s;
 
 
-eval_rt_t eval(form_s *forms);
+eval_rt_t eval(form_s *forms, eval_value_s *result);
+
+void eval_result_show(eval_value_s *result);
 
 
 #endif /* ML_EVAL_H */

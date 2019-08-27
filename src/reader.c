@@ -134,8 +134,10 @@ ml_reader_load_file(reader_s *reader, const char *fname)
 
     /* eval
      */
-    //eval_rt_t eval_rt = eval(&reader->lex.forms);
-    //if (eval_rt != EVAL_OK) return READER_ERR_EVAL;
+    eval_value_s *result = ml_malloc(sizeof(eval_value_s));
+    if (!result) return READER_ERR;
+    eval_rt_t eval_rt = eval(&reader->lex.forms, result);
+    if (eval_rt != EVAL_OK) return READER_ERR_EVAL;
 
     
     func_ok();
