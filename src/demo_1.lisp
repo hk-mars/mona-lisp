@@ -117,7 +117,13 @@
 
 ;(if z (if (eq z 123) (list 1 2) 3) 0)
 
-(if (eq z 100) 1 (list 2))
+;(if (eq z 100) 1 (list 2))
+
+(list (if t 1 0) 2)
+(list (if nil 1 0) 2)
+
+; z is a self-evaluating-form in the if-form
+;(list (if z z 0) 2)
 
 
 

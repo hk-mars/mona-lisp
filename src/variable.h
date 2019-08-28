@@ -106,6 +106,7 @@ bool var_update(var_value_s *value);
 
 bool var_is_bound(char *name);
 
+void var_show(variable_s *var);
 
 #endif /* ML_VARIABLE_H */
 

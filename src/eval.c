@@ -557,7 +557,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    
 	    memset(&value, 0, sizeof(eval_value_s));
 	    
-	    eval_rt_t rt = eval_function_form(subform->next, &value);
+	    eval_rt_t rt = eval(subform, &value);
 	    if (rt != EVAL_OK) return rt;
 
 	    debug("eval sub_form done \n");
@@ -565,7 +565,14 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    debug("add sublist to the result \n");
 
 	    debug("eval %s \n", func_name);
-	    value.obj_in = &value.list.obj;
+	    if (value.obj_out.type != OBJ_UNKNOWN) {
+
+		value.obj_in = &value.obj_out;
+	    }
+	    else {
+		value.obj_in = &value.list.obj;
+	    }
+	    
 	    eval_call->eval(val, &value);
 
 	    break;
@@ -737,6 +744,9 @@ eval_rt_t
 eval_if_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
+    eval_value_s result;
+    eval_rt_t rt;
+    variable_s *var;
 
     func_s();
 
@@ -758,23 +768,47 @@ eval_if_form(form_s *form, eval_value_s *val)
     char *name = l->obj.token.value.symbol;
     debug("name: %s \n", name);
 
-    
+
     /* evaluating test-form
      */
     debug("eval test-form \n"); 
     l = l->next;
     form_s *subform = l->obj.sub;
     if (subform) {
+	
 	debug("eval sub_form \n");
+	
+	memset(&result, 0, sizeof(eval_value_s));
+	rt = eval(subform, &result);
+	if (rt == EVAL_ERR) goto FAIL;
+	obj_show(&result.obj_out);	
+    }
+    else {
+
+	obj_show(&l->obj);
+
+
+	char *sym = obj_get_symbol(&l->obj);
+	if (sym) {
+
+	    var = var_get(sym);
+	    if (var) {
+
+	        var_show(var);
+		memcpy(&result.obj_out, &var->val, sizeof(object_s));
+	    }
+	}
+
+	/* self-evaluating obj
+	 */
+	//rt = eval_myself(&l->obj, &result);
+	//if (rt == EVAL_ERR) goto FAIL;
+	
     }
 
-    eval_value_s result;
-    memset(&result, 0, sizeof(eval_value_s));
-    eval_rt_t rt = eval(subform, &result);
-    if (rt == EVAL_ERR) goto FAIL;
-    obj_show(&result.obj_out);
-    
+    eval_result_show(&result);
 
+ 
     /* evaluating then-form and else-form
      */ 
     if (obj_is_true(&result.obj_out)) {
@@ -793,7 +827,7 @@ eval_if_form(form_s *form, eval_value_s *val)
 	debug("eval sub_form \n");
 
 	memset(&result, 0, sizeof(eval_value_s));
-	rt = eval(subform, &result);
+	rt = eval(subform, val);
 	if (rt == EVAL_ERR) goto FAIL;
     }
     else {
@@ -805,11 +839,10 @@ eval_if_form(form_s *form, eval_value_s *val)
 	//rt = eval_myself(&l->obj, &result);
 	//if (rt == EVAL_ERR) goto FAIL;
 
-	memcpy(&result.obj_out, &l->obj, sizeof(object_s));
+	memcpy(&val->obj_out, &l->obj, sizeof(object_s));
     }
 
-    eval_result_show(&result);
-    
+    eval_result_show(val);
   
   DONE:
     func_ok();
@@ -863,6 +896,8 @@ eval(form_s *forms, eval_value_s *result)
 	    rt = eval_special_form(f, result);
 	    if (rt != EVAL_OK) goto FAIL;	    
 
+	    eval_result_show(result);
+	    
 	    break;
 	    
 	case COMPOUND_FUNCTION_FORM:
@@ -872,7 +907,7 @@ eval(form_s *forms, eval_value_s *result)
 
 	    printer_print(&value, OBJ_LIST);
 
-	    eval_result_show(&value);
+	    eval_result_show(result);
 	   
 	    break;
 
@@ -892,6 +927,8 @@ eval(form_s *forms, eval_value_s *result)
 	    break;
 	    
 	default:
+
+	    debug_err("unknown form type %d \n", f->type);
 	    break;
 	    
 	}

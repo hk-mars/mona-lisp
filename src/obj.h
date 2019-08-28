@@ -42,7 +42,7 @@ typedef enum
 typedef struct s_object
 {
     object_t type;
-    object_t subtype;
+    object_sub_t subtype;
 
     char *character;
     

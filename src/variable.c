@@ -124,7 +124,7 @@ show_setq_pair(pair_s *pair)
 }
 
 
-static void
+void
 var_show(variable_s *var)
 {
     bool found;
@@ -410,10 +410,32 @@ var_init(void)
     memset(&m_constant_htab, 0, sizeof(hash_table_s));
     rt = hcreate(&m_constant_htab, 1024);
     if(!rt) return VAL_ERR_CREATE_HTAB;
-    
+
+
+    /* add the constants already defined in syntax
+     * e.g.:  t, nil
+     */
+    variable_s var;
+    var.name = "t";
+    var.val.type = OBJ_TYPE;
+    var.val.subtype = OBJ_SUBTYPE_BOOL_TRUE;  
+    if (!var_add(&var)) goto FAIL;
+    var.name = "T";
+    if (!var_add(&var)) goto FAIL;
+
+    var.name = "nil";
+    var.val.subtype = OBJ_SUBTYPE_BOOL_FALSE;
+    if (!var_add(&var)) goto FAIL;
+    var.name = "NIL";
+    if (!var_add(&var)) goto FAIL;   
+ 
     
     func_ok();
     return VAR_OK;
+
+  FAIL:
+    func_fail();
+    return VAR_ERR;
 }
 
 

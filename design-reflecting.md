@@ -114,7 +114,17 @@ But most other codes can be distributed in the servers, and can be changed as we
 
 ## statistics, search engine and QA systems builtin lisp
   
-Statistics like search engine is used to construct the world of questions and to provide a list guides for the question’s answer.
+Statistics like search engine is used to construct the world of questions and to provide 
+a list guides for the question’s answer.
+
+
+## Language name
+
+monalisp
+
+ml
+
+mona
 
 
 
