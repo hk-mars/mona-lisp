@@ -118,7 +118,7 @@ Statistics like search engine is used to construct the world of questions and to
 a list guides for the question’s answer.
 
 
-## Language name
+## language name
 
 monalisp
 
