@@ -137,7 +137,10 @@ compound-form ::=
 	cdr |
 	cons |
 	eq |
-	if
+	if |
+	return |
+	block |
+	loop
 
 
 operator ::= 
@@ -183,9 +186,40 @@ eql ::= (EQL object object )
 equal ::= (EQUAL object object )
 
 
+loop ::=
+	( LOOP { compound-form }* )
 
 
+return ::=
+	( RETURN [form] )
+	
+	
+block ::=
+	( BLOCK block-name { form }* )
+	
+block-name ::= symbol-token
+	
 
+defun ::=
+	( DEFUN function-name lambda-list [ {declaration}* | documentation] {form}* )
+
+function-name ::= symbol-token
+
+lambda-list ::= <TBD>
+
+declaration ::= expression
+
+documentation ::= string
+
+expression ::= <TBD>
+
+
+let ::=
+	( LET ({var | (var [init-form])}*) {declaration}* {form}* )
+
+var ::= symbol-token
+
+init-form ::= form
 
 
 
