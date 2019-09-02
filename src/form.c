@@ -133,20 +133,26 @@ form_show(form_s *form)
 	switch (f->type) {
 
 	case SYMBOL_FORM:
+	    
 	    debug("SYMBOL_FORM \n");
-
 	    list_show(f->list);
 	    
 	    break;
 
 	case COMPOUND_FUNCTION_FORM:
+	    
 	    debug("COMPOUND_FUNCTION_FORM \n");
-
 	    list_show(f->list);
 	    break;
 
 	case COMPOUND_SPECIAL_FORM:
+	    
 	    debug("COMPOUND_SPECIAL_FORM \n");
+	    break;
+
+	case COMPOUND_MACRO_FORM:
+	    
+	    debug("COMPOUND_MACRO_FORM \n");
 	    break;
 	    
 	default:

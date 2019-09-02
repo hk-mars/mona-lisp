@@ -1359,15 +1359,21 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
 	}	
     }
   
-  
+
+    debug("remain: \n");
+    ml_util_show_buf( e + 1, size - (e - bnf + 1));
+    
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
     if (!rt) return 2;
   
     lfn = tree_insert_left(lfn, "<tmp>");
     if (!lfn) goto END;
-  
+
+    
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
+
+    //tree_show(root, 5);
   
   DONE:
     func_ok();
@@ -1389,7 +1395,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     ENTRY *rti, *lfi;
     ENTRY si, ei;
     tr_node_s *rtn, *lfn, *rin, *sub;
-    bool keyword_flag;
+    bool keyword_flag, char_flag;
   
   
     /* split the combined object
@@ -1400,6 +1406,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     func_s();
     
     keyword_flag = false;
+    char_flag = false;
     
     /* insert the keyword as a node to 
      * the left node of the root node.
@@ -1413,7 +1420,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 	if (lfi) {
 
 	    debug("character %s \n", si.key);
-	    
+	    char_flag = true;
 	    goto FOUND_LEAF;
 	}
 	
@@ -1433,6 +1440,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 
 	free(si.key);
 
+	debug("root father: %s \n", root->father->key);
 	
 	lfn = tree_insert_left(root, lfi->key);
 	if (!lfn) goto END;
@@ -1484,6 +1492,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 
     lfn->is_token = 1;
     lfn->is_keyword = keyword_flag;
+    lfn->is_char = char_flag;
 
   BUILD_REMAIN:    
 
@@ -1641,7 +1650,7 @@ make_graph(tr_node_s *root)
 	    nd = nd->next;
 	}
     
-	root->left = NULL;
+	//root->left = NULL;
     }
   
     /* let all end nodes of sub tree of root node point to 
@@ -1655,7 +1664,7 @@ make_graph(tr_node_s *root)
 	    nd = nd->next;
 	}
   
-	root->right = NULL;
+	//root->right = NULL;
     }
   
     /* combine tow lists of the end nodes of left tree and right tree
@@ -1696,7 +1705,7 @@ make_graph(tr_node_s *root)
 		nd = es;
 		while (nd) {
 
-#if 0
+#if 1
 		    debug("back-node of %s is: %s \n", nd->key, root->key);
 		    if (root->left) debug("left: %s \n", root->left->key);
 		    if (root->right) debug("right: %s \n", root->right->key);
@@ -1857,11 +1866,17 @@ construct_ast_tree(char *key)
   
     debug("hash table %d entries, %d entries used, %d entries free. \n", 
 	  htab.size, htab.filled, htab.size - htab.filled);
-  
+
+    debug("show tree1: \n");
+    tree_show(bnf_tree_root, 11);
+    
     debug("\n\n[make_graph]... \n");	
     es = make_graph(bnf_tree_root);
     debug("\n[make_graph], done. \n\n");
 
+    debug("show tree2: \n");
+    tree_show(bnf_tree_root, 11);
+    
     //show_graph(es);
     
     //show_nodes(es);
@@ -2013,6 +2028,11 @@ parser_init(void)
     if (construct_ast_tree("equal") != PARSER_OK) return PARSER_ERR;
     
     if (construct_ast_tree("if") != PARSER_OK) return PARSER_ERR;
+
+    if (construct_ast_tree("return") != PARSER_OK) return PARSER_ERR;
+    
+    if (construct_ast_tree("loop") != PARSER_OK) return PARSER_ERR;
+    
     
     func_ok();
 

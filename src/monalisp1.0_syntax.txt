@@ -16,7 +16,7 @@ whitespace ::=
 	newline | 
 	linefeed | 
 	page | 
-	return | 
+	return-char | 
 	space
 		
 backspace ::= #\b
@@ -24,7 +24,7 @@ tab ::= #\t
 newline ::= #\r
 linefeed ::= #\n
 page ::= #\p
-return ::= #\r
+return-char ::= #\r
 space ::= #\space 
 
 constituent-char ::= 
@@ -139,9 +139,8 @@ compound-form ::=
 	eq |
 	if |
 	return |
-	block |
-	loop
-
+	block
+	
 
 operator ::= 
 	function-call-operator |
@@ -187,12 +186,10 @@ equal ::= (EQUAL object object )
 
 
 loop ::=
-	( LOOP { compound-form }* )
+	( LOOP {compound-form}* )
 
-
-return ::=
-	( RETURN [form] )
-	
+return ::= 
+	( RETURN [form] ) 	
 	
 block ::=
 	( BLOCK block-name { form }* )

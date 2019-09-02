@@ -96,7 +96,7 @@
 
 ;(eq #\a 2)
 
-(setq x #\a)
+;(setq x #\a)
 
 ;(setq y #\a)
 
@@ -107,7 +107,7 @@
 
 ;(eq 2 2)
 
-(setq z 100)
+;(setq z 100)
 
 ;(eq z 123)
 
@@ -119,20 +119,20 @@
 
 ;(if (eq z 100) 1 (list 2))
 
-(list (if t 1 0) 2)
-(list (if nil 1 0) 2)
+;(list (if t 1 0) 2)
+;(list (if nil 1 0) 2)
 
 ; z is a self-evaluating-form in the if-form
 ;(list (if z z 0) 2)
 
 
+(setq sum 0)
+(setq n 1)
 
+;(loop
+; (if (eq n 101) 1 nil)
+; (setq sum (+ sum n))
+; (setq n (+ n 1)))
 
-
-
-
-
-
-
-
-
+(loop
+ (if (eq n 101) (return 1) nil))

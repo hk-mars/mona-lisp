@@ -45,6 +45,8 @@ int is_token(char *key);
 int check_lex(char *sql_str, token_list *tk_lst) ;
 void free_tokens(token_list *tk_lst);
 
+bool ast_lex_is_keyword(char *key);
+
 int ast_lex_debug(void);
 
 

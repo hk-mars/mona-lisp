@@ -472,7 +472,7 @@ static const eval_call_s m_funcs[] =
 
 
 
-const eval_call_s*
+static const eval_call_s*
 match_eval_call(char *name)
 {
     int len = (int)sizeof(m_funcs) / sizeof(m_funcs[0]);
@@ -642,7 +642,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 }
 
 
-eval_rt_t
+static eval_rt_t
 eval_symbol_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
@@ -691,7 +691,7 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 }
 
 
-eval_rt_t
+static eval_rt_t
 eval_binder_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
@@ -740,7 +740,7 @@ eval_binder_form(form_s *form, eval_value_s *val)
 }
 
 
-eval_rt_t
+static eval_rt_t
 eval_if_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
@@ -855,7 +855,7 @@ eval_if_form(form_s *form, eval_value_s *val)
 
 
 
-eval_rt_t
+static eval_rt_t
 eval_special_form(form_s *form, eval_value_s *val)
 {
     func_s();
@@ -864,6 +864,18 @@ eval_special_form(form_s *form, eval_value_s *val)
 
     if (eval_if_form(form, val) == EVAL_OK) goto DONE;
     
+    
+  DONE:
+    func_ok();
+    return EVAL_OK;
+}
+
+
+static eval_rt_t
+eval_macro_form(form_s *form, eval_value_s *val)
+{
+    func_s();
+
     
   DONE:
     func_ok();
@@ -925,7 +937,16 @@ eval(form_s *forms, eval_value_s *result)
 	    }
 	    
 	    break;
+
+	case COMPOUND_MACRO_FORM:
 	    
+	    rt = eval_macro_form(f, result);
+	    if (rt != EVAL_OK) goto FAIL;	    
+
+	    eval_result_show(result);
+	    
+	    break;
+	  
 	default:
 
 	    debug_err("unknown form type %d \n", f->type);

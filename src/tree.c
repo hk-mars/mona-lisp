@@ -171,9 +171,43 @@ tree_show_node(tr_node_s *node)
     if (!node) return;
 
     debug("node: %s \n", node->key);
-    if (node->left) debug("left: %s \n", node->left->key);
-    if (node->right) debug("right: %s \n", node->right->key);
-    if (node->sub) debug("sub: %s \n", node->sub->key);  
+    if (node->left) debug("  left: %s \n", node->left->key);
+    if (node->right) debug("  right: %s \n", node->right->key);
+    if (node->sub) debug("  sub: %s \n", node->sub->key);
+
+
+    if (node->back) {
+	debug("  back-node: %s\n", node->back->key);
+    }
+
+    if (node->loop) {
+	debug("  loop-node: %s\n", node->loop->key);
+    }
 }
 
 
+
+void
+tree_show(tr_node_s *root, int dep)
+{
+    if (!root) return;
+    if (dep <= 0) return;
+    
+    
+    debug("%*c%d%s \n", dep, ' ', dep, root->key);
+
+    if (root->left) {
+	debug("L: ");
+	tree_show(root->left, dep-1);
+    }
+
+    if (root->right) {
+	debug("R: ");
+	tree_show(root->right, dep-1);
+    }
+
+    if (root->sub) {
+	debug("S: ");
+	tree_show(root->sub, dep-1);
+    }
+}

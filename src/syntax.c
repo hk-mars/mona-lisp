@@ -263,7 +263,7 @@ get_token_name(token_s *tk)
 
     case TOKEN_SYMBOL:
    
-	debug("TOKEN_SYMBOL: %s \n", tk->value.symbol);
+	//debug("TOKEN_SYMBOL: %s \n", tk->value.symbol);
 
 	name = tk->value.symbol;
 	break;
@@ -387,8 +387,15 @@ find_path(tr_node_s *root, lisp_list_s *path)
      * can be ignored to track, this may work in macro-related context.
      * 
      */
+
+
+    /* Create a sequence leaf list. All sublists should be merged into this leaf list.
+       Search all the leafs in AST, if all matched, then a solution found.
+       If more than one solution were found, then the AST tree is wrong. */
+
     
-    tr_node_s *rtn, *nd;
+    
+    tr_node_s *rtn, *nd, *tmp;
     ENTRY *rti;
     lisp_list_s *lst, *sl, *el;
 
@@ -399,9 +406,30 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
     if (!root) return NULL;
 
-    //char *name1 = get_leaf_name(&path->obj);
-    //debug("cur node: %s, find node: %s \n", root->key, name1);
+    char *name1 = get_leaf_name(&path->obj);
+    if (root->key[strlen(root->key)-1] == '=') {
+	debug("cur node: %s, find node: %s \n", root->key, name1);
+    }
     //token_show(&path->obj.token);
+
+    if (!strcmp(root->key, "@")) {
+
+	debug("cur node: %s, find node: %s \n", root->key, name1);
+
+	tree_show_node(root->left);
+    }
+
+    if (!strcmp(root->key, "else-form ::=")) {
+
+	//tree_show(root->father->father, 5);
+    }
+    
+
+    if (!strcmp(root->key, "@")) {
+
+	//root = root->left->left;
+    }    
+    
     
     if (root->is_token) {
 	//debug("token node: %s \n", root->key);
@@ -412,19 +440,10 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 	//debug("%s, %s \n", root->key, name);
 
-	if (path->obj.token.type != TOKEN_SYMBOL) {
+	if (root->is_char || path->obj.token.type != TOKEN_SYMBOL) {
 	    if (strcmp(root->key, name)) {
 
-		return NULL;
-		
-		//tr_node_s *lex_tree = get_lex_tree();
-		//if (lex_tree) debug("search lex tree \n");
-	    
-		/* check if it's a subset of leaf
-		 */	    
-		//if (!find_subset(root, name)) return NULL;
-		    
-		//debug("found %s token's subset: %s \n", root->key, name);		
+		return NULL;		
 	    }
 	    else {
 
@@ -439,17 +458,20 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    if (root->is_keyword) {
 
 		if (!strcasecmp(root->key, name)) {
-
 	       
-		    debug("found token: %s \n", root->key);
+		    debug("found token: %s keyword\n", root->key);
 		    goto FOUND;
 		}
 		    
 	    }
 	    else {
 
-		debug("variable as symbol \n");
-		goto FOUND;
+		if (path->obj.token.type == TOKEN_SYMBOL && !ast_lex_is_keyword(name)) {
+		    debug("found token: %s variable \n", name);
+		    token_show(&path->obj.token);
+		    goto FOUND;
+		}
+		
 	    }
 	}	
 	
@@ -481,6 +503,9 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 	    path = path->next;
 	    debug("find next: %s \n", get_leaf_name(&path->obj));
+	    obj_show(&path->obj);
+
+	    goto NEXT0;
 	}
 
     }
@@ -490,34 +515,24 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    
 	debug("subform \n");
 	form_s *subform = path->obj.sub;
+	if (!subform->next) {
+	    debug_err("subform is null \n");
+	    return NULL;
+	}
+	
 	list_show(subform->next->list);
 
 	char *name = subform->next->list->next->next->obj.token.value.symbol;
-	//debug("find %s in tree: %s \n", name, root->key);
-
-	/*	
-	nd = find_syntax_node(root, name);
-	if (!nd) return NULL;
-
-	
-	rti = pop_syntax_htab(name);
-	if (!rti) {
-	    debug("syntax tree not found for: %s \n", name);
-	    goto NEXT;
-	}
-	*/
 
 	if (root->loop) {
 
 	    
 	    debug("find subform in loop node %s \n", root->key);
 	    
-	    rtn = find_path(nd, subform->next->list->next);
+	    rtn = find_path(root->loop, subform->next->list->next);
 	    if (rtn) {
-
 		
 		if (root->loop) debug("subform found in loop node %s \n", root->loop->key);
-		//rtn = root->loop;
 		goto FIND_SUBFORM_DONE; 
 	    }
 	
@@ -545,26 +560,55 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    goto FIND_SUBFORM_DONE;
 	}
 	else {
-	    return NULL;
+	    goto LOOP_NODE;
 	}
 
 	
 
       FIND_SUBFORM_DONE:
-	root = rtn;
-
 	debug("subform found \n");
 
 	
-	debug("root: %s \n", root->key);
+	debug("rtn: %s \n", rtn->key);
 
-	path = path->next;
-	debug("find next: %s \n", get_leaf_name(&path->obj));
+	debug("find next: %s \n", get_leaf_name(&path->next->obj));
 
-	if (root->loop) goto NEXT;
-	    
+	if (rtn->loop) {
+
+	    debug("ignore loop node \n");
+	}
+	
+	if (path->next->is_head) {
+
+	    debug("the end of path \n");
+
+	    if (!root->sub && !root->left && !root->right) return root;
+      
+	    rtn = search_end(root->sub);
+	    if (rtn) return root;
+      
+	    rtn = search_end(root->left);
+	    if (rtn) return root;
+      
+	    rtn = search_end(root->right);
+	    if (rtn) return root;
+      
+	    debug("no end path. \n");
+
+	    return NULL;
+	}
+	else {
+
+	    path = path->next;
+
+	    tree_show(root, 9);
+	
+	    goto NEXT0;
+	}
     } 
-    
+
+
+  LOOP_NODE:
     if (root->loop) {
 	debug("loop node: %s \n", root->key);
 	nd = root->loop;
@@ -637,7 +681,8 @@ find_path(tr_node_s *root, lisp_list_s *path)
     }
 #endif    
 
-   
+
+  NEXT0:
     if (root->back) {
 	debug("go back to node: %s from %s \n", root->back->key, root->key);
 	rtn = find_path(root->back, path);
@@ -782,6 +827,20 @@ syntax_check(form_s *form)
 	case SYMBOL_FORM:
 	    debug("SYMBOL_FORM \n");
 	    break;
+
+	case COMPOUND_MACRO_FORM:
+	    //debug("COMPOUND_MACRO_FORM \n");
+
+	    if (f->list) {
+		
+		rt = check_list_form_syntax(f);
+		if (rt != SYNTAX_OK) return rt;
+	    }
+	    else {
+	    }
+
+	    
+	    break;	    
 
 	default:
 	    break;

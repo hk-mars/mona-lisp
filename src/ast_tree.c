@@ -204,6 +204,23 @@ search_key(tr_node_s *root, char *key)
 }
 
 
+bool
+ast_lex_is_keyword(char *key)
+{
+    ENTRY item, *rti;
+ 
+    if (!kw_htab) return false;
+
+    item.key = ml_util_clone_str_as_upper(key);
+    //debug("item.key %s \n", item.key);
+    rti = hsearch(kw_htab, item, FIND);
+
+    ml_free(item.key);
+    
+    return !!rti;
+}
+
+
 int
 is_token(char *key)
 {

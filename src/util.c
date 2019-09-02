@@ -110,6 +110,30 @@ ml_util_get_read_base(void)
 }
 
 
+char*
+ml_util_clone_str_as_upper(char *str)
+{
+    if (!str) return NULL;
+    
+    int len = strlen(str);
+
+    char *s = (char*)ml_malloc(len+1);
+
+    char *ss = s;
+    char *e = s + len;
+    while (ss <= e) {
+
+	*ss++ = toupper(*str++);
+    }
+
+    *ss = 0;
+
+    return s;
+}
+
+
+
+
 
 
 

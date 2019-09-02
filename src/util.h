@@ -26,6 +26,8 @@ void ml_util_show_buf(char *buf, size_t size);
 
 unsigned int ml_util_arr2int(char *arr, size_t len);
 
+char* ml_util_clone_str_as_upper(char *str);
+
 
 /* API of *read_base* :
  * The value of *read-base* controls the interpretation of tokens by read as 
