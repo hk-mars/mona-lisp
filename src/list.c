@@ -123,5 +123,37 @@ list_show(lisp_list_s *list)
 }
 
 
+void
+list_mark_type_specified(lisp_list_s *list)
+{
+    if (!list) return;
+
+    func_s();
+
+    debug("is_head: %d \n", list->is_head);
+
+    if (list->is_nil) {
+
+	debug("nil list \n");
+	return;
+    }
+    
+    
+    lisp_list_s *l = list->next;
+
+    while (l && l != list) {
+
+	if (l->obj.type == OBJ_TYPE) {
+	    l->obj.is_specified_type = true;
+	}
+	
+	l = l->next;
+    }
+
+    func_ok();
+}
+
+
+
 
 

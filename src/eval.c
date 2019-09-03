@@ -64,7 +64,8 @@ arithmetic_add(void *left, void *right)
 {
     func_s();
 
-    token_s *l = &((eval_value_s*)left)->obj_out.token;
+    object_s *obj_l = &((eval_value_s*)left)->obj_out;   
+    token_s *l = &obj_l->token;
     token_s *r = &((eval_value_s*)right)->obj_in->token;
 
 
@@ -72,14 +73,20 @@ arithmetic_add(void *left, void *right)
 
 	l->value.num_int = r->value.num_int;
 	l->type = r->type;
+
+	obj_l->type = OBJ_TYPE;
+
+	debug("add, v0: %d \n", l->value.num_int);
     }
     else {
 
 	l->value.num_int += r->value.num_int;
+
+	debug("add, result: %d \n", l->value.num_int);
     }
     
-
-    debug("cur val: %d \n", l->value.num_int);
+    obj_show(obj_l);
+    
     
     return true;
 }
@@ -561,9 +568,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    if (rt != EVAL_OK) return rt;
 
 	    debug("eval sub_form done \n");
-	    
-	    debug("add sublist to the result \n");
-
+	   
 	    debug("eval %s \n", func_name);
 	    if (value.obj_out.type != OBJ_UNKNOWN) {
 
@@ -582,14 +587,23 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    debug("OBJ_TYPE \n");
 
 	    char *sym = obj_get_symbol(&l->obj);
-	    if (sym && !var_is_bound(sym)) {
+	    if (sym) {
 
-		debug_err("symbol %s is unbound \n", sym);
-		ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
-		return EVAL_ERR;		
+		variable_s *var = var_get(sym);
+		if (!var) {
+		    debug_err("symbol %s is unbound \n", sym);
+		    ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
+		    return EVAL_ERR;
+		}
+
+		value.obj_in = &var->val;
 	    }
+	    else {	    
+		value.obj_in = &l->obj;
+	    }
+
+	    //obj_show(value.obj_in);
 	    
-	    value.obj_in = &l->obj;
 	    eval_call->eval(val, &value);	    
 	    break;
 	    
@@ -917,7 +931,7 @@ eval(form_s *forms, eval_value_s *result)
 	    rt = eval_function_form(f, result);
 	    if (rt != EVAL_OK) goto FAIL;
 
-	    printer_print(&value, OBJ_LIST);
+	    //printer_print(&value, OBJ_LIST);
 
 	    eval_result_show(result);
 	   

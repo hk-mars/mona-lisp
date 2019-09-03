@@ -37,5 +37,7 @@ bool list_add_char_obj(lisp_list_s *list, char *ch);
 void list_show(lisp_list_s *list);
 
 
+void list_mark_type_specified(lisp_list_s *list);
+
 #endif /* ML_LIST_H */
 

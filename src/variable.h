@@ -101,7 +101,7 @@ variable_s* var_get(char *name);
 /** 
  * update value of variable
  */
-bool var_update(var_value_s *value);
+bool var_update(variable_s *var_new);
 
 
 bool var_is_bound(char *name);

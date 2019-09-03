@@ -254,7 +254,7 @@ find_syntax_node(tr_node_s *root, char *name)
 
 
 static char*
-get_token_name(token_s *tk)
+get_token_name(token_s *tk, bool is_specified_type)
 {
     char *name;
 
@@ -271,8 +271,14 @@ get_token_name(token_s *tk)
     case TOKEN_NUM_INT:
    
 	//debug("TOKEN_NUM_INT \n");
-	//name = "number-token ::=";
-	name = "token ::=";
+
+	if (is_specified_type) {
+	    name = "number-token ::=";
+	}
+	else {
+	    name = "token ::=";
+	}
+	
 	break;
 
     case TOKEN_NUM_FLOAT:
@@ -335,7 +341,7 @@ get_leaf_name(object_s *obj)
 
 	//debug("OBJ_TYPE \n");
 
-	name = get_token_name(&obj->token);
+	name = get_token_name(&obj->token, obj->is_specified_type);
 	
 	break;
 	    
@@ -505,6 +511,12 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    debug("find next: %s \n", get_leaf_name(&path->obj));
 	    obj_show(&path->obj);
 
+	    if (root->is_outside_loop_node) {
+		debug("go to outside-loop-node: %s \n", root->key);
+		rtn = find_path(root, path);
+		if (rtn) return rtn;
+	    }
+	    
 	    goto NEXT0;
 	}
 
@@ -600,9 +612,15 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	else {
 
 	    path = path->next;
+ 
+	    tree_show(root->father, 9);
 
-	    tree_show(root, 9);
-	
+	    if (root->is_outside_loop_node) {
+		debug("go to outside-loop-node: %s \n", root->key);
+		rtn = find_path(root, path);
+		if (rtn) return rtn;
+	    }
+	    
 	    goto NEXT0;
 	}
     } 
@@ -747,8 +765,16 @@ check_list_form_syntax(form_s *form)
 
 
     char *syntax_obj_name = l->obj.token.value.symbol;
-    debug("find syntax object: %s \n", syntax_obj_name);
+
+    if (!strcmp(syntax_obj_name, "+")) {
+	syntax_obj_name = "add";
+
+	list_mark_type_specified(form->list);
+    }
+
     
+    debug("find syntax object: %s \n", syntax_obj_name);
+
     htab_entry_s *item = pop_syntax_htab(syntax_obj_name);
     if (!item) {
 

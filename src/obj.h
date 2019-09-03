@@ -51,6 +51,8 @@ typedef struct s_object
     void *self;
 
     void *sub;
+
+    bool is_specified_type;
     
 } object_s;
 

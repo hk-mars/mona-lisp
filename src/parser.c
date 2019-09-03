@@ -1352,7 +1352,7 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
 	 */
 	ss = find_pattern_more_plus(e + 1, size - (e - bnf + 1));
 	if (ss) {
-	    lfn->is_outside_loop_node = 1;
+	    lfn->is_outside_loop_node = 2;
 	    lfn->is_more_plus = 1;
 	    e = ss + strlen("+") - 1;
 	    debug("pattern: {}+ \n");
@@ -2012,6 +2012,8 @@ parser_init(void)
 
     bnf_tree_root = NULL;
 #endif
+
+    if (construct_ast_tree("add") != PARSER_OK) return PARSER_ERR;
     
     if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
     

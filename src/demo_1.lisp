@@ -128,11 +128,12 @@
 
 (setq sum 0)
 (setq n 1)
-
-;(loop
-; (if (eq n 101) 1 nil)
-; (setq sum (+ sum n))
-; (setq n (+ n 1)))
+;(setq sum (+ sum n))
 
 (loop
- (if (eq n 101) (return 1) nil))
+ (if (eq n 101) (return 1) nil)
+ (setq sum (+ sum n))
+ (setq n (+ n 1))
+ (list n m))
+
+

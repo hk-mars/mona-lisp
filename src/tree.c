@@ -194,7 +194,10 @@ tree_show(tr_node_s *root, int dep)
     if (dep <= 0) return;
     
     
-    debug("%*c%d%s \n", dep, ' ', dep, root->key);
+    debug("%*c%d%s  ", dep, ' ', dep, root->key);
+    if (root->is_outside_loop_node) debug("{}%s  ", root->is_outside_loop_node == 1 ? "*" : "+");
+    if (root->loop) debug("loop ");
+    debug("\n");
 
     if (root->left) {
 	debug("L: ");

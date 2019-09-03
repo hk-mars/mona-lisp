@@ -223,16 +223,34 @@ binding_setq(variable_s *var, void *context)
 	    }
 
 	    form_s *subform = l->obj.sub;
-
+	    if (subform) {
+		debug("eval sub_form \n");
+	    }
+	    
 	    eval_value_s result;
 	    memset(&result, 0, sizeof(eval_value_s));
 	    eval_rt_t rt = eval(subform, &result);
 	    if (rt != EVAL_OK) return false;
 
-	    memcpy(&pair.val.token,
-		   &subform->next->list->obj.token,
-		   sizeof(token_s));
+	    debug("eval sub_form done \n");
 
+	    
+	    if (result.obj_out.type != OBJ_UNKNOWN) {
+
+		memcpy(&pair.val,
+		       &result.obj_out,
+		       sizeof(object_s));	      
+      
+	    }
+	    else {
+
+		memcpy(&pair.val,
+		       &result.list.obj,
+		       sizeof(object_s));
+	    }
+
+	    obj_show(&pair.val);
+	    
 	    pair.var_name = l->front->obj.token.value.symbol;
 	}
 	else if (l->obj.type == OBJ_TYPE) {
@@ -284,8 +302,12 @@ binding_setq(variable_s *var, void *context)
 	    
 	    if (!var_add(var)) {
 
-		return false;
+		if (!var_update(var)) {
+
+		    return false;
+		}
 	    }
+	    
 	}
 	
 	l = l->next;
@@ -542,9 +564,17 @@ var_get(char *name)
  * update value of variable
  */
 bool
-var_update(var_value_s *value)
+var_update(variable_s *var_new)
 {
+    func_s();
+    
+    variable_s *var = var_get(var_new->name);
+    if (!var) return false;
 
+    memcpy(&var->val, &var_new->val, sizeof(var_value_s));   
+
+    var_show(var);
+    
     func_ok();
     return true;
 }
