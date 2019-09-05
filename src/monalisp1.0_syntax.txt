@@ -141,7 +141,8 @@ compound-form ::=
 	return |
 	block |
 	setq |
-	add
+	add |
+	( LOOP {compound-form}* )
 	
 
 operator ::= 

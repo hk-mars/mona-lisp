@@ -870,6 +870,195 @@ eval_if_form(form_s *form, eval_value_s *val)
 
 
 static eval_rt_t
+eval_return_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+    eval_rt_t rt;
+    variable_s *var;
+
+    if (!form->list->next) {
+
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
+    
+    //debug("list form \n");
+    list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = l->obj.token.value.symbol;   
+    if (!name) return EVAL_ERR;
+
+    if (strcasecmp(name, "return")) {
+
+	return EVAL_ERR;
+    }
+       
+    func_s();
+    debug("name: %s \n", name);
+
+
+    /* evaluating form in the [form] syntax
+     */
+    l = l->next;
+    if (l->obj.type == OBJ_LIST) {
+
+	form_s *subform = l->obj.sub;
+	
+	debug("eval form \n");
+
+	rt = eval(subform, val);
+	if (rt == EVAL_ERR) goto FAIL;
+	obj_show(&val->obj_out);	
+    }
+    else {
+
+	debug("self-evaluating form \n");
+
+	memcpy(&val->obj_out, &l->obj, sizeof(object_s));
+	
+    }
+
+    l = l->next;
+    if (!l->next->is_head) {
+
+	debug_err("error syntax of return form \n");
+	goto FAIL;
+    }
+
+    val->is_return = true;
+    
+    eval_result_show(val);
+    
+  DONE:
+    func_ok();
+    return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
+}
+
+
+static eval_rt_t
+eval_loop_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+    eval_value_s result;
+    eval_rt_t rt;
+    variable_s *var;
+
+    if (!form->list->next) {
+
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
+    
+    //debug("list form \n");
+    //list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = l->obj.token.value.symbol;
+    //debug("name: %s \n", name);
+    if (!name) return EVAL_ERR;
+
+    if (strcasecmp(name, "loop")) {
+
+	return EVAL_ERR;
+    }
+
+    func_s();
+    
+    debug("name: %s \n", name);
+
+    list_show(form->list);
+    
+    
+    /* evaluate all compound-forms in the loop form
+     */
+    l = l->next;
+    while (l) {
+
+	switch (l->obj.type) {
+
+	case OBJ_LIST:
+
+	    debug("OBJ_LIST \n");
+
+	    form_s *subform = l->obj.sub;
+	    if (subform) {
+		debug("eval sub_form \n");
+	    }
+	    
+	    memset(val, 0, sizeof(eval_value_s));
+	    
+	    eval_rt_t rt = eval(subform, val);
+	    if (rt != EVAL_OK) return rt;
+
+	    debug("eval sub_form done \n");
+
+	    if (val->is_return) {
+
+		//debug("returning \n");
+	    }
+
+	    break;
+
+	case OBJ_TYPE:
+
+	    debug("OBJ_TYPE \n");
+
+	    break;
+	    
+	case OBJ_CHARACTER:
+
+	    //debug("OBJ_CHARACTER \n");
+
+	    break;
+
+	default:
+
+	    debug("unkown object, type: %d \n", l->obj.type);
+	    break;
+	}
+
+	
+	if (val->is_return) {
+
+	    debug("returning \n");
+
+	  
+	    obj_show(&val->obj_out);
+	    break;
+	}
+	
+	l = l->next;
+	if (l == form->list) l = l->next;
+    }
+
+    eval_result_show(val);  
+  
+  DONE:
+    func_ok();
+    return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
+}
+
+
+static eval_rt_t
 eval_special_form(form_s *form, eval_value_s *val)
 {
     func_s();
@@ -890,7 +1079,10 @@ eval_macro_form(form_s *form, eval_value_s *val)
 {
     func_s();
 
-    
+    if (eval_return_form(form, val) == EVAL_OK) goto DONE;
+
+    if (eval_loop_form(form, val) == EVAL_OK) goto DONE;
+	
   DONE:
     func_ok();
     return EVAL_OK;

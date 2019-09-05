@@ -33,6 +33,8 @@ typedef struct
     object_s obj_out;
 
     object_s *obj_in;
+
+    bool is_return;
     
 } eval_value_s;
 

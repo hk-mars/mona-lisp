@@ -126,14 +126,23 @@
 ;(list (if z z 0) 2)
 
 
+;;
+;; evaluate the formula "1+2+3+...+n"
+;;
 (setq sum 0)
 (setq n 1)
-;(setq sum (+ sum n))
-
 (loop
- (if (eq n 101) (return 1) nil)
+ (if (eq n 101) (return (list n sum)) nil)
  (setq sum (+ sum n))
- (setq n (+ n 1))
- (list n m))
+ (setq n (+ n 1)))
+
+
+;(loop
+; (loop
+;  (list n)
+;  (return 1))
+; (list m)
+; (return 2))
+
 
 
