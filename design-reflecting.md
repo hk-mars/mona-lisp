@@ -112,7 +112,7 @@ The lisp loader is in the local application.
 But most other codes can be distributed in the servers, and can be changed as we expect.
 
 
-## statistics, search engine and QA systems builtin lisp
+## with built-in the statistics, search engine and QA system
   
 Statistics like search engine is used to construct the world of questions and to provide 
 a list guides for the question’s answer.
