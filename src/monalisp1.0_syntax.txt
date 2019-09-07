@@ -140,7 +140,7 @@ compound-form ::=
 	if |
 	return |
 	block |
-	setq |
+	( SETQ {setq-pair}* ) |
 	add |
 	( LOOP {compound-form}* )
 	
@@ -201,11 +201,11 @@ block-name ::= symbol-token
 	
 
 defun ::=
-	( DEFUN function-name lambda-list [ {declaration}* | documentation] {form}* )
+	( DEFUN function-name lambda-list [documentation] {form}* )
 
-function-name ::= symbol-token
+function-name ::= symbol-token | list
 
-lambda-list ::= <TBD>
+lambda-list ::= ( {var}* )
 
 declaration ::= expression
 
@@ -225,11 +225,8 @@ add ::=
 	( + {number-token}* )
 	
 
-
-
-
-
-
+defun2 ::=
+	( DEFUN function-name lambda-list [ {declaration}* | documentation ] {form}* )
 	
 
 

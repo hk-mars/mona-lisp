@@ -129,20 +129,37 @@
 ;;
 ;; evaluate the formula "1+2+3+...+n"
 ;;
-(setq sum 0)
-(setq n 1)
-(loop
- (if (eq n 101) (return (list n sum)) nil)
- (setq sum (+ sum n))
- (setq n (+ n 1)))
+;(setq sum 0)
+;(setq n 1)
+;(loop
+; (if (eq n 101) (return (list n sum)) nil)
+; (setq sum (+ sum n))
+; (setq n (+ n 1)))
 
-
+;;
+;; three loops
+;;
 ;(loop
 ; (loop
-;  (list n)
-;  (return 1))
-; (list m)
-; (return 2))
+;  (loop
+;   (list 1)
+;   (return 1))
+;  (list 2)
+;  (return 2))
+; (list 3)
+; (return 3))
+;
+;(setq x (list 1 2))
 
+;;
+;; function: sum
+;; 1. evaluate the formula "n+2+3+...+(m-1)"
+;;
+(defun sum (n m)
+  (setq r 0)
+  (loop
+   (if (eq n m) (return (list n r)) nil)
+   (setq r (+ r n))
+   (setq n (+ n 1))))
 
 

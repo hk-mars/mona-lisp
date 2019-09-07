@@ -2034,6 +2034,8 @@ parser_init(void)
     if (construct_ast_tree("return") != PARSER_OK) return PARSER_ERR;
     
     if (construct_ast_tree("loop") != PARSER_OK) return PARSER_ERR;
+
+    if (construct_ast_tree("defun") != PARSER_OK) return PARSER_ERR;
     
     
     func_ok();

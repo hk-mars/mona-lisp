@@ -697,7 +697,7 @@ eval_symbol_form(form_s *form, eval_value_s *val)
     }
 
     variable_s var;
-    binder->bind(&var, l);  
+    binder->bind(&var, l, val);  
     
     func_ok();
 
@@ -746,11 +746,20 @@ eval_binder_form(form_s *form, eval_value_s *val)
     }
 
     variable_s var;
-    binder->bind(&var, l);  
-    
-    func_ok();
+    bool rt = binder->bind(&var, l, val);
+    if (!rt) goto FAIL;
 
+    
+    memcpy(&val->obj_out, &var.val, sizeof(object_s));
+  
+    obj_show(&val->obj_out);
+     
+    func_ok();
     return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
 }
 
 
@@ -999,18 +1008,12 @@ eval_loop_form(form_s *form, eval_value_s *val)
 	    if (subform) {
 		debug("eval sub_form \n");
 	    }
-	    
-	    memset(val, 0, sizeof(eval_value_s));
+	    	    
 	    
 	    eval_rt_t rt = eval(subform, val);
 	    if (rt != EVAL_OK) return rt;
 
 	    debug("eval sub_form done \n");
-
-	    if (val->is_return) {
-
-		//debug("returning \n");
-	    }
 
 	    break;
 
@@ -1036,7 +1039,7 @@ eval_loop_form(form_s *form, eval_value_s *val)
 	if (val->is_return) {
 
 	    debug("returning \n");
-
+	    val->is_return = false;
 	  
 	    obj_show(&val->obj_out);
 	    break;

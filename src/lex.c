@@ -900,6 +900,11 @@ identify_macro_form(const char **code, size_t *code_sz, form_s *form)
 
 	len = 6;
 	name = "return";
+    }
+    else if (ml_util_strbufcmp("defun", *code, *code_sz)) {
+
+	len = 5;
+	name = "defun";
     }    
     else {
 
@@ -1049,8 +1054,8 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    
 	}
 
-	if (tolower(*code) == 'l' ||
-	    tolower(*code) == 'r') {
+	if (tolower(*code) == 'l' || tolower(*code) == 'r' ||
+	    tolower(*code) == 'd'){
 
 	    found = identify_macro_form(&code, &code_sz, form);
 	    
@@ -1130,7 +1135,9 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    else {
 		
 		if (form_is_unkown(form)) {
-		    form_set_type(form, SYMBOL_FORM);
+		    form_set_type(form, COMPOUND_LAMBDA_FORM);
+
+		    form_add_front(form_head, form);
 		}
 		
 	    }

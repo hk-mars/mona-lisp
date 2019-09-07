@@ -138,7 +138,17 @@ search_end(tr_node_s *root)
 	rtn = search_end(root->right);
 	if (rtn) return rtn;
     }
-  
+
+    //debug("%s \n", root->key);
+
+    if (!strcmp(root->key, "<tmp>")) {
+
+	if (!root->sub && !root->left && !root->right) {
+
+	    return root;
+	}
+    }
+    
     return NULL;
 }
 
@@ -702,6 +712,13 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
   NEXT0:
     if (root->back) {
+
+	/* TBD:
+	 */
+	if (!memcmp(root->back->key, root->key, strlen(root->back->key))) {
+	    return NULL;
+	}
+	
 	debug("go back to node: %s from %s \n", root->back->key, root->key);
 	rtn = find_path(root->back, path);
 	if (rtn) return rtn;

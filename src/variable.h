@@ -15,6 +15,8 @@
 
 #include "form.h"
 
+#include "eval.h"
+
 
 typedef enum
 {
@@ -40,6 +42,8 @@ typedef struct
     
 } var_scope_t;
 
+
+
 typedef object_s var_value_s;
 
 
@@ -52,11 +56,14 @@ typedef struct
     var_scope_t scope;
     
     var_value_s val;
+
+    lisp_list_s val_list;
+    
     
 } variable_s;
 
 
-typedef bool (*bind_f) (variable_s *var, void *context);
+typedef bool (*bind_f) (variable_s *var, void *context, eval_value_s *result);
 
 typedef struct
 {
@@ -72,6 +79,8 @@ typedef struct
     char *var_name;
 
     var_value_s val;
+
+    lisp_list_s val_list;
   
 } pair_s;
 

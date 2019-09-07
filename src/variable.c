@@ -25,9 +25,9 @@ static hash_table_s m_dynamic_htab;  /* hash table for dynamic variables */
 static hash_table_s m_constant_htab;  /* hash table for constants */
 
 
-static bool binding_setq(variable_s *var, void *context);
+static bool binding_setq(variable_s *var, void *context, eval_value_s *result);
 
-static bool binding_defconstant(variable_s *var, void *context);
+static bool binding_defconstant(variable_s *var, void *context, eval_value_s *result);
 
 const var_binder_s m_binders[] =
 {
@@ -196,7 +196,7 @@ var_show(variable_s *var)
 
 
 static bool
-binding_setq(variable_s *var, void *context)
+binding_setq(variable_s *var, void *context, eval_value_s *result)
 {
     lisp_list_s *head = (lisp_list_s*)context;
     lisp_list_s *l;
@@ -227,30 +227,27 @@ binding_setq(variable_s *var, void *context)
 		debug("eval sub_form \n");
 	    }
 	    
-	    eval_value_s result;
-	    memset(&result, 0, sizeof(eval_value_s));
-	    eval_rt_t rt = eval(subform, &result);
+	    memset(result, 0, sizeof(eval_value_s));
+	    eval_rt_t rt = eval(subform, result);
 	    if (rt != EVAL_OK) return false;
 
 	    debug("eval sub_form done \n");
 
 	    
-	    if (result.obj_out.type != OBJ_UNKNOWN) {
+	    if (result->obj_out.type != OBJ_UNKNOWN) {
 
 		memcpy(&pair.val,
-		       &result.obj_out,
+		       &result->obj_out,
 		       sizeof(object_s));	      
-      
+		obj_show(&pair.val);
 	    }
 	    else {
 
-		memcpy(&pair.val,
-		       &result.list.obj,
-		       sizeof(object_s));
+		list_show(&result->list);
+		list_copy(&pair.val_list, &result->list);
+		list_show(&pair.val_list);
 	    }
-
-	    obj_show(&pair.val);
-	    
+	  	    
 	    pair.var_name = l->front->obj.token.value.symbol;
 	}
 	else if (l->obj.type == OBJ_TYPE) {
@@ -293,12 +290,20 @@ binding_setq(variable_s *var, void *context)
 	    show_setq_pair(&pair);
 
 	    var->name = pair.var_name;
-	    
-	    memcpy(&var->val, &pair.val, sizeof(var_value_s));
-
 	    var->type = VAR_LEXICAL;
+	    
+	    if (pair.val.type == OBJ_UNKNOWN) {
+		
+		
+		list_copy(&var->val_list, &pair.val_list);
+		list_show(&var->val_list);
+	    }
+	    else {
 
-	    obj_show(&var->val);
+		memcpy(&var->val, &pair.val, sizeof(var_value_s));
+		obj_show(&var->val);
+		
+	    }
 	    
 	    if (!var_add(var)) {
 
@@ -321,7 +326,7 @@ binding_setq(variable_s *var, void *context)
 
 
 static bool
-binding_defconstant(variable_s *var, void *context)
+binding_defconstant(variable_s *var, void *context, eval_value_s *result)
 {
     lisp_list_s *head = (lisp_list_s*)context;
     lisp_list_s *l;
@@ -348,9 +353,8 @@ binding_defconstant(variable_s *var, void *context)
 
 	    form_s *subform = l->obj.sub;
 
-	    eval_value_s result;
-	    memset(&result, 0, sizeof(eval_value_s));	    
-	    eval_rt_t rt = eval(subform, &result);
+	    memset(result, 0, sizeof(eval_value_s));	    
+	    eval_rt_t rt = eval(subform, result);
 	    if (rt != EVAL_OK) return false;
 
 	    var->name = l->front->obj.token.value.symbol;

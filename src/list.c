@@ -154,6 +154,57 @@ list_mark_type_specified(lisp_list_s *list)
 }
 
 
+bool
+list_copy(lisp_list_s *dst, lisp_list_s *src)
+{
+
+    func_s();
+
+    if (!dst || !src) {
+
+	goto FAIL;
+    }
+
+    lisp_list_s *l, *ll, *next, *front;
+
+    l = src;
+    ll = dst;
+    while (l) {
+
+	front = ll->front;
+	memcpy(ll, l, sizeof(lisp_list_s));
+	ll->front = front;
+
+	l = l->next;
+	if (l == src) break;
+
+	next = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
+	if (!next) {
+
+	    goto FAIL;
+	}
+
+	ll->next = next;
+	next->front = ll;
+	
+	ll = next;
+    }
+
+    next->next = dst;
+
+    list_show(dst);
+    
+    func_ok();
+    return true;
+
+  FAIL:
+    func_fail();
+    return false;
+}
+
+
+
+
 
 
 
