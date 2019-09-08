@@ -15,6 +15,7 @@
 
 #include "variable.h"
 
+#include "function.h"
 
 
 #define VER "1.0.0"
@@ -109,9 +110,17 @@ ml_init(void)
     var_rt_t var_rt = var_init();
     if (var_rt != VAR_OK) {
 
-	debug_err("err: %d, var init failed", var_rt);
+	debug_err("err: %d, var_init failed", var_rt);
 	return LISP_ERR_VAR;
     }
+
+
+    func_rt_t func_rt = func_init();
+    if (func_rt != FUNC_OK) {
+
+	debug_err("err: %d, func_init failed", func_rt);
+	return LISP_ERR_FUNC;
+    } 
     
 	
     lex_rt_t lex_rt = ml_lex_init();

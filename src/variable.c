@@ -560,7 +560,7 @@ var_get(char *name)
     var_show(var);
     
     func_ok();
-    return entry_rt->data;;
+    return entry_rt->data;
 }
 
 

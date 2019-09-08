@@ -162,4 +162,6 @@
    (setq r (+ r n))
    (setq n (+ n 1))))
 
+(sum 1 10)
+
 

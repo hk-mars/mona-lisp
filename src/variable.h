@@ -22,7 +22,7 @@ typedef enum
 {
     VAR_OK = 0,
     VAR_ERR = 1,
-    VAL_ERR_CREATE_HTAB = 2, /* error when creating hash tables */
+    VAL_ERR_CREATE_HTAB = 2, /* error when creating the hash-table */
     
 } var_rt_t;
 
@@ -93,22 +93,22 @@ const var_binder_s* var_match_binder(const char *defined_name);
 
 
 /** 
- * add variable
+ * add a variable
  */
 bool var_add(variable_s *var);
 
 /** 
- * delete variable as name
+ * delete the variable as name
  */
 bool var_delete(char *name);
 
 /** 
- * get variable as name
+ * get a variable as name
  */
 variable_s* var_get(char *name);
 
 /** 
- * update value of variable
+ * update the value of variable
  */
 bool var_update(variable_s *var_new);
 
