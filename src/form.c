@@ -126,9 +126,19 @@ form_show(form_s *form)
 
     func_s();
 
-    form_s *f = form->next;
+    bool showing_one = false;
     
-    while (f && f != form) {
+    form_s *f;
+    if (form->type == UNKNOWN_FORM) {
+	f = form->next;
+    }
+    else {
+	f = form;
+	showing_one = true;
+    }
+    
+    
+    while (f) {
 
 	switch (f->type) {
 
@@ -153,16 +163,19 @@ form_show(form_s *form)
 	case COMPOUND_MACRO_FORM:
 	    
 	    debug("COMPOUND_MACRO_FORM \n");
+	    list_show(f->list);
 	    break;
 	    
 	default:
-	    debug("unkown form \n");
+	    debug("unkown form, type %d \n", f->type);
 	    break;
 
 	}
 	
+	if (showing_one) break;
 	
 	f = f->next;
+	if (f == form) break;
     }
 
     func_ok();

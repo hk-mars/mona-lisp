@@ -32,7 +32,8 @@ func_init(void)
 }
 
 
-bool func_add(function_s *func)
+bool
+func_add(function_s *func)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
@@ -76,7 +77,8 @@ bool func_add(function_s *func)
 /** 
  * get a function as name
  */
-function_s* func_get(char *name)
+function_s*
+func_get(char *name)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
@@ -102,9 +104,10 @@ function_s* func_get(char *name)
     f = (function_s*)entry_rt->data;
     
     //func_show(f);
-    
+
+    form_show(f->form);
     func_ok();
-    return entry_rt->data;;    
+    return f;    
 }
 
 

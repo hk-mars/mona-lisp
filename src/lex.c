@@ -1123,23 +1123,33 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    if (!found) break;
 
 	    
-	    const var_binder_s *binder;
-	    binder = var_match_binder(form->list->front->obj.token.value.symbol);
-	    if (binder) {
+	    char *sym = obj_get_symbol(&form->list->front->obj);
+	    if (var_match_binder(sym)) {
+		
 		if (form_is_unkown(form)) {
+		    
 		    form_set_type(form, COMPOUND_SPECIAL_FORM);
-		}
-		
-		form_add_front(form_head, form);
-	    }
-	    else {
-		
-		if (form_is_unkown(form)) {
-		    form_set_type(form, COMPOUND_LAMBDA_FORM);
-
 		    form_add_front(form_head, form);
 		}
+	    }
+	    else {
+
+		if (func_get(sym)) {
+
+		    if (form_is_unkown(form)) {
+		    
+			form_set_type(form, COMPOUND_FUNCTION_FORM);
+			form_add_front(form_head, form);
+		    }		    
+		}
+		else {
 		
+		    if (form_is_unkown(form)) {
+		    
+			form_set_type(form, SYMBOL_FORM);
+			form_add_front(form_head, form);
+		    }
+		}
 	    }
 	    
 	}

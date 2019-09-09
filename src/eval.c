@@ -495,6 +495,54 @@ match_eval_call(char *name)
 }
 
 
+static eval_rt_t
+eval_user_func_form(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
+{
+    func_s();
+    
+    list_show(val_in);
+
+    form_show(form);
+
+
+    /* lambda-list as arguments */
+    lisp_list_s *args = form->list->next->next->next->next;  
+
+    //obj_show(&args->obj);
+
+    form_s *args_form = args->obj.sub;
+    if (!args_form) goto FAIL;
+
+    form_show(args_form);
+
+
+    /* evaluate all forms of the function,
+     * all those forms can call the arguments in the above lambda-list.
+     */
+    lisp_list_s *l = args->next;
+    form_s *f;
+    while (l && !l->next->is_head) {
+
+	debug("eval form \n");
+
+	f = l->obj.sub;
+	form_show(f);
+	//eval(f, val_out);
+	//eval_form_with_args(f, args_form, val_out);
+
+	l = l->next;
+    }
+
+
+    func_ok();
+    return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
+}
+
+
 
 /**
  * The rule of evaluating a function form:
@@ -539,9 +587,20 @@ eval_function_form(form_s *form, eval_value_s *val)
     const eval_call_s *eval_call = match_eval_call(func_name);
     if (!eval_call) {
 
-	debug_err("undefined function: %s \n", func_name);
+	function_s *user_func = func_get(func_name);
+	if (user_func) {
+	    debug("eval user function: %s \n", func_name);
+	    eval_rt_t rt = eval_user_func_form(user_func->form, form->list, val);
+	    if (rt != EVAL_OK) goto FAIL;
+	    
+	    goto DONE;
+	}
+	else {
 	
-	return EVAL_ERR;
+	    debug_err("undefined function: %s \n", func_name);
+	
+	    return EVAL_ERR;
+	}
     }
 
     debug("function: %s \n", func_name);
@@ -651,10 +710,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 	eval_call->get_result(val, &value);
     }
-	    
+
+
+  DONE:
     func_ok();
 
     return EVAL_OK;
+
+  FAIL:
+    return EVAL_ERR;
 }
 
 
@@ -680,30 +744,46 @@ eval_symbol_form(form_s *form, eval_value_s *val)
     /* ignore '(' */
     l = l->next;
     
-    char *name = l->obj.token.value.symbol;
+    char *name = obj_get_symbol(&l->obj);
     debug("name: %s \n", name);
     
     const var_binder_s *binder = var_match_binder(name);
     if (!binder) {
 
-	debug_err("undefined binder: %s \n", name);
+	if (func_get(name)) {
+	    
+	    form_set_type(form, COMPOUND_FUNCTION_FORM);
+	    
+	    debug("eval function form \n");
+	    eval_rt_t rt = eval_function_form(form, val);
+	    if (rt != EVAL_OK) goto FAIL;
+	    
+	    goto DONE;
+	}
 	
-	return EVAL_ERR;
+	//debug_err("undefined binder: %s \n", name);
+	
+	goto FAIL;
     }
 
     if (!binder->bind) {
 
 	debug_err("binding function is null \n");
 	
-	return EVAL_ERR;
+	goto FAIL;
     }
 
     variable_s var;
     binder->bind(&var, l, val);  
-    
+
+  DONE:
     func_ok();
 
     return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
 }
 
 
@@ -1235,7 +1315,7 @@ eval(form_s *forms, eval_value_s *result)
 	    eval_result_show(result);
 	    
 	    break;
-	  
+	    
 	default:
 
 	    debug_err("unknown form type %d \n", f->type);

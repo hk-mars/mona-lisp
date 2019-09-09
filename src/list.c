@@ -203,8 +203,3 @@ list_copy(lisp_list_s *dst, lisp_list_s *src)
 }
 
 
-
-
-
-
-

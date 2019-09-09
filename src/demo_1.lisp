@@ -153,7 +153,7 @@
 
 ;;
 ;; function: sum
-;; 1. evaluate the formula "n+2+3+...+(m-1)"
+;; 1. evaluate the formula "n+(n+1)+(n+2)+...+(m-1)"
 ;;
 (defun sum (n m)
   (setq r 0)
