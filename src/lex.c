@@ -815,8 +815,7 @@ read_character(const char **code, size_t *code_sz)
 
     debug("character: %s\n", s);
     
-    func_ok();
-    return s;
+    out(ok, s);
     
   FAIL:
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);
