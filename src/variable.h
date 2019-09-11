@@ -117,6 +117,8 @@ bool var_is_bound(char *name);
 
 void var_show(variable_s *var);
 
+object_s* var_get_val_from_list(lisp_list_s *list, char *name);
+
 #endif /* ML_VARIABLE_H */
 
 

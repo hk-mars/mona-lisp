@@ -1,5 +1,6 @@
 
 
+
 #include "variable.h"
 
 #include "debug.h"
@@ -199,7 +200,7 @@ static bool
 binding_setq(variable_s *var, void *context, eval_value_s *result)
 {
     lisp_list_s *head = (lisp_list_s*)context;
-    lisp_list_s *l;
+    lisp_list_s *l, *list_in;
     pair_s pair;
     int i;
  
@@ -226,8 +227,11 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 	    if (subform) {
 		debug("eval sub_form \n");
 	    }
-	    
+
+	    list_in = result->list_in;
 	    memset(result, 0, sizeof(eval_value_s));
+	    result->list_in = list_in;
+	    
 	    eval_rt_t rt = eval(subform, result);
 	    if (rt != EVAL_OK) return false;
 
@@ -304,6 +308,22 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 		obj_show(&var->val);
 		
 	    }
+
+	    if (result->list_in) {
+
+		object_s *obj = var_get_val_from_list(result->list_in, var->name);
+		if (obj) {
+
+		    if (!obj_update(obj, &var->val)) {
+
+			goto FAIL;
+		    }
+
+		    goto NEXT;
+		}
+		
+	    }
+
 	    
 	    if (!var_add(var)) {
 
@@ -314,7 +334,8 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 	    }
 	    
 	}
-	
+
+      NEXT:
 	l = l->next;
 	if (l->next && l->next->is_head) break;
     }    
@@ -322,6 +343,10 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 
     func_ok();
     return true;
+
+  FAIL:
+    func_fail();
+    return false;
 }
 
 
@@ -590,5 +615,42 @@ var_is_bound(char *name)
     if (!name) return false;
     
     return !!var_get(name);
+}
+
+
+object_s*
+var_get_val_from_list(lisp_list_s *list, char *name)
+{
+    func_s();
+
+    debug("name: %s \n", name);
+    
+    lisp_list_s *l = list->next->next->next;
+    object_s *obj = NULL;
+    while (l) {
+
+	
+	object_s *self = (object_s*)l->obj.self;
+	if (!strcmp(name, self->token.value.symbol)) {
+
+	    obj = &l->obj;
+	    
+	    debug("found val of %s \n", name);
+	    break;
+	}
+	
+	l = l->next;
+	if (l->next && l->next->is_head) break;
+    }
+
+
+    if (obj) {
+
+	obj_show(obj);
+    }
+    
+    func_ok();
+
+    return obj;
 }
 

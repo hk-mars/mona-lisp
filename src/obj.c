@@ -110,3 +110,29 @@ obj_is_nil(object_s *obj)
     return (obj->subtype == OBJ_SUBTYPE_BOOL_FALSE);
 }
 
+
+bool
+obj_update(object_s *obj, object_s *new)
+{
+    func_s();
+    
+    switch (obj->type) {
+    case OBJ_TYPE:
+
+	memcpy(&obj->token, &new->token, sizeof(token_s));
+	break;
+
+    default:
+	break;
+    }
+
+    obj_show(obj);
+    
+    func_ok();
+    return true;
+
+  FAIL:
+    func_fail();
+    return false;
+}
+

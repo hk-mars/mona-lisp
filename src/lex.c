@@ -212,6 +212,9 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 	 */
 	
 	found = read_comments(code, code_sz);
+	if (!found) goto ERR;
+	return true;
+	break;
 	
     case '\"':
 
@@ -220,7 +223,6 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 
 	found = read_string(code, code_sz, form);
 	if (!found) goto ERR;
-
 	return true;
 	break;
 
@@ -229,8 +231,10 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 
     }
 
-    buf = *code;
-    
+
+    /* read the non-string symbol
+     */
+    buf = *code;  
     while (*code_sz > 0) {
 
 	debug("0x%02x %c \n", **code, **code);

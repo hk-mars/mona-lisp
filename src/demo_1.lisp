@@ -153,15 +153,16 @@
 
 ;;
 ;; function: sum
-;; 1. evaluate the formula "n+(n+1)+(n+2)+...+(m-1)"
+;; 1. evaluate the formula "n+(n+1)+(n+2)+...+m"
 ;;
 (defun sum (n m)
   (setq r 0)
   (loop
-   (if (eq n m) (return (list n r)) nil)
+   ;;(if (< n m) (return 0))
    (setq r (+ r n))
+   (if (eq n m) (return r) nil)
    (setq n (+ n 1))))
 
-(sum 1 10)
+(sum 1 100)
 
 

@@ -41,6 +41,7 @@
 
 
 
+
 void
 eval_result_show(eval_value_s *result)
 {
@@ -496,6 +497,23 @@ match_eval_call(char *name)
 
 
 static eval_rt_t
+eval_func_as_args(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
+{
+    func_s();
+
+    //list_show(val_out->args_form);
+
+    
+    
+    func_ok();
+    return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
+}
+
+static eval_rt_t
 eval_user_func_form(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
 {
     func_s();
@@ -515,20 +533,40 @@ eval_user_func_form(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
 
     form_show(args_form);
 
+    
+    lisp_list_s *l = args_form->next->list->next->next;
+    lisp_list_s *ll = val_in->next->next->next;
+    while (l) {
 
-    /* evaluate all forms of the function,
-     * all those forms can call the arguments in the above lambda-list.
+	debug("get the self of a value \n");
+	ll->obj.self = &l->obj;
+	
+
+	l = l->next;
+	ll = ll->next;
+
+	if (l->next && l->next->is_head) break;
+	if (ll->next && ll->next->is_head) goto FAIL;
+    }
+
+    
+    val_out->list_in = val_in;
+	
+    
+    /* evaluate all forms of the function
      */
-    lisp_list_s *l = args->next;
+    l = args->next;
     form_s *f;
     while (l && !l->next->is_head) {
 
-	debug("eval form \n");
+	debug("a form \n");
 
 	f = l->obj.sub;
 	form_show(f);
-	//eval(f, val_out);
-	//eval_form_with_args(f, args_form, val_out);
+
+	 
+	eval_rt_t rt = eval(f, val_out);
+	if (rt != EVAL_OK) goto FAIL;
 
 	l = l->next;
     }
@@ -624,6 +662,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    }
 	    
 	    memset(&value, 0, sizeof(eval_value_s));
+	    value.list_in = val->list_in;
 	    
 	    eval_rt_t rt = eval(subform, &value);
 	    if (rt != EVAL_OK) return rt;
@@ -650,19 +689,32 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    char *sym = obj_get_symbol(&l->obj);
 	    if (sym) {
 
+		if (val->list_in) {
+
+		    object_s *obj = var_get_val_from_list(val->list_in, sym);
+		    if (obj) {
+
+			value.obj_in = obj;
+			goto NEXT;
+		    }
+		}
+	
 		variable_s *var = var_get(sym);
 		if (!var) {
+
 		    debug_err("symbol %s is unbound \n", sym);
 		    ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
 		    return EVAL_ERR;
 		}
 
 		value.obj_in = &var->val;
+	
 	    }
 	    else {	    
 		value.obj_in = &l->obj;
 	    }
 
+	NEXT:
 	    //obj_show(value.obj_in);
 	    
 	    eval_call->eval(val, &value);	    
@@ -884,6 +936,8 @@ eval_if_form(form_s *form, eval_value_s *val)
 	debug("eval sub_form \n");
 	
 	memset(&result, 0, sizeof(eval_value_s));
+	result.list_in = val->list_in;
+	
 	rt = eval(subform, &result);
 	if (rt == EVAL_ERR) goto FAIL;
 	obj_show(&result.obj_out);	
@@ -1011,10 +1065,38 @@ eval_return_form(form_s *form, eval_value_s *val)
 
 	debug("self-evaluating form \n");
 
-	memcpy(&val->obj_out, &l->obj, sizeof(object_s));
+	char *sym = obj_get_symbol(&l->obj);
+	if (sym) {
+
+	    if (val->list_in) {
+
+		object_s *obj = var_get_val_from_list(val->list_in, sym);
+		if (obj) {
+
+		    memcpy(&val->obj_out, obj, sizeof(object_s));
+		    goto NEXT;
+		}
+	    }
+		    
+	    var = var_get(sym);
+	    if (!var) {
+
+		debug_err("unbound variable %s \n", sym);
+		goto FAIL;
+	    }
+	    var_show(var);
+	    memcpy(&val->obj_out, &var->val, sizeof(object_s));
+
+	}
+	else {
+
+	    memcpy(&val->obj_out, &l->obj, sizeof(object_s));
+	}
 	
+		
     }
 
+  NEXT:
     l = l->next;
     if (!l->next->is_head) {
 
@@ -1090,7 +1172,6 @@ eval_loop_form(form_s *form, eval_value_s *val)
 	    if (subform) {
 		debug("eval sub_form \n");
 	    }
-	    	    
 	    
 	    eval_rt_t rt = eval(subform, val);
 	    if (rt != EVAL_OK) return rt;
@@ -1268,7 +1349,7 @@ eval(form_s *forms, eval_value_s *result)
 
     while (f && f != forms) {
 	
-	memset(result, 0, sizeof(eval_value_s));
+	//memset(result, 0, sizeof(eval_value_s));
     
 	switch (f->type) {
 

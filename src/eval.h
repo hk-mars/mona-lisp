@@ -34,6 +34,8 @@ typedef struct
 
     object_s *obj_in;
 
+    lisp_list_s *list_in;
+
     bool is_return;
     
 } eval_value_s;
