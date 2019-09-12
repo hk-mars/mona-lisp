@@ -2013,7 +2013,11 @@ parser_init(void)
     bnf_tree_root = NULL;
 #endif
 
-    if (construct_ast_tree("add") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-add") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-less-than") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-less-or-equal-than") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-greater-than") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-greater-or-equal-than") != PARSER_OK) return PARSER_ERR;
     
     if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
     

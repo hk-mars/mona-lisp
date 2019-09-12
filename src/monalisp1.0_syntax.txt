@@ -141,7 +141,11 @@ compound-form ::=
 	return |
 	block |
 	( SETQ {setq-pair}* ) |
-	add |
+	num-add |
+	num-less-than |
+	num-less-or-equal-than |
+	num-greater-than |
+	num-greater-or-equal-than |
 	( LOOP {compound-form}* )
 	
 
@@ -221,7 +225,7 @@ var ::= symbol-token
 
 init-form ::= form
 
-add ::= 
+num-add ::= 
 	( + {number-token}* )
 	
 
@@ -229,7 +233,17 @@ defun2 ::=
 	( DEFUN function-name lambda-list [ {declaration}* | documentation ] {form}* )
 	
 
-
+num-less-than ::= 
+	( < {number-token}* )
+	
+num-less-or-equal-than ::= 
+	( <= {number-token}* )
+		
+num-greater-than ::= 
+	( > {number-token}* )
+			
+num-greater-or-equal-than ::= 
+	( >= {number-token}* )		
 		
 	
 	

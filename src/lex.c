@@ -283,11 +283,19 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 static bool
 like_arithmetic_func(const char *code)
 {
-    if (is_sign(*code)) return true;
+    switch (*code) {
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '<':
+    case '>':
+    case '=':
+	return true;
 
-    if (eq(*code, '*')) return true;
-
-    if (eq(*code, '/')) return true;
+    defualt:
+	break;
+    }
     
     return false;
 }
@@ -535,15 +543,72 @@ static bool
 identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
-    char c;
-    
-    if (!eq(**code, '+') && !eq(**code, '-') &&
-	!eq(**code, '*') && !eq(**code, '/')) {
+    char *s;
+    int len;
 
+    switch (**code) {
+
+    case '+':
+	s = "+";
+	len = 1;
+	break;
+	
+    case '-':
+	s = "-";
+	len = 1;
+	break;
+	
+    case '*':
+	s = "*";
+	len = 1;
+	break;
+	
+    case '/':
+	if (*code_sz-1 == 0) return false;
+	
+	if (*(*code+1) == '=') {
+	    s = "/=";
+	    len = 2;
+	}
+	else {
+	    s = "/";
+	    len = 1;	    
+	}
+	break;
+	
+    case '<':
+	if (*code_sz-1 == 0) return false;
+	
+	if (*(*code+1) == '=') {
+	    s = "<=";
+	    len = 2;
+	}
+	else {
+	    s = "<";
+	    len = 1;	    
+	}
+	break;
+	
+    case '>':
+	if (*code_sz-1 == 0) return false;
+	
+	if (*(*code+1) == '=') {
+	    s = ">=";
+	    len = 2;
+	}
+	else {
+	    s = ">";
+	    len = 1;	    
+	}
+	break;
+	
+    defualt:
 	return false;
+	break;
     }
-    c = **code;
-    next_code(*code, *code_sz);
+
+
+    move_code(*code, *code_sz, len);
     if (*code_sz == 0) goto DONE;
 
     if (eq(**code, SPACE)) {
@@ -574,10 +639,8 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
     //if (!t) return false;
     
     
-    size_t len = 2;
     t->type = TOKEN_SYMBOL;
-    t->value.symbol = (char*)ml_malloc(len);
-    t->value.symbol[0] = c;
+    t->value.symbol = s;
 
         
     if (form_is_unkown(form)) {

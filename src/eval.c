@@ -40,6 +40,20 @@
  */
 
 
+typedef bool (*eval_call_f)(void *left, void *right);
+typedef bool (*get_result_f)(void *in, void *out);
+
+typedef struct
+{
+    char *name;
+    
+    eval_call_f eval;
+
+    get_result_f get_result;
+    
+    
+} eval_call_s;
+
 
 
 void
@@ -176,6 +190,96 @@ arithmetic_divide(void *left, void *right)
     
     return true;
 }
+
+static bool num_compare(void *left, void *right, eval_call_f call);
+
+static bool
+num_less_than(void *left, void *right)
+{
+    func_s();
+    
+    return num_compare(left, right, num_less_than);
+}
+
+
+static bool
+num_less_or_equal_than(void *left, void *right)
+{
+    func_s();
+
+    return num_compare(left, right, num_less_or_equal_than);
+}
+
+
+static bool
+num_greater_than(void *left, void *right)
+{
+    func_s();
+
+    return num_compare(left, right, num_greater_than);
+}
+
+static bool
+num_greater_or_equal_than(void *left, void *right)
+{
+    func_s();
+
+    return num_compare(left, right, num_greater_or_equal_than);
+}
+
+
+static bool
+num_compare(void *left, void *right, eval_call_f call)
+{
+    func_s();
+
+    token_s *l = &((eval_value_s*)left)->obj_out.token;
+    token_s *r = &((eval_value_s*)right)->obj_in->token;
+    object_s *obj = &((eval_value_s*)left)->obj_out;
+
+    //obj_show(obj);
+    if (obj->type  == OBJ_UNKNOWN) {
+
+	l->value.num_int = r->value.num_int;
+	l->type = r->type;
+	obj->type = OBJ_TYPE;
+	debug("init val: %d \n", l->value.num_int);
+    }
+    else {
+
+	bool flag;
+	if (call == num_less_than) {
+
+	    flag = l->value.num_int < r->value.num_int;
+	}
+	else if (call == num_less_or_equal_than) {
+
+	    flag = l->value.num_int <= r->value.num_int;
+	}
+	else if (call == num_greater_than) {
+
+	    flag = l->value.num_int > r->value.num_int;
+	}
+	else if (call == num_greater_or_equal_than) {
+
+	    flag = l->value.num_int >= r->value.num_int;
+	}
+	
+	
+	obj->subtype = (flag ? OBJ_SUBTYPE_BOOL_TRUE : OBJ_SUBTYPE_BOOL_FALSE);
+
+	if (obj_is_true(obj)) {
+
+	    debug("T \n");
+	}
+	else {
+	    debug("nil \n");
+	}
+    }
+    
+    return true;
+}
+
 
 
 static bool
@@ -446,21 +550,6 @@ eval_if(void *left, void *right)
 
 
 
-typedef bool (*eval_call_f)(void *left, void *right);
-typedef bool (*get_result_f)(void *in, void *out);
-
-typedef struct
-{
-    char *name;
-    
-    eval_call_f eval;
-
-    get_result_f get_result;
-    
-    
-} eval_call_s;
-
-
 static const eval_call_s m_funcs[] =
 {
     { "+", arithmetic_add, NULL},
@@ -468,6 +557,11 @@ static const eval_call_s m_funcs[] =
     { "*", arithmetic_product, NULL},
     { "/", arithmetic_divide, NULL},
 
+    { "<", num_less_than, NULL},
+    { "<=", num_less_or_equal_than, NULL},
+    { ">", num_greater_than, NULL},
+    { ">=", num_greater_or_equal_than, NULL},
+    
     { "list", eval_list, NULL},
     { "car", eval_car, NULL},
     { "cdr", eval_cdr, NULL},
@@ -571,6 +665,7 @@ eval_user_func_form(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
 	l = l->next;
     }
 
+    val_out->list_in = NULL;
 
     func_ok();
     return EVAL_OK;
@@ -1336,21 +1431,23 @@ eval_macro_form(form_s *form, eval_value_s *val)
 
 
 eval_rt_t
-eval(form_s *forms, eval_value_s *result)
+eval(form_s *form, eval_value_s *result)
 {
     eval_rt_t rt;
     eval_value_s value;
     
-    if (!forms) return EVAL_ERR_NULL;
+    if (!form) return EVAL_ERR_NULL;
 
     func_s();
 
-    form_s *f = forms->next;
+    form_s *f = form->next;
 
-    while (f && f != forms) {
+    while (f && f != form) {
+
+	if (!result->list_in) {
+	    memset(result, 0, sizeof(eval_value_s));
+	}
 	
-	//memset(result, 0, sizeof(eval_value_s));
-    
 	switch (f->type) {
 
 	case COMPOUND_SPECIAL_FORM:
@@ -1406,7 +1503,6 @@ eval(form_s *forms, eval_value_s *result)
 
 	f = f->next;
     }
-    
 
     func_ok();
 
@@ -1417,3 +1513,6 @@ eval(form_s *forms, eval_value_s *result)
     ml_err_signal(ML_ERR_EVAL);
     return EVAL_ERR;    
 }
+
+
+

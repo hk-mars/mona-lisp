@@ -711,12 +711,30 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 
   NEXT0:
+
     if (root->back) {
 
+	if (root->loop) {
+
+	    debug("loop node \n");
+	    goto NEXT;
+	}
+	
 	/* TBD:
 	 */
 	if (!memcmp(root->back->key, root->key, strlen(root->back->key))) {
-	    return NULL;
+
+	    debug("back-node: %s of %s \n", root->back->key, root->key);
+
+	    tree_show(root->father->father, 5);
+	    
+	    if (!root->father->father->is_outside_loop_node) {
+		
+		goto NEXT;
+	
+	    }
+	    
+	    debug("father-fhater is outside-loop-node: %s \n", root->father->father->key);
 	}
 	
 	debug("go back to node: %s from %s \n", root->back->key, root->key);
@@ -784,11 +802,30 @@ check_list_form_syntax(form_s *form)
     char *syntax_obj_name = l->obj.token.value.symbol;
 
     if (!strcmp(syntax_obj_name, "+")) {
-	syntax_obj_name = "add";
+	syntax_obj_name = "num-add";
 
 	list_mark_type_specified(form->list);
     }
+    else if (!strcmp(syntax_obj_name, "<")) {
+	syntax_obj_name = "num-less-than";
 
+	list_mark_type_specified(form->list);
+    }
+    else if (!strcmp(syntax_obj_name, "<=")) {
+	syntax_obj_name = "num-less-or-equal-than";
+
+	list_mark_type_specified(form->list);
+    }
+    else if (!strcmp(syntax_obj_name, ">")) {
+	syntax_obj_name = "num-greater-than";
+
+	list_mark_type_specified(form->list);
+    }
+     else if (!strcmp(syntax_obj_name, ">=")) {
+	syntax_obj_name = "num-greater-or-equal-than";
+
+	list_mark_type_specified(form->list);
+    }
     
     debug("find syntax object: %s \n", syntax_obj_name);
 
