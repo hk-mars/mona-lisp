@@ -2018,6 +2018,8 @@ parser_init(void)
     if (construct_ast_tree("num-less-or-equal-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-greater-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-greater-or-equal-than") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-euqal-than") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("num-not-equal-than") != PARSER_OK) return PARSER_ERR;
     
     if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
     

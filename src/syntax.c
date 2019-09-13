@@ -821,11 +821,27 @@ check_list_form_syntax(form_s *form)
 
 	list_mark_type_specified(form->list);
     }
-     else if (!strcmp(syntax_obj_name, ">=")) {
+    else if (!strcmp(syntax_obj_name, ">=")) {
 	syntax_obj_name = "num-greater-or-equal-than";
 
 	list_mark_type_specified(form->list);
     }
+    else if (!strcmp(syntax_obj_name, "=")) {
+	syntax_obj_name = "num-equal-than";
+
+	list_mark_type_specified(form->list);
+    }
+    else if (!strcmp(syntax_obj_name, "/=")) {
+	syntax_obj_name = "num-not-equal-than";
+
+	list_mark_type_specified(form->list);
+    }
+    else if (!strcmp(syntax_obj_name, "!=")) {
+	syntax_obj_name = "num-not-equal-than";
+
+	list_mark_type_specified(form->list);
+    }
+    
     
     debug("find syntax object: %s \n", syntax_obj_name);
 

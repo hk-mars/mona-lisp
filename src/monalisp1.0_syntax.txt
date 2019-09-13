@@ -146,6 +146,8 @@ compound-form ::=
 	num-less-or-equal-than |
 	num-greater-than |
 	num-greater-or-equal-than |
+	num-equal-than  |
+	num-not-equal-than |
 	( LOOP {compound-form}* )
 	
 
@@ -245,7 +247,12 @@ num-greater-than ::=
 num-greater-or-equal-than ::= 
 	( >= {number-token}* )		
 		
-	
+num-equal-than ::= 
+	( = {number-token}* )
+			
+num-not-equal-than ::= 
+	( /= {number-token}* ) |
+	( != {number-token}* )		
 	
 	
 	

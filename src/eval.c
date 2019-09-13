@@ -219,12 +219,30 @@ num_greater_than(void *left, void *right)
     return num_compare(left, right, num_greater_than);
 }
 
+
 static bool
 num_greater_or_equal_than(void *left, void *right)
 {
     func_s();
 
     return num_compare(left, right, num_greater_or_equal_than);
+}
+
+
+static bool
+num_equal_than(void *left, void *right)
+{
+    func_s();
+
+    return num_compare(left, right, num_equal_than);
+}
+
+static bool
+num_not_equal_than(void *left, void *right)
+{
+    func_s();
+
+    return num_compare(left, right, num_not_equal_than);
 }
 
 
@@ -263,6 +281,14 @@ num_compare(void *left, void *right, eval_call_f call)
 	else if (call == num_greater_or_equal_than) {
 
 	    flag = l->value.num_int >= r->value.num_int;
+	}
+	else if (call == num_equal_than) {
+
+	    flag = l->value.num_int == r->value.num_int;
+	}
+	else if (call == num_not_equal_than) {
+
+	    flag = l->value.num_int != r->value.num_int;
 	}
 	
 	
@@ -561,6 +587,9 @@ static const eval_call_s m_funcs[] =
     { "<=", num_less_or_equal_than, NULL},
     { ">", num_greater_than, NULL},
     { ">=", num_greater_or_equal_than, NULL},
+    { "=", num_equal_than, NULL},
+    { "/=", num_not_equal_than, NULL},
+    { "!=", num_not_equal_than, NULL},
     
     { "list", eval_list, NULL},
     { "car", eval_car, NULL},

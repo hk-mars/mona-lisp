@@ -291,6 +291,7 @@ like_arithmetic_func(const char *code)
     case '<':
     case '>':
     case '=':
+    case '!':
 	return true;
 
     defualt:
@@ -571,8 +572,7 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 	    len = 2;
 	}
 	else {
-	    s = "/";
-	    len = 1;	    
+	    return false;	    
 	}
 	break;
 	
@@ -599,6 +599,18 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 	else {
 	    s = ">";
 	    len = 1;	    
+	}
+	break;
+
+    case '!':
+	if (*code_sz-1 == 0) return false;
+	
+	if (*(*code+1) == '=') {
+	    s = "!=";
+	    len = 2;
+	}
+	else {
+	    return false;	    
 	}
 	break;
 	
