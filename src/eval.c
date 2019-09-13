@@ -560,22 +560,6 @@ eval_eq(void *left, void *right)
 }
 
 
-
-static bool
-eval_if(void *left, void *right)
-{
-    func_s();
-
-    
-
-    
-    func_ok();
-
-    return true;
-}
-
-
-
 static const eval_call_s m_funcs[] =
 {
     { "+", arithmetic_add, NULL},
@@ -599,8 +583,6 @@ static const eval_call_s m_funcs[] =
     { "eq", eval_eq, NULL},
     //{ "eql", eval_eql, NULL},
     //{ "equal", eval_equal, NULL},
-
-    { "if", eval_if, NULL},
 };
 
 
@@ -1007,11 +989,17 @@ eval_binder_form(form_s *form, eval_value_s *val)
     bool rt = binder->bind(&var, l, val);
     if (!rt) goto FAIL;
 
-    
-    memcpy(&val->obj_out, &var.val, sizeof(object_s));
+    if (var.val.type == OBJ_UNKNOWN) {
+
+	list_copy(&val->list, &var.val_list);
+	list_show(&val->list);
+    }
+    else {
+	memcpy(&val->obj_out, &var.val, sizeof(object_s));
   
-    obj_show(&val->obj_out);
-     
+	obj_show(&val->obj_out);
+    }
+    
     func_ok();
     return EVAL_OK;
 

@@ -41,7 +41,8 @@ const var_binder_s m_binders[] =
     { "let*", NULL },
     
     { "defvar", NULL },
-    
+
+    /* defconst */
     { "defconstant", binding_defconstant },
     
     { "lambda", NULL },
@@ -131,6 +132,13 @@ var_show(variable_s *var)
     bool found;
 
     func_s();
+
+    if (var->val.type == OBJ_UNKNOWN) {
+
+	list_show(&var->val_list);
+	return;
+    }
+
     
     switch (var->val.type) {
 
@@ -250,6 +258,7 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 		list_show(&result->list);
 		list_copy(&pair.val_list, &result->list);
 		list_show(&pair.val_list);
+		pair.val.type = OBJ_UNKNOWN;
 	    }
 	  	    
 	    pair.var_name = l->front->obj.token.value.symbol;
@@ -297,10 +306,11 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 	    var->type = VAR_LEXICAL;
 	    
 	    if (pair.val.type == OBJ_UNKNOWN) {
-		
-		
+				
 		list_copy(&var->val_list, &pair.val_list);
 		list_show(&var->val_list);
+
+		var->val.type = OBJ_UNKNOWN;
 	    }
 	    else {
 

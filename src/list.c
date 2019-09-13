@@ -112,11 +112,13 @@ list_show(lisp_list_s *list)
     
     lisp_list_s *l = list->next;
 
-    while (l && l != list) {
+    while (l) {
 	
 	obj_show(&l->obj);
 
 	l = l->next;
+
+	if (l->next && l->next->is_head) break;
     }
 
     func_ok();
