@@ -231,10 +231,6 @@ num-add ::=
 	( + {number-token}* )
 	
 
-defun2 ::=
-	( DEFUN function-name lambda-list [ {declaration}* | documentation ] {form}* )
-	
-
 num-less-than ::= 
 	( < {number-token}* )
 	
@@ -255,7 +251,16 @@ num-not-equal-than ::=
 	( != {number-token}* )		
 	
 	
+defstruct ::=
+	( DEFSTRUCT name ( {slot-name}* ) )
 	
+name ::= symbol-token
+
+slot-name ::= symbol-token
+
+
+defmacro ::=
+	( name lambda-list [documentation] {form}* )
 	
 	
 	

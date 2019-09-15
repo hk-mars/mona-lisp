@@ -155,13 +155,13 @@
 ;; function: sum
 ;; 1. evaluate the formula "n+(n+1)+(n+2)+...+m"
 ;;
-(defun sum (n m)
-  (setq r 0)
-  (loop
-   (if (> n m) (return 0))
-   (setq r (+ r n))
-   (if (eq n m) (return r) nil)
-   (setq n (+ n 1))))
+;(defun sum (n m)
+;  (setq r 0)
+;  (loop
+;   (if (> n m) (return 0))
+;   (setq r (+ r n))
+;   (if (eq n m) (return r) nil)
+;   (setq n (+ n 1))))
 
 ;(sum 1 100)
 
@@ -174,9 +174,27 @@
 ;(/= 1 2)
 ;(!= 1 2)
 
-(setq a (list 1 2))
+;(setq a (list 1 2))
 
-(setq z (setq y 0 x (list 1 2)))
+;(setq z (setq y 0 x (list 1 2)))
 
 
+;(defstruct person
+;  (name age sex))
 
+
+;;
+;; @body are not evaluated before ",@body", but in a function call,
+;; all the arguments are evaluated before the function is even invoked.
+;; This macro could save the function calls and also the codes are more integrated.
+;; I plan to implement this feature...
+;;
+;(defmacro while (test body)
+;  `(do ()
+;       ((not ,test))
+;       ,@body))
+
+
+;(while (< x 100)
+;  (print x)
+;  (setq x (+ x 1)))
