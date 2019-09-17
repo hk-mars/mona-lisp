@@ -195,6 +195,14 @@
 ;       ,@body))
 
 
-;(while (< x 100)
+(defmacro do (test do-one do-next)
+  `(loop
+       (if (eq ,test nil) (return nil))
+       ,do-one ,do-next))
+
+
+;(do (< x 100)
 ;  (print x)
 ;  (setq x (+ x 1)))
+
+(setq x 0)

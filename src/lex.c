@@ -52,6 +52,9 @@
 typedef bool (*identify_f) (const char **code, size_t *code_sz, form_s *form);
 
 
+static code_s
+read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form);
+
 
 /* When a double-quote is encountered, characters are read from the input stream
  * and accumulated until another double-quote is encountered. If a single escape
@@ -276,6 +279,75 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);
     
     return false;
+}
+
+
+static bool
+read_template(const char **code, size_t *code_sz, form_s *form_head, form_s *form)
+{
+    bool found;
+
+    
+    func_s();
+
+    if (**code == '`') {
+	
+	next_code(*code, *code_sz);
+
+	/* Add a template form
+	 */
+	form_add_front(form_head, form);		
+	form_set_type(form, BACKQUOTE_FORM);
+    }
+    else if (**code == ',') {
+
+	next_code(*code, *code_sz);
+    }
+    else {
+
+	return false;	
+    }
+    
+ 
+    
+		
+    switch (**code) {
+    case '(':
+
+	/* parse the list subform in the template form
+	 */
+
+	next_code(*code, *code_sz);
+
+	form_s *f_head = form_create();
+	form->list->front->obj.sub = (void*)f_head;
+	    
+	form_s *f = form_create();
+	if (!f) goto ERR;
+	
+	list_add_char_obj(f->list, "(");
+		
+	code_s icode = read_list(*code, *code_sz, f_head, f);
+	if (!icode.code) goto ERR;
+
+	list_add_char_obj(f->list, ")");
+	
+	*code = icode.code;
+	*code_sz = icode.code_sz;
+	break;
+
+    default:
+	goto ERR;
+	break;
+    }
+    
+    
+    out(ok, true);
+
+  ERR:
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+
+    out(fail, false);
 }
 
 
@@ -983,6 +1055,11 @@ identify_macro_form(const char **code, size_t *code_sz, form_s *form)
 
 	len = 5;
 	name = "defun";
+    }
+    else if (ml_util_strbufcmp("defmacro", *code, *code_sz)) {
+
+	len = 8;
+	name = "defmacro";
     }    
     else {
 
@@ -1083,6 +1160,13 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	}
 
 	is_nil_list = false;
+
+	if (*code == '`' || *code == ',') {
+
+	    found = read_template(&code, &code_sz, form_head, form);
+	    if (found) continue;
+	    
+	}
 
 	if (like_arithmetic_func(code)) {
 
@@ -1309,7 +1393,10 @@ read_macro(code_s *cd, lex_s *lex)
         /* The backquote introduces a template of a data structure to be built. 
 	 */
 
-	/* TODO: backquote syntax */
+	/* TODO: backquote syntax 
+	 */
+
+	found = read_template(&cd->code, &cd->code_sz, &lex->forms, NULL);	
 	
 	break;
 

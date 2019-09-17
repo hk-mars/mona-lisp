@@ -1983,7 +1983,6 @@ parser_init(void)
     if (!rt) return PARSER_ERR;    
     
 
-#if 1    
     /* create the lexical tree
      */
     root_key = "token ::=";
@@ -2011,8 +2010,12 @@ parser_init(void)
     if (!rt) return PARSER_ERR;
 
     bnf_tree_root = NULL;
-#endif
 
+    
+
+    /* create the AST tree for the specified forms
+     */
+    
     if (construct_ast_tree("num-add") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-less-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-less-or-equal-than") != PARSER_OK) return PARSER_ERR;
