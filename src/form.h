@@ -37,7 +37,7 @@ typedef enum
 
     /* backquote form is a subform of the defmacro form.
      */
-    BACKQUOTE_FORM = 7,
+    //BACKQUOTE_FORM = 7,
 
 } form_t;
 

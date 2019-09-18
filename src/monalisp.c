@@ -17,6 +17,9 @@
 
 #include "function.h"
 
+#include "macro.h"
+
+
 
 #define VER "1.0.0"
 
@@ -122,7 +125,14 @@ ml_init(void)
 	return LISP_ERR_FUNC;
     } 
     
-	
+    macro_rt_t macro_rt = macro_init();
+    if (macro_rt != MACRO_OK) {
+
+	debug_err("err: %d, macro_init failed", macro_rt);
+	return LISP_ERR_MACRO;
+    } 
+
+    
     lex_rt_t lex_rt = ml_lex_init();
     if (lex_rt != LEX_OK) return LISP_ERR_LEX;
 

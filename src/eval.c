@@ -18,6 +18,8 @@
 
 #include "function.h"
 
+#include "macro.h"
+
 
 
 /** 
@@ -1429,15 +1431,101 @@ eval_special_form(form_s *form, eval_value_s *val)
 
 
 static eval_rt_t
+eval_backquote_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+    eval_value_s result;
+    eval_rt_t rt;
+    variable_s *var;
+
+
+    if (!form->list->next) {
+
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
+    
+    //debug("list form \n");
+    //list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = obj_get_symbol(&l->obj);
+    //debug("name: %s \n", name);
+    if (!name) return EVAL_ERR;
+
+    if (strcasecmp(name, "defmacro")) {
+
+	return EVAL_ERR;
+    }
+
+    func_s();
+    
+    debug("name: %s \n", name);
+
+    list_show(form->list);
+
+
+    /* get the macro name
+     */
+    l = l->next;
+    char *macro_name = obj_get_symbol(&l->obj);
+    debug("macro name: %s \n", macro_name);
+
+
+    macro_s m;
+    m.name = macro_name;
+    m.form = form;
+    if (!macro_get(macro_name)) {
+
+	if (!macro_add(&m)) {
+
+	    debug_err("add macro failed \n");
+	    goto FAIL;
+	}
+    }
+    else {
+	
+	if (!macro_update(&m)) {
+
+	    debug_err("update macro failed \n");
+	    goto FAIL;
+	}
+    }
+
+    
+    
+  DONE:
+    func_ok();
+    return EVAL_OK;
+
+  FAIL:
+    func_fail();
+    return EVAL_ERR;
+}
+
+
+
+static eval_rt_t
 eval_macro_form(form_s *form, eval_value_s *val)
 {
     func_s();
+
+    if (eval_backquote_form(form, val) == EVAL_OK) goto DONE;
 
     if (eval_return_form(form, val) == EVAL_OK) goto DONE;
 
     if (eval_loop_form(form, val) == EVAL_OK) goto DONE;
 
     if (eval_defun_form(form, val) == EVAL_OK) goto DONE;
+
+
+  FAIL:
+    out(fail, EVAL_ERR);
     
   DONE:
     func_ok();

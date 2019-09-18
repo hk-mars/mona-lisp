@@ -296,21 +296,22 @@ read_template(const char **code, size_t *code_sz, form_s *form_head, form_s *for
 
 	/* Add a template form
 	 */
-	form_add_front(form_head, form);		
-	form_set_type(form, BACKQUOTE_FORM);
+	list_add_char_obj(form->list, "`");
     }
     else if (**code == ',') {
 
 	next_code(*code, *code_sz);
+
+	list_add_char_obj(form->list, ",");
+	goto DONE;
+	
     }
     else {
 
 	return false;	
     }
     
- 
-    
-		
+ 		
     switch (**code) {
     case '(':
 
@@ -341,7 +342,8 @@ read_template(const char **code, size_t *code_sz, form_s *form_head, form_s *for
 	break;
     }
     
-    
+
+  DONE:
     out(ok, true);
 
   ERR:

@@ -20,6 +20,7 @@ typedef enum
     LISP_ERR_STACK = 6,
     LISP_ERR_VAR = 7,
     LISP_ERR_FUNC = 8,
+    LISP_ERR_MACRO = 8,
     
 } lisp_rt_t;
 

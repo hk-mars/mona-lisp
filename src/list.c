@@ -113,12 +113,18 @@ list_show(lisp_list_s *list)
     lisp_list_s *l = list->next;
 
     while (l) {
-	
+
 	obj_show(&l->obj);
+
+	if (l->obj.sub) {
+
+	    debug("subform: \n");
+	    form_show(l->obj.sub);
+	}
 
 	l = l->next;
 
-	if (l->next && l->next->is_head) break;
+	if (l->is_head) break;
     }
 
     func_ok();

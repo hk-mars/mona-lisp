@@ -13,7 +13,7 @@ obj_show(object_s *obj)
 {
     //func_s();
 
- 
+    
     switch (obj->type) {
 
     case OBJ_CHARACTER:
@@ -77,6 +77,12 @@ obj_show(object_s *obj)
 
     }
 
+    if (obj->sub) {
+
+	//debug("subform: \n");
+    }
+    
+    
     //func_ok();
 }
 

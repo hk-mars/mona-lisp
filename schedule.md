@@ -70,6 +70,28 @@ out + out-from
 dolist
 
 
+- Sep 2019
+
+	call user's macro
+	
+	gc
+	
+	load several lisp files
+		
+	load system API
+	
+	load GUI API
+	
+	load json file
+	
+- 2019
+
+	db object	
+
+	create/search/update db
+	
+	
+
 ## 2019
 Implement monalisp
 
