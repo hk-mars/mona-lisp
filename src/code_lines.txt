@@ -6,16 +6,17 @@
       51     783 debug.h
       44     737 error.h
       50     555 eval.h
-      94    1392 form.h
+      98    1484 form.h
       60     711 function.h
        0       0 gc.h
       62    1240 hsearch.h
       52     538 lex.h
       45     660 list.h
        0       0 log.h
+      60     690 macro.h
       19     198 mem.h
-      39     490 monalisp.h
-      73     935 obj.h
+      40     514 monalisp.h
+      78    1041 obj.h
       34     384 parser.h
       30     336 printer.h
        0       0 profiler.h
@@ -35,18 +36,19 @@
      276    4989 bin_tree.c
       55     716 chars.c
      124    1571 error.c
-    1547   25054 eval.c
+    1865   30774 eval.c
      183    2728 form.c
      135    1992 function.c
        0       0 gc.c
      222    5537 hsearch.c
-    1553   28132 lex.c
-     205    2725 list.c
+    1656   29898 lex.c
+     213    2819 list.c
        0       0 log.c
+     135    1985 macro.c
       43     405 mem.c
-     148    2245 monalisp.c
-     138    1786 obj.c
-    2052   37254 parser.c
+     158    2426 monalisp.c
+     151    1942 obj.c
+    2058   37453 parser.c
       34     531 printer.c
        0       0 profiler.c
      148    2999 reader.c
@@ -56,6 +58,6 @@
       73     958 token.c
      216    3695 tree.c
      143    1860 util.c
-     656   10851 variable.c
+     666   11014 variable.c
        0       0 vm.c
-   11048  186534 total
+   11721  197710 total

@@ -1,6 +1,6 @@
 
 
-#include "function.h"
+#include "macro.h"
 
 #include "debug.h"
 
@@ -13,52 +13,52 @@
 #include "mem.h"
 
 
-static hash_table_s m_func_htab;
+static hash_table_s m_macro_htab;
 
 
-func_rt_t
-func_init(void)
+macro_rt_t
+macro_init(void)
 {
     int rt;
     
     func_s();
 
-    memset(&m_func_htab, 0, sizeof(hash_table_s));
-    rt = hcreate(&m_func_htab, 1024);
-    if(!rt) return FUNC_ERR_CREATE_HTAB;
+    memset(&m_macro_htab, 0, sizeof(hash_table_s));
+    rt = hcreate(&m_macro_htab, 1024);
+    if(!rt) return MACRO_ERR_CREATE_HTAB;
 
     func_ok();
-    return FUNC_OK;
+    return MACRO_OK;
 }
 
 
 bool
-func_add(function_s *func)
+macro_add(macro_s *macro)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
 
     func_s();
     
-    debug("func->name: %s \n", func->name);
+    debug("macro->name: %s \n", macro->name);
     
-    entry.key = func->name;
-    entry_rt = hsearch(&m_func_htab, entry, FIND);
+    entry.key = macro->name;
+    entry_rt = hsearch(&m_macro_htab, entry, FIND);
     if (entry_rt) {
 
-	debug_err("func %s has existed \n", func->name);
+	debug_err("macro %s has existed \n", macro->name);
 
 	return false;
     }
 
-    function_s *f = (function_s*)ml_malloc(sizeof(function_s));
+    macro_s *f = (macro_s*)ml_malloc(sizeof(macro_s));
     if (!f) return false;
     
-    memcpy(f, func, sizeof(function_s));
+    memcpy(f, macro, sizeof(macro_s));
       
     entry.key = f->name;
     entry.data = f;
-    entry_rt = hsearch(&m_func_htab, entry, ENTER);
+    entry_rt = hsearch(&m_macro_htab, entry, ENTER);
     if (!entry_rt) {
 
 	debug_err("push varible %s into hash table, failed \n", f->name);
@@ -67,7 +67,7 @@ func_add(function_s *func)
 	return false;
     }
     
-    func_get(f->name);
+    macro_get(f->name);
     
     func_ok();
     return true;    
@@ -75,14 +75,14 @@ func_add(function_s *func)
 
 
 /** 
- * get a function as name
+ * get a macro as name
  */
-function_s*
-func_get(char *name)
+macro_s*
+macro_get(char *name)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
-    function_s *f;
+    macro_s *f;
     
     func_s();
     
@@ -91,7 +91,7 @@ func_get(char *name)
     
     entry.key = name;
     
-    entry_rt = hsearch(&m_func_htab, entry, FIND);
+    entry_rt = hsearch(&m_macro_htab, entry, FIND);
     if (entry_rt) {
 
 	goto FOUND;
@@ -101,9 +101,9 @@ func_get(char *name)
 
   FOUND:
 
-    f = (function_s*)entry_rt->data;
+    f = (macro_s*)entry_rt->data;
     
-    //func_show(f);
+    //macro_show(f);
 
     form_show(f->form);
     func_ok();
@@ -112,22 +112,22 @@ func_get(char *name)
 
 
 bool
-func_update(function_s *new_func)
+macro_update(macro_s *new_macro)
 {
     func_s();
     
-    function_s *f = func_get(new_func->name);
+    macro_s *f = macro_get(new_macro->name);
     if (!f) return false;
 
     ml_free(f->name);
     ml_free(f->form);
 
-    f->name = new_func->name;
-    f->form = new_func->form;
+    f->name = new_macro->name;
+    f->form = new_macro->form;
     
-    //func_show(var);
+    //macro_show(var);
 
-    func_get(f->name);
+    macro_get(f->name);
     
     func_ok();
     return true;
