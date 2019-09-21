@@ -111,6 +111,8 @@
 
 ;(eq z 123)
 
+;(eq nil nil)
+
 ;(if (eq x #\b) 1 0)
 
 ;(if (eq z 123) (list 1 2) 0)
@@ -194,6 +196,7 @@
 ;       ((not ,test))
 ;       ,@body))
 
+(setq x 0)
 
 (defmacro do (test do-one do-next)
   `(loop
@@ -201,8 +204,10 @@
        ,do-one ,do-next))
 
 
+(do (< x 100)
+  (list x)
+  (setq x (+ x 1)))
+
 ;(do (< x 100)
 ;  (print x)
 ;  (setq x (+ x 1)))
-
-

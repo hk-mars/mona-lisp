@@ -36,6 +36,9 @@ typedef enum
 {
     OBJ_SUBTYPE_BOOL_TRUE = 1,
     OBJ_SUBTYPE_BOOL_FALSE = 2,
+
+    OBJ_SUBTYPE_MACRO_BACKQUOTE = 3,
+    OBJ_SUBTYPE_MACRO_COMMNA = 4,
     
 } object_sub_t;
 
@@ -65,6 +68,8 @@ char* obj_get_symbol(object_s *obj);
 
 bool obj_is_true(object_s *obj);
 bool obj_is_nil(object_s *obj);
+
+bool obj_is_char(object_s *obj);
 
 bool obj_update(object_s *obj, object_s *new);
 

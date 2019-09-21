@@ -57,6 +57,8 @@ typedef struct
 } eval_call_s;
 
 
+static eval_rt_t eval_macro_function_form(form_s *form, eval_value_s *val);
+
 
 void
 eval_result_show(eval_value_s *result)
@@ -293,7 +295,7 @@ num_compare(void *left, void *right, eval_call_f call)
 	    flag = l->value.num_int != r->value.num_int;
 	}
 	
-	
+	obj->token.type = TOKEN_UNKOWN;
 	obj->subtype = (flag ? OBJ_SUBTYPE_BOOL_TRUE : OBJ_SUBTYPE_BOOL_FALSE);
 
 	if (obj_is_true(obj)) {
@@ -522,9 +524,16 @@ eval_eq(void *left, void *right)
     case OBJ_TYPE:
 
 	//debug("OBJ_TYPE \n");
+	obj_show(obj_l);
 	if (obj_l->token.type == TOKEN_NUM_INT) {
 
+	    debug("TOKEN_NUM_INT \n");
 	    result = (obj_l->token.value.num_int == obj_r->token.value.num_int);	    
+	}
+	else if (obj_l->subtype == OBJ_SUBTYPE_BOOL_TRUE ||
+	    obj_l->subtype == OBJ_SUBTYPE_BOOL_FALSE) {
+
+	    result = (obj_l->subtype == obj_r->subtype);
 	}
 	else {
 
@@ -818,8 +827,51 @@ eval_function_form(form_s *form, eval_value_s *val)
 		value.obj_in = &var->val;
 	
 	    }
-	    else {	    
-		value.obj_in = &l->obj;
+	    else {
+
+		if (l->obj.subtype == OBJ_SUBTYPE_MACRO_COMMNA) {
+
+		    /* get the form from ",form", and evaluate it.
+		     */
+		    debug("OBJ_SUBTYPE_MACRO_COMMNA \n");
+
+		    l = l->next;
+		    sym = obj_get_symbol(&l->obj);
+		    debug("%s \n", sym);
+
+		    if (val->list_in) {
+
+			object_s *obj = var_get_val_from_list(val->list_in, sym);
+			if (obj) {
+
+			    value.obj_in = obj;
+
+			    form_s *f = (form_s*)obj->sub;
+			    form_show(f);
+
+			    memset(&value, 0, sizeof(eval_value_s));
+			    value.list_in = val->list_in;
+	    
+			    eval_rt_t rt = eval(f, &value);
+			    if (rt != EVAL_OK) return rt;
+
+			    debug("%d, eval sub_form done \n", __LINE__);
+	   
+			    if (value.obj_out.type != OBJ_UNKNOWN) {
+
+				value.obj_in = &value.obj_out;
+			    }
+			    else {
+				value.obj_in = &value.list.obj;
+			    }
+			    
+			    goto NEXT;
+			}
+		    }
+		}		
+		else {
+		    value.obj_in = &l->obj;
+		}
 	    }
 
 	NEXT:
@@ -834,6 +886,8 @@ eval_function_form(form_s *form, eval_value_s *val)
 
 	    value.obj_in = &l->obj;
 	    eval_call->eval(val, &value);
+	    break;
+
 	    break;
 
 	default:
@@ -916,6 +970,16 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 	    
 	    debug("eval function form \n");
 	    eval_rt_t rt = eval_function_form(form, val);
+	    if (rt != EVAL_OK) goto FAIL;
+	    
+	    goto DONE;
+	}
+	else if (macro_get(name)) {
+	    
+	    form_set_type(form, COMPOUND_MACRO_FORM);
+	    
+	    debug("eval macro form \n");
+	    eval_rt_t rt = eval_macro_function_form(form, val);
 	    if (rt != EVAL_OK) goto FAIL;
 	    
 	    goto DONE;
@@ -1236,7 +1300,7 @@ static eval_rt_t
 eval_loop_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
-    eval_value_s result;
+    eval_value_s value;
     eval_rt_t rt;
     variable_s *var;
 
@@ -1298,6 +1362,36 @@ eval_loop_form(form_s *form, eval_value_s *val)
 
 	    debug("OBJ_TYPE \n");
 
+	    //obj_show(&l->obj);
+
+	    if (l->obj.subtype == OBJ_SUBTYPE_MACRO_COMMNA) {
+
+		/* get the form from ",form", and evaluate it.
+		 */
+		debug("OBJ_SUBTYPE_MACRO_COMMNA \n");
+
+		l = l->next;
+		char *sym = obj_get_symbol(&l->obj);
+		debug("%s \n", sym);
+
+		if (val->list_in) {
+
+		    object_s *obj = var_get_val_from_list(val->list_in, sym);
+		    if (obj) {
+
+			form_s *f = (form_s*)obj->sub;
+			form_show(f);
+
+			memset(&value, 0, sizeof(eval_value_s));
+			value.list_in = val->list_in;
+	    
+			eval_rt_t rt = eval(f, &value);
+			if (rt != EVAL_OK) return rt;
+
+			debug("line %d, eval sub_form done \n", __LINE__);
+		    }
+		}
+	    }
 	    break;
 	    
 	case OBJ_CHARACTER:
@@ -1323,6 +1417,7 @@ eval_loop_form(form_s *form, eval_value_s *val)
 	}
 	
 	l = l->next;
+		
 	if (l == form->list) l = l->next;
     }
 
@@ -1509,12 +1604,159 @@ eval_backquote_form(form_s *form, eval_value_s *val)
 }
 
 
+static eval_rt_t
+eval_user_macro_func(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
+{
+    func_s();
+    
+    list_show(val_in);
+
+    form_show(form);
+
+
+    /* lambda-list as arguments */
+    lisp_list_s *args = form->list->next->next->next->next;  
+
+    //obj_show(&args->obj);
+
+    form_s *args_form = args->obj.sub;
+    if (!args_form) goto FAIL;
+
+    debug("@ arguments form: \n");
+    form_show(args_form);
+
+
+    lisp_list_s *l = args_form->next->list->next->next;
+    lisp_list_s *ll = val_in->next->next->next;
+    while (l) {
+
+	debug("get the self of a value \n");
+	//obj_show(&l->obj);
+	ll->obj.self = &l->obj;
+	
+
+	l = l->next;
+	ll = ll->next;
+
+	if (l->next && l->next->is_head) break;
+	if (ll->next && ll->next->is_head) goto FAIL;
+    }
+
+    
+    val_out->list_in = val_in;
+	
+    
+    /* evaluate all forms of the macro
+     */
+    l = args->next;
+    form_s *f;
+    while (l && !l->next->is_head) {
+
+	debug("a form \n");
+
+	//obj_show(&l->obj);
+	if (!obj_is_char(&l->obj)) goto FAIL;
+
+	
+
+	if (!strcmp(l->obj.character, "`")) {
+	    /* `form
+	     */
+
+	    debug("`form \n");
+	    
+	}
+	else if (!strcmp(l->obj.character, ",")) {
+
+	    /* ,form
+	     */
+
+	    debug(",form \n");
+	    
+	}
+	else {
+
+	    debug_err("unknown form \n");
+	    goto FAIL;
+	}
+	
+	
+	f = l->obj.sub;
+	form_show(f);
+
+	
+	eval_rt_t rt = eval(f, val_out);
+	if (rt != EVAL_OK) goto FAIL;
+
+      NEXT:
+	l = l->next;
+    }
+
+    val_out->list_in = NULL;
+
+
+    out(ok, EVAL_OK);
+
+  FAIL:
+    out(fail, EVAL_ERR);
+}
+
+
+static eval_rt_t
+eval_macro_function_form(form_s *form, eval_value_s *val)
+{
+    lisp_list_s *l;
+    eval_value_s result;
+    eval_rt_t rt;
+    variable_s *var;
+
+
+    if (!form->list->next) {
+
+	debug("null form \n");	
+	return EVAL_ERR;
+    }
+
+    l = form->list->next;
+    
+    //debug("list form \n");
+    //list_show(form->list);
+
+
+    /* ignore '(' */
+    l = l->next;
+    
+    char *name = obj_get_symbol(&l->obj);
+    //debug("name: %s \n", name);
+    if (!name) return EVAL_ERR;
+
+    macro_s *user_macro = macro_get(name);
+    if (!user_macro) {
+	return EVAL_ERR;
+    }  
+
+    func_s();
+    
+    debug("macro name: %s \n", name);
+    
+    rt = eval_user_macro_func(user_macro->form, form->list, val);
+    if (rt != EVAL_OK) goto FAIL;    
+
+
+    out(ok, EVAL_OK);
+    
+  FAIL:
+    out(fail, EVAL_ERR);
+}
+
 
 static eval_rt_t
 eval_macro_form(form_s *form, eval_value_s *val)
 {
     func_s();
 
+    if (eval_macro_function_form(form, val) == EVAL_OK) goto DONE;
+    
     if (eval_backquote_form(form, val) == EVAL_OK) goto DONE;
 
     if (eval_return_form(form, val) == EVAL_OK) goto DONE;

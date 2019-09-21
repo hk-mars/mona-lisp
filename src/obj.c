@@ -46,7 +46,7 @@ obj_show(object_s *obj)
       if (obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ||
 	  obj->subtype == OBJ_SUBTYPE_BOOL_FALSE) {
 
-	  debug("%s \n", obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ? "t" : "nil");
+	  debug("%s \n", obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ? "bool: t" : "bool: nil");
       }
       else {
 	
@@ -114,6 +114,13 @@ bool
 obj_is_nil(object_s *obj)
 {
     return (obj->subtype == OBJ_SUBTYPE_BOOL_FALSE);
+}
+
+
+bool
+obj_is_char(object_s *obj)
+{
+    return (obj->type == OBJ_CHARACTER);
 }
 
 

@@ -302,7 +302,13 @@ read_template(const char **code, size_t *code_sz, form_s *form_head, form_s *for
 
 	next_code(*code, *code_sz);
 
-	list_add_char_obj(form->list, ",");
+	//list_add_char_obj(form->list, ",");
+	
+	object_s obj;
+	memset(&obj, 0, sizeof(object_s));
+	obj.type = OBJ_TYPE;
+	obj.subtype = OBJ_SUBTYPE_MACRO_COMMNA;
+	list_add_object(form->list, &obj);
 	goto DONE;
 	
     }
@@ -1303,6 +1309,14 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 		    if (form_is_unkown(form)) {
 		    
 			form_set_type(form, COMPOUND_FUNCTION_FORM);
+			form_add_front(form_head, form);
+		    }		    
+		}		
+		else if (macro_get(sym)) {
+
+		    if (form_is_unkown(form)) {
+		    
+			form_set_type(form, COMPOUND_MACRO_FORM);
 			form_add_front(form_head, form);
 		    }		    
 		}

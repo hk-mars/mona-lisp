@@ -118,8 +118,8 @@ list_show(lisp_list_s *list)
 
 	if (l->obj.sub) {
 
-	    debug("subform: \n");
-	    form_show(l->obj.sub);
+	    debug("  subform: \n");
+	    //form_show(l->obj.sub);
 	}
 
 	l = l->next;
