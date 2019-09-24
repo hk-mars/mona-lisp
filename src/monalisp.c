@@ -38,6 +38,11 @@ main (int argc, char **argv)
     show("Hello Monalisp \n");
     show("Ver: %s \n\n", ml_get_version());
 
+
+#if GC_SELF_CHECK_ENABLE
+    if (!gc_debug()) return -1;
+#endif
+    
     
     lisp_rt_t rt = ml_init();
     if (rt != LISP_OK) return -1;

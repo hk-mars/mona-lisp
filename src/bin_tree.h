@@ -46,6 +46,7 @@ binary_tree_delete
 );
 
 int int_cmp(void* lv, void* rv);
+int long_cmp(void* lv, void* rv);
 
 #endif /* __BIN_TREE_H__ */
 

@@ -29,9 +29,9 @@
 #endif
 
 
-
 #define DEBUG_ENABLE YES
 
+#define GC_SELF_CHECK_ENABLE YES
 
 
 #endif /* ML_CONFIG_H */

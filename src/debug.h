@@ -41,11 +41,11 @@
 #define show printf
 
 
-#define out(type, x)			\
+#define out(type, x)				\
     func_##type();				\
     return x;					\
 
-
+  
 #endif /* ML_DEBUG_H */
 
 
