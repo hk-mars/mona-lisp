@@ -19,6 +19,10 @@
 
 #include "macro.h"
 
+#include "gc.h"
+
+#include "mem.h"
+
 
 
 #define VER "1.0.0"
@@ -38,7 +42,7 @@ main (int argc, char **argv)
     show("Hello Monalisp \n");
     show("Ver: %s \n\n", ml_get_version());
 
-
+    
 #if GC_SELF_CHECK_ENABLE
     if (!gc_debug()) return -1;
 #endif
@@ -47,10 +51,39 @@ main (int argc, char **argv)
     lisp_rt_t rt = ml_init();
     if (rt != LISP_OK) return -1;
 
+
+    gc_s gc = gc_new();
+    if (gc.id < 0) {
+
+	debug_err("create gc object failed \n");
+	return LISP_ERR_GC;
+    }
+    
 #if 1    
     reader_s reader;
     reader_rt_t reader_rt = ml_reader_load_file(&reader, "demo_1.lisp");
     if (reader_rt != READER_OK) return -1;
+#endif
+
+    gc_show();
+    gc_free();
+    mm_show();
+
+
+#if 1
+    gc = gc_new();
+    if (gc.id < 0) {
+
+	debug_err("create gc object failed \n");
+	return LISP_ERR_GC;
+    }
+    
+    reader_rt = ml_reader_load_file(&reader, "demo_2.lisp");
+    if (reader_rt != READER_OK) return -1;
+
+    gc_show();
+    gc_free();
+    mm_show();
 #endif
     
     
@@ -106,11 +139,12 @@ lisp_rt_t
 ml_init(void)
 {
     func_s();
-
+    
+    
     stack_rt_t stack_rt = stack_init(1024);
     if (stack_rt != STACK_OK) {
 	
-	debug_err("err: %d, stack init failed", stack_rt);
+	debug_err("err: %d, stack init failed \n", stack_rt);
 	return LISP_ERR_STACK;
     }
 
@@ -118,7 +152,7 @@ ml_init(void)
     var_rt_t var_rt = var_init();
     if (var_rt != VAR_OK) {
 
-	debug_err("err: %d, var_init failed", var_rt);
+	debug_err("err: %d, var_init failed \n", var_rt);
 	return LISP_ERR_VAR;
     }
 
@@ -126,14 +160,14 @@ ml_init(void)
     func_rt_t func_rt = func_init();
     if (func_rt != FUNC_OK) {
 
-	debug_err("err: %d, func_init failed", func_rt);
+	debug_err("err: %d, func_init failed \n", func_rt);
 	return LISP_ERR_FUNC;
     } 
     
     macro_rt_t macro_rt = macro_init();
     if (macro_rt != MACRO_OK) {
 
-	debug_err("err: %d, macro_init failed", macro_rt);
+	debug_err("err: %d, macro_init failed \n", macro_rt);
 	return LISP_ERR_MACRO;
     } 
 
@@ -152,9 +186,7 @@ ml_init(void)
     
     reader_rt_t reader_rt = ml_reader_init();
     if (reader_rt != READER_OK) return LISP_ERR_READER;
-
     
-
     func_ok();
     
     return LISP_OK;

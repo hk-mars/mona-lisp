@@ -51,7 +51,7 @@ func_add(function_s *func)
 	return false;
     }
 
-    function_s *f = (function_s*)ml_malloc(sizeof(function_s));
+    function_s *f = (function_s*)mm_malloc(sizeof(function_s));
     if (!f) return false;
     
     memcpy(f, func, sizeof(function_s));
@@ -63,7 +63,7 @@ func_add(function_s *func)
 
 	debug_err("push varible %s into hash table, failed \n", f->name);
 
-	ml_free(f);
+	mm_free(f);
 	return false;
     }
     

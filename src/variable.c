@@ -522,12 +522,12 @@ var_add(variable_s *var)
 	return false;
     }
 
-    variable_s *v = (variable_s*)ml_malloc(sizeof(variable_s));
+    variable_s *v = (variable_s*)mm_malloc(sizeof(variable_s));
     if (!v) return false;
     
     memcpy(v, var, sizeof(variable_s));
       
-    entry.key = v->name;
+    entry.key = strdup(v->name);
     entry.data = v;
     entry_rt = hsearch(&m_lexical_htab, entry, ENTER);
     if (!entry_rt) {
@@ -551,7 +551,6 @@ var_add(variable_s *var)
 bool
 var_delete(char *name)
 {
-
     func_ok();
     return true;
 }
@@ -591,6 +590,7 @@ var_get(char *name)
   FOUND:
 
     var = (variable_s*)entry_rt->data;
+    var->name = name;
     
     var_show(var);
     

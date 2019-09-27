@@ -51,19 +51,19 @@ macro_add(macro_s *macro)
 	return false;
     }
 
-    macro_s *f = (macro_s*)ml_malloc(sizeof(macro_s));
+    macro_s *f = (macro_s*)mm_malloc(sizeof(macro_s));
     if (!f) return false;
     
     memcpy(f, macro, sizeof(macro_s));
       
-    entry.key = f->name;
+    entry.key = strdup(f->name);
     entry.data = f;
     entry_rt = hsearch(&m_macro_htab, entry, ENTER);
     if (!entry_rt) {
 
 	debug_err("push varible %s into hash table, failed \n", f->name);
 
-	ml_free(f);
+	mm_free(f);
 	return false;
     }
     
@@ -102,6 +102,7 @@ macro_get(char *name)
   FOUND:
 
     f = (macro_s*)entry_rt->data;
+    f->name = name;
     
     //macro_show(f);
 
@@ -119,10 +120,10 @@ macro_update(macro_s *new_macro)
     macro_s *f = macro_get(new_macro->name);
     if (!f) return false;
 
-    ml_free(f->name);
+    //ml_free(f->name);
     ml_free(f->form);
 
-    f->name = new_macro->name;
+    //f->name = new_macro->name;
     f->form = new_macro->form;
     
     //macro_show(var);

@@ -5,9 +5,9 @@
 #include "debug.h"
 
 
-#define BT_DEBUG_DISABLE true
+#define BT_DEBUG_DISABLE false
 #if BT_DEBUG_DISABLE					
-#define debug(...)  do { ; } while (0);	
+#define debug(...) ;
 #endif
 
 
@@ -215,7 +215,9 @@ long_cmp(void* lv, void* rv)
   
     tmp_lv = *(long*)lv;
     tmp_rv = *(long*)rv;
-  
+
+    debug("%x, %x \n", tmp_lv, tmp_rv);
+    
     return (tmp_lv - tmp_rv);
 }
 

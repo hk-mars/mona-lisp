@@ -204,9 +204,9 @@
        ,do-one ,do-next))
 
 
-(do (< x 100)
-  (list x)
-  (setq x (+ x 1)))
+;(do (< x 100)
+;  (list x)
+;  (setq x (+ x 1)))
 
 ;(do (< x 100)
 ;  (print x)

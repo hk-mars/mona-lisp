@@ -18,17 +18,9 @@
 
 #define GC_DEBUG_DISABLE false
 #if GC_DEBUG_DISABLE					
-#define debug(...)  do { ; } while (0);	
+#define debug(...) ;
 #endif					
 
-
-typedef struct
-{
-    long gc_id;
-    
-    long block_cnt;
-    long all_blocks_size;   
-} gc_status;
 
 
 typedef struct
@@ -51,12 +43,13 @@ typedef struct
 static long m_gc_id;
 static s_bin_tree_node *m_gc_tree;
 static long m_cur_gc_id;
+static gc_s m_gc;
 
 
-static gc_status m_gc_status[MAX_GC_TREE_CNT] = { 0 };
+static gc_status_s m_gc_status[MAX_GC_TREE_CNT] = { 0 };
 
 
-int
+gc_s
 gc_new(void)
 {
     s_bin_tree_node *nd;
@@ -66,7 +59,7 @@ gc_new(void)
     m_gc_id++;
 
     nd = binary_tree_isearch(INSERT, &m_gc_tree, &m_gc_id, sizeof(int), long_cmp);
-    if (!nd) return -1;
+    if (!nd) goto FAIL;
   
     debug("gc_id [%d].\n", m_gc_id);
 
@@ -74,8 +67,15 @@ gc_new(void)
 
     m_gc_status[m_cur_gc_id-1].block_cnt = 0;
     m_gc_status[m_cur_gc_id-1].all_blocks_size = 0;
+    
+    m_gc.id = m_gc_id;
+    memset(&m_gc.st, 0, sizeof(gc_status_s));
   
-    out(ok, m_gc_id);
+    out(ok, m_gc);
+
+ FAIL:
+    m_gc.id = -1;
+    out(fail, m_gc);
 }
 
 
@@ -104,13 +104,31 @@ gc_malloc(size_t size)
     e->addr = p;
     e->size = size;
 
+    s_bin_tree_node **nd_addr = &nd->val;
     nd = binary_tree_isearch(INSERT, &nd->val, &e, sizeof(void*), long_cmp);
     if (!nd) goto FAIL;
+    nd->val = e;
 
-    debug("malloc 0x%x \n", (long)e);
+    debug("new gc entry 0x%x \n", e);
+    debug("malloc 0x%x, size: %d \n", p, size);
+
+    s_bin_tree_node *rt_nd;
+    rt_nd = binary_tree_isearch(SEARCH, nd_addr, &e, sizeof(void*), long_cmp);
+    if (!rt_nd) {
+
+	debug_err("key 0x%x, val 0x%x\n", nd->key, nd->val);
+	ml_err_signal(ML_ERR_NULL);
+	goto FAIL;
+    }
+
+    debug_err("found 0x%x in tree \n", e);
+    
 
     m_gc_status[m_cur_gc_id-1].block_cnt++;
     m_gc_status[m_cur_gc_id-1].all_blocks_size += e->size;
+
+    m_gc.st.block_cnt++;
+    m_gc.st.all_blocks_size += e->size;    
   
     out(ok, p);
 
@@ -128,15 +146,24 @@ free_mm_tree(s_bin_tree_node *root)
     root->left ? free_mm_tree(root->left) : 0;
     root->right ? free_mm_tree(root->right) : 0;
 
-    gc_entry *e = *(gc_entry**)root->key;
-    
-    debug("free 0x%x, size: %d \n", e->addr, e->size);    
-    free(e->addr);
+    gc_entry *e = (gc_entry*)root->val;
+
+    debug("free gc entry 0x%x \n", e);
+    free(e);
 
     m_gc_status[m_cur_gc_id-1].block_cnt--;
     m_gc_status[m_cur_gc_id-1].all_blocks_size -= e->size;
+
+    m_gc.st.block_cnt--;
+    m_gc.st.all_blocks_size -= e->size;    
   
     binary_tree_delete(&root, root);
+
+    return;
+
+
+  FAIL:
+    ml_err_signal(ML_ERR_NULL);
 }
 
 
@@ -176,14 +203,20 @@ gc_show(void)
 }
 
 
+bool
+gc_is_valid(void)
+{
+    return (m_gc_id > 0);
+}
+
 
 bool
 gc_debug(void)
 {
     fs();
 
-    int gc_id = gc_new();
-    if (gc_id < 0) goto FAIL;
+    gc_s gc = gc_new();
+    if (gc.id < 0) goto FAIL;
 
     for (int i = 0, j = 10; i < 30; i++, j += 10) {
 
@@ -200,5 +233,6 @@ gc_debug(void)
  FAIL:
     out(fail, false);
 }
+
 
 
