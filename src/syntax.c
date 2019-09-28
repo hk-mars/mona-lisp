@@ -841,14 +841,28 @@ check_list_form_syntax(form_s *form)
 
 	list_mark_type_specified(form->list);
     }
+
     
-    
+ 
     debug("find syntax object: %s \n", syntax_obj_name);
 
     htab_entry_s *item = pop_syntax_htab(syntax_obj_name);
     if (!item) {
 
 	debug_err("syntax object \"%s\" is not created \n", syntax_obj_name);
+
+
+	if (form->type == COMPOUND_MACRO_FORM) {
+
+	    /* TODO: adding the macro syntax defined by user into the AST tree
+	     */
+	    debug("a possible macro name: %s \n", syntax_obj_name);
+	    debug("ignoring sytax check \n ");
+
+	    goto DONE;
+	    
+	}
+	
 	goto FAIL;
     }
     
@@ -860,6 +874,7 @@ check_list_form_syntax(form_s *form)
 
 
     debug("found \n");
+
      
     /* track the tree to find the given path
      */
@@ -867,7 +882,7 @@ check_list_form_syntax(form_s *form)
     tr_node_s *nd = find_path((tr_node_s*)item->data, path);
     if (!nd) goto FAIL;
 
-    
+  DONE:
     func_ok();
     return SYNTAX_OK;
 
@@ -893,7 +908,7 @@ syntax_check(form_s *form)
 	switch (f->type) {
 
 	case COMPOUND_FUNCTION_FORM:
-	    //debug("COMPOUND_FUNCTION_FORM \n");
+	    debug("COMPOUND_FUNCTION_FORM \n");
 
 	    if (f->list) {
 		
@@ -907,7 +922,7 @@ syntax_check(form_s *form)
 	    break;
 
 	case COMPOUND_SPECIAL_FORM:
-	    //debug("COMPOUND_SPECIAL_FORM \n");
+	    debug("COMPOUND_SPECIAL_FORM \n");
 
 	    if (f->list) {
 		
@@ -925,7 +940,7 @@ syntax_check(form_s *form)
 	    break;
 
 	case COMPOUND_MACRO_FORM:
-	    //debug("COMPOUND_MACRO_FORM \n");
+	    debug("COMPOUND_MACRO_FORM \n");
 
 	    if (f->list) {
 		

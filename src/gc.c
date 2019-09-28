@@ -16,7 +16,7 @@
 #include "error.h"
 
 
-#define GC_DEBUG_DISABLE false
+#define GC_DEBUG_DISABLE true
 #if GC_DEBUG_DISABLE					
 #define debug(...) ;
 #endif					
@@ -197,8 +197,8 @@ gc_show(void)
     
     if (m_cur_gc_id <= 0) return;
 
-    debug("gc block count: %d \n", m_gc_status[m_cur_gc_id-1].block_cnt);
-    debug("gc all blocks size: %d \n", m_gc_status[m_cur_gc_id-1].all_blocks_size);
+    debug_err("gc block count: %d \n", m_gc_status[m_cur_gc_id-1].block_cnt);
+    debug_err("gc all blocks size: %d \n", m_gc_status[m_cur_gc_id-1].all_blocks_size);
     
 }
 

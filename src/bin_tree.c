@@ -5,7 +5,7 @@
 #include "debug.h"
 
 
-#define BT_DEBUG_DISABLE false
+#define BT_DEBUG_DISABLE true
 #if BT_DEBUG_DISABLE					
 #define debug(...) ;
 #endif

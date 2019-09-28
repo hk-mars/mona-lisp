@@ -77,21 +77,33 @@ dolist
 	gc
 	
 	load several lisp files
-		
-	load system API
-	
-	load GUI API
-	
-	load json file
-	
+			
 - 2019
 
-	db object	
+	call user API in C (a demo)
+	
+	dolist
+	support string object
+		
+	load more lisp codes and fix the bugs
 
-	create/search/update db
+	think deeply about the features
+	 
+	db object
+
+	create/search/update db (a demo)
+	
+	UI layout design
+	
+	UI interaction design
+	
+	Upgrade the lisp codes (not including the firmware)
+	
+	a debugger
+	
+	a vm
 	
 	
-
 ## 2019
 Implement monalisp
 
@@ -99,7 +111,6 @@ Implement monalisp
 ## 2019
 Releases monalisp v1.0
 
-   
 
    
    
