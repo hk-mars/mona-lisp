@@ -11,6 +11,18 @@
 #include "config.h"
 
 
+
+typedef enum
+{
+    GC_OBJ = 0,
+    GC_VAR = 1,
+    GC_FUNC = 2,
+    GC_MACRO = 3,
+
+} gc_t;
+
+
+
 typedef struct
 {
     long block_cnt;
@@ -20,11 +32,11 @@ typedef struct
 
 typedef struct
 {
+    gc_t type;
     long id;
     gc_status_s st;
     
 } gc_s;
-
 
 
 gc_s gc_new(void);

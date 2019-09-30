@@ -32,6 +32,40 @@ macro_init(void)
 }
 
 
+macro_s*
+macro_new(void)
+{
+    func_s();
+
+    /* create a new gc object for the management of memory of a new macro
+     */
+
+    out(ok, MACRO_OK);
+
+  FAIL:
+    out(fail, MACRO_ERR);
+}
+
+
+macro_rt_t
+macro_free(char *name)
+{
+    func_s();
+
+    /* free all memories of this macro malloced by gc.
+     *
+     * get the macro object from hash-table as name
+     * get the gc id from macro object
+     * free the gc memories as gc id
+     */
+
+    out(ok, MACRO_OK);
+
+  FAIL:
+    out(fail, MACRO_ERR);
+}
+
+
 bool
 macro_add(macro_s *macro)
 {
@@ -51,23 +85,23 @@ macro_add(macro_s *macro)
 	return false;
     }
 
-    macro_s *f = (macro_s*)mm_malloc(sizeof(macro_s));
-    if (!f) return false;
+    macro_s *m = (macro_s*)mm_malloc(sizeof(macro_s));
+    if (!m) return false;
     
-    memcpy(f, macro, sizeof(macro_s));
+    memcpy(m, macro, sizeof(macro_s));
       
-    entry.key = strdup(f->name);
-    entry.data = f;
+    entry.key = strdup(m->name);
+    entry.data = m;
     entry_rt = hsearch(&m_macro_htab, entry, ENTER);
     if (!entry_rt) {
 
-	debug_err("push varible %s into hash table, failed \n", f->name);
+	debug_err("push varible %s into hash table, failed \n", m->name);
 
-	mm_free(f);
+	mm_free(m);
 	return false;
     }
     
-    macro_get(f->name);
+    macro_get(m->name);
     
     func_ok();
     return true;    

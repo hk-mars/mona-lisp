@@ -54,6 +54,10 @@ function_s* func_get(char *name);
  */
 bool func_update(function_s *new_func);
 
+function_s* func_new(void);
+
+func_rt_t func_free(char *name);
+
 
 #endif /* __FUNCTION_H__ */
 

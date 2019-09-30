@@ -664,3 +664,38 @@ var_get_val_from_list(lisp_list_s *list, char *name)
     return obj;
 }
 
+
+variable_s*
+var_new(void)
+{
+    func_s();
+
+    /* create a new gc object for the management of memory of a new variable
+     */
+    
+    out(ok, VAR_OK);
+
+  FAIL:
+    out(fail, VAR_ERR);
+}
+
+
+var_rt_t
+var_free(char *name)
+{
+    func_s();
+
+    /* free all memories of this var malloced by gc.
+     *
+     * get the var object from hash-table as name
+     * get the gc id from var object
+     * free the gc memories as gc id
+     */
+
+    out(ok, VAR_OK);
+
+  FAIL:
+    out(fail, VAR_ERR);
+}
+
+

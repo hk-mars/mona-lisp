@@ -132,4 +132,41 @@ func_update(function_s *new_func)
     func_ok();
     return true;
 }
-       
+
+
+function_s*
+func_new(void)
+{
+    func_s();
+
+    /* create a new gc object for the management of memory of a new funcion
+     */
+
+    
+    out(ok, FUNC_OK);
+
+  FAIL:
+    out(fail, FUNC_ERR);
+}
+
+
+func_rt_t
+func_free(char *name)
+{
+    func_s();
+
+    /* free all memories of this func malloced by gc.
+     *
+     * get the func object from hash-table as name
+     * get the gc id from func object
+     * free the gc memories as gc id
+     */
+
+    out(ok, FUNC_OK);
+
+  FAIL:
+    out(fail, FUNC_ERR);
+}
+
+
+

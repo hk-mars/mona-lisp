@@ -119,6 +119,11 @@ void var_show(variable_s *var);
 
 object_s* var_get_val_from_list(lisp_list_s *list, char *name);
 
+
+variable_s* var_new(void);
+
+var_rt_t var_free(char *name);
+
 #endif /* ML_VARIABLE_H */
 
 

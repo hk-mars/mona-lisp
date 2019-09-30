@@ -55,6 +55,11 @@ macro_s* macro_get(char *name);
 bool macro_update(macro_s *new_macro);
 
 
+macro_s* macro_new(void);
+
+macro_rt_t macro_free(char *name);
+
+
 #endif /* __MACRO_H__ */
 
 
