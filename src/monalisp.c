@@ -23,6 +23,8 @@
 
 #include "mem.h"
 
+#include "system.h"
+
 
 
 #define VER "1.0.0"
@@ -49,8 +51,13 @@ main (int argc, char **argv)
     
     
     lisp_rt_t rt = ml_init();
-    if (rt != LISP_OK) return -1;
+    if (rt != LISP_OK) {
 
+	sys_set_status(SYS_STATUS_ERROR);
+	return -1;
+    }
+    
+    sys_set_status(SYS_STATUS_RUNNING);
 
     gc_s gc = gc_new();
     if (gc.id < 0) {
@@ -140,6 +147,8 @@ ml_init(void)
 {
     func_s();
     
+
+    sys_set_status(SYS_STATUS_INIT);
     
     stack_rt_t stack_rt = stack_init(1024);
     if (stack_rt != STACK_OK) {
@@ -188,7 +197,7 @@ ml_init(void)
     if (reader_rt != READER_OK) return LISP_ERR_READER;
     
     func_ok();
-    
+
     return LISP_OK;
 }
 

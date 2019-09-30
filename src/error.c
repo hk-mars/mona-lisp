@@ -4,6 +4,8 @@
 
 #include "debug.h"
 
+#include "system.h"
+
 
 void
 ml_err_proc_mem_full(void)
@@ -116,6 +118,10 @@ ml_err_signal(ml_err_t err)
 	break;
     }
 
+
+    sys_show_status();
+    
+    
     #if 1
     while (1) {
     }
