@@ -26,7 +26,8 @@ typedef struct
     char *name;
 
     form_s *form;
-    
+
+    char *codes;
 } macro_s;
 
 

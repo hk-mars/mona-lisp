@@ -55,7 +55,13 @@ func_add(function_s *func)
     if (!f) return false;
     
     memcpy(f, func, sizeof(function_s));
-      
+    
+    /* clone the form here.
+     * if the form is not saved, we have to load it from the codes everytime, 
+     * it means we have to save the codes of macro.
+     */
+    //m->form = form_clone(f->form);
+    
     entry.key = f->name;
     entry.data = f;
     entry_rt = hsearch(&m_func_htab, entry, ENTER);

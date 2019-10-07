@@ -303,7 +303,7 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 	    show_setq_pair(&pair);
 
 	    var->name = pair.var_name;
-	    var->type = VAR_LEXICAL;
+	    var->type = VAR_DYNAMIC;
 	    
 	    if (pair.val.type == OBJ_UNKNOWN) {
 				
@@ -521,6 +521,7 @@ var_add(variable_s *var)
 
 	return false;
     }
+
 
     variable_s *v = (variable_s*)mm_malloc(sizeof(variable_s));
     if (!v) return false;

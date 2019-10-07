@@ -13,6 +13,7 @@
 #include "mem.h"
 
 
+
 static hash_table_s m_macro_htab;
 
 
@@ -89,6 +90,12 @@ macro_add(macro_s *macro)
     if (!m) return false;
     
     memcpy(m, macro, sizeof(macro_s));
+
+    /* clone the form here.
+     * if the form is not saved, we have to load it from the codes every time, 
+     * it means we have to save the codes of macro.
+     */
+    //m->form = form_clone(macro->form);
       
     entry.key = strdup(m->name);
     entry.data = m;
@@ -116,7 +123,7 @@ macro_get(char *name)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
-    macro_s *f;
+    macro_s *m;
     
     func_s();
     
@@ -135,14 +142,19 @@ macro_get(char *name)
 
   FOUND:
 
-    f = (macro_s*)entry_rt->data;
-    f->name = name;
+    m = (macro_s*)entry_rt->data;
+    m->name = name;
     
-    //macro_show(f);
+    //macro_show(m);
 
-    form_show(f->form);
+    /* if the form is not created, then loading it from codes. 
+     */
+    //m->form = form_load(codes);
+    
+    
+    form_show(m->form);
     func_ok();
-    return f;    
+    return m;    
 }
 
 

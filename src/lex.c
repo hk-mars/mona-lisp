@@ -1314,6 +1314,8 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 		}		
 		else if (macro_get(sym)) {
 
+		    //debug("macro call: %s \n", sym);
+		    
 		    if (form_is_unkown(form)) {
 		    
 			form_set_type(form, COMPOUND_MACRO_FORM);

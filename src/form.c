@@ -181,3 +181,22 @@ form_show(form_s *form)
     func_ok();
 }
 
+
+form_s*
+form_clone(form_s *form)
+{
+    form_s *f;
+    
+    func_s();
+
+
+    func_ok();
+    return f;
+
+  FAIL:
+    func_fail();
+    return NULL;
+}
+
+
+

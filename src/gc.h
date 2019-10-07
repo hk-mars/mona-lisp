@@ -22,12 +22,12 @@ typedef enum
 } gc_t;
 
 
-
 typedef struct
 {
     long block_cnt;
     long all_blocks_size;   
 } gc_status_s;
+
 
 
 typedef struct

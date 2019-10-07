@@ -74,7 +74,7 @@ typedef struct s_form
     struct s_form *next; /* next form */
     struct s_form *front; /* front form */
 
-    char *code; /* source code of the form */
+    char *codes; /* source code of the form */
     
 } form_s;
 
@@ -92,6 +92,8 @@ void form_set_type(form_s *form, form_t type);
 bool form_is_unkown(form_s *form);
 
 void form_show(form_s *form);
+
+form_s* form_clone(form_s *form);
 
 
 #endif /* ML_FORM_H */
