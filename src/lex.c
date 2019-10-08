@@ -1266,7 +1266,6 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 	if (*code == '(') {
 
-	    //token_s *t = token_create();
 	    token_s tk;
 	    memset(&tk, 0, sizeof(token_s));
 	    list_add_token(form->list, &tk);
@@ -1276,13 +1275,19 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    form->list->front->obj.sub = (void*)f_head;
 
 	    form_s *f = form_create();
-	    
+
+	    f->code = code;
 	    list_add_char_obj(f->list, "(");
 	    
 	    code_s cd = read_list(++code, --code_sz, f_head, f);
 	    if (!cd.code) return cd;
 
 	    list_add_char_obj(f->list, ")");
+
+	    f->code_sz = cd.code - f->code + 1;
+
+	    //ml_util_show_buf(f->code, f->code_sz);
+	    //debug_suspend();
 	    
 	    code = cd.code;
 	    code_sz = cd.code_sz;
@@ -1312,9 +1317,9 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 			form_add_front(form_head, form);
 		    }		    
 		}		
-		else if (macro_get(sym)) {
+		else if (macro_is_defined(sym)) {
 
-		    //debug("macro call: %s \n", sym);
+		    debug("macro call: %s \n", sym);
 		    
 		    if (form_is_unkown(form)) {
 		    
@@ -1347,7 +1352,8 @@ static bool
 read_macro(code_s *cd, lex_s *lex)
 {
     bool found = false;
-
+    form_s *form;
+    
     if (!cd || !cd->code || !cd->code_sz) return false;
     
     func_s();
@@ -1362,11 +1368,14 @@ read_macro(code_s *cd, lex_s *lex)
 	/* The left-parenthesis character initiates reading of a list. 
 	 */
 
-	next_code(cd->code, cd->code_sz);
-
-	form_s *form = form_create();
+	
+	form = form_create();
 	if (!form) return false;
 
+	form->code = cd->code;
+	
+	next_code(cd->code, cd->code_sz);
+	
 	
 	list_add_char_obj(form->list, "(");
 		
@@ -1375,6 +1384,10 @@ read_macro(code_s *cd, lex_s *lex)
 
 	list_add_char_obj(form->list, ")");
 
+	form->code_sz = icode.code - form->code + 1;
+
+	//ml_util_show_buf(form->code, form->code_sz);
+	//debug_suspend();
 	
 	cd->code = icode.code;
 	cd->code_sz = icode.code_sz;

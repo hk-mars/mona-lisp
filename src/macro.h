@@ -27,7 +27,9 @@ typedef struct
 
     form_s *form;
 
-    char *codes;
+    char *code;
+    size_t code_sz;
+    
 } macro_s;
 
 
@@ -60,6 +62,7 @@ macro_s* macro_new(void);
 
 macro_rt_t macro_free(char *name);
 
+bool macro_is_defined(char *name);
 
 #endif /* __MACRO_H__ */
 

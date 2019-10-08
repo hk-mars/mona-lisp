@@ -45,6 +45,9 @@
     func_##type();				\
     return x;
 
+#define debug_suspend() while(1);
+
+
   
 #endif /* ML_DEBUG_H */
 

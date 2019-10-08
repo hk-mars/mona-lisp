@@ -12,6 +12,8 @@
 
 #include "mem.h"
 
+#include "lex.h"
+
 
 
 static hash_table_s m_macro_htab;
@@ -91,13 +93,30 @@ macro_add(macro_s *macro)
     
     memcpy(m, macro, sizeof(macro_s));
 
-    /* clone the form here.
+    /* clone the form here(TODO: it's not a good idea to copy it)
      * if the form is not saved, we have to load it from the codes every time, 
      * it means we have to save the codes of macro.
      */
     //m->form = form_clone(macro->form);
-      
-    entry.key = strdup(m->name);
+
+    
+    /* clone the codes of macro
+     */
+    m->code = (char*)mm_malloc(macro->form->code_sz);
+    m->code_sz = macro->form->code_sz;
+    memcpy(m->code, macro->form->code, macro->form->code_sz);
+    
+
+    //ml_util_show_buf(m->code, m->code_sz+1);
+    //debug_suspend();
+
+    /* mark the form as NULL first, and load it from the codes when we need it 
+     * as to restrict the use of memory.
+     */
+    m->form = NULL;
+    
+
+    entry.key = strdup(m->name);  /* clone the name */
     entry.data = m;
     entry_rt = hsearch(&m_macro_htab, entry, ENTER);
     if (!entry_rt) {
@@ -108,7 +127,8 @@ macro_add(macro_s *macro)
 	return false;
     }
     
-    macro_get(m->name);
+    //macro_get(m->name);
+    //if (!macro_is_defined(m->name)) return false; 
     
     func_ok();
     return true;    
@@ -144,13 +164,30 @@ macro_get(char *name)
 
     m = (macro_s*)entry_rt->data;
     m->name = name;
-    
+
     //macro_show(m);
 
     /* if the form is not created, then loading it from codes. 
      */
-    //m->form = form_load(codes);
-    
+    //if (!m->form || !gc_search_mem(m->form)) {
+    if (1) {
+
+	debug("load macro form \n");
+
+	lex_s lex;
+	code_s cd;
+	memset(&lex, 0, sizeof(lex_s));
+	cd.code = m->code;
+	cd.code_sz = m->code_sz;
+	lex_rt_t lex_rt = ml_lex(&lex, &cd);
+	if (lex_rt != LEX_OK) return NULL;
+
+	debug("load macro form done \n");
+	form_show(lex.forms.next);
+	m->form = lex.forms.next;
+	//debug_suspend();
+
+    }
     
     form_show(m->form);
     func_ok();
@@ -179,4 +216,39 @@ macro_update(macro_s *new_macro)
     func_ok();
     return true;
 }
-       
+
+
+
+bool
+macro_is_defined(char *name)
+{
+    htab_entry_s *entry_rt;
+    htab_entry_s entry;
+    macro_s *m;
+    
+    func_s();
+    
+    debug("name: %s, %dbytes \n", name, strlen(name));
+    
+    
+    entry.key = name;
+    
+    entry_rt = hsearch(&m_macro_htab, entry, FIND);
+    if (entry_rt) {
+
+	goto FOUND;
+    }
+
+    return false;
+
+  FOUND:
+
+    m = (macro_s*)entry_rt->data;
+    m->name = name;
+
+    //macro_show(m);
+
+    form_show(m->form);
+    func_ok();
+    return true;    
+}

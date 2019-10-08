@@ -74,7 +74,8 @@ typedef struct s_form
     struct s_form *next; /* next form */
     struct s_form *front; /* front form */
 
-    char *codes; /* source code of the form */
+    char *code; /* source code of the form */
+    size_t code_sz;
     
 } form_s;
 
