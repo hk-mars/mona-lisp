@@ -58,7 +58,7 @@ Too many optional init-forms in the loop makes it is hard to program and the cod
 
 ">" is more useful than "*" and "@";
 
-"@" is more usedul than "*".
+"@" is more useful than "*".
 
 ## the balance of elegant design and useful design.
 
@@ -129,6 +129,9 @@ mona
 mn
 
 m.
+
+
+## create a mini parser first, then extend it based on the design for special products
 
 
 
