@@ -52,7 +52,7 @@ $(ALL_APPS):	$(ALL_OBJS)
 		$(CC) -o $@ $(LDFLAGS) $(ALL_OBJS)
 
 clean:
-		rm -rf $(ALL_APPS) $(ALL_OBJS) *.*~
+		rm -rf $(ALL_APPS) $(ALL_OBJS) *.*~ log.txt
 
 depend:
 		@$(CC) $(CFLAGS) -MM l*.c

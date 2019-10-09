@@ -62,7 +62,7 @@ macro_s* macro_new(void);
 
 macro_rt_t macro_free(char *name);
 
-bool macro_is_defined(char *name);
+bool macro_exist(char *name);
 
 #endif /* __MACRO_H__ */
 

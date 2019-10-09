@@ -535,7 +535,8 @@ var_add(variable_s *var)
 
 	debug_err("push varible %s into hash table, failed \n", v->name);
 
-	ml_free(v);
+	//ml_free(v);
+	//TODO
 	return false;
     }
     

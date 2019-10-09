@@ -120,8 +120,6 @@ gc_malloc(size_t size)
 	ml_err_signal(ML_ERR_NULL);
 	goto FAIL;
     }
-
-    debug_err("found 0x%x in tree \n", e);
     
 
     m_gc_status[m_cur_gc_id-1].block_cnt++;

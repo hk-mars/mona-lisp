@@ -941,7 +941,7 @@ read_character(const char **code, size_t *code_sz)
 	
     }
     
-    s = (char*)ml_malloc(2);
+    s = (char*)malloc(2);
     if (!s) return NULL;
 
     if (len == 1) {
@@ -958,11 +958,11 @@ read_character(const char **code, size_t *code_sz)
 	if (c == CHAR_UNKNOWN) {
 
 	    debug_err("unknown character name: %s \n", name);
-	    ml_free(name);
+	    free(name);
 	    goto FAIL;
 	}
 	
-	ml_free(name);
+	free(name);
 	
 	s[0] = c;
 	s[1] = 0;
@@ -1309,7 +1309,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    }
 	    else {
 
-		if (func_get(sym)) {
+		if (func_exist(sym)) {
 
 		    if (form_is_unkown(form)) {
 		    
@@ -1317,7 +1317,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 			form_add_front(form_head, form);
 		    }		    
 		}		
-		else if (macro_is_defined(sym)) {
+		else if (macro_exist(sym)) {
 
 		    debug("macro call: %s \n", sym);
 		    

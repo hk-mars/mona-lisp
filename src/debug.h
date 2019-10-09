@@ -45,7 +45,9 @@
     func_##type();				\
     return x;
 
-#define debug_suspend() while(1);
+#define debug_suspend()				\
+  debug("suspending \n");			\
+  while(1);
 
 
   

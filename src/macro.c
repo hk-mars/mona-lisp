@@ -107,7 +107,7 @@ macro_add(macro_s *macro)
     memcpy(m->code, macro->form->code, macro->form->code_sz);
     
 
-    //ml_util_show_buf(m->code, m->code_sz+1);
+    //ml_util_show_buf(m->code, m->code_sz);
     //debug_suspend();
 
     /* mark the form as NULL first, and load it from the codes when we need it 
@@ -116,22 +116,25 @@ macro_add(macro_s *macro)
     m->form = NULL;
     
 
-    entry.key = strdup(m->name);  /* clone the name */
+    entry.key = ml_util_str_clone(m->name, mm_malloc);  /* clone the name */
     entry.data = m;
     entry_rt = hsearch(&m_macro_htab, entry, ENTER);
     if (!entry_rt) {
 
 	debug_err("push varible %s into hash table, failed \n", m->name);
 
-	mm_free(m);
-	return false;
+	//macro_free(m);
+	goto FAIL;
     }
     
     //macro_get(m->name);
     //if (!macro_is_defined(m->name)) return false; 
     
     func_ok();
-    return true;    
+    return true;
+
+  FAIL:
+    out(fail, false);
 }
 
 
@@ -180,7 +183,7 @@ macro_get(char *name)
 	cd.code = m->code;
 	cd.code_sz = m->code_sz;
 	lex_rt_t lex_rt = ml_lex(&lex, &cd);
-	if (lex_rt != LEX_OK) return NULL;
+	if (lex_rt != LEX_OK) goto FAIL;
 
 	debug("load macro form done \n");
 	form_show(lex.forms.next);
@@ -191,7 +194,10 @@ macro_get(char *name)
     
     form_show(m->form);
     func_ok();
-    return m;    
+    return m;
+
+  FAIL:
+    out(fail, NULL);
 }
 
 
@@ -220,7 +226,7 @@ macro_update(macro_s *new_macro)
 
 
 bool
-macro_is_defined(char *name)
+macro_exist(char *name)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
@@ -243,12 +249,12 @@ macro_is_defined(char *name)
 
   FOUND:
 
-    m = (macro_s*)entry_rt->data;
-    m->name = name;
+    //m = (macro_s*)entry_rt->data;
+    //m->name = name;
 
     //macro_show(m);
 
-    form_show(m->form);
+    //form_show(m->form);
     func_ok();
     return true;    
 }

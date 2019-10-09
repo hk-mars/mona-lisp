@@ -843,7 +843,6 @@ check_list_form_syntax(form_s *form)
     }
 
     
- 
     debug("find syntax object: %s \n", syntax_obj_name);
 
     htab_entry_s *item = pop_syntax_htab(syntax_obj_name);
@@ -857,6 +856,14 @@ check_list_form_syntax(form_s *form)
 	    /* TODO: adding the macro syntax defined by user into the AST tree
 	     */
 	    debug("a possible macro name: %s \n", syntax_obj_name);
+	    debug("ignoring sytax check \n ");
+
+	    goto DONE;
+	    
+	}
+	else if (form->type == COMPOUND_FUNCTION_FORM) {
+	    
+	    debug("a function call: %s \n", syntax_obj_name);
 	    debug("ignoring sytax check \n ");
 
 	    goto DONE;

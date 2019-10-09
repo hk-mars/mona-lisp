@@ -59,23 +59,44 @@ main (int argc, char **argv)
     
     sys_set_status(SYS_STATUS_RUNNING);
 
-    gc_s gc = gc_new();
+
+    reader_s reader;
+    reader_rt_t reader_rt;
+    gc_s gc;
+    
+#if 1    
+    gc = gc_new();
     if (gc.id < 0) {
 
 	debug_err("create gc object failed \n");
 	return LISP_ERR_GC;
     }
     
-#if 1    
-    reader_s reader;
-    reader_rt_t reader_rt = ml_reader_load_file(&reader, "demo_1.lisp");
+    reader_rt = ml_reader_load_file(&reader, "demo_func.lisp");
     if (reader_rt != READER_OK) return -1;
-#endif
 
     gc_show();
     gc_free();
     mm_show();
+#endif
 
+    
+#if 1    
+    gc = gc_new();
+    if (gc.id < 0) {
+
+	debug_err("create gc object failed \n");
+	return LISP_ERR_GC;
+    }
+    
+    reader_rt = ml_reader_load_file(&reader, "demo.lisp");
+    if (reader_rt != READER_OK) return -1;
+
+    gc_show();
+    gc_free();
+    mm_show();
+#endif    
+    
 
 #if 1
     gc = gc_new();
@@ -85,7 +106,7 @@ main (int argc, char **argv)
 	return LISP_ERR_GC;
     }
     
-    reader_rt = ml_reader_load_file(&reader, "demo_2.lisp");
+    reader_rt = ml_reader_load_file(&reader, "init.lisp");
     if (reader_rt != READER_OK) return -1;
 
     gc_show();
@@ -146,7 +167,9 @@ lisp_rt_t
 ml_init(void)
 {
     func_s();
-    
+
+    //mm_show();
+    //debug_suspend();
 
     sys_set_status(SYS_STATUS_INIT);
     
@@ -188,13 +211,17 @@ ml_init(void)
     syntax_rt_t syntax_rt = syntax_init();
     if (syntax_rt != SYNTAX_OK) return LISP_ERR_SYNTAX;
 
-
     parser_rt_t parser_rt = parser_init();
     if (parser_rt != PARSER_OK) return LISP_ERR_PARSER;
-    
+    //TODO: reduce the use of memory while loading the syntax objects from BNF file(pratical).
+    //mm_show();
+    //debug_suspend();
     
     reader_rt_t reader_rt = ml_reader_init();
     if (reader_rt != READER_OK) return LISP_ERR_READER;
+
+    //mm_show();
+    //debug_suspend();
     
     func_ok();
 

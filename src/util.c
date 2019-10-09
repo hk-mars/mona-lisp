@@ -40,6 +40,28 @@ ml_util_strdup(const char *str)
 }
 
 
+char*
+ml_util_str_clone(const char *str, void* (f_malloc) (size_t))
+{
+    if (!str) return NULL;
+
+    int len = strlen(str) + 1;
+
+    if (!f_malloc) {
+
+	f_malloc = ml_malloc;
+    }
+ 
+    char *s = f_malloc(len);
+    if (!s) return NULL;
+
+    memcpy(s, str, len);
+
+    return s;
+}
+
+
+
 bool
 ml_util_strbufcmp(const char *str, char *buf, size_t buf_len)
 {

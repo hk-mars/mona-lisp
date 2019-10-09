@@ -54,7 +54,8 @@ ml_malloc(size_t sz)
     }
     else {
       
-	m = malloc(sz);
+	//m = malloc(sz);
+	m = mm_malloc(sz);
     }
   
     if (!m) {
@@ -81,15 +82,21 @@ ml_free(void *mem)
     }
 
     
-    /* search this memeory block in the gc, if found then marks it as free.
+    /* TODO:
+     * search this memeory block in the gc, if found then marks it as free.
      */
     //if (gc_search(mem)) {
     if (0) {
 
 	//gc_mark_free(mem);
     }
-   
-    free(mem);
+
+    if (!gc_is_valid()) {
+
+	mm_free(mem);
+    }
+    else {
+    }
 }
 
 

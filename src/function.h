@@ -26,7 +26,9 @@ typedef struct
     char *name;
 
     form_s *form;
-    
+
+    char *code;
+    size_t code_sz; 
 } function_s;
 
 
@@ -58,6 +60,8 @@ function_s* func_new(void);
 
 func_rt_t func_free(char *name);
 
+
+bool func_exist(char *name);
 
 #endif /* __FUNCTION_H__ */
 

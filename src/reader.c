@@ -60,8 +60,11 @@ load_file(file_info_s *f)
     func_s();
   
     f->f = fopen(f->name,"rb");
-    if (!f->f) return 0;
-  
+    if (!f->f) {
+	debug_err("cannot open file: %s \n", f->name);
+	return 0;
+    }
+    
     f->f_sz = get_file_size(f->f);
     show("file %s opened, size %d bytes.\n", f->name, f->f_sz);
   
@@ -70,8 +73,10 @@ load_file(file_info_s *f)
   
     f->buf_sz = fread(f->buf, 1, f->f_sz, f->f);
     if (f->buf_sz < f->f_sz) {
+
+	debug_err("error when reading file: %s \n", f->name);
 	
-	ml_free(f->buf);
+	//ml_free(f->buf);
 	f->buf = NULL;
 	return 0;
     }
