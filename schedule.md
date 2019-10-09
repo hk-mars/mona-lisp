@@ -77,6 +77,10 @@ dolist
 	gc
 	
 	load several lisp files
+	
+	create the name list of the syntax object with const type as to reduce the use of 
+	dynamical memory(pratical via the BNF file and the AST tree).
+	
 			
 - 2019
 
