@@ -47,9 +47,9 @@ Those embedded systems need the database feature, but due to the limited footpri
 
 ## design
 
-### [overview]: design.md
+### [overview] <design.md> "design overview"
 
-### [reflecting]: design-reflecting.md
+### [reflecting] <design-reflecting.md> "design reflecting"
 
 
 
