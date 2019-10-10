@@ -143,3 +143,6 @@ The core subsystem(design-framework) of the design system can be integrated into
 We use this design-hackable language to design the design system for designing 
 for the special products for the end-users.
 
+## psychology principles is needed for designing elegant product and cannot be ignored from subjective view.
+
+
