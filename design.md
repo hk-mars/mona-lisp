@@ -47,7 +47,7 @@ So everying is searchable, so we can build the application based on the benefit 
 
 - @ list
 
-``lisp
+```lisp
 (issue
 	;; @ list		
 	@ name		
@@ -55,10 +55,10 @@ So everying is searchable, so we can build the application based on the benefit 
 	@ world		
 	@ mona	
 		
-	(Introduction
+	(introduction
 		(if @hello 
 			(show (@world @mona)))))   
-``
+```
 
         
 
