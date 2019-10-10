@@ -45,6 +45,14 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### for-elegant-products
 
 
+## design
+
+### [overview]: design.md
+
+### [reflecting]: design-reflecting.md
+
+
+
 
 
 
