@@ -47,12 +47,18 @@ So everying is searchable, so we can build the application based on the benefit 
 
 - @ list
 
-> (issue
-	;; @ list	
-	@ name	
+(issue
+
+	;; @ list
+		
+	@ name
+		
 	@ hello	
+	
 	@ world	
-	@ mona		
+	
+	@ mona	
+		
 	(Introduction
 		(if @hello 
 			(show (@world @mona)))))    
