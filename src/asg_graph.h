@@ -9,7 +9,13 @@
 
 #include "config.h"
 
+#include "tree.h"
 
+
+
+void asg_show_redundant_node(tr_node_s *root, int *count);
+
+void asg_reduce_redundant_node(tr_node_s *root, int *count);
 
 
 

@@ -1,6 +1,6 @@
 
-;'abc
-;'\A\B\C
+'abc
+'\A\B\C
 
 ;"hello world"
 ;"\"\'\t"
@@ -39,7 +39,7 @@
 
 ;(setq x (+ 1 2))
 ;(setq x 1 y 2)
-;(setq x (+ 1 2) y (* 2 3))
+;(setq x (+ 1 2) y (+ 2 3))
 
 ;(cons (car (list 1 2)) (cdr (list 3 4)))
 
@@ -196,12 +196,12 @@
 ;       ((not ,test))
 ;       ,@body))
 
-(setq x 0)
+;(setq x 0)
 
-(defmacro do (test do-one do-next)
-  `(loop
-       (if (eq ,test nil) (return nil))
-       ,do-one ,do-next))
+;(defmacro do (test do-one do-next)
+;  `(loop
+;       (if (eq ,test nil) (return nil))
+;       ,do-one ,do-next))
 
 
 ;(do (< x 100)
@@ -211,3 +211,19 @@
 ;(do (< x 100)
 ;  (print x)
 ;  (setq x (+ x 1)))
+
+
+
+
+;;
+;; Test cases
+;;
+
+;; numberic add operator
+(+ 1 2)
+
+;; set variable
+;(setq x (+ 1 2))
+;(setq x 1 y 2)
+;(setq x (+ 1 2) y (+ 2 3))
+

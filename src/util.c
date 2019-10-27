@@ -154,6 +154,46 @@ ml_util_clone_str_as_upper(char *str)
 }
 
 
+bool
+ml_util_fwrite(char *name, char *line)
+{
+    FILE *f;
+    int rt;
+  
+    fs();
+
+    f = fopen(name, "a");
+    if (!f) return false;
+
+    rt = fputc('\t', f);
+    if (!rt) return false;
+    
+    rt = fputc('\"', f);
+    if (!rt) return false;
+
+    
+    rt = fwrite(line, strlen(line), 1, f);
+    if (!rt)  {
+	debug("write [%s] failed. \n", line);
+	return false;
+    }
+
+    rt = fputc('\"', f);
+    if (!rt) return false;
+
+    rt = fputc(',', f);
+    if (!rt) return false;    
+    
+    rt = fputc('\n', f);
+    if (!rt) return false;
+
+    fclose(f);
+
+    out(ok, true);
+}
+
+
+
 
 
 

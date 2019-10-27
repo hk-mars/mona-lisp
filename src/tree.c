@@ -8,6 +8,9 @@
 #include "error.h"
 
 
+static long m_node_cnt = 0;
+
+
 static tr_node_s*  
 get_father(tr_node_s *nd, char *key)
 {
@@ -66,16 +69,20 @@ tree_insert_left(tr_node_s *root, char *key)
   
   if (!key) return NULL;
   
-  nd = (tr_node_s*)malloc(sizeof(tr_node_s));
+  nd = (tr_node_s*)ml_malloc(sizeof(tr_node_s));
   if (!nd) return NULL;
   memset(nd, 0, sizeof(tr_node_s));
   nd->father = root;
   nd->key = key;	
   nd->loop = get_father(root, key);
-  nd->is_inside_loop_node = !!nd->loop;
+  if (nd->loop) {
+      set_inside_loop_node(nd);
+  }
   
   if (root) root->left = nd;
 
+  m_node_cnt++;
+  
 #if TREE_DBG_ENABLE  
   func_ok();
 #endif
@@ -108,16 +115,20 @@ tree_insert_right(tr_node_s *root, char *key)
   
   if (!key) return NULL;
   
-  nd = (tr_node_s*)malloc(sizeof(tr_node_s));
+  nd = (tr_node_s*)ml_malloc(sizeof(tr_node_s));
   if (!nd) return NULL;
   memset(nd, 0, sizeof(tr_node_s));
   nd->father = root;
   nd->key = key;	
   nd->loop = get_father(root, key);
-  nd->is_inside_loop_node = !!nd->loop;
+  if (nd->loop) {
+      set_inside_loop_node(nd);
+  }
   
   if (root) root->right = nd;
 
+  m_node_cnt++;
+  
  #if TREE_DBG_ENABLE  
   func_ok();
  #endif
@@ -148,16 +159,20 @@ tree_insert_sub(tr_node_s *root, char *key)
   }
 #endif
   
-  nd = (tr_node_s*)malloc(sizeof(tr_node_s));
+  nd = (tr_node_s*)ml_malloc(sizeof(tr_node_s));
   if (!nd) return NULL;
   memset(nd, 0, sizeof(tr_node_s));
   nd->father = root;
   nd->key = key;	
   nd->loop = get_father(root, key);
-  nd->is_inside_loop_node = !!nd->loop;
+  if (nd->loop) {
+      set_inside_loop_node(nd);
+  }
   
   if (root) root->sub = nd;
 
+  m_node_cnt++;
+  
 #if TREE_DBG_ENABLE  
   func_ok();
 #endif  
@@ -192,11 +207,15 @@ tree_show(tr_node_s *root, int dep)
 {
     if (!root) return;
     if (dep <= 0) return;
-    
-    
+       
     debug("%*c%d%s  ", dep, ' ', dep, root->key);
-    if (root->is_outside_loop_node) debug("{}%s  ", root->is_outside_loop_node == 1 ? "*" : "+");
+    
+    if (is_outside_loop_node(root)) {
+	debug("{}%s  ", is_more_plus_node(root) ? "+" : "*");
+    }
+    
     if (root->loop) debug("loop ");
+    
     debug("\n");
 
     if (root->left) {
@@ -213,4 +232,35 @@ tree_show(tr_node_s *root, int dep)
 	debug("S: ");
 	tree_show(root->sub, dep-1);
     }
+
+    if (!root->left && !root->right && !root->sub) {
+	debug("nil\r\n");
+    }
 }
+
+
+void
+tree_show_node_cnt(tr_node_s *root)
+{
+    debug("m_node_cnt: %ld \n", m_node_cnt);
+}
+
+
+void
+tree_show_node_size(void)
+{
+  debug("node size: %ld \n", sizeof(tr_node_s));
+}
+
+
+void
+tree_show_info(void)
+{
+    tree_show_node_cnt(NULL);
+    tree_show_node_size();
+
+    debug("tree size: %ld \n", sizeof(tr_node_s)*m_node_cnt);
+}
+
+
+

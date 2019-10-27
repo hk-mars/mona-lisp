@@ -1,0 +1,279 @@
+
+=== 
+Before reducing memory:
+
+mem block count: 53005 
+mem blocks size: 1806697 
+
+
+mem block count: 2638 
+mem blocks size: 29295 
+
+
+
+L: m_node_cnt: 1797 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3101 
+mem blocks size: 45905 
+
+
+L: m_node_cnt: 2529 
+construct_ast_tree ok 
+mm_show 
+mem block count: 4053 
+mem blocks size: 79337 
+
+
+L: S: m_node_cnt: 5595 
+construct_ast_tree ok 
+mm_show 
+mem block count: 8005 
+mem blocks size: 218279 
+
+
+
+L: S: m_node_cnt: 8675 
+construct_ast_tree ok 
+mm_show 
+mem block count: 11974 
+mem blocks size: 357544 
+
+
+
+m_node_cnt: 22960 
+construct_ast_tree ok 
+mm_show 
+mem block count: 30424 
+mem blocks size: 1011099 
+
+
+====
+
+We need to create the the minimal AST trees to reduce memory use.
+
+
+====
+Step1 to improve the issue
+
+After reducing memory:
+
+@ token:
+m_node_cnt: 1361
+mm_show 
+mem block count: 2546 
+mem blocks size: 27939 
+
+
+@ object:
+m_node_cnt: 1709 
+construct_ast_tree ok 
+mm_show 
+mem block count: 2997 
+mem blocks size: 44408 
+
+
+@ list:
+m_node_cnt: 1720 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3010 
+mem blocks size: 44561 
+
+
+@ cdr & car:
+L: m_node_cnt: 1758 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3062 
+mem blocks size: 45079 
+
+
+@ num-add & num-*:
+L: m_node_cnt: 1816 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3130 
+mem blocks size: 46149 
+
+
+@ eq:
+m_node_cnt: 1827 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3148 
+mem blocks size: 46358 
+
+
+@ eq, eql, equal:
+m_node_cnt: 1845 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3178 
+mem blocks size: 46700 
+
+
+@ compound-form:
+L: R: m_node_cnt: 2038 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3394 
+mem blocks size: 52556 
+
+
+@ setq:
+L: S: m_node_cnt: 2063 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3423 
+mem blocks size: 52967 
+
+
+@ defconstant:
+L: S: m_node_cnt: 2096 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3461 
+mem blocks size: 53602 
+
+
+@ if:
+L: R: m_node_cnt: 2145 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3514 
+mem blocks size: 54504 
+
+
+@return:
+m_node_cnt: 2168 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3537 
+mem blocks size: 54801 
+
+
+@ loop:
+m_node_cnt: 2179 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3550 
+mem blocks size: 54991 
+
+
+@ defun:
+L: m_node_cnt: 2241 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3616 
+mem blocks size: 56125 
+
+
+@ defstruct:
+L: m_node_cnt: 2262 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3643 
+mem blocks size: 56544 
+
+
+@ defmacro:
+L: m_node_cnt: 2319 
+construct_ast_tree ok 
+mm_show 
+mem block count: 3703 
+mem blocks size: 57458 
+
+===
+
+Step2 to improve the issue
+
+@ token:
+mm_show 
+mem block count: 2570 
+mem blocks size: 28308 
+m_node_cnt: 1361 
+
+mem block count: 2430 
+mem blocks size: 27798 
+m_node_cnt: 1342 
+
+mm_show 
+mem block count: 2432 
+mem blocks size: 31912 
+m_node_cnt: 1342 
+
+
+mem block count: 894 
+mem blocks size: 15250 
+m_node_cnt: 442 
+
+
+mm_show 
+mem block count: 3043 
+mem blocks size: 126874 
+m_node_cnt: 1342 
+node size: 72 
+tree size: 96624 
+
+
+@ defmacro:
+mem block count: 4151 
+mem blocks size: 191868 
+m_node_cnt: 1909 
+node size: 72 
+tree size: 137448 
+
+
+mm_show 
+mem block count: 4115 
+mem blocks size: 191344 
+m_node_cnt: 1909 
+node size: 72 
+tree size: 137448 
+
+
+mm_show 
+mem block count: 4098 
+mem blocks size: 189996 
+m_node_cnt: 1911 
+node size: 72 
+tree size: 137592 
+
+
+mm_show 
+mem block count: 3421 
+mem blocks size: 159570 
+m_node_cnt: 1911 
+node size: 72 
+tree size: 137592 
+
+mm_show 
+mem block count: 3399 
+mem blocks size: 159347 
+m_node_cnt: 1911 
+node size: 72 
+tree size: 137592 
+
+
+mm_show 
+mem block count: 3741 
+mem blocks size: 186043 
+m_node_cnt: 2281 
+node size: 72 
+tree size: 164232 
+
+mm_show 
+mem block count: 2486 
+mem blocks size: 148844 
+m_node_cnt: 1911 
+node size: 72 
+tree size: 137592 
+
+
+
+
+
+
+
+

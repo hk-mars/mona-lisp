@@ -17,6 +17,9 @@
 
 #include "mem.h"
 
+#include "rules.h"
+
+
 
 const char *BNF_OBJ_STRING = "::=";
 static tr_node_s *bnf_tree_root;
@@ -93,7 +96,7 @@ filter_buf(char *s, long sz, long *o_sz)
     if (!buf) return NULL;
   
     e = s + sz -1;	
-  
+    
     /* dump the head
      */
     while(s <= e) {
@@ -156,12 +159,12 @@ load_syntax_file(file_info *fi)
     fi->f_sz = get_file_size(fi->f);
     debug("file %s opened, size %d bytes.\n", fi->f_name, fi->f_sz);
   
-    fi->f_buf = (char*)malloc(fi->f_sz);
+    fi->f_buf = (char*)ml_malloc(fi->f_sz);
     if (!fi->f_buf) return 0;
   
     fi->buf_sz = fread(fi->f_buf, 1, fi->f_sz, fi->f);
     if (fi->buf_sz < fi->f_sz) {
-	free(fi->f_buf);
+	//free(fi->f_buf);
 	fi->f_buf = NULL;
 	return 0;
     }
@@ -231,17 +234,50 @@ make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
     if (!key || ksz <= 0) return 0;
 
     memset(item, 0, sizeof(ENTRY));
-  
-    item->key = (char*)ml_malloc(ksz + 1);
-    if (!item->key) return 0;
-  
-    memset(item->key, '\0', ksz + 1);
-    memcpy(item->key, key, ksz);
-  
+
+#if 1
+    char *s = key;
+    int sz = ksz;
+    while (--sz >= 0) {
+
+	if (*s == '\r' || *s == '\n') *s = ' ';
+	s++;
+    }
+#endif
+
+    
+    ml_util_show_buf(key, ksz);
+    
+
+    item->key = rule_match_element(key, ksz);
+    if (item->key) {
+
+	ml_util_fwrite("found.txt", item->key);
+	//debug_suspend();
+    }
+    else {
+	
+	#if 1
+	item->key = (char*)ml_malloc(ksz + 1);
+	if (!item->key) return 0;
+
+	memset(item->key, '\0', ksz + 1);
+	memcpy(item->key, key, ksz);
+
+
+	
+
+	ml_util_fwrite("keys.txt", item->key);
+	#endif
+
+	//debug_suspend();
+	//item->key = "<x>";
+    }
+
     item->data = dt;
     item->dt_sz = dsz;
   
-    //func_ok();
+    func_ok();
     return 1;
 }
 
@@ -278,7 +314,7 @@ push_htab(hash_table_s *htab, file_info *fi, char *key, int sz, char *dt)
   
     rti = hsearch(htab, item, FIND);
     if (rti)  {
-	free(item.key);
+	//free(item.key);
 	item.key = NULL;
 	return 0;
     }
@@ -289,6 +325,8 @@ push_htab(hash_table_s *htab, file_info *fi, char *key, int sz, char *dt)
   
     rti = hsearch(htab, item, ENTER);
     if (!rti) return 0;
+
+    ml_util_fwrite("elements.txt", item.key);
 
     func_ok();
     return 1;
@@ -306,15 +344,21 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
 
     char *s, *e;
 
-    rt = make_hs_entry(&item, key, ksz, dt, dsz);
-    if (!rt) return 0;
-  
+    //rt = make_hs_entry(&item, key, ksz, dt, dsz);
+    //if (!rt) return 0;
+
+    //ml_util_fwrite("tokens.txt", item.key);
+    item.key = key;
+    item.data = dt;
+    item.dt_sz = dsz;
+
+    
     rti = hsearch(htab, item, FIND);
     if (rti)  {
 
 	debug("%s already in hash table \n", item.key);
 	
-	free(item.key);
+	//free(item.key);
 	item.key = NULL;
 
 	return 0;
@@ -327,6 +371,9 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
     rti = hsearch(htab, item, ENTER);
     if (!rti) return 0;
 
+    ml_util_fwrite("keyword_char.txt", item.key);
+    
+    
     func_ok();
     return 1;
 }
@@ -343,7 +390,7 @@ htab_find(hash_table_s *htab, char *key, int ksz)
     item.key = ml_util_buf2str(key, ksz);
     rti = hsearch(htab, item, FIND);
     if (rti)  {
-	free(item.key);
+	//free(item.key);
 
 	//func_ok();
 	return true;
@@ -387,6 +434,10 @@ find_e_ch(char lc, char rc, char *s, int sz)
 static char*
 create_syntax_obj_key(char *s, char *e)
 {
+    char buf[512];
+
+    func_s();
+    
     if (!s) return NULL;
     
     if (!e) {
@@ -394,13 +445,22 @@ create_syntax_obj_key(char *s, char *e)
 	e = s + strlen(s);
     }
 
+    memset(buf, 0, sizeof(buf));
+    memcpy(buf, s, e-s+1);
+    strcat(buf, " ::=");
+
+    debug("x \n");
     
-    char *key = ml_malloc(e-s+1 + strlen(" ::=") + 1);
-    if (!key) return NULL;
+    char *key = NULL;
+    //key = rule_match_element(buf, strlen(buf));
+    if (!key) {
 
-    memcpy(key, s, e-s+1);
-    strcat(key, " ::=");
+	key = ml_util_strdup(buf);
+	ml_util_fwrite("obj_key.txt", key);
+    }
 
+    func_ok();
+    
     return key;
 }
 
@@ -410,7 +470,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 {
     char *ss, *ee;
     unsigned char flag;
-    char buf[255];
+    char buf[512];
     int sz;
     int rt;
     ENTRY item;
@@ -471,7 +531,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 		rti = hsearch(get_kw_htab(), item, FIND);
 		if (!rti)  {
 		    
-		    free(item.key);
+		    //free(item.key);
 		    item.key = NULL;
 		}
 		else {
@@ -489,9 +549,9 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 		ml_util_show_buf(s, e-s+1);
 		debug("search hash table to check if it's a syntax object \n");
 	    
-		char *key = ml_malloc(e-s+1 + strlen(" ::=") + 1);
-		if (!key) return 0;
-
+		char key[512];
+		memset(key, 0, sizeof(key));
+		
 		memcpy(key, s, e-s+1);
 		strcat(key, " ::=");
 
@@ -588,6 +648,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 
 					    debug("syntax object \n");
 					}
+					if (item.key) ml_free(item.key);
 				    }
 
 				    sss = s+1;
@@ -616,6 +677,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 					debug("new keyword \n");
 					htab_add(get_kw_htab(), sss, s-sss+1, NULL, 0);
 				    }
+				    if (item.key) ml_free(item.key);
 				}
 				    
 			    }
@@ -632,7 +694,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 		    debug("found syntax object \n");
 		}
 
-		free(item.key);
+		//free(item.key);
 		item.key = NULL;
 	    }
 
@@ -929,6 +991,7 @@ find_insert_htab(ENTRY item, hash_table_s *htab)
 	    debug("hash entry insertion failed. %s \n", item.key);
 	    goto END;
 	}
+	ml_util_fwrite("elements.txt", item.key);
     
 	return rti;
     }
@@ -939,7 +1002,7 @@ find_insert_htab(ENTRY item, hash_table_s *htab)
   
   END:
     if (item.key) {
-	free(item.key);
+	//free(item.key);
 	item.key = NULL;
     }
   
@@ -1097,8 +1160,8 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
     ml_util_show_buf(s, e-s+1);
 
     if (!flag) {
-	char *key2 = ml_malloc(e-s+1 + strlen(" ::=") + 1);
-	if (!key2) return 0;
+	char key2[512];
+	memset(key2, 0, sizeof(key2));
 
 	memcpy(key2, s, e-s+1);
 	strcat(key2, " ::=");
@@ -1110,11 +1173,11 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	if (!lfi) {
 	    debug("not found \n");
 
-	    ml_free(key2);
+	    //ml_free(key2);
 	    return 0;
 	}
 
-	ml_free(key2);
+	//ml_free(key2);
 	debug("found \n");
     }
     else {
@@ -1136,22 +1199,28 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
     lfn = tree_insert_left(root, lfi->key);
     if (!lfn) goto END;
     
-    lfn->is_sub_bnf = 1;
   
     /* if lex tree is there, check the left node if it's a token or in tree.
      */
     //if (get_lex_tree() && root)  lfn->is_token = is_token(lfn->key);
-    if (root)  lfn->is_token = is_token(lfn->key);
+    if (root)  {
+	if (is_token(lfn->key)) mark_token_node(lfn);
+    }
     
-    if (lfn->is_token) debug("in lex tree, found: %s \n", lfn->key);
-  
+    if (is_token_node(lfn)) {
+	debug("in lex tree, found: %s \n", lfn->key);
+	//debug_suspend();
+    }
+    
     /* if hash-table of sub syntax trees is there, check the left
      * node if it's a sub tree already in syntax-trees hash table.
      */   
     if (get_syntax_htab() && root) {
+
 	if (pop_syntax_htab(lfn->key)) {
-	    lfn->is_in_syntax_tree = 1;
+	    mark_in_syntax_tree(lfn);
 	    debug("in syntax sub trees, found: %s \n", lfn->key);
+	    //debug_suspend();
 	}
     }
   
@@ -1162,18 +1231,21 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 
     /* try to make a sub tree for the left node. 
      */
-    if (!lfn->is_token && !lfn->is_in_syntax_tree) {
+    if (!is_token_node(lfn) && !is_in_syntax_tree(lfn)) {
 
 	debug("sub node, dt_sz: %d \n", lfi->dt_sz);
       
 	/*insert the sub node of the left node
 	 */
-	if (!lfn->is_inside_loop_node && lfi->dt_sz > 0) {
+	if (!is_inside_loop_node(lfn) && lfi->dt_sz > 0) {
 	    rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
 	    if (!rt) return 2;
 
-	    dump_trail(si.key, si.key + strlen(si.key) - 1);
-
+	    
+	    if (strlen(si.key) > 1) {
+		//dump_trail(si.key, si.key + strlen(si.key) - 1);
+	    }
+	    
 	    //ml_util_show_buf(lfi->data, lfi->dt_sz);
       
       
@@ -1187,12 +1259,13 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
 	}
 	else {
 
-	    if (lfn->is_inside_loop_node) {
+	    if (is_inside_loop_node(lfn)) {
 		debug("is_inside_loop_node \n");
 	    }
 	}
     }
- 
+
+    
     rt = make_hs_entry(&ei, e + 1, size - (e - bnf + 1), 
 		       e + 1, size - (e - bnf + 1));
     if (!rt) return 2;
@@ -1342,7 +1415,7 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
      */
     ss = find_pattern_more(e + 1, size - (e - bnf + 1));
     if (ss) {
-	lfn->is_outside_loop_node = 1;
+	mark_outside_loop_node(lfn);	
 	e = ss + strlen("*") - 1;
 	debug("pattern: {}* \n");
     }
@@ -1352,8 +1425,8 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
 	 */
 	ss = find_pattern_more_plus(e + 1, size - (e - bnf + 1));
 	if (ss) {
-	    lfn->is_outside_loop_node = 2;
-	    lfn->is_more_plus = 1;
+	    mark_outside_loop_node(lfn);
+	    mark_more_plus_node(lfn);	    
 	    e = ss + strlen("+") - 1;
 	    debug("pattern: {}+ \n");
 	}	
@@ -1426,19 +1499,19 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 	
 	
 	s = create_syntax_obj_key(si.key, si.key + strlen(si.key) - 1);
-	free(si.key);
+	//free(si.key);
 	si.key = s;
 	lfi = hsearch(htab, si, FIND);
 	if (!lfi) {
 
 	    debug("unkown object: %s \n", si.key);
-	    free(si.key);
+	    ml_free(si.key);
 	    goto FAIL;
 	}
 	
 	debug("found syntax object \n");
 
-	free(si.key);
+	ml_free(si.key);
 
 	debug("root father: %s \n", root->father->key);
 	
@@ -1446,29 +1519,41 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 	if (!lfn) goto END;
 
 	
-	/* insert the sub node of the left node
-	 */
-	if (!lfn->is_inside_loop_node && lfi->data && lfi->dt_sz > 0) {
+	if (get_syntax_htab() && root) {
 
-	    debug("its sub: \n");
-	    ml_util_show_buf(lfi->data, lfi->dt_sz);
-	    
-	    rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
-	    if (!rt) return 2;
-
-	    debug("si.key: %s, %dbytes \n", si.key, strlen(si.key));
-	    //if (strlen(si.key) > 1) {
-
-	    sub = tree_insert_sub(lfn, "<sub>");
-	    if (!sub) goto END;
-	    make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
-	    //if (!root) goto DONE;
-	    //}
-
-		
-	    free(si.key);
+	    if (pop_syntax_htab(lfn->key)) {
+		mark_in_syntax_tree(lfn);
+		debug("in syntax sub trees, found: %s \n", lfn->key);
+		//debug_suspend();
+	    }
 	}
 
+	
+	if (!is_in_syntax_tree(lfn)) {
+	    /* insert the sub node of the left node
+	     */
+	    if (!is_inside_loop_node(lfn) && lfi->data && lfi->dt_sz > 0) {
+
+		debug("its sub: \n");
+		ml_util_show_buf(lfi->data, lfi->dt_sz);
+	    
+		rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
+		if (!rt) return 2;
+
+		debug("si.key: %s, %dbytes \n", si.key, strlen(si.key));
+		//if (strlen(si.key) > 1) {
+
+		sub = tree_insert_sub(lfn, "<sub>");
+		if (!sub) goto END;
+		make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
+		//if (!root) goto DONE;
+		//}
+
+		
+		//free(si.key);
+	    }
+
+	}
 	
 
 	goto BUILD_REMAIN;
@@ -1485,15 +1570,16 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     
   FOUND_LEAF:
     
-    free(si.key);
+    //free(si.key);
   
     lfn = tree_insert_left(root, lfi->key);
     if (!lfn) goto END;
 
-    lfn->is_token = 1;
-    lfn->is_keyword = keyword_flag;
-    lfn->is_char = char_flag;
+    mark_token_node(lfn);
+    if (keyword_flag) mark_keyword_node(lfn);
+    if (char_flag) mark_char_node(lfn);
 
+    
   BUILD_REMAIN:    
 
     if (size - (e - bnf + 1) <= 0) goto DONE;
@@ -1536,7 +1622,7 @@ make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     char *s, *e;
   
-    if (root && root->is_inside_loop_node) return 0;
+    if (root && is_inside_loop_node(root)) return 0;
     if (!bnf || size <= 0 || !htab) return 0;
 
     
@@ -1692,7 +1778,7 @@ make_graph(tr_node_s *root)
 
     if (root->father) {
 
-	if (root->father->is_outside_loop_node) {
+	if (is_outside_loop_node(root->father)) {
 
 	    if (root == root->father->sub) {
 
@@ -1748,7 +1834,7 @@ show_graph(tr_node_s *root)
   
     debug("%s %dbytes, %x \n", root->key, strlen(root->key), root);
   
-    if (root->is_inside_loop_node) {
+    if (is_inside_loop_node(root)) {
 	debug("loop node \n");
     }
   
@@ -1782,12 +1868,12 @@ show_bnf_tree(tr_node_s *root)
 {
     if (!root) return;
   
-    if (root->is_outside_loop_node)  {
-	debug("left loop \n");
+    if (is_outside_loop_node(root))  {
+	debug("external loop \n");
     }
   
-    if (root->is_inside_loop_node)  {
-	debug("loop node \n");
+    if (is_inside_loop_node(root))  {
+	debug("self loop \n");
     }
   
     if (root->sub)	{
@@ -1809,6 +1895,92 @@ show_bnf_tree(tr_node_s *root)
     } 
   
 }
+
+
+static bool
+search_alike_node(tr_node_s *root, tr_node_s *nd)
+{
+    if (!root) return false;
+
+    if (root->mark && !strcmp(root->key, nd->key)) {
+
+	debug("found marked node: %s \n", root->key);
+	func_ok();
+	return true;
+    }
+  
+    if (root->sub) {
+	
+	if (is_outside_loop_node(root)) return false;
+	
+	if (search_alike_node(root->sub, nd)) return true;
+	
+    }
+  
+    if (root->left)  {
+	
+	if (search_alike_node(root->left, nd)) return true;
+    } 
+  
+    if (root->right)	{
+	
+	if (search_alike_node(root->right, nd)) return true;
+    } 
+
+
+    return false;
+}
+
+
+static void
+save_tree_node_name(tr_node_s *root, tr_node_s *cur)
+{
+    if (!root) return;
+    if (!cur) return;
+
+
+    //debug("key: %s \n", cur->key);
+
+    if (!search_alike_node(root, cur)) {
+	
+	ml_util_fwrite("nodes_name.txt", cur->key);
+
+	cur->mark = true;
+    }
+    
+      
+    if (is_outside_loop_node(cur)) {
+	debug("external loop \n");
+	//return;
+    }
+  
+    if (is_inside_loop_node(cur)) {
+	debug("self loop \n");
+	//return;
+    }
+  
+    if (cur->sub) {
+	
+	if (is_outside_loop_node(cur)) return;
+	
+	//debug("father:\n%s \n", root->key);
+	debug("sub:\n%s\n", cur->sub->key);
+	save_tree_node_name(root, cur->sub);
+    }
+  
+    if (cur->left)  {
+	//debug("father:\n%s \n", cur->key);
+	debug("left:\n%s\n", cur->left->key);
+	save_tree_node_name(root, cur->left);
+    } 
+  
+    if (cur->right) {
+	//debug("father:\n%s \n", cur->key);
+	debug("right:\n%s\n", cur->right->key);
+	save_tree_node_name(root, cur->right);
+    } 
+}
+
 
 
 static int 
@@ -1876,6 +2048,7 @@ construct_ast_tree(char *key)
 
     debug("show tree2: \n");
     tree_show(bnf_tree_root, 11);
+    tree_show_node_cnt(bnf_tree_root);
     
     //show_graph(es);
     
@@ -1883,7 +2056,7 @@ construct_ast_tree(char *key)
 
     //show_bnf_tree(bnf_tree_root);
   
-    rt = push_syntax_htab(key, bnf_tree_root);
+    rt = push_syntax_htab(root_key, bnf_tree_root);
     if (!rt) return PARSER_ERR;
 
     func_ok();
@@ -1905,6 +2078,13 @@ parser_init(void)
     
     func_s();
 
+
+    unlink("elements.txt");
+    unlink("keyword_char.txt");
+    unlink("keys.txt");
+    unlink("obj_key.txt");
+    unlink("nodes_name.txt");
+    unlink("found.txt");
     
     /* load the syntax file
      */
@@ -1918,7 +2098,7 @@ parser_init(void)
     /* create a hash table for syntax objects
      */
     memset(&htab, 0, sizeof(hash_table_s));
-    rt = hcreate(&htab, 1500);
+    rt = hcreate(&htab, 500);
     if(!rt) return PARSER_ERR;
 
 
@@ -1959,6 +2139,9 @@ parser_init(void)
     
 	htab_add(&char_htab, lisp_chars[i], strlen(lisp_chars[i]), NULL, 0);
     }
+
+    mm_show();
+    //debug_suspend();
     
     /* parse syntax objects from file and push them into hash table 
      */
@@ -1982,8 +2165,11 @@ parser_init(void)
     rt = create_syntax_htab(500);
     if (!rt) return PARSER_ERR;    
     
-
+    mm_show();
+    //debug_suspend();
+    
     /* create the lexical tree
+     * TBD: reduce the node count of the tree
      */
     root_key = "token ::=";
  
@@ -1995,6 +2181,23 @@ parser_init(void)
 	  htab.size, htab.filled, htab.size - htab.filled);
 
     //show_bnf_tree(bnf_tree_root);
+
+    tree_show(bnf_tree_root, 15);
+    
+    int count = 0;
+    asg_show_redundant_node(bnf_tree_root, &count);
+    debug("redundant node count: %d \n\n", count);
+
+    //asg_reduce_redundant_node(bnf_tree_root, &count);
+    debug("redundant node count: %d \n\n", count);
+
+    count = 0;
+    asg_show_redundant_node(bnf_tree_root, &count);
+    debug("redundant node count: %d \n\n", count);
+    
+    tree_show(bnf_tree_root, 15);
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
     
     debug("\n\n[make_graph]... \n");	
     es = make_graph(bnf_tree_root);
@@ -2004,52 +2207,161 @@ parser_init(void)
     
     //show_nodes(es);
 
+    mm_show();
+    tree_show_info();
+    //debug_suspend();
+    
     set_lex_tree(bnf_tree_root);
 
     rt = ast_lex_debug();
     if (!rt) return PARSER_ERR;
 
-    bnf_tree_root = NULL;
+
+    tree_show(bnf_tree_root, 15);
+    mm_show();
+    
+
+    //count = 0;
+    //asg_show_redundant_node(bnf_tree_root, &count);
+    tree_show_info();
+    //save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+    
+
+    /* create the minimal AST tree
+     * "minimal" means creating minimal tree nodes(use the minimal dynamic memory).
+     */
+
+    /* now, to identify the tree used more than one time.
+     * maybe all the leaf nodes should be linked to a node "<x>", which contains an extendable
+     * list for connecting to all its childs, in this way, it would save the memory.
+     * 
+     * to count the number for all types of node, as to identify how to save the memory.
+     *
+     */
+
 
     
 
-    /* create the AST tree for the specified forms
+    /* create the AST tree as the specified form
      */
+
+    mm_show();
+    //debug_suspend();
+     
+
+    if (construct_ast_tree("object") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+     
+    if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+
+    
+    if (construct_ast_tree("car") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("cdr") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
     
     if (construct_ast_tree("num-add") != PARSER_OK) return PARSER_ERR;
+    
     if (construct_ast_tree("num-less-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-less-or-equal-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-greater-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-greater-or-equal-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-euqal-than") != PARSER_OK) return PARSER_ERR;
     if (construct_ast_tree("num-not-equal-than") != PARSER_OK) return PARSER_ERR;
-    
-    if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
-    
-    if (construct_ast_tree("car") != PARSER_OK) return PARSER_ERR;
 
-    if (construct_ast_tree("cdr") != PARSER_OK) return PARSER_ERR;
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
 
+
+    if (construct_ast_tree("eq") != PARSER_OK) return PARSER_ERR; 
+    if (construct_ast_tree("eql") != PARSER_OK) return PARSER_ERR;
+    if (construct_ast_tree("equal") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+
+    if (construct_ast_tree("compound-form") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+
+    
     if (construct_ast_tree("setq") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
 
     if (construct_ast_tree("defconstant") != PARSER_OK) return PARSER_ERR;
 
-    if (construct_ast_tree("eq") != PARSER_OK) return PARSER_ERR;
-    if (construct_ast_tree("eql") != PARSER_OK) return PARSER_ERR;
-    if (construct_ast_tree("equal") != PARSER_OK) return PARSER_ERR;
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
     
     if (construct_ast_tree("if") != PARSER_OK) return PARSER_ERR;
 
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+    
     if (construct_ast_tree("return") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
     
     if (construct_ast_tree("loop") != PARSER_OK) return PARSER_ERR;
 
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+  
     if (construct_ast_tree("defun") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
 
     if (construct_ast_tree("defstruct") != PARSER_OK) return PARSER_ERR;
 
+    mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+
     if (construct_ast_tree("defmacro") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    tree_show_info();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+
+#if 0
+    count = 0;
+    asg_show_redundant_node(bnf_tree_root, &count);
     
+    asg_reduce_redundant_node(bnf_tree_root, &count);
+    debug("redundant node count: %d \n\n", count);
+
+    count = 0;
+    asg_show_redundant_node(bnf_tree_root, &count);
+    debug("redundant node count: %d \n\n", count);
+#endif
+    
+    //debug_suspend();
+
+      
     func_ok();
 
     return PARSER_OK;

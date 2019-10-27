@@ -47,9 +47,11 @@ macro-char ::=
 	terminating-char | 
 	non-terminating-char
 	
-terminating-char ::= " | ' | ( | ) | , | ; | `
+terminating-char ::= " | ' | left-parent | right-parent | , | ; | `
 non-terminating-char ::= ##
 
+left-parent := #\()
+right-parent := #\)
 
 token ::=
 	number-token |
@@ -230,7 +232,6 @@ init-form ::= form
 num-add ::= 
 	( + {number-token}* )
 	
-
 num-less-than ::= 
 	( < {number-token}* )
 	

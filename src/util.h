@@ -38,6 +38,10 @@ char* ml_util_clone_str_as_upper(char *str);
 void ml_util_set_read_base(unsigned char read_base);
 unsigned char ml_util_get_read_base(void);
 
+
+bool ml_util_fwrite(char *name, char *line);
+
+
 #endif /* ML_UTIL_H */
 
 

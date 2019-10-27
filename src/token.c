@@ -64,7 +64,7 @@ token_show(token_s *token)
 	
     default:
 
-	debug_err("unkown token \n");
+	debug_err("unkown token  \n");
 	break;
 
     }

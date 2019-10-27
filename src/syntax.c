@@ -116,7 +116,7 @@ search_end(tr_node_s *root)
 	}
     }
   
-    if (root->is_token) {
+    if (is_token_node(root)) {
 	debug("end as a token: %s \n", root->key);
 	return root;
     }
@@ -218,7 +218,7 @@ find_syntax_node(tr_node_s *root, char *name)
 
     func_s();
   
-    if (root->is_token) {
+    if (is_token_node(root)) {
 	//debug("end as a token: %s \n", root->key);
 	//return NULL;
     }
@@ -264,7 +264,7 @@ find_syntax_node(tr_node_s *root, char *name)
 
 
 static char*
-get_token_name(token_s *tk, bool is_specified_type)
+get_token_name(token_s *tk, bool is_specified_type, char *key)
 {
     char *name;
 
@@ -280,13 +280,18 @@ get_token_name(token_s *tk, bool is_specified_type)
 
     case TOKEN_NUM_INT:
    
-	//debug("TOKEN_NUM_INT \n");
+	debug("TOKEN_NUM_INT \n");
 
 	if (is_specified_type) {
 	    name = "number-token ::=";
 	}
 	else {
-	    name = "token ::=";
+	    if (strcmp(key, "number-token ::=")) {
+		name = "token ::=";
+	    }
+	    else {
+		name = "number-token ::=";
+	    }
 	}
 	
 	break;
@@ -315,7 +320,7 @@ get_token_name(token_s *tk, bool is_specified_type)
 
 
 static char*
-get_leaf_name(object_s *obj)
+get_leaf_name(object_s *obj, char *key)
 {
     char *name;
 
@@ -351,7 +356,7 @@ get_leaf_name(object_s *obj)
 
 	//debug("OBJ_TYPE \n");
 
-	name = get_token_name(&obj->token, obj->is_specified_type);
+	name = get_token_name(&obj->token, obj->is_specified_type, key);
 	
 	break;
 	    
@@ -380,10 +385,30 @@ get_leaf_name(object_s *obj)
 }
 
 
-lisp_list_s *m_list_head = NULL;
+static void
+show_path(lisp_list_s *start, lisp_list_s *end)
+{
+    func_s();
+
+    if (!start || !end) return;
+
+    while (1) {
+
+	if (start->front == end) break;
+	    
+	obj_show(&start->obj);
+
+	start = start->next;
+    };
+    
+    
+    
+    func_ok();
+}
+
 
 static tr_node_s*
-find_path(tr_node_s *root, lisp_list_s *path)
+find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 {
     /* a path is a pattern sequence of which the element is constructed by lisp-characters.
      * a syntax tree includes all the paths for syntax patterns of a language.
@@ -422,9 +447,12 @@ find_path(tr_node_s *root, lisp_list_s *path)
   
     if (!root) return NULL;
 
-    char *name1 = get_leaf_name(&path->obj);
+    char *name1 = get_leaf_name(&path->obj, root->key);
     if (root->key[strlen(root->key)-1] == '=') {
 	debug("cur node: %s, find node: %s \n", root->key, name1);
+
+	//tree_show_node(root);
+	
     }
     //token_show(&path->obj.token);
 
@@ -447,16 +475,16 @@ find_path(tr_node_s *root, lisp_list_s *path)
     }    
     
     
-    if (root->is_token) {
+    if (is_token_node(root)) {
 	//debug("token node: %s \n", root->key);
 
 	//obj_show(&path->obj);
 		
-	char *name = get_leaf_name(&path->obj);
+	char *name = get_leaf_name(&path->obj, root->key);
 
 	//debug("%s, %s \n", root->key, name);
 
-	if (root->is_char || path->obj.token.type != TOKEN_SYMBOL) {
+	if (is_char_node(root) || path->obj.token.type != TOKEN_SYMBOL) {
 	    if (strcmp(root->key, name)) {
 
 		return NULL;		
@@ -464,14 +492,14 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    else {
 
 		debug("found token: %s \n", root->key);
-		token_show(&path->obj.token);
+		//token_show(&path->obj.token);
 		goto FOUND;
 	    }
 
 	}
 	else {
 
-	    if (root->is_keyword) {
+	    if (is_keyword_node(root)) {
 
 		if (!strcasecmp(root->key, name)) {
 	       
@@ -497,7 +525,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
       FOUND:
 	/* the end token, check the path if it's at the end.
 	 */	
-	if (path->next->is_head) {
+	if (path == path_end) {
 
 	    debug("the end of path \n");
 
@@ -518,12 +546,12 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	else {
 
 	    path = path->next;
-	    debug("find next: %s \n", get_leaf_name(&path->obj));
+	    debug("find next: %s \n", get_leaf_name(&path->obj, root->key));
 	    obj_show(&path->obj);
 
-	    if (root->is_outside_loop_node) {
+	    if (is_outside_loop_node(root)) {
 		debug("go to outside-loop-node: %s \n", root->key);
-		rtn = find_path(root, path);
+		rtn = find_path(root, path, path_end);
 		if (rtn) return rtn;
 	    }
 	    
@@ -550,8 +578,11 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 	    
 	    debug("find subform in loop node %s \n", root->key);
+
 	    
-	    rtn = find_path(root->loop, subform->next->list->next);
+	    rtn = find_path(root->loop,
+			    subform->next->list->next,
+			    subform->next->list->front);
 	    if (rtn) {
 		
 		if (root->loop) debug("subform found in loop node %s \n", root->loop->key);
@@ -561,21 +592,27 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	}
 
 	
-	rtn = find_path(root->sub, subform->next->list->next);
+	rtn = find_path(root->sub,
+			subform->next->list->next,
+			subform->next->list->front);
 	if (rtn) {
 
 	    if (root->sub) debug("subform found in sub node %s \n", root->sub->key);
 	    goto FIND_SUBFORM_DONE;
 	}
 	
-	rtn = find_path(root->left, subform->next->list->next);
+	rtn = find_path(root->left,
+			subform->next->list->next,
+			subform->next->list->front);
 	if (rtn) {
 
 	    if (root->left) debug("subform found in left node %s \n", root->left->key);
 	    goto FIND_SUBFORM_DONE;
 	}
 
-	rtn = find_path(root->right, subform->next->list->next);
+	rtn = find_path(root->right,
+			subform->next->list->next,
+			subform->next->list->front);
 	if (rtn) {
 
 	    if (root->right) debug("subform found in right node %s \n", root->right->key);
@@ -593,14 +630,14 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	
 	debug("rtn: %s \n", rtn->key);
 
-	debug("find next: %s \n", get_leaf_name(&path->next->obj));
+	debug("find next: %s \n", get_leaf_name(&path->next->obj, root->key));
 
 	if (rtn->loop) {
 
 	    debug("ignore loop node \n");
 	}
 	
-	if (path->next->is_head) {
+	if (path == path_end) {
 
 	    debug("the end of path \n");
 
@@ -622,13 +659,22 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	else {
 
 	    path = path->next;
- 
+	      
 	    tree_show(root->father, 9);
 
-	    if (root->is_outside_loop_node) {
+	    /* 
+	     * Here, if father of the current node is an external loop node, then we shuould
+	     * directly keep on searching from its father, because the external loop node 
+	     * includes all solution of its childs.  
+	     */	  
+	    if (is_outside_loop_node(root->father)) {
+		//root = root->father;
 		debug("go to outside-loop-node: %s \n", root->key);
-		rtn = find_path(root, path);
+		rtn = find_path(root->father, path, path_end);
 		if (rtn) return rtn;
+
+		//debug("found from %s \n", root->key);
+		//debug_suspend();
 	    }
 	    
 	    goto NEXT0;
@@ -641,13 +687,12 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	debug("loop node: %s \n", root->key);
 	nd = root->loop;
 
-	rtn = find_path(nd, path);
+	rtn = find_path(nd, path, path_end);
 	if (rtn) return rtn;
     }
   
 
-#if 0
-    if (root->is_in_syntax_tree && !nd) {
+    if (is_in_syntax_tree(root) && !nd) {
   
 	/* get the root of sub tree from hash table.
 	 */
@@ -657,13 +702,83 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	    debug("sub tree not found: %s \n", root->key);
 	    return NULL;
 	}
-    
-	nd = rti->data;
-	debug("syntax sub tree found: %s \n", root->key);
+
+	if (rti->data != root) {
+	    nd = rti->data;
+	    debug("syntax sub tree found: %s \n", root->key);
+
+	    tree_show(nd, 10);
+	    
+	    //debug_suspend();
+
+
+	    /* ... a b c d e f g
+	     * sub path:
+	     * ... a 
+	     * ... a b
+	     * ... a b c 
+	     * ... a b c d
+	     * ... a b c d e 
+	     * ... a b c d e f
+	     * ... a b c d e f g
+	     *
+	     * create a new path to be searched.
+	     *
+	     */
+
+	    sl = path;
+	    el = path_end;
+	 
+	    show_path(sl, el);
+	    //debug_suspend();
+	    
+	    while (1) {
+
+		debug("search path: \n");
+		show_path(sl, el);
+		
+		rtn = find_path(nd, sl, el);
+		
+		if (rtn) {
+
+		    show_path(sl, el);
+		    //debug_suspend();
+
+		    if (el->next->is_head) {
+
+			debug("solution found \n");
+			return rtn;
+		    }
+
+			    
+		    /* go on searching from the next node
+		     */
+
+		    debug("go on searching \n");
+		    path = el->next;
+		    show_path(path, path_end);
+		    tree_show(root, 10);
+		    //debug_suspend();
+		    break;		    
+	
+		}
+
+		if (el == sl) {
+
+		    debug("the last sub path \n");
+		 
+		    return NULL;		    
+		}
+
+		debug("path not found: \n");
+		show_path(sl, el);
+		el = el->front;
+	    }
+	}
     }
 
     
-  
+#if 0  
     if (nd) {
   
 	/* make new token list from the trail of old list, 
@@ -728,7 +843,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
 
 	    tree_show(root->father->father, 5);
 	    
-	    if (!root->father->father->is_outside_loop_node) {
+	    if (!is_outside_loop_node(root->father->father)) {
 		
 		goto NEXT;
 	
@@ -738,7 +853,7 @@ find_path(tr_node_s *root, lisp_list_s *path)
 	}
 	
 	debug("go back to node: %s from %s \n", root->back->key, root->key);
-	rtn = find_path(root->back, path);
+	rtn = find_path(root->back, path, path_end);
 	if (rtn) return rtn;
     }
 
@@ -746,21 +861,21 @@ find_path(tr_node_s *root, lisp_list_s *path)
     if (root->sub) {
 	//debug("sub: %s \n", root->sub->key);
 	root->next = root->sub;
-	rtn = find_path(root->sub, path);
+	rtn = find_path(root->sub, path, path_end);
 	if (rtn) return rtn;
     }
   
     if (root->left) {
 	//debug("left: %s \n", root->left->key);
 	root->next = root->left;
-	rtn = find_path(root->left, path);
+	rtn = find_path(root->left, path, path_end);
 	if (rtn) return rtn;
     }
   
     if (root->right) {
 	//debug("right: %s \n", root->right->key);
 	root->next = root->right;
-	rtn = find_path(root->right, path);
+	rtn = find_path(root->right, path, path_end);
 	if (rtn) return rtn;
     }
 
@@ -802,42 +917,42 @@ check_list_form_syntax(form_s *form)
     char *syntax_obj_name = l->obj.token.value.symbol;
 
     if (!strcmp(syntax_obj_name, "+")) {
-	syntax_obj_name = "num-add";
+	syntax_obj_name = "num-add ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, "<")) {
-	syntax_obj_name = "num-less-than";
+	syntax_obj_name = "num-less-than ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, "<=")) {
-	syntax_obj_name = "num-less-or-equal-than";
+	syntax_obj_name = "num-less-or-equal-than ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, ">")) {
-	syntax_obj_name = "num-greater-than";
+	syntax_obj_name = "num-greater-than ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, ">=")) {
-	syntax_obj_name = "num-greater-or-equal-than";
+	syntax_obj_name = "num-greater-or-equal-than ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, "=")) {
-	syntax_obj_name = "num-equal-than";
+	syntax_obj_name = "num-equal-than ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, "/=")) {
-	syntax_obj_name = "num-not-equal-than";
+	syntax_obj_name = "num-not-equal-than ::=";
 
 	list_mark_type_specified(form->list);
     }
     else if (!strcmp(syntax_obj_name, "!=")) {
-	syntax_obj_name = "num-not-equal-than";
+	syntax_obj_name = "num-not-equal-than ::=";
 
 	list_mark_type_specified(form->list);
     }
@@ -863,10 +978,10 @@ check_list_form_syntax(form_s *form)
 	}
 	else if (form->type == COMPOUND_FUNCTION_FORM) {
 	    
-	    debug("a function call: %s \n", syntax_obj_name);
-	    debug("ignoring sytax check \n ");
+	    debug("a possible function call: %s \n", syntax_obj_name);
+	    //debug("ignoring sytax check \n ");
 
-	    goto DONE;
+	    //goto DONE;
 	    
 	}
 	
@@ -886,7 +1001,7 @@ check_list_form_syntax(form_s *form)
     /* track the tree to find the given path
      */
     lisp_list_s *path = form->list->next;
-    tr_node_s *nd = find_path((tr_node_s*)item->data, path);
+    tr_node_s *nd = find_path((tr_node_s*)item->data, path, form->list->front);
     if (!nd) goto FAIL;
 
   DONE:
@@ -974,6 +1089,7 @@ syntax_check(form_s *form)
 }
 
 
+/*
 static void
 show_path(tr_node_s *s)
 {
@@ -986,7 +1102,7 @@ show_path(tr_node_s *s)
   
     fe();
 }
-
+*/
 
 int
 create_syntax_htab(int cnt)
@@ -1017,11 +1133,16 @@ push_syntax_htab(char *key, tr_node_s *root)
   
     if (!syntax_htab.table) return 0;
 
-    //root->is_in_syntax_tree = 1;
+    
     item.key = key;
     item.data = root;
     rti = hsearch(&syntax_htab, item, ENTER); 
-  
+
+    if (rti) mark_in_syntax_tree(root);
+    
+    //debug("%s, key: %s \n", __func__, key);
+    //debug_suspend();
+    
     return !!rti;
 }
 
@@ -1030,21 +1151,47 @@ ENTRY*
 pop_syntax_htab(char *key)
 {
     ENTRY item, *rti;
+    char buf[128];
 
     func_s();
   
     if (!syntax_htab.table) return NULL;
 
-  
-  
     memset(&item, 0, sizeof(ENTRY));
-    item.key = key;
+    
+    int len = strlen(key);
+    if (len > strlen(" ::=")) {
+
+	len -= strlen(" ::=");
+	if (strcmp(key+len, " ::=")) {
+
+	    memset(buf, 0, sizeof(buf));
+	    strcat(strcat(buf, key), " ::=");
+	    item.key = buf;
+	}
+	else {
+
+	    item.key = key;
+	}
+    }
+    else {
+
+	memset(buf, 0, sizeof(buf));
+	strcat(strcat(buf, key), " ::=");
+	item.key = buf;
+    }
+    
+    
+    
     rti = hsearch(&syntax_htab, item, FIND);
     if (!rti) {
-
+	
 	func_fail();
 	return NULL;
     }
+
+    debug("%s, found key: %s \n", __func__, key);
+    //debug_suspend();
     
     func_ok();
     return rti;

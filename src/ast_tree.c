@@ -168,7 +168,7 @@ search_key(tr_node_s *root, char *key)
     tr_node_s *rtn;
   
     if (!root) return NULL;
-    if (root->is_outside_loop_node) return NULL;
+    if (is_outside_loop_node(root)) return NULL;
     if (strlen(root->key) == 1) return NULL;
   
     if (!root->left && !root->right && root->sub) {
@@ -308,7 +308,7 @@ search_graph(tr_node_s *root, char *s, char *e)
     if (!root) return NULL;
 
     debug("%s, %s %c \n", __func__, root->key, *s);
-    if (root->is_outside_loop_node) {
+    if (is_outside_loop_node(root)) {
 
 	debug("pattern: {} in %s \n", root->key);
     }
