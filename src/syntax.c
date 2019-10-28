@@ -692,6 +692,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
     }
   
 
+    
     if (is_in_syntax_tree(root) && !nd) {
   
 	/* get the root of sub tree from hash table.
@@ -703,7 +704,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	    return NULL;
 	}
 
-	if (rti->data != root) {
+	if (!tree_search_node(rti->data, root)) {
 	    nd = rti->data;
 	    debug("syntax sub tree found: %s \n", root->key);
 
@@ -889,6 +890,7 @@ check_list_form_syntax(form_s *form)
 {
     syntax_rt_t rt;
     lisp_list_s *l;
+    lisp_list_s *path;
     
     func_s();
 
@@ -984,14 +986,22 @@ check_list_form_syntax(form_s *form)
 	    //goto DONE;
 	    
 	}
-	
+
 	goto FAIL;
+    }
+    else {
+
+	path = form->list->next;
     }
     
     if (!item->data) {
 
 	debug_err("AST tree of \"%s\" is not constructed \n", syntax_obj_name);
 	goto FAIL;
+    }
+    else {
+
+	tree_show(item->data, 10);
     }
 
 
@@ -1000,7 +1010,6 @@ check_list_form_syntax(form_s *form)
      
     /* track the tree to find the given path
      */
-    lisp_list_s *path = form->list->next;
     tr_node_s *nd = find_path((tr_node_s*)item->data, path, form->list->front);
     if (!nd) goto FAIL;
 

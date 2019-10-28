@@ -223,7 +223,8 @@
 (+ 1 2)
 
 ;; set variable
-;(setq x (+ 1 2))
-;(setq x 1 y 2)
-;(setq x (+ 1 2) y (+ 2 3))
+(setq x 1)
+(setq x (+ 1 2))
+(setq x 1 y 2)
+(setq x (+ 1 2) y (+ 2 3))
 

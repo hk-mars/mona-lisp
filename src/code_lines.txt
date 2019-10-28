@@ -1,63 +1,66 @@
-      17 asg_graph.h
+      23 asg_graph.h
       53 ast_tree.h
       52 bin_tree.h
      214 chars.h
       38 config.h
-      51 debug.h
+      56 debug.h
       44 error.h
       50 eval.h
-      98 form.h
-      60 function.h
-      26 gc.h
+     101 form.h
+      68 function.h
+      58 gc.h
       62 hsearch.h
       52 lex.h
       45 list.h
        0 log.h
-      60 macro.h
-      19 mem.h
-      40 monalisp.h
+      69 macro.h
+      24 mem.h
+      41 monalisp.h
       78 obj.h
       34 parser.h
       30 printer.h
        0 profiler.h
       60 reader.h
-      27 rules.h
+      43 rules.h
       47 stack.h
       23 symbol.h
       43 syntax.h
-       0 system.h
+      36 system.h
       66 token.h
-      45 tree.h
-      41 util.h
-     125 variable.h
+      93 tree.h
+       0 user_c_module.h
+      47 util.h
+     130 variable.h
        0 vm.h
-       0 asg_graph.c
+     194 asg_graph.c
      456 ast_tree.c
-     320 bin_tree.c
+     322 bin_tree.c
       55 chars.c
-     124 error.c
+     130 error.c
     1865 eval.c
-     183 form.c
-     135 function.c
-     204 gc.c
+     202 form.c
+     267 function.c
+     236 gc.c
      222 hsearch.c
-    1656 lex.c
+    1671 lex.c
      213 list.c
        0 log.c
-     135 macro.c
-      43 mem.c
-     163 monalisp.c
+     260 macro.c
+     158 mem.c
+     231 monalisp.c
      151 obj.c
-    2058 parser.c
+    2370 parser.c
       34 printer.c
        0 profiler.c
-     148 reader.c
+     153 reader.c
+    1436 rules.c
      109 stack.c
-    1029 syntax.c
-       0 system.c
+    1207 syntax.c
+      81 system.c
       73 token.c
-     216 tree.c
-     143 util.c
-     666 variable.c
+     298 tree.c
+      65 user_c_module.c
+     205 util.c
+     703 variable.c
        0 vm.c
-   12001 total
+   15147 total

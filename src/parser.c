@@ -344,22 +344,19 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
 
     char *s, *e;
 
-    //rt = make_hs_entry(&item, key, ksz, dt, dsz);
-    //if (!rt) return 0;
+    rt = make_hs_entry(&item, key, ksz, dt, dsz);
+    if (!rt) return 0;
 
     //ml_util_fwrite("tokens.txt", item.key);
-    item.key = key;
-    item.data = dt;
-    item.dt_sz = dsz;
+    //item.key = key;
+    //item.data = dt;
+    //item.dt_sz = dsz;
 
     
     rti = hsearch(htab, item, FIND);
     if (rti)  {
 
 	debug("%s already in hash table \n", item.key);
-	
-	//free(item.key);
-	item.key = NULL;
 
 	return 0;
     }
@@ -1480,6 +1477,8 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     
     keyword_flag = false;
     char_flag = false;
+
+    debug("%s \n", si.key);
     
     /* insert the keyword as a node to 
      * the left node of the root node.
@@ -2303,6 +2302,7 @@ parser_init(void)
 
     mm_show();
     save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //tree_show(bnf_tree_root, 10);
     //debug_suspend();
 
     if (construct_ast_tree("defconstant") != PARSER_OK) return PARSER_ERR;

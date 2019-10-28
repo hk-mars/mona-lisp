@@ -201,7 +201,6 @@ tree_show_node(tr_node_s *node)
 }
 
 
-
 void
 tree_show(tr_node_s *root, int dep)
 {
@@ -262,5 +261,38 @@ tree_show_info(void)
     debug("tree size: %ld \n", sizeof(tr_node_s)*m_node_cnt);
 }
 
+
+bool
+tree_search_node(tr_node_s *root, tr_node_s *nd)
+{
+    if (!root) return false;
+
+    if (root == nd) {
+
+	debug("found node: %s \n", root->key);
+	func_ok();
+	return true;
+    }
+  
+    if (root->sub) {
+	
+	if (is_outside_loop_node(root)) return false;
+	
+	if (tree_search_node(root->sub, nd)) return true;
+	
+    }
+  
+    if (root->left)  {
+	
+	if (tree_search_node(root->left, nd)) return true;
+    } 
+  
+    if (root->right)	{
+	
+	if (tree_search_node(root->right, nd)) return true;
+    } 
+
+    return false;
+}
 
 

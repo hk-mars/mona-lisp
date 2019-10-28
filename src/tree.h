@@ -87,5 +87,7 @@ void tree_show_node_size(void);
 
 void tree_show_info(void);
 
+bool tree_search_node(tr_node_s *root, tr_node_s *nd);
+
 #endif /* _TREE_H_ */
 
