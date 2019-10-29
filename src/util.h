@@ -41,6 +41,8 @@ unsigned char ml_util_get_read_base(void);
 
 bool ml_util_fwrite(char *name, char *line);
 
+bool ml_util_fwrite_buf(char *name, char *buf, size_t len);
+
 
 #endif /* ML_UTIL_H */
 

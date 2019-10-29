@@ -1039,12 +1039,13 @@ syntax_check(form_s *form)
 	switch (f->type) {
 
 	case COMPOUND_FUNCTION_FORM:
-	    debug("COMPOUND_FUNCTION_FORM \n");
-
+	    
+	    debug("COMPOUND_FUNCTION_FORM \n");	  
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);
 		if (rt != SYNTAX_OK) return rt;
+
 	    }
 	    else {
 	    }
@@ -1053,8 +1054,8 @@ syntax_check(form_s *form)
 	    break;
 
 	case COMPOUND_SPECIAL_FORM:
-	    debug("COMPOUND_SPECIAL_FORM \n");
-
+	    
+	    debug("COMPOUND_SPECIAL_FORM \n");	    
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);
@@ -1067,12 +1068,13 @@ syntax_check(form_s *form)
 	    break;
 	    
 	case SYMBOL_FORM:
+	    
 	    debug("SYMBOL_FORM \n");
 	    break;
 
 	case COMPOUND_MACRO_FORM:
+	    
 	    debug("COMPOUND_MACRO_FORM \n");
-
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);

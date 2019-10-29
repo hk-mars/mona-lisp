@@ -64,7 +64,7 @@ main (int argc, char **argv)
     reader_rt_t reader_rt;
     gc_s gc;
     
-#if 0    
+#if 1    
     gc = gc_new();
     if (gc.id < 0) {
 

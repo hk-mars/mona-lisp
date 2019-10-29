@@ -233,7 +233,7 @@ tree_show(tr_node_s *root, int dep)
     }
 
     if (!root->left && !root->right && !root->sub) {
-	debug("nil\r\n");
+	debug("nil \n");
     }
 }
 

@@ -615,7 +615,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 
 			ml_util_show_buf(buf, sz);
 
-
+			
 			char *sss;
 			sss = s = buf;
 			e = s + sz - 1;
@@ -626,10 +626,10 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 				if (s > sss) {
 
 				    ml_util_show_buf(sss, s-sss);
-
+			      
 				    if (ast_is_character(sss, s-sss)) {
 
-					debug("character \n");
+					debug("character \n");				
 				    }
 				    else {
 				    
@@ -640,6 +640,7 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 
 					    debug("new keyword \n");
 					    htab_add(get_kw_htab(), sss, s-sss, NULL, 0);
+					    ml_util_fwrite_buf("keyword.txt", sss, s-sss);
 					}
 					else {
 
@@ -659,10 +660,11 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 			    else if (s == e) {
 
 				debug("end \n");
-				ml_util_show_buf(sss, s-sss+1);
-				if (ast_is_character(sss, s-sss+1)) {
+			
+				ml_util_show_buf(sss, s-sss);
+				if (ast_is_character(sss, s-sss)) {
 
-				    debug("character \n");
+				    debug("character \n");	
 				}
 				else {
 				    
@@ -673,6 +675,8 @@ push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
 
 					debug("new keyword \n");
 					htab_add(get_kw_htab(), sss, s-sss+1, NULL, 0);
+					ml_util_fwrite_buf("keyword.txt", sss, s-sss+1);
+					
 				    }
 				    if (item.key) ml_free(item.key);
 				}
@@ -1575,7 +1579,11 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     if (!lfn) goto END;
 
     mark_token_node(lfn);
-    if (keyword_flag) mark_keyword_node(lfn);
+    if (keyword_flag) {
+      ml_util_fwrite("keyword_node.txt", lfn->key);
+      mark_keyword_node(lfn);
+    }
+    
     if (char_flag) mark_char_node(lfn);
 
     
@@ -2084,6 +2092,8 @@ parser_init(void)
     unlink("obj_key.txt");
     unlink("nodes_name.txt");
     unlink("found.txt");
+    unlink("chars.txt");
+    unlink("keyword.txt");
     
     /* load the syntax file
      */
@@ -2135,8 +2145,9 @@ parser_init(void)
     };
 
     for (int i = 0; i < ARR_LEN(lisp_chars); i++) {
-    
-	htab_add(&char_htab, lisp_chars[i], strlen(lisp_chars[i]), NULL, 0);
+
+	ml_util_fwrite("chars.txt", lisp_chars[i]);
+	htab_add(&char_htab, lisp_chars[i], strlen(lisp_chars[i])+1, NULL, 0);
     }
 
     mm_show();

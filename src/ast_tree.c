@@ -51,28 +51,36 @@ bool
 ast_is_character(char *s, int len)
 {
     htab_entry_s item;
+    char buf[64];
 
-    //func_s();
+    func_s();
 
     memset(&item, 0, sizeof(htab_entry_s));
-    
-    item.key = ml_util_buf2str(s, len);
-    if (!item.key) return false;
 
-    ml_util_show_buf(item.key, len);
+    if (len >= sizeof(buf)) return false;
+
+    memcpy(buf, s, len);
+    buf[len] = 0;
+
+    item.key = buf;
     
-    debug("key: %s \n", item.key);
+    //item.key = ml_util_buf2str(s, len);
+    //if (!item.key) return false;
+
+    //ml_util_show_buf(item.key, len);
     
+    //debug("key: %s \n", item.key);
+  
     if (hsearch(char_htab, item, FIND)) {
 
-	ml_free(item.key);
+	//ml_free(item.key);
 	
 	return true;
     }
 
     //func_fail();
 
-    ml_free(item.key);
+    //ml_free(item.key);
     return false;
 }
 

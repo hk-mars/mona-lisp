@@ -13,6 +13,7 @@ char*
 ml_util_buf2str(const char *buf, size_t len)
 {
     if (!buf) return NULL;
+    if (len <= 0) return NULL;
     
     char *s = ml_malloc(len+1);
     if (!s) return NULL;
@@ -191,6 +192,21 @@ ml_util_fwrite(char *name, char *line)
 
     out(ok, true);
 }
+
+
+bool
+ml_util_fwrite_buf(char *name, char *buf, size_t len)
+{
+    char *s = ml_util_buf2str(buf, len);
+    if (!s) return false;
+    
+    bool rt = ml_util_fwrite(name, s);
+
+    ml_free(s);
+    return rt;
+}
+
+
 
 
 
