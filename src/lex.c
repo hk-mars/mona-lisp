@@ -527,7 +527,8 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
     
     char c;
     int k = 0;
-    
+
+    func_s();
 
     while (*code_sz > 0) {
 
@@ -600,8 +601,9 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
     }
     else {
 
+	
 	/* float */
-	token.type = TOKEN_NUM_FLOAT;
+	//token.type = TOKEN_NUM_FLOAT;
     }
 
 	    

@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 #include "config.h"
 
@@ -12,8 +13,9 @@
 #if DEBUG_ENABLE
 
 #define debug printf
-#define debug_err printf
+void debug_err(const char *fmt, ...);
 
+  
 #define func_s() debug("\n%s \n", __func__)
 #define func_e() debug("%s end \n\n", __func__)
 #define func_ok() debug("%s ok \n\n", __func__)

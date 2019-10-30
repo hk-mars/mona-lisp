@@ -112,6 +112,10 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_SYNTAX_EQ:
 	debug_err("ML_ERR_SYNTAX_EQ \n");
 	break;
+
+    case ML_ERR_UNKNOWN_CALL:
+	debug_err("ML_ERR_UNKNOWN_CALL \n");
+	break;
 	
     default:
 	debug_err("unkown error \n");
@@ -128,3 +132,40 @@ ml_err_signal(ml_err_t err)
     #endif
     
 }
+
+
+#if DEBUG_ENABLE
+
+void
+debug_err(const char *fmt, ...)
+{   
+    va_list argp;
+    
+    char buf[512];
+    unsigned long len;
+
+    memset(buf, 0, sizeof(buf));
+
+    va_start(argp, fmt);
+
+    len = vsprintf(buf, fmt, argp);
+    
+    if (len > sizeof(buf)) {
+
+	va_end(argp);
+	
+	printf("err: stack buffer overflow in %s \n", __func__);
+	
+	sys_set_status(SYS_STATUS_ERROR);
+	ml_err_signal(ML_ERR_BUF_OVERFLOW);
+
+	return;
+    }
+    
+    va_end(argp);
+
+    printf("err: %s", buf);
+}
+
+#endif
+

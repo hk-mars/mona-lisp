@@ -195,8 +195,8 @@ gc_show(void)
     
     if (m_cur_gc_id <= 0) return;
 
-    debug_err("gc block count: %d \n", m_gc_status[m_cur_gc_id-1].block_cnt);
-    debug_err("gc all blocks size: %d \n", m_gc_status[m_cur_gc_id-1].all_blocks_size);
+    show("gc block count: %d \n", m_gc_status[m_cur_gc_id-1].block_cnt);
+    show("gc all blocks size: %d \n", m_gc_status[m_cur_gc_id-1].all_blocks_size);
     
 }
 

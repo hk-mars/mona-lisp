@@ -981,11 +981,12 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 	    debug("eval macro form \n");
 	    eval_rt_t rt = eval_macro_function_form(form, val);
 	    if (rt != EVAL_OK) goto FAIL;
-	    
+
 	    goto DONE;
 	}
 	
-	//debug_err("undefined binder: %s \n", name);
+
+	ml_err_signal(ML_ERR_UNKNOWN_CALL);
 	
 	goto FAIL;
     }

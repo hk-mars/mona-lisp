@@ -1579,9 +1579,8 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
     if (!lfn) goto END;
 
     mark_token_node(lfn);
-    if (keyword_flag) {
-      ml_util_fwrite("keyword_node.txt", lfn->key);
-      mark_keyword_node(lfn);
+    if (keyword_flag) {	
+	mark_keyword_node(lfn);
     }
     
     if (char_flag) mark_char_node(lfn);

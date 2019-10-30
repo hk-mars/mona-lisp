@@ -973,17 +973,18 @@ check_list_form_syntax(form_s *form)
 	    /* TODO: adding the macro syntax defined by user into the AST tree
 	     */
 	    debug("a possible macro name: %s \n", syntax_obj_name);
-	    debug("ignoring sytax check \n ");
+	    debug("The syntax would be checked during evaluating. \n ");
 
 	    goto DONE;
 	    
 	}
 	else if (form->type == COMPOUND_FUNCTION_FORM) {
 	    
-	    debug("a possible function call: %s \n", syntax_obj_name);
-	    //debug("ignoring sytax check \n ");
+	    debug("a function call: %s \n", syntax_obj_name);
+	    
+	    debug("The syntax would be checked during evaluating. \n ");
 
-	    //goto DONE;
+	    goto DONE;
 	    
 	}
 
