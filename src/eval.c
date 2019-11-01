@@ -253,6 +253,8 @@ num_not_equal_than(void *left, void *right)
 static bool
 num_compare(void *left, void *right, eval_call_f call)
 {
+    bool flag = false;
+    
     func_s();
 
     token_s *l = &((eval_value_s*)left)->obj_out.token;
@@ -268,8 +270,7 @@ num_compare(void *left, void *right, eval_call_f call)
 	debug("init val: %d \n", l->value.num_int);
     }
     else {
-
-	bool flag;
+	
 	if (call == num_less_than) {
 
 	    flag = l->value.num_int < r->value.num_int;
@@ -294,6 +295,9 @@ num_compare(void *left, void *right, eval_call_f call)
 
 	    flag = l->value.num_int != r->value.num_int;
 	}
+	else {	    
+	    goto FAIL;
+	}
 	
 	obj->token.type = TOKEN_UNKOWN;
 	obj->subtype = (flag ? OBJ_SUBTYPE_BOOL_TRUE : OBJ_SUBTYPE_BOOL_FALSE);
@@ -308,6 +312,10 @@ num_compare(void *left, void *right, eval_call_f call)
     }
     
     return true;
+
+  FAIL:
+    ml_err_signal(ML_ERR_NUM_COMPARE);
+    return false;
 }
 
 
@@ -611,23 +619,6 @@ match_eval_call(char *name)
     return NULL;
 }
 
-
-static eval_rt_t
-eval_func_as_args(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
-{
-    func_s();
-
-    //list_show(val_out->args_form);
-
-    
-    
-    func_ok();
-    return EVAL_OK;
-
-  FAIL:
-    func_fail();
-    return EVAL_ERR;
-}
 
 static eval_rt_t
 eval_user_func_form(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
@@ -1182,7 +1173,7 @@ eval_if_form(form_s *form, eval_value_s *val)
 
     eval_result_show(val);
   
-  DONE:
+
     func_ok();
     return EVAL_OK;
 
@@ -1286,8 +1277,8 @@ eval_return_form(form_s *form, eval_value_s *val)
     val->is_return = true;
     
     eval_result_show(val);
+
     
-  DONE:
     func_ok();
     return EVAL_OK;
 
@@ -1302,8 +1293,7 @@ eval_loop_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
     eval_value_s value;
-    eval_rt_t rt;
-    variable_s *var;
+
 
     if (!form->list->next) {
 
@@ -1353,7 +1343,7 @@ eval_loop_form(form_s *form, eval_value_s *val)
 	    }
 	    
 	    eval_rt_t rt = eval(subform, val);
-	    if (rt != EVAL_OK) return rt;
+	    if (rt != EVAL_OK) goto FAIL;
 
 	    debug("eval sub_form done \n");
 
@@ -1387,7 +1377,7 @@ eval_loop_form(form_s *form, eval_value_s *val)
 			value.list_in = val->list_in;
 	    
 			eval_rt_t rt = eval(f, &value);
-			if (rt != EVAL_OK) return rt;
+			if (rt != EVAL_OK) goto FAIL;
 
 			debug("line %d, eval sub_form done \n", __LINE__);
 		    }
@@ -1423,8 +1413,8 @@ eval_loop_form(form_s *form, eval_value_s *val)
     }
 
     eval_result_show(val);  
-  
-  DONE:
+
+    
     func_ok();
     return EVAL_OK;
 
@@ -1438,10 +1428,9 @@ static eval_rt_t
 eval_defun_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
-    eval_value_s result;
-    eval_rt_t rt;
-    variable_s *var;
 
+    if (!val) return EVAL_ERR;
+    
     if (!form->list->next) {
 
 	debug("null form \n");	
@@ -1500,7 +1489,6 @@ eval_defun_form(form_s *form, eval_value_s *val)
     }
 
     
-  DONE:
     func_ok();
     return EVAL_OK;
 
@@ -1530,11 +1518,10 @@ static eval_rt_t
 eval_backquote_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
-    eval_value_s result;
-    eval_rt_t rt;
-    variable_s *var;
 
 
+    if (!val) return EVAL_ERR;
+    
     if (!form->list->next) {
 
 	debug("null form \n");	
@@ -1595,7 +1582,6 @@ eval_backquote_form(form_s *form, eval_value_s *val)
 
     
     
-  DONE:
     func_ok();
     return EVAL_OK;
 
@@ -1689,7 +1675,6 @@ eval_user_macro_func(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
 	eval_rt_t rt = eval(f, val_out);
 	if (rt != EVAL_OK) goto FAIL;
 
-      NEXT:
 	l = l->next;
     }
 
@@ -1707,9 +1692,7 @@ static eval_rt_t
 eval_macro_function_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
-    eval_value_s result;
     eval_rt_t rt;
-    variable_s *var;
 
 
     if (!form->list->next) {
@@ -1767,7 +1750,6 @@ eval_macro_form(form_s *form, eval_value_s *val)
     if (eval_defun_form(form, val) == EVAL_OK) goto DONE;
 
 
-  FAIL:
     out(fail, EVAL_ERR);
     
   DONE:
@@ -1776,13 +1758,11 @@ eval_macro_form(form_s *form, eval_value_s *val)
 }
 
 
-
-
 eval_rt_t
 eval(form_s *form, eval_value_s *result)
 {
     eval_rt_t rt;
-    eval_value_s value;
+    //eval_value_s value;
     
     if (!form) return EVAL_ERR_NULL;
 

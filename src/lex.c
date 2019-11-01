@@ -21,6 +21,9 @@
 
 #include "variable.h"
 
+#include "macro.h"
+#include "function.h"
+
 
 
 #define next_code(code, code_sz) \
@@ -49,11 +52,11 @@
     }
 
 
-typedef bool (*identify_f) (const char **code, size_t *code_sz, form_s *form);
+typedef bool (*identify_f) (char **code, size_t *code_sz, form_s *form);
 
 
 static code_s
-read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form);
+read_list(char *code, size_t code_sz, form_s *form_head, form_s *form);
 
 
 /* When a double-quote is encountered, characters are read from the input stream
@@ -62,7 +65,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form);
  * is accumulated, and accumulation continues.
  */
 static bool
-read_string(const char **code, size_t *code_sz, form_s *form)
+read_string(char **code, size_t *code_sz, form_s *form)
 {
     token_s token;
     
@@ -130,7 +133,7 @@ read_string(const char **code, size_t *code_sz, form_s *form)
  * parsed identically to the expression (quote exp) or 'exp.
  */
 static bool
-read_expression_with_single_quote(const char **code, size_t *code_sz)
+read_expression_with_single_quote(char **code, size_t *code_sz)
 {
     func_s();
 
@@ -166,7 +169,7 @@ read_expression_with_single_quote(const char **code, size_t *code_sz)
  * Thus a comment can be put at the end of any line without affecting the reader.
  */
 static bool
-read_comments(const char **code, size_t *code_sz)
+read_comments(char **code, size_t *code_sz)
 {
     func_s();
     
@@ -195,7 +198,7 @@ read_comments(const char **code, size_t *code_sz)
 
 
 static bool
-read_symbol(const char **code, size_t *code_sz, form_s *form)
+read_symbol(char **code, size_t *code_sz, form_s *form)
 {
     bool found;
     token_s token;
@@ -227,9 +230,6 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 	found = read_string(code, code_sz, form);
 	if (!found) goto ERR;
 	return true;
-	break;
-
-    default:
 	break;
 
     }
@@ -283,11 +283,8 @@ read_symbol(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-read_template(const char **code, size_t *code_sz, form_s *form_head, form_s *form)
+read_template(char **code, size_t *code_sz, form_s *form)
 {
-    bool found;
-
-    
     func_s();
 
     if (**code == '`') {
@@ -361,7 +358,7 @@ read_template(const char **code, size_t *code_sz, form_s *form_head, form_s *for
 
 
 static bool
-like_arithmetic_func(const char *code)
+like_arithmetic_func(char *code)
 {
     switch (*code) {
     case '+':
@@ -373,9 +370,6 @@ like_arithmetic_func(const char *code)
     case '=':
     case '!':
 	return true;
-
-    defualt:
-	break;
     }
     
     return false;
@@ -383,7 +377,7 @@ like_arithmetic_func(const char *code)
 
 
 static bool
-like_list_func(const char *code)
+like_list_func(char *code)
 {
     if (eq(*code, 'l') || !eq(*code, 'L')) return true;
 
@@ -392,7 +386,7 @@ like_list_func(const char *code)
 
 
 static bool
-like_other_func(const char *code)
+like_other_func(char *code)
 {
     if (eq(*code, 'c') || !eq(*code, 'C')) return true;
 
@@ -414,7 +408,7 @@ like_other_func(const char *code)
  * 
  */
 static bool
-like_num_token(const char *code, size_t code_sz)
+like_num_token(char *code, size_t code_sz)
 {
     if (is_sign(*code)) goto FIND_ONE_DIGIT;
 
@@ -471,8 +465,9 @@ like_num_token(const char *code, size_t code_sz)
 }
 
 
+#if 0
 static int
-identify_digits(const char **code, size_t *code_sz)
+identify_digits(char **code, size_t *code_sz)
 {
     int k = 0;
 
@@ -506,10 +501,12 @@ identify_digits(const char **code, size_t *code_sz)
 
     return k;
 }
+#endif
+
 
 
 static bool
-identify_number_token(const char **code, size_t *code_sz, form_s *form)
+identify_number_token(char **code, size_t *code_sz, form_s *form)
 {
     bool is_negative = false;
     char *s = (char*)*code;
@@ -623,7 +620,7 @@ identify_number_token(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
+identify_arithmetic_operator(char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
     char *s;
@@ -696,9 +693,9 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 	}
 	break;
 	
-    defualt:
+    default:
+	
 	return false;
-	break;
     }
 
 
@@ -749,7 +746,7 @@ identify_arithmetic_operator(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-identify_list_func(const char **code, size_t *code_sz, form_s *form)
+identify_list_func(char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
     
@@ -801,10 +798,10 @@ identify_list_func(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-identify_other_func(const char **code, size_t *code_sz, form_s *form)
+identify_other_func(char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
-    const char *str;
+    char *str;
     int len;
     
     if (ml_util_strbufcmp("car", *code, *code_sz)) {
@@ -875,7 +872,7 @@ identify_other_func(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-identify_code_as_func(const char **code, size_t *code_sz,
+identify_code_as_func(char **code, size_t *code_sz,
 		      identify_f func, form_s *form)
 {
     bool found;
@@ -901,7 +898,7 @@ identify_code_as_func(const char **code, size_t *code_sz,
 
 
 static char*
-read_character(const char **code, size_t *code_sz)
+read_character(char **code, size_t *code_sz)
 {
     char *s, *ss;
     
@@ -982,7 +979,7 @@ read_character(const char **code, size_t *code_sz)
 
 
 static bool
-identify_special_form(const char **code, size_t *code_sz, form_s *form)
+identify_special_form(char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
     int len;
@@ -1044,7 +1041,7 @@ identify_special_form(const char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-identify_macro_form(const char **code, size_t *code_sz, form_s *form)
+identify_macro_form(char **code, size_t *code_sz, form_s *form)
 {
     token_s *t, tk;
     int len;
@@ -1128,7 +1125,7 @@ identify_macro_form(const char **code, size_t *code_sz, form_s *form)
  * parenthesis is found to be next in the code. A list of the objects read is returned.
  */     
 static code_s
-read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
+read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 {
     bool found;
     bool is_nil_list;
@@ -1173,7 +1170,7 @@ read_list(const char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 	if (*code == '`' || *code == ',') {
 
-	    found = read_template(&code, &code_sz, form_head, form);
+	    found = read_template(&code, &code_sz, form);
 	    if (found) continue;
 	    
 	}
@@ -1429,7 +1426,7 @@ read_macro(code_s *cd, lex_s *lex)
 	/* TODO: backquote syntax 
 	 */
 
-	found = read_template(&cd->code, &cd->code_sz, &lex->forms, NULL);	
+	found = read_template(&cd->code, &cd->code_sz, NULL);	
 	
 	break;
 
@@ -1448,9 +1445,6 @@ read_macro(code_s *cd, lex_s *lex)
 	char *character = read_character(&cd->code, &cd->code_sz);
 	found = !!character;
 	
-	break;
-
-    default:
 	break;
 
     }
@@ -1485,7 +1479,7 @@ ml_lex_init(void)
 lex_rt_t
 ml_lex(lex_s *lex, code_s *cd)
 {
-    const char *code;
+    char *code;
     size_t code_sz;
     
     func_s();
@@ -1649,16 +1643,15 @@ ml_lex(lex_s *lex, code_s *cd)
 	 * 4. If y is an illegal character, signal an error.
 	 */
       STEP_9:
-	  ;
+	 z = 0;
 
 
 	/* step 10: an entire token has been accumulated.
 	 * Interpret the token as representing a Lisp object and return that object as the result 
 	 * of the read operation, or signal an error if the token is not of legal syntax.
 	 */
-      STEP_10:
+      //STEP_10:
 	  ;
-
 
 	  
 	  next_code(code, code_sz);

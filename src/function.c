@@ -114,7 +114,7 @@ func_get(char *name)
     
     func_s();
     
-    debug("name: %s, %dbytes \n", name, strlen(name));
+    debug("name: %s, %lu bytes \n", name, strlen(name));
     
     
     entry.key = name;
@@ -198,16 +198,16 @@ func_new(void)
      */
 
     
-    out(ok, FUNC_OK);
-
-  FAIL:
-    out(fail, FUNC_ERR);
+    //FAIL:
+    out(fail, NULL);
 }
 
 
 func_rt_t
 func_free(char *name)
 {
+    if (!name) goto FAIL;
+    
     func_s();
 
     /* free all memories of this func malloced by gc.
@@ -229,11 +229,12 @@ func_exist(char *name)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
-    function_s *f;
     
     func_s();
+
+    if (!name) goto FAIL;
     
-    debug("name: %s, %dbytes \n", name, strlen(name));
+    debug("name: %s, %lu bytes \n", name, strlen(name));
     
     
     entry.key = name;

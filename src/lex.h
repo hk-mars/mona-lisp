@@ -25,7 +25,7 @@ typedef enum
 
 typedef struct
 {
-    const char *code;
+    char *code;
     size_t code_sz;
     
 } code_s;

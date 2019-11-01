@@ -13,7 +13,7 @@
  */
 
 
-#define CHAR_UNKNOWN 0xFF
+#define CHAR_UNKNOWN 0x00
 
 /* '\b', #\backspace */
 #define BACKSPACE 0x08
@@ -203,7 +203,7 @@ typedef struct
 typedef struct
 {
     const char *name;
-    char *c;
+    char c;
 } character_s;
 
 char char_get(char *name);

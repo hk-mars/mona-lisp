@@ -50,8 +50,8 @@ macro-char ::=
 terminating-char ::= " | ' | left-parent | right-parent | , | ; | `
 non-terminating-char ::= ##
 
-left-parent := #\(
-right-parent := #\)
+left-parent ::= #\(
+right-parent ::= #\)
 
 token ::=
 	number-token |

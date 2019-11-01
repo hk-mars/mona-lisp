@@ -136,7 +136,7 @@ obj_update(object_s *obj, object_s *new)
 	break;
 
     default:
-	break;
+	goto FAIL;	
     }
 
     obj_show(obj);

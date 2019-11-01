@@ -38,15 +38,13 @@ macro_init(void)
 macro_s*
 macro_new(void)
 {
+    
     func_s();
 
     /* create a new gc object for the management of memory of a new macro
      */
 
-    out(ok, MACRO_OK);
-
-  FAIL:
-    out(fail, MACRO_ERR);
+    out(fail, NULL);
 }
 
 
@@ -54,6 +52,8 @@ macro_rt_t
 macro_free(char *name)
 {
     func_s();
+
+    if (!name) goto FAIL;
 
     /* free all memories of this macro malloced by gc.
      *
@@ -150,7 +150,7 @@ macro_get(char *name)
     
     func_s();
     
-    debug("name: %s, %dbytes \n", name, strlen(name));
+    debug("name: %s, %lu bytes \n", name, strlen(name));
     
     
     entry.key = name;
@@ -230,11 +230,10 @@ macro_exist(char *name)
 {
     htab_entry_s *entry_rt;
     htab_entry_s entry;
-    macro_s *m;
     
     func_s();
     
-    debug("name: %s, %dbytes \n", name, strlen(name));
+    debug("name: %s, %lu bytes \n", name, strlen(name));
     
     
     entry.key = name;

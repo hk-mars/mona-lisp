@@ -17,7 +17,8 @@
 
 
 #define GC_DEBUG_DISABLE true
-#if GC_DEBUG_DISABLE					
+#if GC_DEBUG_DISABLE
+#undef debug
 #define debug(...) ;
 #endif					
 
@@ -46,7 +47,7 @@ static long m_cur_gc_id;
 static gc_s m_gc;
 
 
-static gc_status_s m_gc_status[MAX_GC_TREE_CNT] = { 0 };
+static gc_status_s m_gc_status[MAX_GC_TREE_CNT];
 
 
 gc_s
@@ -83,9 +84,7 @@ void*
 gc_malloc(size_t size)
 {
     void *p;
-    s_bin_tree_node *nd, *root;
-    
-    long mm_id;
+    s_bin_tree_node *nd;
 
     fs();
 
@@ -104,8 +103,8 @@ gc_malloc(size_t size)
     e->addr = p;
     e->size = size;
 
-    s_bin_tree_node **nd_addr = &nd->val;
-    nd = binary_tree_isearch(INSERT, &nd->val, &e, sizeof(void*), long_cmp);
+    s_bin_tree_node **nd_addr = (s_bin_tree_node **)&nd->val;
+    nd = binary_tree_isearch(INSERT, nd_addr, &e, sizeof(void*), long_cmp);
     if (!nd) goto FAIL;
     nd->val = e;
 
@@ -156,12 +155,6 @@ free_mm_tree(s_bin_tree_node *root)
     m_gc.st.all_blocks_size -= e->size;    
   
     binary_tree_delete(&root, root);
-
-    return;
-
-
-  FAIL:
-    ml_err_signal(ML_ERR_NULL);
 }
 
 
@@ -195,8 +188,8 @@ gc_show(void)
     
     if (m_cur_gc_id <= 0) return;
 
-    show("gc block count: %d \n", m_gc_status[m_cur_gc_id-1].block_cnt);
-    show("gc all blocks size: %d \n", m_gc_status[m_cur_gc_id-1].all_blocks_size);
+    show("gc block count: %ld \n", m_gc_status[m_cur_gc_id-1].block_cnt);
+    show("gc all blocks size: %ld \n", m_gc_status[m_cur_gc_id-1].all_blocks_size);
     
 }
 

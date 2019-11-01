@@ -14,6 +14,8 @@
 	"macro-char ::=",
 	"terminating-char ::=",
 	"non-terminating-char ::=",
+	"left-parent ::=",
+	"right-parent ::=",
 	"token ::=",
 	"number-token ::=",
 	"integer ::=",

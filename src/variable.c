@@ -553,8 +553,16 @@ var_add(variable_s *var)
 bool
 var_delete(char *name)
 {
+    func_s();
+    
+    if (!name) goto FAIL;
+    
+    
     func_ok();
     return true;
+
+  FAIL:
+    out(fail, false);
 }
 
 
@@ -570,7 +578,7 @@ var_get(char *name)
     
     func_s();
     
-    debug("name: %s, %dbytes\n", name, strlen(name));
+    debug("name: %s, %lu bytes\n", name, strlen(name));
     
     
     entry.key = name;
@@ -675,10 +683,9 @@ var_new(void)
     /* create a new gc object for the management of memory of a new variable
      */
     
-    out(ok, VAR_OK);
 
-  FAIL:
-    out(fail, VAR_ERR);
+    //FAIL:
+    out(fail, NULL);
 }
 
 
@@ -686,6 +693,8 @@ var_rt_t
 var_free(char *name)
 {
     func_s();
+
+    if (!name) goto FAIL;
 
     /* free all memories of this var malloced by gc.
      *

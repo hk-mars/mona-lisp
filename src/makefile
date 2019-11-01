@@ -69,6 +69,10 @@ echo:
 
 ALL = all
 
+me:
+		make clean
+		make all
+
 none:
 		@echo "Please do 'make PLATFORM' where PLATFORM is one of these:"
 		@echo "   $(PLATFORMS)"

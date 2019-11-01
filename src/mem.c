@@ -38,8 +38,8 @@ mm_show(void)
 {
     func_s();
 
-    debug("mem block count: %d \n", m_mm_st.block_cnt);
-    debug("mem blocks size: %d \n", m_mm_st.blocks_size);    
+    debug("mem block count: %ld \n", m_mm_st.block_cnt);
+    debug("mem blocks size: %ld \n", m_mm_st.blocks_size);    
 }
 
 

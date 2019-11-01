@@ -185,10 +185,12 @@ form_show(form_s *form)
 form_s*
 form_clone(form_s *form)
 {
-    form_s *f;
+    form_s *f = NULL;
     
     func_s();
 
+    if (!form) goto FAIL;
+    
 
     func_ok();
     return f;

@@ -27,6 +27,11 @@ printer_print(object_s *obj, object_t type)
     func_s();
 
     if (!obj) return PRINTER_ERR_NULL;
+
+    if (type != OBJ_UNKNOWN) {
+	
+	debug("strong type: %d \b", type);
+    }
     
 
     func_ok();

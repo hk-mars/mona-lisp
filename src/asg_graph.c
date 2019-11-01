@@ -57,7 +57,7 @@ asg_show_redundant_node(tr_node_s *root, int *count)
     nd = get_single_node(root);
     if (nd) {
 
-	int len = strlen(nd->key);
+	unsigned long len = strlen(nd->key);
 	if (len > strlen(" ::=")) {
 
 	    len -= strlen(" ::=");
@@ -119,7 +119,7 @@ asg_reduce_redundant_node(tr_node_s *root, int *count)
     nd = get_single_node(root);
     if (nd) {
 	
-	int len = strlen(nd->key);
+	unsigned long len = strlen(nd->key);
 	if (len > strlen(" ::=")) {
 
 	    len -= strlen(" ::=");

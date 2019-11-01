@@ -48,7 +48,7 @@ get_char_htab(void)
 
 
 bool
-ast_is_character(char *s, int len)
+ast_is_character(char *s, unsigned long len)
 {
     htab_entry_s item;
     char buf[64];
@@ -98,57 +98,6 @@ get_kw_htab(void)
 {
     return kw_htab;
 }
-
-
-static void
-show_buf(char *buf, int size)
-{
-    debug("%d bytes:\n", size);
-    buf += (size - 1);
-    while(--size >= 0) debug("%c", *(buf - size));
-    debug("\n");
-}
-
-
-static void
-show_path(tr_node_s *s)
-{
-    fs();
-  
-    while(s) {
-	debug("%s \n", s->key);
-	s = s->next;
-    }
-  
-    fe();
-}
-
-
-static int 
-get_tk_key(char *s, char *e, char **ss, char **ee)
-{
-    while (s <= e)  {
-  
-	if (*s == ' ' || *s == '\r' || *s == '\n') {
-	    s++;
-	    continue;
-	}
-	if (s == e) return 0;
-    
-	*ee = memchr(s, ' ', e - s + 1);
-	if (!*ee) {
-	    *ee = memchr(s, '\r', e - s + 1);
-	    if (!*ee) return 0;	
-	}
-    
-	(*ee)--;
-	*ss = s;
-	return 1;
-    }
-  
-    return 0;
-}
-
 
 
 int 
@@ -233,9 +182,9 @@ int
 is_token(char *key)
 {
     tr_node_s *root;
-    ENTRY item, *rti;
+    //ENTRY item;
  
-    if (!char_htab) return 0;
+    //if (!char_htab) return 0;
     //if (!kw_htab) return 0;
 
     /*  
@@ -356,7 +305,7 @@ search_graph(tr_node_s *root, char *s, char *e)
 
     
 	if (root->back) {
-	    debug("go to back-node: %s %x \n", root->back->key, root);
+	    debug("go to back-node: %s \n", root->back->key);
 	    rtn = search_graph(root->back, s, e);
 	    if (rtn) return rtn;
       
@@ -364,7 +313,7 @@ search_graph(tr_node_s *root, char *s, char *e)
 	}
 	else {
 
-	    debug("%s %x has not back-node. \n", root->key, root);
+	    debug("%s has not back-node. \n", root->key);
 	}
 
 	
@@ -418,7 +367,6 @@ search_graph(tr_node_s *root, char *s, char *e)
 int
 ast_lex_debug(void)
 {
-    int rt;
     tr_node_s *nd;
     char *code;
     char *s, *e;

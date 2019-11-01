@@ -6,7 +6,8 @@
 
 
 #define BT_DEBUG_DISABLE true
-#if BT_DEBUG_DISABLE					
+#if BT_DEBUG_DISABLE
+#undef debug
 #define debug(...) ;
 #endif
 

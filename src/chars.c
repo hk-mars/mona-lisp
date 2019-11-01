@@ -25,7 +25,8 @@ const character_s char_name_tb[] =
 char
 char_get(char *name)
 {
-    for (int i = 0; i < ARR_LEN(char_name_tb); i++) {
+    int len = ARR_LEN(char_name_tb);
+    for (int i = 0; i < len; i++) {
 
 	if (!strcasecmp(char_name_tb[i].name, name)) {
 
@@ -40,11 +41,12 @@ char_get(char *name)
 char*
 char_get_name(char c)
 {
-    for (int i = 0; i < ARR_LEN(char_name_tb); i++) {
+    int len = ARR_LEN(char_name_tb);
+    for (int i = 0; i < len; i++) {
 
 	if (char_name_tb[i].c == c) {
 
-	    return char_name_tb[i].name;
+	    return (char*)char_name_tb[i].name;
 	}
     }
 

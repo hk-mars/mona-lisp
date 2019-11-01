@@ -13,12 +13,18 @@
 #include "ast_tree.h"
 #include "asg_graph.h"
 
+#include "syntax.h"
+
 #include "util.h"
 
 #include "mem.h"
 
 #include "rules.h"
 
+
+/* unlink
+ */
+#include <unistd.h>
 
 
 const char *BNF_OBJ_STRING = "::=";
@@ -55,6 +61,7 @@ show_buf(char *buf, int size, file_info *fi)
 }
 
 
+#if 0
 static char* 
 dump_trail(char *s, char *e)
 {
@@ -69,6 +76,7 @@ dump_trail(char *s, char *e)
   
     return e;
 }
+#endif
 
 
 static long 
@@ -85,7 +93,7 @@ get_file_size(FILE *f)
     return size; 
 }
 
-
+#if 0
 static char* 
 filter_buf(char *s, long sz, long *o_sz)
 {
@@ -146,6 +154,7 @@ filter_bnf_buf(file_info *fi)
     fi->f_buf = buf;
     fi->buf_e = fi->f_buf + fi->buf_sz - 1;
 }
+#endif
 
 
 int 
@@ -157,7 +166,7 @@ load_syntax_file(file_info *fi)
     if (!fi->f) return 0;
   
     fi->f_sz = get_file_size(fi->f);
-    debug("file %s opened, size %d bytes.\n", fi->f_name, fi->f_sz);
+    debug("file %s opened, size %lu bytes.\n", fi->f_name, fi->f_sz);
   
     fi->f_buf = (char*)ml_malloc(fi->f_sz);
     if (!fi->f_buf) return 0;
@@ -249,7 +258,7 @@ make_hs_entry(ENTRY *item, char *key, int ksz, char *dt, int dsz)
     ml_util_show_buf(key, ksz);
     
 
-    item->key = rule_match_element(key, ksz);
+    item->key = (char*)rule_match_element(key, ksz);
     if (item->key) {
 
 	ml_util_fwrite("found.txt", item->key);
@@ -342,7 +351,6 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
 
     func_s();
 
-    char *s, *e;
 
     rt = make_hs_entry(&item, key, ksz, dt, dsz);
     if (!rt) return 0;
@@ -376,6 +384,7 @@ htab_add(hash_table_s *htab, char *key, int ksz, char *dt, int dsz)
 }
 
 
+#if 0
 static bool
 htab_find(hash_table_s *htab, char *key, int ksz)
 {
@@ -387,15 +396,16 @@ htab_find(hash_table_s *htab, char *key, int ksz)
     item.key = ml_util_buf2str(key, ksz);
     rti = hsearch(htab, item, FIND);
     if (rti)  {
-	//free(item.key);
+	ml_free(item.key);
 
-	//func_ok();
+	func_ok();
 	return true;
     }
 
     func_fail();
     return false;
 }
+#endif
 
 
 static char*
@@ -463,13 +473,12 @@ create_syntax_obj_key(char *s, char *e)
 
 
 static int 
-push_token_into_htab(hash_table_s *htab, file_info *fi, char *s, char *e)
+push_token_into_htab(hash_table_s *htab, char *s, char *e)
 {
     char *ss, *ee;
     unsigned char flag;
     char buf[512];
     int sz;
-    int rt;
     ENTRY item;
     ENTRY *rti;
 
@@ -736,12 +745,11 @@ static int
 parse_syntax_object(hash_table_s *htab, file_info *fi, bool parsing_sub_obj)
 {
     char *dt, *s, *e, *ss;
-    int sz;
-    int rt;
+    unsigned long sz;
     ENTRY item;
     ENTRY *rti;
-    char buf[64];
-  
+
+    
     fs();
   
     memset(&item, 0, sizeof(item));
@@ -811,7 +819,7 @@ parse_syntax_object(hash_table_s *htab, file_info *fi, bool parsing_sub_obj)
 			debug("element: \n");
 			ml_util_show_buf(e+1, dt_sz);
 
-			push_token_into_htab(htab, fi, e+1, e+1+dt_sz-1);
+			push_token_into_htab(htab, e+1, e+1+dt_sz-1);
 		    }
 		}
 	    }
@@ -841,7 +849,7 @@ parse_syntax_object(hash_table_s *htab, file_info *fi, bool parsing_sub_obj)
 
 
 static char*  
-find_word(ENTRY *item, char *dt, int sz)
+find_word(ENTRY *item, char *dt, unsigned long sz)
 {
     int rt;
     char *s, *e, *ee;
@@ -903,8 +911,9 @@ find_word(ENTRY *item, char *dt, int sz)
 }
 
 
+#if 0
 static char* 
-find_elipsis(char *s, int sz)
+find_elipsis(char *s, unsigned long sz)
 {
     while (sz >= strlen("...")) {
 	if (memcmp(s, "...", strlen("...")) == 0) return s;
@@ -915,10 +924,11 @@ find_elipsis(char *s, int sz)
   
     return NULL;
 }
+#endif
 
 
 static char* 
-find_pattern_more(char *s, int sz)
+find_pattern_more(char *s, unsigned long sz)
 {
     while (sz >= strlen("*")) {
 	if (memcmp(s, "*", strlen("*")) == 0) return s;
@@ -932,7 +942,7 @@ find_pattern_more(char *s, int sz)
 
 
 static char* 
-find_pattern_more_plus(char *s, int sz)
+find_pattern_more_plus(char *s, unsigned long sz)
 {
     while (sz >= strlen("+")) {
 	if (memcmp(s, "+", strlen("+")) == 0) return s;
@@ -948,7 +958,7 @@ find_pattern_more_plus(char *s, int sz)
 
 
 static char* 
-find_bnf_obj_str(char *s, int sz)
+find_bnf_obj_str(char *s, unsigned long sz)
 {
 
     func_s();
@@ -983,8 +993,8 @@ find_insert_htab(ENTRY item, hash_table_s *htab)
     rti = hsearch(htab, item, FIND);
     if (!rti) {
   
-#if 1
-	debug("insert hash entry: %s, %dB\n", item.key, strlen(item.key));
+#if 0
+	debug("insert hash entry: %s, %lu bytes\n", item.key, strlen(item.key));
 #endif
     
 	rti = hsearch(htab, item, ENTER);
@@ -1011,6 +1021,7 @@ find_insert_htab(ENTRY item, hash_table_s *htab)
 }
 
 
+#if 0
 static char* 
 find_pair(char *s, char *e)
 {
@@ -1044,6 +1055,7 @@ find_pair(char *s, char *e)
   
     return e;
 }
+#endif
 
 
 static void
@@ -1081,7 +1093,6 @@ make_or_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     int rt;
     char *s, *e, *ee;
-    ENTRY *lfi, *rii;
     ENTRY si, ei;
     tr_node_s *lfn, *rin;
   
@@ -1142,10 +1153,11 @@ static int
 make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     int rt;
-    char *s, *e, *ss;
-    ENTRY *rti, *lfi, *rii;
+    char *s, *e;
+    ENTRY *lfi;
     ENTRY si, ei;
-    tr_node_s *lfn, *rin, *rtn, *sub;
+    tr_node_s *lfn, *sub;
+    
     bool flag;
   
 
@@ -1291,11 +1303,11 @@ static int
 make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     int rt;
-    char *s, *e, *ss;
-    ENTRY *rti, *lfi, *rii;
+    char *s, *e;
+    ENTRY *lfi;
     ENTRY si, ei;
-    tr_node_s *lfn, *rin, *sub;
-  
+    tr_node_s *lfn, *sub, *rin;
+    
   
     /* find [] 
      */
@@ -1356,7 +1368,6 @@ make_brackets_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int
     make_bnf_tree(lfn, e + 1, size - (e - bnf + 1), htab, dep + 1);
 
 
-  DONE:
     func_ok();
     return 1;
 
@@ -1372,9 +1383,9 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
 {
     int rt;
     char *s, *e, *ss;
-    ENTRY *rti, *lfi, *rii;
+    ENTRY *lfi;
     ENTRY si, ei;
-    tr_node_s *lfn, *rin, *sub, *rtn;
+    tr_node_s *lfn, *sub;
   
   
     /* find {} 
@@ -1449,7 +1460,6 @@ make_braces_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int d
 
     //tree_show(root, 5);
   
-  DONE:
     func_ok();
     return 1;
 
@@ -1465,10 +1475,10 @@ static int
 make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
 {
     int rt;
-    char *s, *e, *ss;
-    ENTRY *rti, *lfi;
+    char *s, *e;
+    ENTRY *lfi;
     ENTRY si, ei;
-    tr_node_s *rtn, *lfn, *rin, *sub;
+    tr_node_s *lfn, *sub;
     bool keyword_flag, char_flag;
   
   
@@ -1543,7 +1553,7 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 		rt = make_hs_entry(&si, lfi->data, lfi->dt_sz, NULL, 0);
 		if (!rt) return 2;
 
-		debug("si.key: %s, %dbytes \n", si.key, strlen(si.key));
+		debug("si.key: %s, %lu bytes \n", si.key, strlen(si.key));
 		//if (strlen(si.key) > 1) {
 
 		sub = tree_insert_sub(lfn, "<sub>");
@@ -1656,32 +1666,6 @@ make_bnf_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int dep)
     return 0;
 }
 
-
-static int 
-show_nodes(tr_node_s *sn)
-{
-#if 1
-    long cnt;
-  
-    fs();
-  
-    if (!sn) return 0;
-  
-    cnt = 0;
-    while(sn) {
-	debug("%s ", sn->key);
-	sn = sn->next;
-	cnt++;
-    }
-  
-    debug("\n");
-    debug("end solutions cnt: %d \n", cnt);
-  
-    fe();
-
-    return cnt;
-#endif
-}
 
 
 static tr_node_s*
@@ -1833,6 +1817,8 @@ make_graph(tr_node_s *root)
 }
  
 
+
+#if 0
 static void
 show_graph(tr_node_s *root)
 {
@@ -1901,6 +1887,7 @@ show_bnf_tree(tr_node_s *root)
     } 
   
 }
+#endif
 
 
 static bool
@@ -1989,39 +1976,6 @@ save_tree_node_name(tr_node_s *root, tr_node_s *cur)
 
 
 
-static int 
-push_kw_htab(hash_table_s *htab, tr_node_s *sn)
-{
-    ENTRY item, *rti;
-  
-    fs();
-  
-    if (!sn) return 0;
-  
-    memset(&item, 0, sizeof(item));
-    while(sn) {
-  
-	if (!is_like_keyword(sn->key)) {
-	    sn = sn->next;
-	    continue;
-	}
-    
-	item.key = sn->key;
-	rti = hsearch(htab, item, FIND); 
-	if (!rti) {
-	    rti = hsearch(htab, item, ENTER);
-	    if (!rti) return 0;
-	}
-    
-	sn = sn->next;
-    }
-  
-    fe();
-  
-    return 1;
-}
-
-
 static hash_table_s htab, kw_htab, char_htab;
 
 
@@ -2075,12 +2029,8 @@ parser_init(void)
 {
     int rt;
     file_info fi;
-    //char *sql_str;
     tr_node_s *es;
-    //token_list tk_lst;
-    ENTRY *rti;
     char *root_key;
-    tr_node_s *root;
     
     func_s();
 
@@ -2145,8 +2095,8 @@ parser_init(void)
 
     for (int i = 0; i < ARR_LEN(lisp_chars); i++) {
 
-	ml_util_fwrite("chars.txt", lisp_chars[i]);
-	htab_add(&char_htab, lisp_chars[i], strlen(lisp_chars[i])+1, NULL, 0);
+	ml_util_fwrite("chars.txt", (char*)lisp_chars[i]);
+	htab_add(&char_htab, (char*)lisp_chars[i], strlen(lisp_chars[i])+1, NULL, 0);
     }
 
     mm_show();

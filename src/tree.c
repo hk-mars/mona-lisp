@@ -241,6 +241,8 @@ tree_show(tr_node_s *root, int dep)
 void
 tree_show_node_cnt(tr_node_s *root)
 {
+    if(root) debug("root node: %s \n", root->key);
+    
     debug("m_node_cnt: %ld \n", m_node_cnt);
 }
 

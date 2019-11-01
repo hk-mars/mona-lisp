@@ -75,6 +75,7 @@
 
 #include "rules.h"
 
+#include "ast_tree.h"
 
 
 static hash_table_s syntax_htab;
@@ -151,116 +152,6 @@ search_end(tr_node_s *root)
     
     return NULL;
 }
-
-
-static tr_node_s*
-find_subset(tr_node_s *root, char *key)
-{
-    tr_node_s *rtn;
-
-    if (!root) return NULL;
-
-    //debug("%s %s  \n", __func__,  key);
-
-    if (!root->key) {
-	debug("root key is null \n");
-	return NULL;
-    }
-    else {
-	debug("%s %s %s \n", __func__, root->key, key);
-    }
-    
-    if (!strcmp(root->key, "<tmp>")) {
-
-
-	if (root->left) {
-
-	    
-	    rtn = find_subset(root->left, key);
-	    if (rtn) return rtn;
-	}
-    
-	if (root->right) {
-	
-	    rtn = find_subset(root->right, key);
-	    if (rtn) return rtn;
-	}	
-    }
-    else {
-    
-    
-	if (!strcmp(root->key, key)) {
-
-	    debug("found subset %s \n", key);
-	    return root;
-	}
-
-	if (root->sub) {
-	
-	    rtn = find_subset(root->sub, key);
-	    if (rtn) return rtn;
-	}
-	
-    }
-    
-  
-
-    return NULL;
-}
-
-
-static tr_node_s*
-find_syntax_node(tr_node_s *root, char *name)
-{
-    tr_node_s *rtn;
-  
-    if (!root) return NULL;
-
-    func_s();
-  
-    if (is_token_node(root)) {
-	//debug("end as a token: %s \n", root->key);
-	//return NULL;
-    }
-    
-
-    debug("%s, %s \n", root->key, name);
-    if (!strcasecmp(root->key, name)) {
-
-	debug("found syntax obj: %s \n", name);
-	return root;
-    }
-
-    if (root->loop) {
-	debug("loop node: %s \n", root->key);
-
-	tree_show_node(root->loop);
-
-	//rtn = find_syntax_node(root->loop, name);
-	//if (rtn) return rtn;
-    }
-    
-    if (root->sub) {
-	//debug("sub %s \n", root->sub->key);
-	rtn = find_syntax_node(root->sub, name);
-	if (rtn) return rtn;
-    }
-  
-    if (root->left) {
-	//debug("left %s \n", root->left->key);
-	rtn = find_syntax_node(root->left, name);
-	if (rtn) return rtn;
-    } 
-  
-    if (root->right) {
-	//debug("right %s \n", root->right->key);
-	rtn = find_syntax_node(root->right, name);
-	if (rtn) return rtn;
-    }
-  
-    return NULL;
-}
-
 
 
 static char*
@@ -434,11 +325,10 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
        Search all the leafs in AST, if all matched, then a solution found.
        If more than one solution were found, then the AST tree is wrong. */
 
-    
-    
-    tr_node_s *rtn, *nd, *tmp;
+       
+    tr_node_s *rtn, *nd;
     ENTRY *rti;
-    lisp_list_s *lst, *sl, *el;
+    lisp_list_s *sl, *el;
 
 
     //func_s();
@@ -572,7 +462,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	
 	list_show(subform->next->list);
 
-	char *name = subform->next->list->next->next->obj.token.value.symbol;
+	//char *name = subform->next->list->next->next->obj.token.value.symbol;
 
 	if (root->loop) {
 
@@ -888,7 +778,6 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 static syntax_rt_t
 check_list_form_syntax(form_s *form)
 {
-    syntax_rt_t rt;
     lisp_list_s *l;
     lisp_list_s *path;
     
@@ -1171,7 +1060,7 @@ pop_syntax_htab(char *key)
 
     memset(&item, 0, sizeof(ENTRY));
     
-    int len = strlen(key);
+    unsigned long len = strlen(key);
     if (len > strlen(" ::=")) {
 
 	len -= strlen(" ::=");
