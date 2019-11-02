@@ -196,14 +196,12 @@
 ;       ((not ,test))
 ;       ,@body))
 
-;(setq x 0)
-
 ;(defmacro do (test do-one do-next)
 ;  `(loop
 ;       (if (eq ,test nil) (return nil))
 ;       ,do-one ,do-next))
 
-
+;(setq x 0)
 ;(do (< x 100)
 ;  (list x)
 ;  (setq x (+ x 1)))
@@ -212,12 +210,6 @@
 ;  (print x)
 ;  (setq x (+ x 1)))
 
-
-
-
-;;
-;; Test cases
-;;
 
 ;; numberic add operator
 (+ 1 2)
