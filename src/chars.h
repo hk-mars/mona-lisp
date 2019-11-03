@@ -3,15 +3,6 @@
 #define ML_CHARS_H
 
 
-/**
- * A graphic character is one that has a standard textual representation as a single glyph, 
- * such as A or * or =. Space, which effectively has a blank glyph, is defined to be a graphic.
- * Of the standard characters, newline is non-graphic and all others are graphic.
- *
- * Characters that are not graphic are called non-graphic.
- * #\Backspace, #\Tab, #\Rubout, #\Linefeed, #\Return, and #\Page, are non-graphic characters.
- */
-
 
 #define CHAR_UNKNOWN 0x00
 

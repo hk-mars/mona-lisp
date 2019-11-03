@@ -10,14 +10,12 @@
 
 
 
-/* Rule of the lisp printer:
- * 1. Common Lisp provides a representation of most objects in the form of 
- * printed text called the printed representation
- *
- * 2. Reading a printed representation typically produces an object that is equal 
- * to the originally printed object.
- *
+/**
+ * Introduction of Common Lisp printer, see:
+ * http://www.lispworks.com/documentation/HyperSpec/Body/22_a.htm
+ * Copyright 1996-2005, LispWorks Ltd. All Rights Reserved.
  */
+
 
 
 

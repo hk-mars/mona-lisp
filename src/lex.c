@@ -26,6 +26,13 @@
 
 
 
+/**
+ * Introduction of Common Lisp syntax, see:
+ * http://www.lispworks.com/documentation/HyperSpec/Body/02_.htm
+ * Copyright 1996-2005, LispWorks Ltd. All Rights Reserved.
+ */
+
+
 #define next_code(code, code_sz) \
     (code)++;			 \
     (code_sz)--;
@@ -59,11 +66,6 @@ static code_s
 read_list(char *code, size_t code_sz, form_s *form_head, form_s *form);
 
 
-/* When a double-quote is encountered, characters are read from the input stream
- * and accumulated until another double-quote is encountered. If a single escape
- * character is seen, the single escape character is discarded, the next character 
- * is accumulated, and accumulation continues.
- */
 static bool
 read_string(char **code, size_t *code_sz, form_s *form)
 {
@@ -128,10 +130,6 @@ read_string(char **code, size_t *code_sz, form_s *form)
 }
 
 
-/* A single-quote introduces an expression to be "quoted". Single-quote followed 
- * by an expression exp is treated by the Lisp reader as an abbreviation for and is 
- * parsed identically to the expression (quote exp) or 'exp.
- */
 static bool
 read_expression_with_single_quote(char **code, size_t *code_sz)
 {
@@ -163,11 +161,6 @@ read_expression_with_single_quote(char **code, size_t *code_sz)
 }
 
 
-/**
- * Semicolon is used to write comments.     
- * The semicolon and all characters up to and including the next newline are ignored. 
- * Thus a comment can be put at the end of any line without affecting the reader.
- */
 static bool
 read_comments(char **code, size_t *code_sz)
 {
@@ -396,17 +389,6 @@ like_other_func(char *code)
 }
 
 
-
-/* A token is a potential number if it satisfies all of the following requirements:
- * 
- * 1. The token consists entirely of digits, signs, ratio markers, decimal points
- *    (.), extension characters (^ or _), and number markers. 
- * 2. The token contains at least one digit(letters may be considered to be digits).
- * 3. The token begins with a digit, sign, decimal point, or extension character, 
- *    but not a package marker.
- * 4. The token does not end with a sign.
- * 
- */
 static bool
 like_num_token(char *code, size_t code_sz)
 {
@@ -1118,12 +1100,7 @@ identify_macro_form(char **code, size_t *code_sz, form_s *form)
     return true;
 }
 
-
-
-/** 
- * The function read is called recursively to read successive objects until a right
- * parenthesis is found to be next in the code. A list of the objects read is returned.
- */     
+ 
 static code_s
 read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 {
@@ -1495,22 +1472,14 @@ ml_lex(lex_s *lex, code_s *cd)
     code_sz = cd->code_sz;
     
     
-    /* identify the tokens
-     *
-     * rules:
-     * 1. A single escape character never stands for itself but always serves to cause the 
-     *    following character to be treated as a simple alphabetic character. A single escape 
-     *    character can be included in a token only if preceded by another single escape 
-     *    character.
-     * 2. A multiple escape character also never stands for itself. The characters between a 
-     *    pair of multiple escape characters are all treated as simple alphabetic characters, 
-     *    except that single escape and multiple escape characters must nevertheless be preceded
-     *    by a single escape character to be included.
+    /* Identify the tokens, see [Reader Algorithm] at:
+     * http://www.lispworks.com/documentation/HyperSpec/Body/02_b.htm
+     * Copyright 1996-2005, LispWorks Ltd. All Rights Reserved.
      */
     char x, y, z;
     while (1) {
     
-	/* step 1: if at end of code, break.
+	/* step 1
 	 */
 	if (code_sz == 0) break;
 
@@ -1518,7 +1487,7 @@ ml_lex(lex_s *lex, code_s *cd)
 
 	debug("0x%02x %c \n", x, x);
 	
-	/* step 2: if x is an illegal character, signal an error. 
+	/* step 2
 	 */
 	if (is_illegal_char(x)) {
 
@@ -1528,7 +1497,7 @@ ml_lex(lex_s *lex, code_s *cd)
 	}
 
 	
-	/* step 3: if x is a whitespace character, then discard it and go back to step 1. 
+	/* step 3
 	 */
 	if (is_whitespace_char(x)) {
 
@@ -1539,8 +1508,7 @@ ml_lex(lex_s *lex, code_s *cd)
 	}
 
 	
-	/* step 4: if x is a macro character, then execute the function associated with that
-	 * character. The function may return zero values or one value.
+	/* step 4
 	 */
 	if (is_macro_char(x)) {
 
@@ -1562,7 +1530,7 @@ ml_lex(lex_s *lex, code_s *cd)
 	}
 
 
-	/* step 5: if x is a single escape character, then read the next character and call it y.
+	/* step 5
 	 */
 	if (is_escape_char(x)) {
 
@@ -1581,9 +1549,7 @@ ml_lex(lex_s *lex, code_s *cd)
 	    goto STEP_8;
 	}
 
-
-	/* step 6: if x is a multiple escape character, then begin a token and go to step 9.
-	 */
+	
 	if (is_multiple_escape_char(x)) {
 
 	    show("multiple escape char \n");
@@ -1591,10 +1557,6 @@ ml_lex(lex_s *lex, code_s *cd)
 	}
 
 
-	/* step 7: if x is a constituent character, then it begins an extended token.
-	 * After the entire token is read in, it will be interpreted either as representing 
-	 * a Lisp object such as a symbol or number, or as being of illegal syntax.
-	 */
 	if (is_constituent_char(x)) {
 
 	    debug("constituent char \n");
@@ -1604,52 +1566,13 @@ ml_lex(lex_s *lex, code_s *cd)
 	    goto STEP_8;
 	}
 	
-
-	/* step 8: at this point a token is being accumulated, and an even number of multiple 
-	 * escape characters have been encountered.
-	 * If at end of code, go to step 10, otherwise, read a character (call it y), 
-	 * and perform one of the following actions according to its syntactic type:
-	 *
-	 * 1. If y is a constituent or non-terminating macro, then do the following:
-	 *    Append y to the token being built, and repeat step 8.
-	 * 2. If y is a single escape character, then read the next character and call it z(but 
-	 *    if at end of code, signal an error instead). Ignore the usual syntax of z and
-	 *    pretend it is a constituent whose only attribute is alphabetic.
-	 *    Append z to the token being built, and repeat step 8.
-	 * 3. If y is a multiple escape character, then go to step 9.
-	 * 4. If y is an illegal character, signal an error.
-	 * 5. If y is a terminating macro character, it terminates the token. First ``unread'' 
-	 *    the character y, then go to step 10.
-	 * 6. If y is a whitespace character, it terminates the token. First ``unread'' y if 
-	 *    appropriate, then go to step 10.
-	 */
       STEP_8:
 	  ;
 
-
-	/* step 9: at this point a token is being accumulated, and an odd number of multiple 
-	 * escape characters have been encountered.
-	 * If at end of file, signal an error. Otherwise, read a character (call it y), and
-	 * perform one of the following actions according to its syntactic type:
-	 *
-	 * 1. If y is a constituent, macro or whitespace character, then ignore the usual syntax 
-	 *    of that character and pretend it is a constituent whose attribute is alphabetic.
-	 *    Append y to the token being built, and repeat step 9.
-	 * 2. If y is a single escape character, then read the next character and call it z(but 
-	 *    if at end of file, signal an error instead). Ignore the usual syntax of z and
-	 *    pretend it is a constituent whose only attribute is alphabetic.
-	 *    Append z to the token being built, and repeat step 9.
-	 * 3. If y is a multiple escape character, then go to step 8.
-	 * 4. If y is an illegal character, signal an error.
-	 */
       STEP_9:
 	 z = 0;
 
 
-	/* step 10: an entire token has been accumulated.
-	 * Interpret the token as representing a Lisp object and return that object as the result 
-	 * of the read operation, or signal an error if the token is not of legal syntax.
-	 */
       //STEP_10:
 	  ;
 
