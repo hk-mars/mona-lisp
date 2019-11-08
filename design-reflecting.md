@@ -134,6 +134,13 @@ m.
 ## create a mini parser first, then extend it based on the design for special products
 
 
+## easy-to-type-on-keyboard
+
+- object.type
+
+"list.int" is better than "list <int>" and it's more easy to type on keyboard.
+
+
 
 
 

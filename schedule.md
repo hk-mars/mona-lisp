@@ -84,11 +84,14 @@ dolist
 			
 - 2019
 
+	lisp printer
+	
+	test cases and bug fixing
+	
 	call user API in C (a demo)
 	
-	dolist
-	support string object
-		
+	integrating the modules of the 2D and 3D rendering graphic engine
+	
 	load more lisp codes and fix the bugs
 
 	think deeply about the features
@@ -101,19 +104,29 @@ dolist
 	
 	UI interaction design
 	
-	Upgrade the lisp codes (not including the firmware)
+	Upgrade the lisp codes
 	
 	a debugger
 	
-	a vm
+	a 3D game demo
 	
+	a expert system demo
 	
 ## 2019
-Implement monalisp
+
+Releases monalisp v1.0 (baby parser)
 
 
-## 2019
-Releases monalisp v1.0
+## 2020
+
+test it in 5G superfast network
+
+a vm (if needed)
+
+a compiler (if needed)
+
+more breakthroughs for great products
+
 
 
    
