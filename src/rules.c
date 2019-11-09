@@ -1421,7 +1421,7 @@ rule_match_element(char *name, int len)
 
 	if (strlen(LANG_ELEMENTS[i]) == len) {
 	    
-	    if (ml_util_strbufcmp(LANG_ELEMENTS[i], name, len)) {
+	    if (!memcmp(LANG_ELEMENTS[i], name, len)) {
 
 		return LANG_ELEMENTS[i];
 	    }

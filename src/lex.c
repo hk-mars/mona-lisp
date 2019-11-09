@@ -381,10 +381,15 @@ like_list_func(char *code)
 static bool
 like_other_func(char *code)
 {
-    if (eq(*code, 'c') || !eq(*code, 'C')) return true;
+    /* car, cdr */
+    if (eq(*code, 'c') || eq(*code, 'C')) return true;
 
-    if (eq(*code, 'e') || !eq(*code, 'E')) return true;
-    
+    /* eq */
+    if (eq(*code, 'e') || eq(*code, 'E')) return true;
+
+    /* print */
+    if (*code =='p' || *code =='P') return true;
+       
     return false;
 }
 
@@ -801,7 +806,11 @@ identify_other_func(char **code, size_t *code_sz, form_s *form)
     else if (ml_util_strbufcmp("eq", *code, *code_sz)) {
 
 	str = "eq";	
-    }       
+    }
+    else if (ml_util_strbufcmp("print", *code, *code_sz)) {
+
+	str = "print";	
+    }
     else {
 
 	return false;

@@ -20,6 +20,8 @@
 
 #include "macro.h"
 
+#include "printer.h"
+
 
 
 /** 
@@ -579,6 +581,52 @@ eval_eq(void *left, void *right)
 }
 
 
+static bool
+eval_print(void *left, void *right)
+{
+    
+    func_s();
+
+  
+    
+    object_s *obj_l = &((eval_value_s*)left)->obj_out;
+    object_s *obj_r = ((eval_value_s*)right)->obj_in;
+    
+    if (obj_l->type == OBJ_UNKNOWN) {
+
+	memcpy(obj_l, obj_r, sizeof(object_s));
+	goto DONE;
+    }
+
+    goto FAIL;
+
+
+  DONE:
+    
+    obj_show(obj_l);
+
+    stream_s stream;
+    char buf[1024];
+    
+    memset(&stream, 0, sizeof(stream_s));
+    stream.type = STREAM_OUTPUT;
+    stream.buf = buf;
+    stream.is_default_terminal = true;
+    stream.max_buf_len = sizeof(buf);
+    printer_print(obj_l, &stream);
+
+    
+    func_ok();
+    return true;
+
+  FAIL:
+    ml_err_signal(ML_ERR_EVAL);
+    
+    func_fail();
+    return false;
+}
+
+
 static const eval_call_s m_funcs[] =
 {
     { "+", arithmetic_add, NULL},
@@ -602,6 +650,8 @@ static const eval_call_s m_funcs[] =
     { "eq", eval_eq, NULL},
     //{ "eql", eval_eql, NULL},
     //{ "equal", eval_equal, NULL},
+
+    { "print", eval_print, NULL},
 };
 
 
@@ -811,11 +861,16 @@ eval_function_form(form_s *form, eval_value_s *val)
 		if (!var) {
 
 		    debug_err("symbol %s is unbound \n", sym);
-		    ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
-		    return EVAL_ERR;
+		    //ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
+		    //return EVAL_ERR;
+		    value.obj_in = &l->obj;
+		}
+		else {
+		    value.obj_in = &var->val;
+		    
 		}
 
-		value.obj_in = &var->val;
+		
 	
 	    }
 	    else {

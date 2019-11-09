@@ -263,6 +263,9 @@ slot-name ::= symbol-token
 defmacro ::=
 	( name lambda-list [documentation] {form}* )
 	
-	
-	
-	
+
+print ::=
+      ( PRINT object [output-stream] )
+
+output-stream ::= <undefined>
+

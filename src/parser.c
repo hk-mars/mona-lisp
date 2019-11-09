@@ -2207,12 +2207,17 @@ parser_init(void)
 
     mm_show();
     //debug_suspend();
-     
 
+
+    //if (construct_ast_tree("lisp-char") != PARSER_OK) return PARSER_ERR;
+    
+    //save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    
     if (construct_ast_tree("object") != PARSER_OK) return PARSER_ERR;
 
     mm_show();
     save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //tree_show(bnf_tree_root, 15);
     //debug_suspend();
      
     if (construct_ast_tree("list") != PARSER_OK) return PARSER_ERR;
@@ -2304,9 +2309,17 @@ parser_init(void)
     if (construct_ast_tree("defmacro") != PARSER_OK) return PARSER_ERR;
 
     mm_show();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();
+
+
+    if (construct_ast_tree("print") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
     tree_show_info();
     save_tree_node_name(bnf_tree_root, bnf_tree_root);
-
+    //debug_suspend();
+    
 #if 0
     count = 0;
     asg_show_redundant_node(bnf_tree_root, &count);

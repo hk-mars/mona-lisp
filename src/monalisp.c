@@ -63,6 +63,24 @@ main (int argc, char **argv)
     reader_s reader;
     reader_rt_t reader_rt;
     gc_s gc;
+
+    
+#if 0
+    gc = gc_new();
+    if (gc.id < 0) {
+
+	debug_err("create gc object failed \n");
+	return LISP_ERR_GC;
+    }
+    
+    reader_rt = ml_reader_load_file(&reader, "init.lisp");
+    if (reader_rt != READER_OK) return -1;
+
+    gc_show();
+    gc_free();
+    mm_show();
+#endif
+
     
 #if 1    
     gc = gc_new();
@@ -97,7 +115,23 @@ main (int argc, char **argv)
     mm_show();
 #endif    
     
+#if 1
+    gc = gc_new();
+    if (gc.id < 0) {
 
+	debug_err("create gc object failed \n");
+	return LISP_ERR_GC;
+    }
+    
+    reader_rt = ml_reader_load_file(&reader, "test_cases/test_printer.lisp");
+    if (reader_rt != READER_OK) return -1;
+
+    gc_show();
+    gc_free();
+    mm_show();
+#endif
+
+    
 #if 0
     gc = gc_new();
     if (gc.id < 0) {
@@ -113,6 +147,8 @@ main (int argc, char **argv)
     gc_free();
     mm_show();
 #endif
+
+    
     
     
  #if 0

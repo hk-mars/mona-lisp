@@ -366,7 +366,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
     
     
     if (is_token_node(root)) {
-	//debug("token node: %s \n", root->key);
+	debug("token node: %s \n", root->key);
 
 	//obj_show(&path->obj);
 		
@@ -598,7 +598,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	    nd = rti->data;
 	    debug("syntax sub tree found: %s \n", root->key);
 
-	    tree_show(nd, 10);
+	    tree_show(nd, 25);
 	    
 	    //debug_suspend();
 
@@ -667,53 +667,6 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	    }
 	}
     }
-
-    
-#if 0  
-    if (nd) {
-  
-	/* make new token list from the trail of old list, 
-	 * and search the sub solution path again and again until done.
-	 */
-	sl = path;
-	el = NULL;
-	while (1) {
-    
-	    rtn = find_path(nd, sl);
-	    if (!rtn) break;
-      
-	    /* reconnect the list
-	     */
-	    lst = sl;
-	    while (lst) {
-		if (lst->next->is_head) break;
-		lst = lst->next;
-	    }
-	    if (el) lst->next = el;
-      
-	    if (rtn) {
-		//debug("en token: %s \n", lst->tk.key);
-		//if (el) debug("sn token: %s \n\n", el->tk.key);
-		if (!el) return rtn;
-		path = el;
-        
-		break;
-	    }
-      
-	    el = lst;
-	    if (el == sl) return NULL;
-      
-	    /* cut the list from the trail.
-	     */
-	    lst = sl;
-	    while (lst) {
-		if (lst->next == el) break;
-		lst = lst->next;
-	    }
-	    lst->next = NULL;
-	}	
-    }
-#endif    
 
 
   NEXT0:
@@ -891,7 +844,7 @@ check_list_form_syntax(form_s *form)
     }
     else {
 
-	tree_show(item->data, 10);
+	tree_show(item->data, 20);
     }
 
 

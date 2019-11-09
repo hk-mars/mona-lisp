@@ -78,6 +78,8 @@
 	"defstruct ::=",
 	"slot-name ::=",
 	"defmacro ::=",
+	"print ::=",
+	"output-stream ::=",
 	"[sign]",
 	"{decimal-digit}",
 	"{digit}",
@@ -95,3 +97,4 @@
 	"{var}",
 	"{form}",
 	"{slot-name}",
+	"[output-stream]",
