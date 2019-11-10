@@ -1,4 +1,25 @@
 
+;;
+;; Standard Characters
+;;
+
+
+(setq x 100)
+(print x)
+
+(print 'hello)
+
+(print nil)
+(print t)
+
+
+
+;; ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? 
+;; @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ 
+;; ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
+
+;; 0~9
+(print 0)
 (print 1)
 (print 2)
 (print 3)
@@ -8,12 +29,8 @@
 (print 7)
 (print 8)
 (print 9)
-(print 0)
 
-(setq x 100)
-
-(print x)
-
+;; a~z, A~Z
 (print #\a)
 (print #\b)
 (print #\c)
@@ -68,10 +85,44 @@
 (print #\Y)
 (print #\Z)
 
-(print nil)
 
-(print 'hello)
+;; " # $ % & ' ( ) * + , - . /
+;; : ; < = > @ \ ^ _ `| ~ 
+(print #\")
+;(print #\#)
+(print #\$)
+(print #\%)
+(print #\&)
+(print #\')
+;(print #\()
+;(print #\))
+(print #\*)
+(print #\+)
+(print #\,)
+(print #\-)
+(print #\.)
+(print #\/)
+(print #\:)
+(print #\;)
+(print #\<)
+(print #\=)
+(print #\>)
+(print #\@)
+;(print #\\)
+(print #\^)
+(print #\_)
+(print #\`)
+;(print #\|)
+(print #\~)
 
 
+;; characters not used in Common Lisp
+;; [  ]  {  }  ?  !
 
+
+;; semi-standard characters
+;; #\Backspace  #\Tab  #\Linefeed  #\Page  #\Return  #\Rubout
+;(print #\space)
+;(print #\tab)
+;(print #\Linefeed)
 

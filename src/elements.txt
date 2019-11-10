@@ -8,6 +8,7 @@
 	"return-char ::=",
 	"space ::=",
 	"constituent-char ::=",
+	"constituent-undefined ::=",
 	"rubout ::=",
 	"single-escape ::=",
 	"multiple-escape ::=",
