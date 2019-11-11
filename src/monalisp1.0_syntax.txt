@@ -19,10 +19,10 @@ whitespace ::=
 	return-char | 
 	space
 		
-backspace ::= #\b
-tab ::= #\t
-newline ::= #\r
-linefeed ::= #\n
+backspace ::= #\backspace
+tab ::= #\tab
+newline ::= #\newline
+linefeed ::= #\linefeed
 page ::= #\p
 return-char ::= #\r
 space ::= #\space 
@@ -43,7 +43,7 @@ constituent-undefined ::=
 		
 rubout ::= #\rubout
 
-single-escape ::= #\backslash
+single-escape ::= \
 
 multiple-escape ::= #\vertical-bar
 
@@ -54,6 +54,7 @@ macro-char ::=
 terminating-char ::= " | ' | left-parent | right-parent | , | ; | `
 
 non-terminating-char ::= #
+
 
 left-parent ::= #\(
 right-parent ::= #\)

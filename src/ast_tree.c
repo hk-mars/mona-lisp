@@ -182,9 +182,9 @@ int
 is_token(char *key)
 {
     tr_node_s *root;
-    //ENTRY item;
+    ENTRY item, *rti;
  
-    //if (!char_htab) return 0;
+    if (!char_htab) return 0;
     //if (!kw_htab) return 0;
 
     /*  
@@ -201,10 +201,10 @@ is_token(char *key)
 
     //debug("%s \n", key);
 
-    //memset(&item, 0, sizeof(item));
-    //item.key = key;
-    //rti = hsearch(char_htab, item, FIND);
-    //if (rti) return 1;
+    memset(&item, 0, sizeof(item));
+    item.key = key;
+    rti = hsearch(char_htab, item, FIND);
+    if (rti) return 1;
 
     if (!lex_tr_root) return 0;
   

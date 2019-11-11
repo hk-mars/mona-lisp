@@ -71,6 +71,8 @@ ml_util_strbufcmp(const char *str, char *buf, size_t buf_len)
     if ((size_t)strlen(str) > buf_len) return false;
 
     while (*str) {
+
+	//debug("%c \n", *str);
 	
 	if (tolower(*str) != tolower(*buf)) return false;
 	str++;

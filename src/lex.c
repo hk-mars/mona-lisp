@@ -899,6 +899,7 @@ read_character(char **code, size_t *code_sz)
     func_s();
     
     if (*code_sz == 0) goto FAIL;
+    
 
     /* if the x is more than one character long, the x must be a symbol 
      * with no embedded package markers. 
@@ -931,7 +932,7 @@ read_character(char **code, size_t *code_sz)
 	
     }
     
-    s = (char*)malloc(2);
+    s = (char*)ml_malloc(2);
     if (!s) return NULL;
 
     if (len == 1) {
@@ -952,7 +953,7 @@ read_character(char **code, size_t *code_sz)
 	    goto FAIL;
 	}
 	
-	free(name);
+	ml_free(name);
 	
 	s[0] = c;
 	s[1] = 0;
@@ -1236,17 +1237,25 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 
 	if (*code == '#') {
+	 
+	    char *character = char_get_name_as_code(code, code_sz);
+	    if (character) {
 
-	    next_code(code, code_sz);
+		move_code(code, code_sz, strlen(character));
+		//debug_suspend();
+	    }
+	    else {
+		
+		next_code(code, code_sz);
+		character = read_character(&code, &code_sz);
+	    }
 	    
-	    char *character = read_character(&code, &code_sz);
 	    if (character) {
 
 		list_add_char_obj(form->list, character);
 		
 		continue;
 	    }
-	    
 	}
 
 	if (*code == '(') {

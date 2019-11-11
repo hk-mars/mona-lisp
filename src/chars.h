@@ -3,6 +3,8 @@
 #define ML_CHARS_H
 
 
+#include "config.h"
+
 
 #define CHAR_UNKNOWN 0x00
 
@@ -200,6 +202,10 @@ typedef struct
 char char_get(char *name);
 
 char* char_get_name(char c);
+
+
+char* char_get_name_as_code(char *code, size_t code_len);
+
 
 #endif /* ML_CHARS_H */
 

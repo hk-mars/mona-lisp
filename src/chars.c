@@ -11,14 +11,14 @@
 
 const character_s char_name_tb[] =
 {
-    { "SPACE", SPACE },
-    { "BACKSPACE", BACKSPACE },
-    { "TAB", TAB },
-    { "NEWLINE", NEWLINE},
-    { "RETURN", RETURN_CR},
-    { "LINEFEED", LINEFEED},
-    { "PAGE", PAGE},
-    { "RUBOUT", RUBOUT}, 
+    { "#\\space", SPACE },
+    { "#\\BACKSPACE", BACKSPACE },
+    { "#\\tab", TAB },
+    { "#\\newline", NEWLINE},
+    { "#\\RETURN", RETURN_CR},
+    { "#\\linefeed", LINEFEED},
+    { "#\\PAGE", PAGE},
+    { "#\\RUBOUT", RUBOUT}, 
 };
 
 
@@ -54,4 +54,25 @@ char_get_name(char c)
 }
 
 
+char*
+char_get_name_as_code(char *code, size_t code_len)
+{
+    int cnt = ARR_LEN(char_name_tb);
+    int len = 0;
+    for (int i = 0; i < cnt; i++) {
+
+	len = strlen(char_name_tb[i].name);
+	if (len > code_len) continue;
+
+	debug("%s \n", char_name_tb[i].name);
+	
+	if (ml_util_strbufcmp(char_name_tb[i].name, code, code_len)) {
+
+	    return (char*)char_name_tb[i].name;
+	}
+    }
+
+    return NULL;
+}
+    
 

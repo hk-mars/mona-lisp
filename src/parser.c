@@ -1264,10 +1264,14 @@ make_sub_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab, int 
       
 	    sub = tree_insert_sub(lfn, si.key);
 	    if (!sub) goto END;
-      
-	    if (strlen(si.key) > 1) {
-		make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
-		if (!root) goto DONE;
+
+	    if (is_token(sub->key)) {
+	      mark_token_node(sub);
+	      //debug_suspend();
+	    }
+	    else {
+	      make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
+	      if (!root) goto DONE;
 	    }
 	}
 	else {
@@ -1554,16 +1558,20 @@ make_combined_obj_tree(tr_node_s *root, char *bnf, int size, hash_table_s *htab,
 		if (!rt) return 2;
 
 		debug("si.key: %s, %lu bytes \n", si.key, strlen(si.key));
-		//if (strlen(si.key) > 1) {
-
+		
 		sub = tree_insert_sub(lfn, "<sub>");
 		if (!sub) goto END;
-		make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
-		//if (!root) goto DONE;
-		//}
 
+		if (is_token(sub->key)) {
+		    mark_token_node(sub);
+		    //debug_suspend();
+		}
+		else {
+		  
+		    make_bnf_tree(sub, lfi->data, lfi->dt_sz, htab, dep + 1);
+		    if (!root) goto DONE;
+		}
 		
-		//free(si.key);
 	    }
 
 	}
@@ -2085,7 +2093,7 @@ parser_init(void)
 
 	"\"", "'", "(", ")", ",", ";", "`",
 
-	"##",
+	"#",
 
 	"#\\backslash", "#\\vertical-bar",
 

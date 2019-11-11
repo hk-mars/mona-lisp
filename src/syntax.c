@@ -703,7 +703,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 
    NEXT:    
     if (root->sub) {
-	//debug("sub: %s \n", root->sub->key);
+	debug("sub: %s \n", root->sub->key);
 	root->next = root->sub;
 	rtn = find_path(root->sub, path, path_end);
 	if (rtn) return rtn;
