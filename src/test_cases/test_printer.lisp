@@ -1,30 +1,20 @@
 
-
-(setq x 100)
-(print x)
-
-(print 'hello)
-
-(print nil)
-(print t)
-
-
 ;; Standard Characters
 ;; ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? 
 ;; @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ 
 ;; ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 
-;; 0~9
-(print 0)
-(print 1)
-(print 2)
-(print 3)
-(print 4)
-(print 5)
-(print 6)
-(print 7)
-(print 8)
-(print 9)
+;; char 0~9
+(print #\0)
+(print #\1)
+(print #\2)
+(print #\3)
+(print #\4)
+(print #\5)
+(print #\6)
+(print #\7)
+(print #\8)
+(print #\9)
 
 ;; a~z, A~Z
 (print #\a)
@@ -122,4 +112,54 @@
 (print #\tab)
 (print #\linefeed)
 (print #\newline)
+
+
+;;
+;; print variable
+;;
+(setq x 100)
+(print x)
+
+
+;;
+;; print symbol
+;;
+(print 'hello)
+
+
+;;
+;; print const
+;;
+(print nil)
+(print t)
+
+
+;;
+;; print integer number
+;; maximum value of SINGED INT32: 2147483647 
+;; minimum value of SINGED INT32: -2147483648 
+;; maximum value of SINGED INT64: 9223372036854775807 
+;; minimum value of SINGED INT64: -9223372036854775808
+;; maximum value of fixnum of 64bits OS: 9223372036854775807 
+;; minimum value of fixnum of 64bits OS: -9223372036854775808
+;;
+(print 0)
+(print 1)
+(print 2)
+(print 3)
+(print 4)
+(print 5)
+(print 6)
+(print 7)
+(print 8)
+(print 9)
+(print 2147483647)
+(print 2147483648)
+(print 9876543210)
+(print 9223372036854775807)
+(print -9223372036854775808)
+;; TODO: very small number
+;(print -9223372036854775809)
+;; TODO: big number
+;(print 9223372036854775808)
 

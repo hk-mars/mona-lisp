@@ -12,6 +12,8 @@
 
 #include "config.h"
 
+#include "number_limits.h"
+
 
 #define ARR_LEN(array) (int)(sizeof(array) / sizeof(array[0]))
 
@@ -26,7 +28,7 @@ bool ml_util_strbufcmp(const char *str, char *buf, size_t buf_len);
 
 void ml_util_show_buf(char *buf, size_t size);
 
-unsigned int ml_util_arr2int(char *arr, size_t len);
+fixnum_t ml_util_arr2fixnum(char *arr, size_t len);
 
 char* ml_util_clone_str_as_upper(char *str);
 

@@ -99,13 +99,16 @@ arithmetic_add(void *left, void *right)
 
 	obj_l->type = OBJ_TYPE;
 
-	debug("add, v0: %d \n", l->value.num_int);
+	
+	debug("add, v0: ");
+	token_show_fixnum(l->value.num_int);
     }
     else {
 
 	l->value.num_int += r->value.num_int;
 
-	debug("add, result: %d \n", l->value.num_int);
+	debug("add, result: ");
+	token_show_fixnum(l->value.num_int);
     }
     
     obj_show(obj_l);
@@ -134,7 +137,8 @@ arithmetic_minus(void *left, void *right)
     }
     
 
-    debug("cur val: %d \n", l->value.num_int);
+    debug("cur val: ");
+    token_show_fixnum(l->value.num_int);
     
     return true;
 }
@@ -159,7 +163,8 @@ arithmetic_product(void *left, void *right)
     }
     
 
-    debug("cur val: %d \n", l->value.num_int);
+    debug("cur val: ");
+    token_show_fixnum(l->value.num_int);
     
     return true;
 }
@@ -192,7 +197,8 @@ arithmetic_divide(void *left, void *right)
     }
     
 
-    debug("cur val: %d \n", l->value.num_int);
+    debug("cur val: ");
+    token_show_fixnum(l->value.num_int);
     
     return true;
 }
@@ -269,7 +275,8 @@ num_compare(void *left, void *right, eval_call_f call)
 	l->value.num_int = r->value.num_int;
 	l->type = r->type;
 	obj->type = OBJ_TYPE;
-	debug("init val: %d \n", l->value.num_int);
+	debug("init val: ");
+	token_show_fixnum(l->value.num_int);
     }
     else {
 	
@@ -387,7 +394,7 @@ eval_car(void *left, void *right)
    
     
     debug("car of list is: ");
-    debug("%d \n", list_in->next->next->obj.token.value.num_int);
+    token_show_fixnum(list_in->next->next->obj.token.value.num_int);
     
     memcpy(obj_out, &list_in->next->next->obj, sizeof(object_s));
 	    

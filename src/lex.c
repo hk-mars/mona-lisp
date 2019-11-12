@@ -452,45 +452,6 @@ like_num_token(char *code, size_t code_sz)
 }
 
 
-#if 0
-static int
-identify_digits(char **code, size_t *code_sz)
-{
-    int k = 0;
-
-    func_s();
-    char *c = (char*)*code;
-    
-    while (*code_sz > 0) {
-
-	if (!is_digit(**code)) {
-
-	    debug("\n");
-	    if (k > 0) {
-		debug("digits len: %d \n", k);
-
-		unsigned int x = ml_util_arr2int(c, k);
-		debug("%d \n", x);
-	    }
-	    else {
-
-		ml_err_signal(ML_ERR_ILLEGAL_CHAR);
-	    }
-	    
-	    return k;
-	}
-
-	debug("%c ", **code);
-	
-	k++;
-	next_code(*code, *code_sz);
-    }
-
-    return k;
-}
-#endif
-
-
 
 static bool
 identify_number_token(char **code, size_t *code_sz, form_s *form)
@@ -578,8 +539,8 @@ identify_number_token(char **code, size_t *code_sz, form_s *form)
 	    /* integer */
 	    token.type = TOKEN_NUM_INT;
 	    
-	    token.value.num_int = ml_util_arr2int(s, k + is_negative);
-	    debug("%d \n", token.value.num_int);
+	    token.value.num_int = ml_util_arr2fixnum(s, k + is_negative);
+	    token_show_fixnum(token.value.num_int);
 	}
 	       		
     }
@@ -1459,6 +1420,20 @@ ml_lex_init(void)
 {
     func_s();
 
+
+    debug("maximum value of SINGED INT32: %d \n", INT32_MAX);
+    debug("minimum value of SINGED INT32: %d \n", INT32_MIN);
+    debug("maximum value of SINGED INT64: %lld \n", INT64_MAX);
+    debug("minimum value of SINGED INT64: %lld \n", INT64_MIN);
+
+#if OS_64BIT_ENABLE
+    debug("maximum value of fixnum: %lld \n", FIXNUM_MAX);
+    debug("minimum value of fixnum: %lld \n", FIXNUM_MIN);
+#else
+    debug("maximum value of fixnum: %d \n", FIXNUM_MAX);
+    debug("minimum value of fixnum: %d \n", FIXNUM_MIN);    
+#endif
+    
     
 
     func_ok();

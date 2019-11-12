@@ -6,6 +6,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include <limits.h>
 
 
 #define YES 1
@@ -32,6 +33,9 @@
 #define DEBUG_ENABLE YES
 
 #define GC_SELF_CHECK_ENABLE YES
+
+
+#define OS_64BIT_ENABLE YES
 
 
 #endif /* ML_CONFIG_H */

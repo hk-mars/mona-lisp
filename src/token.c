@@ -40,7 +40,7 @@ token_show(token_s *token)
     switch (token->type) {
 
     case TOKEN_NUM_INT:
-	debug("int:  %d \n", token->value.num_int);
+	debug("int:  %ld \n", (long)token->value.num_int);
 	
 	break;
 
@@ -70,4 +70,31 @@ token_show(token_s *token)
     }
     
     //func_e();
+}
+
+
+void
+token_show_fixnum(fixnum_t num)
+{
+    
+#if OS_64BIT_ENABLE
+    debug("%lld \n", num);
+#else
+    debug("%d \n", num);    
+#endif
+    
+}
+
+
+bool
+token_print_fixnum(fixnum_t num, char *buf, long buf_len)
+{
+
+#if OS_64BIT_ENABLE
+    snprintf(buf, buf_len, "%lld\n", num);
+#else
+    snprintf(buf, buf_len, "%d\n", num);
+#endif
+
+    return true;
 }

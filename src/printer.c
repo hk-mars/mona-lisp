@@ -33,8 +33,8 @@ print_token(token_s *token, stream_s *stream)
 
     case TOKEN_NUM_INT:
 	debug("int:  %d \n", token->value.num_int);
-	
-	snprintf(stream->buf, stream->max_buf_len, "%d\n", token->value.num_int);
+
+	token_print_fixnum(token->value.num_int, stream->buf, stream->max_buf_len);
 	
 	break;
 

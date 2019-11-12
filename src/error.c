@@ -116,6 +116,11 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_UNKNOWN_CALL:
 	debug_err("ML_ERR_UNKNOWN_CALL \n");
 	break;
+
+
+    case ML_ERR_NUM_OVERFLOW:
+	debug_err("ML_ERR_NUM_OVERFLOW \n");
+	break;
 	
     default:
 	debug_err("unkown error \n");

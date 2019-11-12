@@ -11,6 +11,7 @@
 
 #include "config.h"
 
+#include "number_limits.h"
 
 
 typedef enum
@@ -37,7 +38,9 @@ typedef union
 {
     char *symbol;
 
-    int num_int;
+    fixnum_t num_int;
+
+    char *bignum;
 
     float num_float;
 
@@ -61,6 +64,9 @@ token_s* token_create(void);
 token_s* token_clone(token_s *token);
 
 void token_show(token_s *token);
+
+void token_show_fixnum(fixnum_t num);
+bool token_print_fixnum(fixnum_t num, char *buf, long buf_len);
 
 #endif /* ML_TOKEN_H */
 

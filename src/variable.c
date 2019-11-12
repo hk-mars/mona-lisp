@@ -89,9 +89,9 @@ show_setq_pair(pair_s *pair)
     switch (pair->val.token.type) {
 
     case TOKEN_NUM_INT:
-	debug("pair= var: %s, value: %d \n",
-	      pair->var_name,
-	      pair->val.token.value.num_int);
+	debug("pair= var: %s, value: ",
+	      pair->var_name);
+	token_show_fixnum(pair->val.token.value.num_int);
 	
 	break;
 
@@ -166,9 +166,8 @@ var_show(variable_s *var)
     case TOKEN_NUM_INT:
 	//debug("TOKEN_NUM_INT \n");
 	
-	debug("var: %s, value: %d \n",
-	      var->name,
-	      var->val.token.value.num_int);
+	debug("var: %s, value: ", var->name);	      
+	token_show_fixnum(var->val.token.value.num_int);
 	
 	break;
 
