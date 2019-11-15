@@ -2327,6 +2327,14 @@ parser_init(void)
     tree_show_info();
     save_tree_node_name(bnf_tree_root, bnf_tree_root);
     //debug_suspend();
+
+
+    if (construct_ast_tree("quote") != PARSER_OK) return PARSER_ERR;
+
+    mm_show();
+    tree_show_info();
+    save_tree_node_name(bnf_tree_root, bnf_tree_root);
+    //debug_suspend();    
     
 #if 0
     count = 0;

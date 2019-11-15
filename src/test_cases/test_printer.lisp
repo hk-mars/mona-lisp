@@ -122,12 +122,6 @@
 
 
 ;;
-;; print symbol
-;;
-(print 'hello)
-
-
-;;
 ;; print const
 ;;
 (print nil)
@@ -158,8 +152,16 @@
 (print 9876543210)
 (print 9223372036854775807)
 (print -9223372036854775808)
-;; TODO: very small number
-;(print -9223372036854775809)
 ;; TODO: big number
+;(print -9223372036854775809)
 ;(print 9223372036854775808)
+
+
+;;
+;; print symbol
+;;
+(print 'hello)
+
+;; TODO: the expression of quote-form which could be printed as a list
+;(print '(1 2))
 

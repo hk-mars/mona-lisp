@@ -67,6 +67,10 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form);
 
 
 static bool
+read_symbol(char **code, size_t *code_sz, form_s *form);
+
+
+static bool
 read_string(char **code, size_t *code_sz, form_s *form)
 {
     token_s token;
@@ -131,23 +135,79 @@ read_string(char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-read_expression_with_single_quote(char **code, size_t *code_sz)
+read_quote_expression(char **code, size_t *code_sz, form_s *form_head, form_s *form)
 {
     func_s();
 
     if (!eq(**code, '\'')) return false;
     next_code(*code, *code_sz);
 
-    /* TODO: reading expression 
+    
+    /* syntax:
+     *     quote <object>
+     * or  ' <object>
+     * The <object> is an expression of object type.
+     *
      */
     while (*code_sz > 0) {
 
 	debug("0x%02x %c \n", **code, **code);
+
 	
-	if (eq(**code, LINEFEED)) {
+	if (**code == '(') {
 	    
+	    /* TODO: the expression of quote-form which could be printed as a list
+	     * '(1 2) => (1 2)
+	     * '(hello"xx)") => (HELLO "xx)")
+	     */
+
+	    next_code(*code, *code_sz);
+	
+	    //memchr(*code, ")", *code_sz);
+	      
+	}      	
+	else if (eq(**code, LINEFEED)) {
+
 	    next_code(*code, *code_sz);
  
+	    func_ok();
+	    return true;
+	}
+	else {
+
+	}
+
+
+	object_s *obj;
+	if (!form->list->front) {
+	    obj = form->obj = ml_malloc(sizeof(object_s));
+	    if (!form->obj) goto ERR;
+
+	    form->obj->type = OBJ_TYPE;
+	    form->obj->subtype = OBJ_SUBTYPE_EXPRESSION;
+	}
+	else {
+	    obj = NULL;
+	}
+	
+	bool found = read_symbol(code, code_sz, form);
+	if (!found) goto ERR;
+
+	if (!obj) obj = &form->list->front->obj;
+	
+	char *sym = obj_get_symbol(obj);
+	if (!sym) {
+		
+	    goto ERR;
+	}
+	else {
+
+	    if (form_is_unkown(form)) {
+		    
+		form_set_type(form, COMPOUND_SPECIAL_FORM);
+		form_add_front(form_head, form);
+	    }
+		
 	    func_ok();
 	    return true;
 	}
@@ -155,9 +215,12 @@ read_expression_with_single_quote(char **code, size_t *code_sz)
 	next_code(*code, *code_sz);
     }
 
+
+  ERR:    
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);
     
     return false;
+    
 }
 
 
@@ -235,7 +298,7 @@ read_symbol(char **code, size_t *code_sz, form_s *form)
 
 	debug("0x%02x %c \n", **code, **code);
 	
-	if (eq(**code, SPACE) || eq(**code, ')')) {
+	if (eq(**code, SPACE) || **code == LINEFEED || eq(**code, ')')) {
 
 	    memset(&token, 0, sizeof(token_s));
 	    token.value.symbol = ml_util_buf2str(buf, *code - buf);
@@ -246,7 +309,7 @@ read_symbol(char **code, size_t *code_sz, form_s *form)
 	    }
 	  
 			    
-	    if (eq(**code, SPACE)) {
+	    if (eq(**code, SPACE) || **code == LINEFEED) {
 		next_code(*code, *code_sz);
 	    }
 
@@ -255,9 +318,15 @@ read_symbol(char **code, size_t *code_sz, form_s *form)
 
 		//token_s *t = token_clone(&token);
 
-		/* add the symbol token into the list form */
-		list_add_token(form->list, &token);	
-	
+		if (!form->obj) {
+		    /* add the symbol token into the list form */
+		    list_add_token(form->list, &token);	
+		}
+		else {
+
+		    obj_clone_token(form->obj, &token);
+		}
+		
 		func_ok();
 		return true;
 	    }
@@ -1108,14 +1177,23 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 		form_set_type(form, SELF_EVALUATING_FORM);
 		form->subtype = NIL_LIST_FORM;
 	    }
-	    
+
 	    next_code(code, code_sz);
-	    code_s cd = { code, code_sz };
-	    return cd;
+	    break;
 	}
 
 	is_nil_list = false;
 
+	if (*code == '\'') {
+
+	    found = read_quote_expression(&code, &code_sz, form_head, form);
+	    if (found) {
+		
+		continue;
+	    }
+	}
+
+	
 	if (*code == '`' || *code == ',') {
 
 	    found = read_template(&code, &code_sz, form);
@@ -1250,7 +1328,7 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 	else {
 
 	    found = read_symbol(&code, &code_sz, form);
-	    if (!found) break;
+	    if (!found) goto ERR;
 
 	    
 	    char *sym = obj_get_symbol(&form->list->front->obj);
@@ -1296,10 +1374,13 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 	
     }
 
+    code_s cd = { code, code_sz };
+    return cd;   
+    
+  ERR:
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);
 
-    code_s cd = { NULL, 0 };
-    return cd;
+    return (code_s){ NULL, 0};
 }
 
 
@@ -1355,7 +1436,10 @@ read_macro(code_s *cd, lex_s *lex)
 	/* A single-quote introduces an expression to be "quoted" 
 	 */
 	
-	found = read_expression_with_single_quote(&cd->code, &cd->code_sz);
+	form = form_create();
+	if (!form) break;
+	
+	found = read_quote_expression(&cd->code, &cd->code_sz, &lex->forms, form);
 	break;
 	    
     case ';':

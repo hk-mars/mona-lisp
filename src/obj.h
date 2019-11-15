@@ -39,6 +39,8 @@ typedef enum
 
     OBJ_SUBTYPE_MACRO_BACKQUOTE = 3,
     OBJ_SUBTYPE_MACRO_COMMNA = 4,
+
+    OBJ_SUBTYPE_EXPRESSION = 5,
     
 } object_sub_t;
 
@@ -72,6 +74,8 @@ bool obj_is_nil(object_s *obj);
 bool obj_is_char(object_s *obj);
 
 bool obj_update(object_s *obj, object_s *new);
+
+bool obj_clone_token(object_s *obj, token_s *token);
 
 #endif /* ML_OBJ_H */
 

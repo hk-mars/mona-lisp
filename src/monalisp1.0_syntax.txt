@@ -156,6 +156,7 @@ compound-form ::=
 	num-greater-or-equal-than |
 	num-equal-than  |
 	num-not-equal-than |
+	quote |
 	( LOOP {compound-form}* )
 	
 
@@ -274,4 +275,14 @@ print ::=
       ( PRINT object [output-stream] )
 
 output-stream ::= <undefined>
+
+
+quote ::= 
+	' object |
+	QUOTE object
+	
+
+
+
+
 

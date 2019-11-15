@@ -17,8 +17,15 @@
 bool
 list_add_token(lisp_list_s *list, token_s *token)
 {
-    if (!list || !token) return false;
+    func_s();
 
+    
+    if (!list || !token) {
+
+	debug("NULL list or token \n");
+	return false;
+    }
+    
     lisp_list_s *node = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
     if (!node) return false;
 

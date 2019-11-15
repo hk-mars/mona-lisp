@@ -100,7 +100,7 @@ ml_util_arr2fixnum(char *arr, size_t len)
 {
     fixnum_t x;
 
-    char buf[64], max[64];
+    char buf[64], limit[64];
 
     if (len+1 >= (int)sizeof(buf)) {
 	
@@ -112,36 +112,31 @@ ml_util_arr2fixnum(char *arr, size_t len)
     memcpy(buf, arr, len);
     buf[len] = 0;
 
-    token_print_fixnum(FIXNUM_MAX, max, sizeof(max));
-    max[strlen(max)-1] = '\0';
-
-    #if 0
-    debug_err("number %s, len %d; maximum value %s of fixnum, len %d \n",
-	      buf, strlen(buf),
-	      max, strlen(max));
-    #endif
-
     if (buf[0] == '-') {
-	
+
+	token_print_fixnum(FIXNUM_MIN, limit, sizeof(limit));
     }
     else {
-	
-	if (strlen(buf) > strlen(max) ||
-	    (strlen(buf) == strlen(max) && strcmp(buf, max) > 0)) {
 
-	    debug_err("number %s is bigger than the maximum value %s of fixnum \n"
-		      "It is a big number and is not supported yet.\n",
-		      buf, max);
-	
-	    ml_err_signal(ML_ERR_NUM_OVERFLOW);
-	}
+	token_print_fixnum(FIXNUM_MAX, limit, sizeof(limit));
     }
-    
+    limit[strlen(limit)-1] = '\0';
 
+#if 0
+    debug_err("number %s, len %d; limit value %s of fixnum, len %d \n",
+	      buf, strlen(buf),
+	      limit, strlen(limit));
+#endif
     
-    /* TODO: check if the number is smaller than minimum value of fixnum.
-     */
+    if (strlen(buf) > strlen(limit) ||
+	(strlen(buf) == strlen(limit) && strcmp(buf, limit) > 0)) {
 
+	debug_err("number %s is out of the limit %s of fixnum \n"
+		  "It is a big number and is not supported yet.\n",
+		  buf, limit);
+	
+	ml_err_signal(ML_ERR_NUM_OVERFLOW);
+    }
     
     x = atoll(buf);
 

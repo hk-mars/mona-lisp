@@ -59,8 +59,14 @@ print_token(token_s *token, stream_s *stream)
     case TOKEN_SYMBOL:
 	debug("symbol: %s \n", token->value.symbol);
 
-	
-	snprintf(stream->buf, stream->max_buf_len, "%s\n", token->value.symbol+1);
+	if (token->value.symbol[0] == '\'') {
+	    
+	    snprintf(stream->buf, stream->max_buf_len, "%s\n", token->value.symbol+1);
+	}
+	else {
+
+	    snprintf(stream->buf, stream->max_buf_len, "%s\n", token->value.symbol);
+	}
 	
 	break;
 	

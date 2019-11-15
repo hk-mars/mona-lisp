@@ -48,6 +48,10 @@ obj_show(object_s *obj)
 
 	  debug("%s \n", obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ? "bool: t" : "bool: nil");
       }
+      else if (obj->subtype == OBJ_SUBTYPE_EXPRESSION) {
+
+	  debug("symbol quote expression: %s \n", obj_get_symbol(obj));
+      }
       else {
 	
 	  token_show(&obj->token);
@@ -148,4 +152,18 @@ obj_update(object_s *obj, object_s *new)
     func_fail();
     return false;
 }
+
+
+bool
+obj_clone_token(object_s *obj, token_s *token)
+{
+    func_s();
+    
+    if (!obj || !token) return false;
+
+    memcpy(&obj->token, token, sizeof(token_s));
+
+    out(ok, true);
+}
+
 

@@ -703,7 +703,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 
    NEXT:    
     if (root->sub) {
-	debug("sub: %s \n", root->sub->key);
+	//debug("sub: %s \n", root->sub->key);
 	root->next = root->sub;
 	rtn = find_path(root->sub, path, path_end);
 	if (rtn) return rtn;
@@ -898,13 +898,19 @@ syntax_check(form_s *form)
 
 	case COMPOUND_SPECIAL_FORM:
 	    
-	    debug("COMPOUND_SPECIAL_FORM \n");	    
-	    if (f->list) {
+	    debug("COMPOUND_SPECIAL_FORM \n");
+	    if (!f->obj) {
 		
 		rt = check_list_form_syntax(f);
 		if (rt != SYNTAX_OK) return rt;
 	    }
 	    else {
+
+		/* TODO: check the syntax like Single-Quote form.
+		 */
+		obj_show(f->obj);
+		//debug_suspend();
+		goto NEXT;
 	    }
 
 	    
@@ -933,7 +939,7 @@ syntax_check(form_s *form)
 	    break;
 	}
 	
-	    
+      NEXT:
 	f = f->next;
     }
     
