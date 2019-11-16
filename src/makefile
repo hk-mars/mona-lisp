@@ -9,7 +9,7 @@ PLATFORM = macosx
 
 
 CC = gcc -std=gnu99
-CFLAGS = -O2 -Wall -Wextra $(SYSCFLAGS) $(MYCFLAGS)
+CFLAGS = -O2 -Wall -Wextra $(SYSCFLAGS) $(MYCFLAGS) 
 LDFLAGS = $(SYSCFLAGS) $(MYCFLAGS)
 LIBS = -lm $(SYSLIBS) $(MYLIBS)
 
@@ -19,9 +19,11 @@ SYSCFLAGS =
 SYSLDFLAGS =
 SYSLIBS =
 
-MYCFLAGS =
-MYLDFLAGS =
+MYCFLAGS = -I $(TEST_CASES)
+MYLDFLAGS = 
 MYLIBS =
+
+TEST_CASES = test_cases
 
 # Environment settings, done
 
@@ -34,7 +36,7 @@ ALL_APPS = monalisp
 ALL_OBJS = monalisp.o lex.o syntax.o reader.o mem.o util.o error.o stack.o obj.o \
 	list.o form.o token.o eval.o variable.o hsearch.o bin_tree.o tree.o \
 	parser.o ast_tree.o asg_graph.o printer.o chars.o function.o macro.o \
-	gc.o system.o rules.o
+	gc.o system.o rules.o $(TEST_CASES)/test_cases.o
 
 
 ALL_LIBS = lib_monalisp.a
@@ -87,7 +89,8 @@ macosx:
 monalisp.o:	monalisp.c lex.c syntax.c reader.c mem.c util.c error.c stack.c obj.c \
 	list.c form.c token.c eval.c variable.c hsearch.c bin_tree.c tree.c \
 	parser.c ast_tree.c asg_graph.c printer.c chars.c function.c macro.c \
-	gc.c system.c rules.c
+	gc.c system.c rules.c $(TEST_CASES)/test_cases.c
+
 
 
 

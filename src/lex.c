@@ -1389,6 +1389,7 @@ read_macro(code_s *cd, lex_s *lex)
 {
     bool found = false;
     form_s *form;
+    char *character;
     
     if (!cd || !cd->code || !cd->code_sz) return false;
     
@@ -1480,13 +1481,19 @@ read_macro(code_s *cd, lex_s *lex)
 	 * 2. TODO
 	 */
 
-	next_code(cd->code, cd->code_sz);
+	character = char_get_name_as_code(cd->code, cd->code_sz);
+	if (character) {
 
-	char *character = read_character(&cd->code, &cd->code_sz);
+	    move_code(cd->code, cd->code_sz, strlen(character));
+	}
+	else {
+		
+	    next_code(cd->code, cd->code_sz);
+	    character = read_character(&cd->code, &cd->code_sz);
+	}
 	found = !!character;
 	
 	break;
-
     }
 
     

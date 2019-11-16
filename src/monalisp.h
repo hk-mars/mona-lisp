@@ -22,6 +22,7 @@ typedef enum
     LISP_ERR_FUNC = 8,
     LISP_ERR_MACRO = 8,
     LISP_ERR_GC = 9,
+    LISP_ERR_TEST_CASE = 10,
     
 } lisp_rt_t;
 

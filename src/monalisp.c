@@ -26,6 +26,9 @@
 #include "system.h"
 
 
+#include "test_cases.h"
+
+
 
 #define VER "1.0.0"
 
@@ -60,10 +63,18 @@ main (int argc, char **argv)
     sys_set_status(SYS_STATUS_RUNNING);
 
 
+#if 1
+    if (!test_case_run()) return LISP_ERR_TEST_CASE;
+
+#endif
+    
+
+#if 0    
     reader_s reader;
     reader_rt_t reader_rt;
     gc_s gc;
-
+#endif
+    
     
 #if 0
     gc = gc_new();
@@ -82,7 +93,7 @@ main (int argc, char **argv)
 #endif
 
     
-#if 1    
+#if 0    
     gc = gc_new();
     if (gc.id < 0) {
 
@@ -99,7 +110,7 @@ main (int argc, char **argv)
 #endif
 
     
-#if 1   
+#if 0   
     gc = gc_new();
     if (gc.id < 0) {
 
@@ -115,22 +126,6 @@ main (int argc, char **argv)
     mm_show();
 #endif    
     
-#if 1
-    gc = gc_new();
-    if (gc.id < 0) {
-
-	debug_err("create gc object failed \n");
-	return LISP_ERR_GC;
-    }
-    
-    reader_rt = ml_reader_load_file(&reader, "test_cases/test_printer.lisp");
-    if (reader_rt != READER_OK) return -1;
-
-    gc_show();
-    gc_free();
-    mm_show();
-#endif
-
     
 #if 0
     gc = gc_new();
