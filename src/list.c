@@ -68,6 +68,8 @@ list_add_object(lisp_list_s *list, object_s *obj)
     
     if (!list->front) {
 
+	debug("front is null \n");
+	
 	list->next = node;
 	list->front = node;
 	node->front = list;

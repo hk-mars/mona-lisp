@@ -366,7 +366,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
     
     
     if (is_token_node(root)) {
-	debug("token node: %s \n", root->key);
+	//debug("token node: %s \n", root->key);
 
 	//obj_show(&path->obj);
 		

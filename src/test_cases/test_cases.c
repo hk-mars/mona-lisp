@@ -17,6 +17,7 @@ const char* TEST_CASES[] =
 {
     "test_cases/test_char.lisp",
     "test_cases/test_printer.lisp",
+    "test_cases/test_list.lisp",
 };
 
 

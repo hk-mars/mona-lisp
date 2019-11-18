@@ -46,6 +46,7 @@ typedef struct
 
 printer_rt_t printer_print(object_s *obj, stream_s *stream);
 
+void printer_print_nil(stream_s *stream);
 
 #endif /* __PRINTER__ */
 

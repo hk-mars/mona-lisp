@@ -342,14 +342,19 @@ eval_list(void *left, void *right)
 	//debug_err("%s: object is null \r", __func__);
 	//return false;
     }
+
+    //obj_show(obj);
     
     if (list->obj.type == OBJ_UNKNOWN) {
 
 	list->obj.type = OBJ_LIST;
 	list->is_head = true;
+	
+	if (!obj) {
+	    goto DONE;
+	}    	
     }
-    
-    
+        
     /* add an object into the list
      */
     if (!list_add_object(list, obj)) {
@@ -357,9 +362,10 @@ eval_list(void *left, void *right)
 	func_fail();
 	return false;
     }
-
+    
     list_show(list);
 
+  DONE:
     func_ok();
     return true;
 }
@@ -808,11 +814,31 @@ eval_function_form(form_s *form, eval_value_s *val)
 
     debug("function: %s \n", func_name);
 
+    l = l->next;
+    if (!l) goto FAIL;
+    
+    val->list.is_head = true;
+    memset(&value, 0, sizeof(eval_value_s));
+
+    if (l->next == form->list) {
+
+	value.obj_in = NULL;
+	eval_call->eval(val, &value);
+	
+	debug("add ( \n");
+	list_add_char_obj(&val->list, "(");
+    
+	debug("add ) \n");
+	list_add_char_obj(&val->list, ")");
+
+	list_show(&val->list);
+	
+	goto EVAL_END;
+    }
+    
     
     /* evaluate the list
-     */
-    l = l->next;
-    val->list.is_head = true;
+     */  
     while (l) {
 
 	switch (l->obj.type) {
@@ -956,7 +982,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 	if (l && l->next == form->list) break;
     }
 
-    
+ 
     if (val->obj_out.type != OBJ_UNKNOWN) {
 	debug("result is an object with type: %d \n", val->obj_out.type);
 	obj_show(&val->obj_out);
@@ -972,7 +998,8 @@ eval_function_form(form_s *form, eval_value_s *val)
 	list_show(&val->list);
     }
     
-    
+
+  EVAL_END:
     if (eval_call->get_result) {
 
 	eval_call->get_result(val, &value);
@@ -1854,8 +1881,6 @@ eval(form_s *form, eval_value_s *result)
 	    rt = eval_function_form(f, result);
 	    if (rt != EVAL_OK) goto FAIL;
 
-	    //printer_print(&value, OBJ_LIST);
-
 	    eval_result_show(result);
 	   
 	    break;
@@ -1869,8 +1894,18 @@ eval(form_s *form, eval_value_s *result)
 
 	case SELF_EVALUATING_FORM:
 
-	    if (f->subtype == NIL_LIST_FORM) {
-		debug("() \n");
+	    if (f->subtype == NIL_LIST_FORM) {	       
+
+		debug("nil list form \n");
+		
+		stream_s stream;
+		char buf[1024];  
+		memset(&stream, 0, sizeof(stream_s));
+		stream.type = STREAM_OUTPUT;
+		stream.buf = buf;
+		stream.is_default_terminal = true;
+		stream.max_buf_len = sizeof(buf);
+		printer_print_nil(&stream);
 	    }
 	    
 	    break;
@@ -1900,7 +1935,8 @@ eval(form_s *form, eval_value_s *result)
 
 
   FAIL:
-    ml_err_signal(ML_ERR_EVAL);
+    func_fail();
+    ml_err_signal(ML_ERR_EVAL);    
     return EVAL_ERR;    
 }
 

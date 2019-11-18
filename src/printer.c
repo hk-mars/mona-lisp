@@ -196,3 +196,27 @@ printer_print(object_s *obj, stream_s *stream)
 }
 
 
+void
+printer_print_nil(stream_s *stream)
+{
+    func_s();
+
+    if (!stream) goto FAIL;
+    
+    if (stream->is_default_terminal) {
+
+	snprintf(stream->buf, stream->max_buf_len, "nil\n");
+	printf("%s", stream->buf);
+    }
+    else {
+
+	//stream->show(stream);
+    }
+
+ 
+    func_ok();
+    return;
+
+  FAIL:
+    func_fail();
+}
