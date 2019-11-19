@@ -7,7 +7,6 @@
 #include "token.h"
 
 
-
 void
 obj_show(object_s *obj)
 {

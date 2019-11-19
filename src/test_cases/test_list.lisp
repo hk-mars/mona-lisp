@@ -127,7 +127,31 @@
 (list #\newline)
 
 ;;
-;; integer&character list
+;; integer & character
 ;;
 (list 1 2 #\a #\space)
 
+;;
+;; symbol & interger & character
+;;
+(list 'a 'b 'abcdefg 12 #\b)
+
+
+;;
+;; nil and t
+;;
+(list nil t)
+
+
+;;
+;; nested list
+;;
+;;
+
+;(list (list 1 2))
+;(list (list 1 2) 3)
+;(list (list 1 2) (list 3 4))
+;(list (list) (list 1 2) 3 (list 4 #\a) (list #\b 5 6))
+
+(list (list)
+(list (list 1))

@@ -12,6 +12,7 @@
 
 #include "util.h"
 
+#include "form.h"
 
 
 bool
@@ -127,8 +128,20 @@ list_show(lisp_list_s *list)
 
 	if (l->obj.sub) {
 
-	    debug("  subform: \n");
-	    //form_show(l->obj.sub);
+	    //debug("  subform: \n");
+
+#if 0
+	    form_s *f = l->obj.sub;    
+	    //form_show(f);	    	    
+	    if (f && f->next) {
+
+		//form_show(f->next);
+		if (f->next->list) {
+		    list_show(f->next->list->next);
+		}
+	    }
+#endif
+	    
 	}
 
 	l = l->next;
