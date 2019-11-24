@@ -336,7 +336,8 @@ eval_list(void *left, void *right)
 
     lisp_list_s *list = &((eval_value_s*)left)->list;
     object_s *obj = ((eval_value_s*)right)->obj_in;
-
+    lisp_list_s *list_in = ((eval_value_s*)right)->list_in;
+    
     if (!obj) {
 
 	//debug_err("%s: object is null \r", __func__);
@@ -349,25 +350,45 @@ eval_list(void *left, void *right)
 
 	list->obj.type = OBJ_LIST;
 	list->is_head = true;
-	
-	if (!obj) {
-	    goto DONE;
-	}    	
     }
-        
-    /* add an object into the list
-     */
-    if (!list_add_object(list, obj)) {
 
-	func_fail();
-	return false;
+    if (obj) {
+	
+	/* add an object into the list
+	 */
+	if (!list_add_object(list, obj)) {
+
+	    func_fail();
+	    return false;
+	}
     }
+    else if (list_in) {
+
+	debug("a list x as an element of a list y \n");
+
+	list_show(list);
+	
+	if (!list_add_list(list, list_in)) {
+
+	    goto FAIL;
+	}
+
+	//debug_suspend();
+    }
+    else {
+	goto DONE;
+    }
+    
     
     list_show(list);
 
+    
   DONE:
     func_ok();
     return true;
+
+  FAIL:
+    out(fail, false);
 }
 
 
@@ -862,11 +883,23 @@ eval_function_form(form_s *form, eval_value_s *val)
 	   
 	    debug("eval %s \n", func_name);
 	    if (value.obj_out.type != OBJ_UNKNOWN) {
-
+		
 		value.obj_in = &value.obj_out;
 	    }
 	    else {
-		value.obj_in = &value.list.obj;
+
+		if (list_is_head(&value.list)) {
+
+		    /* the head of a list */
+		    //value.obj_in = &value.list.obj;
+
+		    value.list_in = &value.list;
+		}
+		else {
+		    goto FAIL;
+		}
+		
+		//obj_show(value.obj_in);
 	    }
 	    
 	    eval_call->eval(val, &value);

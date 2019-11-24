@@ -51,6 +51,10 @@ obj_show(object_s *obj)
 
 	  debug("symbol quote expression: %s \n", obj_get_symbol(obj));
       }
+      else if (obj->subtype == OBJ_SUBTYPE_LIST_AS_ELEMENT) {
+
+	  debug("list as object element \n");
+      }
       else {
 	
 	  token_show(&obj->token);

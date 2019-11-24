@@ -38,8 +38,13 @@ void list_show(lisp_list_s *list);
 
 void list_mark_type_specified(lisp_list_s *list);
 
-
 bool list_copy(lisp_list_s *dst, lisp_list_s *src);
+
+bool list_is_head(lisp_list_s *node);
+
+
+bool list_add_list(lisp_list_s *list, lisp_list_s *list_element);
+
 
 #endif /* ML_LIST_H */
 

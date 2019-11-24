@@ -15,6 +15,10 @@
 #include "form.h"
 
 
+#define LIST_SHOW_SUBLIST_ON true
+
+
+
 bool
 list_add_token(lisp_list_s *list, token_s *token)
 {
@@ -128,9 +132,9 @@ list_show(lisp_list_s *list)
 
 	if (l->obj.sub) {
 
-	    //debug("  subform: \n");
+	    debug("  subform: \n");
 
-#if 0
+#if LIST_SHOW_SUBLIST_ON
 	    form_s *f = l->obj.sub;    
 	    //form_show(f);	    	    
 	    if (f && f->next) {
@@ -143,6 +147,7 @@ list_show(lisp_list_s *list)
 #endif
 	    
 	}
+	
 
 	l = l->next;
 
@@ -231,5 +236,63 @@ list_copy(lisp_list_s *dst, lisp_list_s *src)
     func_fail();
     return false;
 }
+
+
+bool
+list_is_head(lisp_list_s *node)
+{
+    if (!node) return false;
+
+    return node->is_head;
+}
+
+
+bool
+list_add_list(lisp_list_s *list, lisp_list_s *list_element)
+{
+    
+    bool rt = false;
+    
+    func_s();
+
+
+    if (!list || !list_element) goto FAIL;
+
+    lisp_list_s *node = (lisp_list_s*)ml_malloc(sizeof(lisp_list_s));
+    if (!node) return false;
+    
+    if (!list->front) {
+
+	debug("front is null \n");
+	
+	list->next = node;
+	list->front = node;
+	node->front = list;
+	node->next = list;
+    }
+    else {
+
+	list->front->next = node;
+	node->front = list->front;
+	node->next = list;
+	list->front = node;
+    }
+
+    node->obj.type = OBJ_TYPE;
+    node->obj.subtype = OBJ_SUBTYPE_LIST_AS_ELEMENT;
+    
+    node->obj.list = ml_malloc(sizeof(lisp_list_s));
+    if (!node->obj.list) goto FAIL;
+
+    
+    rt = list_copy(node->obj.list, list_element);
+    
+    
+    out(ok, rt);
+
+  FAIL:
+    out(fail, rt);
+}
+
 
 

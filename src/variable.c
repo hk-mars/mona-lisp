@@ -476,6 +476,8 @@ var_init(void)
      * e.g.:  t, nil
      */
     variable_s var;
+    memset(&var, 0, sizeof(variable_s));
+    
     var.name = "t";
     var.val.type = OBJ_TYPE;
     var.val.subtype = OBJ_SUBTYPE_BOOL_TRUE;  
@@ -585,15 +587,19 @@ var_get(char *name)
     entry_rt = hsearch(&m_lexical_htab, entry, FIND);
     if (entry_rt) {
 
+	debug("lexical variable \n");
+	
 	goto FOUND;
     }
     
     entry_rt = hsearch(&m_constant_htab, entry, FIND);
     if (entry_rt) {
-   
+
+	debug("constant variable \n");
+	
 	goto FOUND;
     }
-
+    
     return NULL;
 
   FOUND:

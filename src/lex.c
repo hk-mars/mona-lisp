@@ -787,7 +787,6 @@ identify_list_func(char **code, size_t *code_sz, form_s *form)
  
     if (**code == ')') {
 	
-	next_code(*code, *code_sz);
 	goto DONE;
     }    
      
@@ -1169,6 +1168,8 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 	
 	if (*code == ')') {
 
+	    debug(") \n");
+	    
 	    /* nil list: () 
 	     */
 	    if (form->list->next->next == form->list) {
@@ -1311,15 +1312,20 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 	    f->code = code;
 	    list_add_char_obj(f->list, "(");
+
+	    //form_show(form);
+	    //debug_suspend();
 	    
 	    code_s cd = read_list(++code, --code_sz, f_head, f);
+	    
 	    if (!cd.code) return cd;
 
 	    list_add_char_obj(f->list, ")");
 
 	    f->code_sz = cd.code - f->code + 1;
 
-	    //ml_util_show_buf(f->code, f->code_sz);
+	    ml_util_show_buf(f->code, f->code_sz);
+	    //form_show(form);
 	    //debug_suspend();
 	    
 	    code = cd.code;

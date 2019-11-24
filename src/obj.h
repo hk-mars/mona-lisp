@@ -41,6 +41,8 @@ typedef enum
     OBJ_SUBTYPE_MACRO_COMMNA = 4,
 
     OBJ_SUBTYPE_EXPRESSION = 5,
+
+    OBJ_SUBTYPE_LIST_AS_ELEMENT = 6,
     
 } object_sub_t;
 
@@ -57,6 +59,8 @@ typedef struct s_object
 
     void *sub;
 
+    void *list;
+    
     bool is_specified_type;
     
 } object_s;

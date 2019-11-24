@@ -78,6 +78,14 @@
 #include "ast_tree.h"
 
 
+#define SYNTAX_DEBUG_ON false
+#if !SYNTAX_DEBUG_ON
+#undef debug
+#define debug(...) ;
+#endif
+
+
+
 static hash_table_s syntax_htab;
 
 
@@ -337,26 +345,28 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
   
     if (!root) return NULL;
 
+#if SYNTAX_DEBUG_ON
     char *name1 = get_leaf_name(&path->obj, root->key);
     if (root->key[strlen(root->key)-1] == '=') {
-	debug("cur node: %s, find node: %s \n", root->key, name1);
+      debug("cur node: %s, find node: %s \n", root->key, name1);
 
-	//tree_show_node(root);
+      //tree_show_node(root);
 	
     }
     //token_show(&path->obj.token);
 
     if (!strcmp(root->key, "@")) {
 
-	debug("cur node: %s, find node: %s \n", root->key, name1);
+      debug("cur node: %s, find node: %s \n", root->key, name1);
 
-	tree_show_node(root->left);
+      tree_show_node(root->left);
     }
 
     if (!strcmp(root->key, "else-form ::=")) {
 
-	//tree_show(root->father->father, 5);
+      //tree_show(root->father->father, 5);
     }
+#endif
     
 
     if (!strcmp(root->key, "@")) {
