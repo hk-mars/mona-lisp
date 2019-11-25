@@ -78,7 +78,7 @@
 #include "ast_tree.h"
 
 
-#define SYNTAX_DEBUG_ON false
+#define SYNTAX_DEBUG_ON true
 #if !SYNTAX_DEBUG_ON
 #undef debug
 #define debug(...) ;
@@ -507,6 +507,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	if (rtn) {
 
 	    if (root->left) debug("subform found in left node %s \n", root->left->key);
+	    root = root->left;
 	    goto FIND_SUBFORM_DONE;
 	}
 
@@ -516,6 +517,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	if (rtn) {
 
 	    if (root->right) debug("subform found in right node %s \n", root->right->key);
+	    root = root->right;
 	    goto FIND_SUBFORM_DONE;
 	}
 	else {
@@ -632,6 +634,8 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	 
 	    show_path(sl, el);
 	    //debug_suspend();
+
+	    tr_node_s *node = NULL;
 	    
 	    while (1) {
 
@@ -642,6 +646,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 		
 		if (rtn) {
 
+		    if (!node) node = root;
 		    show_path(sl, el);
 		    //debug_suspend();
 
@@ -654,7 +659,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 			    
 		    /* go on searching from the next node
 		     */
-
+		    
 		    debug("go on searching \n");
 		    path = el->next;
 		    show_path(path, path_end);
@@ -667,13 +672,16 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 		if (el == sl) {
 
 		    debug("the last sub path \n");
-		 
+
 		    return NULL;		    
 		}
 
 		debug("path not found: \n");
 		show_path(sl, el);
+
+
 		el = el->front;
+		
 	    }
 	}
     }

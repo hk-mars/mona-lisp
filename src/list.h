@@ -28,6 +28,8 @@ typedef struct s_lisp_list
 } lisp_list_s;
 
 
+lisp_list_s* list_new(void);
+
 bool list_add_token(lisp_list_s *list, token_s *token);
 
 bool list_add_object(lisp_list_s *list, object_s *obj);

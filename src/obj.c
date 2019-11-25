@@ -6,6 +6,9 @@
 
 #include "token.h"
 
+#include "list.h"
+
+
 
 void
 obj_show(object_s *obj)
@@ -54,6 +57,8 @@ obj_show(object_s *obj)
       else if (obj->subtype == OBJ_SUBTYPE_LIST_AS_ELEMENT) {
 
 	  debug("list as object element \n");
+
+	  list_show(obj->list);
       }
       else {
 	
@@ -169,4 +174,39 @@ obj_clone_token(object_s *obj, token_s *token)
     out(ok, true);
 }
 
+
+bool
+obj_clone(object_s *from_obj, object_s *to_obj)
+{
+    func_s();
+
+    if (!from_obj || !to_obj) out(fail, false);
+
+    memcpy(to_obj, from_obj, sizeof(object_s));
+    
+    if (from_obj->list) {
+
+	to_obj->list = (void*)list_new();
+	if (!to_obj->list) out(fail, false);
+	
+	list_copy(to_obj->list, from_obj->list);
+    }
+    
+
+    out(ok, true);
+}
+
+
+bool
+obj_set_nil(object_s *obj)
+{
+    func_s();
+
+    if (!obj) out(fail, false);
+
+    obj->type = OBJ_TYPE;
+    obj->subtype = OBJ_SUBTYPE_BOOL_FALSE;
+
+    out(ok, true);
+}
 

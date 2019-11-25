@@ -399,7 +399,7 @@ eval_car(void *left, void *right)
 
     object_s *obj_out = &((eval_value_s*)left)->obj_out;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
-
+    
 
     if (obj_out->type == OBJ_TYPE) {
 
@@ -415,16 +415,27 @@ eval_car(void *left, void *right)
 
     if (!list_in->next) {
 
-	debug_err("nil list \n");
-	return true;
+	debug_err("NULL list \n");
     }
-   
+    
+
+    if (list_is_head(list_in->next->next->next)) {
+
+	debug("nil list \n");
+	debug("car of list is: nil \n");
+
+	obj_set_nil(obj_out);
+	
+	goto DONE;
+    }
+
     
     debug("car of list is: ");
-    token_show_fixnum(list_in->next->next->obj.token.value.num_int);
+    obj_show(&list_in->next->next->obj);
     
-    memcpy(obj_out, &list_in->next->next->obj, sizeof(object_s));
-	    
+    obj_clone(obj_out, &list_in->next->next->obj);
+    
+ DONE:
     func_ok();
     return true;
 }

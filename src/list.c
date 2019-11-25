@@ -19,6 +19,22 @@
 
 
 
+lisp_list_s*
+list_new(void)
+{
+    func_s();
+
+    lisp_list_s *list = ml_malloc(sizeof(lisp_list_s));
+    if (!list) out(fail, NULL);
+
+    list->is_head = true;
+    list->obj.type = OBJ_LIST;
+
+    out(ok, list);
+}
+
+
+
 bool
 list_add_token(lisp_list_s *list, token_s *token)
 {
@@ -293,6 +309,7 @@ list_add_list(lisp_list_s *list, lisp_list_s *list_element)
   FAIL:
     out(fail, rt);
 }
+
 
 
 

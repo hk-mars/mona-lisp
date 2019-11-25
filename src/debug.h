@@ -44,13 +44,16 @@ void debug_err(const char *fmt, ...);
 
 
 #define out(type, x)				\
-    func_##type();				\
-    return x;
+    {						\
+	func_##type();				\
+	return x;				\
+    }
 
 #define debug_suspend()				\
-  debug("suspending \n");			\
-  while(1);
-
+    {						\
+	debug("suspending \n");			\
+	while(1);				\
+    }
 
   
 #endif /* ML_DEBUG_H */
