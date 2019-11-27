@@ -449,20 +449,33 @@ eval_cdr(void *left, void *right)
 
     lisp_list_s *list_out = &((eval_value_s*)left)->list;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
+    object_s *obj_out = &((eval_value_s*)left)->obj_out;
 
-    if (!list_in) {
+    if (!list_in || !list_in->next) {
 
 	debug_err("NULL list \n");
 	return false;
     }
 
-    if (!list_in->next) {
-
-	debug_err("nil list \n");
-	return true;
-    }
-
     lisp_list_s *l = list_in->next->next->next;
+    if (list_is_head(l)) {
+
+	debug("nil list \n");
+	debug("cdr of nil list is: nil \n");
+
+	obj_set_nil(obj_out);       
+	
+	goto DONE;
+    }
+    
+
+    if (list_is_head(l->next)) {
+	
+	debug("only one element, so cdr of the list is nil\n");
+	obj_set_nil(obj_out);
+
+	goto DONE;
+    }
     
     while (l && l != list_in) {
 	
@@ -478,7 +491,8 @@ eval_cdr(void *left, void *right)
     }
 
     list_show(list_out);
-     
+
+  DONE:
     func_ok();
     return true;
 }
