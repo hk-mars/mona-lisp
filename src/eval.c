@@ -399,7 +399,6 @@ eval_car(void *left, void *right)
 
     object_s *obj_out = &((eval_value_s*)left)->obj_out;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
-    
 
     if (obj_out->type == OBJ_TYPE) {
 
@@ -410,12 +409,17 @@ eval_car(void *left, void *right)
     if (!list_in) {
 
 	debug_err("NULL list \n");
+	debug_suspend();
 	return false;
     }
 
-    if (!list_in->next) {
 
-	debug_err("NULL list \n");
+    if (!list_is_head(list_in)) {
+
+	debug_err("nil list \n");
+	obj_set_nil(obj_out);
+	
+	goto DONE;	
     }
     
 

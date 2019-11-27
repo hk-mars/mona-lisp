@@ -124,9 +124,13 @@ list_car_element ::=
 
 cons ::= ( CONS object object )
 
-car ::= ( CAR list )
+car ::= 
+	( CAR list ) |
+	( CAR nil )
 
-cdr ::= ( CDR list )
+cdr ::= 
+	( CDR list ) |
+	( CDR nil )		
 
 setq ::= ( SETQ {setq-pair}* )
 

@@ -140,6 +140,8 @@
 ;;
 ;; nil and t
 ;;
+(list nil)
+(list t)
 (list nil t)
 
 

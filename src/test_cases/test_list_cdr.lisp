@@ -1,5 +1,7 @@
 
-;(cdr nil)
+(cdr nil)
+
+(cdr NIL)
 
 (cdr (list))
 

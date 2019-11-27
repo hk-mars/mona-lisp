@@ -1,4 +1,6 @@
 
+(car nil)
+
 (car (list 1 2 3))
 
 (car (list))
