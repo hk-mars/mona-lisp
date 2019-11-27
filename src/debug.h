@@ -14,7 +14,7 @@
 
 #define debug printf
 void debug_err(const char *fmt, ...);
-
+#define debug_info printf
   
 #define func_s() debug("\n%s \n", __func__)
 #define func_e() debug("%s end \n\n", __func__)
@@ -27,6 +27,7 @@ void debug_err(const char *fmt, ...);
 
 #define debug(...) ;
 #define debug_err(...) ;
+#define debug_info ;
 
 #define func_s() ;
 #define func_e() ;

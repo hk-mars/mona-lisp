@@ -176,7 +176,7 @@ obj_clone_token(object_s *obj, token_s *token)
 
 
 bool
-obj_clone(object_s *from_obj, object_s *to_obj)
+obj_clone(object_s *to_obj, object_s *from_obj)
 {
     func_s();
 

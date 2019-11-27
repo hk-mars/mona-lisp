@@ -117,7 +117,8 @@ element ::=
 list_car_element ::=
 	token |
 	lisp-char |
-	( LIST { object }* )
+	( LIST { object }* ) |
+	( CAR list )
 	
 
 cons ::= ( CONS object object )

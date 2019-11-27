@@ -17,6 +17,8 @@
 	"class",
 	"LIST",
 	")",
+	"CAR",
+	")",
 	"CONS",
 	")",
 	"CAR",
