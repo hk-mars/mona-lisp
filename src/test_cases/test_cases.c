@@ -24,6 +24,8 @@ const char* TEST_CASES[] =
     
     "test_cases/test_list.lisp",
     "test_cases/test_list_car.lisp",
+    "test_cases/test_list_cdr.lisp",
+    "test_cases/test_list_car_cdr.lisp",
     #endif
     
 };

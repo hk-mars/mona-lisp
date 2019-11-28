@@ -126,6 +126,7 @@ cons ::= ( CONS object object )
 
 car ::= 
 	( CAR list ) |
+	( CAR cdr ) |
 	( CAR nil )
 
 cdr ::= 
