@@ -2,7 +2,7 @@
 ![image](doc/monalisa_logo.jpg "logo")
 
 
-# monalisp
+# mona lisp
 An elegant, design-hackable and data-hackable lisp language.
 
 ## ideas
