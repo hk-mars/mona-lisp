@@ -36,4 +36,6 @@ a compiler (if needed)
 make more breakthroughs for creating great products
 
 
-> Where there is will, where there is way.
+
+> Where there is a free will, where there is a good way.
+
