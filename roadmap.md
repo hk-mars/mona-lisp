@@ -14,20 +14,26 @@
 - Application demos of monalisp
 - User community (established prototype)
 
-## 2021
+## 202x
 - monalisp system v2.0 (stable, unix, linux, embedded c system, c and python interface, more..)
 - monalisp parser v3.0 (improved and enlarged)
 - Fund community (established prototype)
 
-## 2022
-- User community established (enlarged)
-- monalisp system v3.0 (improved and enlarged)
-- Fund community (enlarged)
-- User community (enlarged)
+- others
 
-## 2023
-- Applications of monalisp (released)
-- Fund community (improved)
-- User community (improved)
+Upgrade the lisp codes
+	
+a 3D game demo
+	
+a expert system demo
+	
+test it in 5G superfast network
+
+a vm (if needed)
+
+a compiler (if needed)
+
+make more breakthroughs for creating great products
 
 
+> Where there is will, where there is way.
