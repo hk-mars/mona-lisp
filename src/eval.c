@@ -551,6 +551,28 @@ eval_eq(void *left, void *right)
 
     object_s *obj_l = &((eval_value_s*)left)->obj_out;
     object_s *obj_r = ((eval_value_s*)right)->obj_in;
+    lisp_list_s *list_in = &((eval_value_s*)right)->list;
+
+    //if (!obj_l || !obj_r) goto FAIL;
+    
+    if (!obj_r && !list_in) goto FAIL;
+
+    if (!obj_r && list_in) {
+
+	if (obj_l->type == OBJ_UNKNOWN) {
+	    
+	    obj_l->type = OBJ_LIST;
+	}
+	else {
+
+	    obj_l->type = OBJ_TYPE;
+	    obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;
+	    
+	}
+	
+	goto DONE;
+    }
+      
     
     if (obj_l->type == OBJ_UNKNOWN) {
 
@@ -580,7 +602,10 @@ eval_eq(void *left, void *right)
 
 	debug_err("object type is inconsistent \n");
 	
-	goto FAIL;
+	obj_l->type = OBJ_TYPE;
+	obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;
+
+	goto DONE;
     }
 
 
@@ -637,7 +662,7 @@ eval_eq(void *left, void *right)
     return true;
 
   FAIL:
-    ml_err_signal(ML_ERR_EVAL);
+    ml_err_signal(ML_ERR_EVAL_EQ);
     
     func_fail();
     return false;

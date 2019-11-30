@@ -85,6 +85,14 @@ ml_err_signal(ml_err_t err)
 	proc_buf_overflow();
 	break;
 
+    case ML_ERR_EVAL:
+	debug_err("ML_ERR_EVAL \n");
+	break;
+
+    case ML_ERR_EVAL_EQ:
+	debug_err("ML_ERR_EVAL_EQ \n");
+	break;
+	
     case ML_ERR_EVAL_DIVIDE_ZERO:
 
 	proc_divide_zero();

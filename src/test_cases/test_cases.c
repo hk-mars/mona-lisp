@@ -13,19 +13,34 @@
 #include "../mem.h"
 
 
+
+#define TEST_CHAR_ON true
+#define TEST_PRINTER_ON true
+#define TEST_LIST_ON true
+#define TEST_EQ_ON true
+
+
 const char* TEST_CASES[] =
-{
-    
+{  
     "test_cases/test.lisp",
 
-    #if 1
+    #if TEST_CHAR_ON 
     "test_cases/test_char.lisp",
-    "test_cases/test_printer.lisp",
+    #endif
     
+    #if TEST_PRINTER_ON
+    "test_cases/test_printer.lisp",
+    #endif
+    
+    #if TEST_LIST_ON
     "test_cases/test_list.lisp",
     "test_cases/test_list_car.lisp",
     "test_cases/test_list_cdr.lisp",
     "test_cases/test_list_car_cdr.lisp",
+    #endif
+
+    #if TEST_EQ_ON
+    "test_cases/test_eq.lisp",    
     #endif
     
 };

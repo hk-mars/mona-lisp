@@ -179,7 +179,7 @@ get_token_name(token_s *tk, bool is_specified_type, char *key)
 
     case TOKEN_NUM_INT:
    
-	debug("TOKEN_NUM_INT \n");
+	//debug("TOKEN_NUM_INT \n");
 
 	if (is_specified_type) {
 	    name = "number-token ::=";
@@ -362,18 +362,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
       tree_show_node(root->left);
     }
 
-    if (!strcmp(root->key, "else-form ::=")) {
-
-      //tree_show(root->father->father, 5);
-    }
 #endif
-    
-
-    if (!strcmp(root->key, "@")) {
-
-	//root = root->left->left;
-    }    
-    
     
     if (is_token_node(root)) {
 	//debug("token node: %s \n", root->key);
@@ -449,10 +438,19 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	    debug("find next: %s \n", get_leaf_name(&path->obj, root->key));
 	    obj_show(&path->obj);
 
+	    //tree_show(root, 5);
+	    
 	    if (is_outside_loop_node(root)) {
 		debug("go to outside-loop-node: %s \n", root->key);
 		rtn = find_path(root, path, path_end);
 		if (rtn) return rtn;
+	    }
+
+	    if (!root->left && !root->right && !root->sub) {
+
+		debug("end node \n");
+		//debug_suspend();
+		
 	    }
 	    
 	    goto NEXT0;
@@ -694,6 +692,8 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	if (root->loop) {
 
 	    debug("loop node \n");
+	    debug("back node: %s from %s \n", root->back->key, root->key);
+	    
 	    goto NEXT;
 	}
 	
