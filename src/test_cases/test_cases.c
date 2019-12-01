@@ -18,6 +18,7 @@
 #define TEST_PRINTER_ON true
 #define TEST_LIST_ON true
 #define TEST_EQ_ON true
+#define TEST_EQ_IF true
 
 
 const char* TEST_CASES[] =
@@ -42,6 +43,11 @@ const char* TEST_CASES[] =
     #if TEST_EQ_ON
     "test_cases/test_eq.lisp",    
     #endif
+
+    #if TEST_EQ_IF
+    "test_cases/test_if.lisp",
+    #endif
+
     
 };
 
