@@ -4,22 +4,25 @@
  * memory garbage collector.
  *
  * TODO:
- * 1. Mark-Sweep Garbage Collection (inventor, John McCarthy, in his "History of Lisp")
- *
- *   @ step-1: manual reference counting, graph traversal. (Marking)
+ * 1. Mark-Sweep Garbage Collection. (inventor, John McCarthy, in his "History of Lisp")
+ *   
+ *   @ step-1: do graph traversal and mark all objects. (Marking)
  *   @ step-2: go through all the unmarked objects and free each one. (Sweeping)
+ *   @ step-3: balancing the latency and throughput to have a good performance.
  *
- * 2. The balance of latency and throughput
- *
- *   GC runs frequently enough to minimize latency but infrequently enough to maintain
- *   acceptable throughput. (@frequency)
- *   @ step-1: a profiler to measure the performance of GC.
- *   @ step-2: self-adjusting heap. (@limit)
- *     The idea is that the collector @frequency automatically adjusts based on the live 
- *     size of the heap. 
- *   @ step-3: when the next heap to be malloced is out of the @limit, then collect garbage,  
- *     and do heap-self-adjusting.
+ *     GC runs frequently enough to minimize latency but infrequently enough to maintain
+ *     acceptable throughput. (@frequency)
+ *       @ step-1: a profiler to measure the performance of GC.
+ *       @ step-2: self-adjusting heap. (@limit)
+ *         The idea is that the collector @frequency automatically adjusts based on the live 
+ *         size of the heap. 
+ *       @ step-3: when the next heap to be malloced is out of the @limit, then collect garbage,  
+ *         and do heap-self-adjusting.
  * 
+ * 2. reference counting algorithm.
+ * 3. Cheney’s algorithm.
+ * 4. Lisp 2 mark-compact algorithm.
+ *
  */
  
 
