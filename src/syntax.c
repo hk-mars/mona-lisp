@@ -863,6 +863,8 @@ check_list_form_syntax(form_s *form)
     else {
 
 	tree_show(item->data, 20);
+
+	debug_suspend();
     }
 
 
@@ -1074,3 +1076,128 @@ pop_syntax_htab(char *key)
     func_ok();
     return rti;
 }
+
+
+/**
+Check the syntax of the fundamental Recursive Functions of Symbolic Expressions:
+
+a. A Class of Symbolic Expressions. We shall now define the S-expressions 
+(S stands for symbolic). They are formed by using the special characters
+·
+)
+(
+
+a1. S-expressions are then defined as follows:
+1. Atomic symbols are S-expressions.
+2. If e1 and e2 are S-expressions, so is (e1 · e2).
+Examples of S-expressions are
+AB
+(A·B)
+((AB · C) · D)
+An S-expression is then simply an ordered pair, the terms of which may be atomic symbols 
+or simpler S-expressions.
+
+a2. We can can represent a list of arbi- trary length in terms of S-expressions as follows. 
+The list
+    (m1,m2,···,mn) 
+is represented by the S-expression
+    (m1 ·(m2 ·(···(mn ·NIL)···)))
+Here NIL is an atomic symbol used to terminate lists.
+
+
+b. Elementary S-functions and Predicates:
+
+b1. atom. atom[x] has the value of T or F according to whether x is an atomic symbol. 
+Thus: 
+atom [X] = T 
+atom [(X · A)] = F
+
+b2. eq. eq [x;y] is defined if and only if both x and y are atomic. 
+eq [x; y] = T if x and y are the same symbol, and eq [x; y] = F otherwise.
+
+eq [X; X] = T
+eq [X; A] = F
+eq [X; (X · A)] is undefined.
+
+b3. car. car[x] is defined if and only if x is not atomic. car [(e1 · e2)] = e1. 
+Thus car [X] is undefined.
+
+car [(X · A)] = X
+car [((X · A) · Y )] = (X · A)
+
+b4. cdr. cdr [x] is also defined when x is not atomic. We have cdr [(e1 · e2)] = e2. 
+Thus cdr [X] is undefined.
+
+cdr [(X ·A)] = A cdr [((X ·A)·Y)] = Y
+
+b5. cons. cons [x; y] is defined for any x and y. We have cons [e1;e2] =
+(e1 · e2). Thus
+
+cons [X; A] = (X A)
+cons [(X · A); Y ] = ((X · A)Y)
+
+car, cdr, and cons are easily seen to satisfy the relations
+car [cons [x; y]] = x
+cdr [cons [x; y]] = y
+cons [car [x]; cdr [x]] = x, provided that x is not atomic.
+
+c. Recursive S-functions. We get a much larger class of functions (in fact, 
+all computable functions) when we allow ourselves to form new functions of 
+S-expressions by conditional expressions and recursive definition. 
+
+REFERENCES: 
+1. Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I
+John McCarthy, Massachusetts Institute of Technology, Cambridge, Mass.
+April 1960
+
+*/
+
+
+#if 0
+static bool
+syntax_check_atom(lisp_list_s *s, lisp_list_s *e)
+{
+    func_s();
+
+    out(ok, true);
+}    
+
+static bool
+syntax_check_eq(lisp_list_s *s, lisp_list_s *e)
+{
+    func_s();
+
+    out(ok, true);
+}
+
+
+static bool
+syntax_check_car(lisp_list_s *s, lisp_list_s *e)
+{
+    func_s();
+
+    out(ok, true);    
+}
+
+
+static bool
+syntax_check_cdr(lisp_list_s *s, lisp_list_s *e)
+{
+    func_s();
+
+    out(ok, true);    
+}
+
+
+static bool
+syntax_check_cons(lisp_list_s *s, lisp_list_s *e)
+{
+    func_s();
+
+    out(ok, true);    
+}
+
+#endif
+
+
+
