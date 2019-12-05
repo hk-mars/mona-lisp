@@ -316,16 +316,7 @@ read_symbol(char **code, size_t *code_sz, form_s *form)
 
 	    if (token.type != TOKEN_UNKOWN) {
 
-		//token_s *t = token_clone(&token);
-
-		if (!form->obj) {
-		    /* add the symbol token into the list form */
-		    list_add_token(form->list, &token);	
-		}
-		else {
-
-		    obj_clone_token(form->obj, &token);
-		}
+		if (!form_add_token(form, &token)) goto ERR;	       
 		
 		func_ok();
 		return true;
@@ -492,6 +483,9 @@ like_num_token(char *code, size_t code_sz)
 
   CHECK_MORE:
 
+    debug("check digits \n");
+
+#if 0
     next_code(code, code_sz);
     while (code_sz > 0) {
 
@@ -500,6 +494,7 @@ like_num_token(char *code, size_t code_sz)
 	    /* The token does not end with a sign. */
 	    if (is_sign(*(code-1))) return false;
 
+	    func_ok();
 	    return true;
 	}
 
@@ -515,9 +510,12 @@ like_num_token(char *code, size_t code_sz)
 
 	return false;
     }
-
+    
     
     return false;
+#endif
+
+    out(ok, true);
 }
 
 
@@ -532,12 +530,21 @@ identify_number_token(char **code, size_t *code_sz, form_s *form)
     memset(&token, 0, sizeof(token_s));
 
     if (*code_sz <= 0) return false;
-    
-    if (is_sign(**code)) {
-
-	is_negative = (**code == '-');
+     
+    if (**code == '+') {
+	
+	s++;
 	next_code(*code, *code_sz);
     }
+    else if (**code == '-') {
+
+	is_negative = true;
+	next_code(*code, *code_sz);
+    }
+    else {
+    }
+	
+
     
     char c;
     int k = 0;
@@ -562,7 +569,7 @@ identify_number_token(char **code, size_t *code_sz, form_s *form)
 
 	/* [sign] {digit}+ decimal-point
 	 */
-	if (eq(c, '.')) {
+	if (c == '.') {
 	    next_code(*code, *code_sz);
 
 	    if (is_digit(c)) {
@@ -623,16 +630,19 @@ identify_number_token(char **code, size_t *code_sz, form_s *form)
 	    
     if (token.type != TOKEN_UNKOWN) {
 
-	//token_s *t = token_clone(&token);
 
-	/* add the number token into the list form */
-	list_add_token(form->list, &token);	
+	form->subtype = SELF_EVAL_FORM_NUMBER;
 	
-	func_ok();
-	return true;
+	if (!form_add_token(form, &token)) goto FAIL;
+
+	//form_show(form);	
+	
+	out(ok, true);
     }
+
     
-    return false;
+  FAIL:
+    out(fail, false);
 }
 
 
@@ -1170,13 +1180,13 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 	    debug(") \n");
 	    
-	    /* nil list: () 
+	    /* empty list: () 
 	     */
 	    if (form->list->next->next == form->list) {
 		form->list->is_nil = true;
 		form_add_front(form_head, form);		
 		form_set_type(form, SELF_EVALUATING_FORM);
-		form->subtype = NIL_LIST_FORM;
+		form->subtype = SELF_EVAL_FORM_EMPTY_LIST;
 	    }
 
 	    next_code(code, code_sz);
@@ -1483,8 +1493,17 @@ read_macro(code_s *cd, lex_s *lex)
 	/* Sharpsign is a non-terminating dispatching macro character. It uses 
 	 * a character to select a function to run as a reader macro function.
 	 * 1. Sharpsign Backslash
-	 *    syntax: #\<x>
-	 * 2. TODO
+	 *    as a character object, syntax: #\<x>
+	 *
+	 * 2. TODO:
+	 *    function abbreviation, syntax: #'<function name>
+	 *    For example:
+	 *        (apply #'+ l) ==  (apply (function +) l)
+	 *        (apply #'list '(1 2))  =>  (1 2)
+	 *        (apply #'+ '(1 2))  =>  3
+	 *
+	 *    more...
+	 *
 	 */
 
 	character = char_get_name_as_code(cd->code, cd->code_sz);
@@ -1498,6 +1517,14 @@ read_macro(code_s *cd, lex_s *lex)
 	    character = read_character(&cd->code, &cd->code_sz);
 	}
 	found = !!character;
+
+	if (character) {
+
+	    form_s *form = form_create_as_character_obj(character);
+	    if (!form) goto FAIL;
+	    
+	    if (!form_add_front(&lex->forms, form)) goto FAIL;
+	}
 	
 	break;
     }
@@ -1505,6 +1532,140 @@ read_macro(code_s *cd, lex_s *lex)
     
     func_e();
     return found;
+
+  FAIL:
+    out(fail, false);
+}
+
+
+static bool
+identify_bool_constant(char **code, size_t *code_sz, form_s *form)
+{     
+    char *buf;
+    int len;
+    
+    func_s();
+
+    buf = *code;  
+    while (*code_sz > 0) {
+
+	debug("0x%02x %c \n", **code, **code);
+	
+	if (**code == SPACE || **code == LINEFEED) {
+
+	    len = *code - buf;	    
+	    next_code(*code, *code_sz);
+	    
+	    if (len == 3 && ml_util_strbufcmp("nil", buf, len)) {
+
+		form->subtype = SELF_EVAL_FORM_BOOL;
+		obj_set_nil(form->obj);     
+		out(ok, true);
+	    }
+	    else if (len == 1 && (*buf == 't' || *buf == 'T')) {
+
+		form->subtype = SELF_EVAL_FORM_BOOL;
+		obj_set_t(form->obj);
+		out(ok, true);
+	    }
+	    else {
+
+		goto ERR;
+	    }
+	       
+	}
+
+	next_code(*code, *code_sz);
+    }
+
+  ERR:
+    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
+    
+    return false;
+}
+
+
+
+static bool
+identify_empty_list(char **code, size_t *code_sz, form_s *form_head)
+{
+    if (**code != '(') return false;
+
+    func_s();
+
+    char *s = *code + 1;
+    size_t len = *code_sz - 1;
+
+    while (len > 0) {
+
+	if (*s == ')') break;
+	    
+	if (*s != SPACE && *s != LINEFEED) goto FAIL;
+	
+	s++;
+	len--;
+	if (len == 0) goto FAIL;	
+    }
+
+    len = s - *code + 1;
+    move_code(*code, *code_sz, len);
+    
+    form_s *f = form_create_nil();
+    if (!f) goto FAIL;
+
+    if (!form_add_front(form_head, f)) goto FAIL;
+
+     
+    out(ok, true);
+
+  FAIL:
+    out(fail, false);
+}
+
+
+static bool
+read_self_eval_form(code_s *cd, lex_s *lex)
+{
+    bool found = false;
+    form_s *form;
+
+    func_s();
+    
+    if (!cd || !cd->code || !cd->code_sz) goto FAIL;
+
+    char *code = cd->code;
+    size_t code_sz = cd->code_sz;
+    
+    debug("0x%02x %c \n", *code, *code);
+
+    form = form_create_as_self_eval_form();
+    if (!form) goto FAIL;
+    
+    
+    if (like_num_token(code, code_sz)) {
+
+	found = identify_code_as_func(&code, &code_sz,
+				      identify_number_token, form);
+    }
+    else if (*code == 'n' || *code == 'N' || *code == 't' || *code == 'T') {
+	
+	found = identify_bool_constant(&code, &code_sz, form);
+    }
+    else {
+    }
+
+    if (!found) goto FAIL;
+
+    if (!form_add_front(&lex->forms, form)) goto FAIL;
+
+    
+    cd->code = code;
+    cd->code_sz = code_sz;
+
+    out(ok, true);
+
+  FAIL:
+    out(fail, false);
 }
 
 
@@ -1580,10 +1741,8 @@ ml_lex(lex_s *lex, code_s *cd)
 	/* step 2
 	 */
 	if (is_illegal_char(x)) {
-
-	    show_func_line();
-	    ml_err_signal(ML_ERR_ILLEGAL_CHAR);
-	    return LEX_ERR;
+	    
+	    goto STEP_10;
 	}
 
 	
@@ -1604,9 +1763,11 @@ ml_lex(lex_s *lex, code_s *cd)
 
 	    debug("macro char \n");
 
+	    if (identify_empty_list(&code, &code_sz, &lex->forms)) continue;
+	    
 	    cd->code = code;
 	    cd->code_sz = code_sz;	    
-        
+
 	    if (!read_macro(cd, lex)) return LEX_ERR;
 
 	    form_show(&lex->forms);
@@ -1650,30 +1811,45 @@ ml_lex(lex_s *lex, code_s *cd)
 	if (is_constituent_char(x)) {
 
 	    debug("constituent char \n");
+
+	    cd->code = code;
+	    cd->code_sz = code_sz;	    
+        
+	    if (!read_self_eval_form(cd, lex)) return LEX_ERR;
+
+	    form_show(&lex->forms);
 	    
-	    /* use x to begin a token, and go on to step 8.
-	     */
+	    debug("remain code_sz:%d \n",cd->code_sz);
+	    //if (cd->code_sz == 0) break;
+
+	    //ml_util_show_buf((char*)cd->code, cd->code_sz);
+	    
+	    code = cd->code;
+	    code_sz = cd->code_sz;
+	    
 	    goto STEP_8;
 	}
+
+	goto STEP_10;
 	
       STEP_8:
-	  ;
+
+	if (code_sz == 0) break;
+	continue;
 
       STEP_9:
-	 z = 0;
-
-
-      //STEP_10:
-	  ;
-
-	  
-	  next_code(code, code_sz);
+	z = 0;
+	
+	next_code(code, code_sz);
 	
     } /* end of while */
 
     
     
-    func_ok();
-    
-    return LEX_OK;
+    out(ok, LEX_OK);
+
+  STEP_10:
+    ml_err_signal_x(ML_ERR_ILLEGAL_CHAR, __FUNCTION__, __LINE__);
+
+    out(fail, LEX_ERR);
 }

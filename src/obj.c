@@ -210,3 +210,20 @@ obj_set_nil(object_s *obj)
     out(ok, true);
 }
 
+
+bool
+obj_set_t(object_s *obj)
+{
+    func_s();
+
+    if (!obj) out(fail, false);
+
+    obj->type = OBJ_TYPE;
+    obj->subtype = OBJ_SUBTYPE_BOOL_TRUE;
+
+    out(ok, true);
+}
+
+
+
+

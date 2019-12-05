@@ -84,7 +84,7 @@ bool obj_clone_token(object_s *obj, token_s *token);
 bool obj_clone( object_s *to_obj, object_s *from_obj);
 
 bool obj_set_nil(object_s *obj);
-
+bool obj_set_t(object_s *obj);
 
 #endif /* ML_OBJ_H */
 

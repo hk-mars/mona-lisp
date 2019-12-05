@@ -33,6 +33,19 @@ typedef enum
     COMPOUND_MACRO_FORM = 4,
     COMPOUND_FUNCTION_FORM = 5,
 
+    
+    /** 
+     *  All numbers, characters, strings, and bit-vectors are self-evaluating forms. 
+     *  When such an object is evaluated, that object (or possibly a copy in the case of
+     *  numbers or characters) is returned as the value of the form. The empty list (), 
+     *  which is also the false value nil, is also a self-evaluating form: the value of 
+     *  nil is nil. Keywords (symbols written with a leading colon) also evaluate to 
+     *  themselves: the value of :start is :start.
+     *
+     *  Reference: 
+     *  Common Lisp the Language, 2nd Edition
+     *  5.1.1. Self-Evaluating Forms
+     */
     SELF_EVALUATING_FORM = 6,
 
     /* backquote form is a subform of the defmacro form.
@@ -52,7 +65,13 @@ typedef enum
 
 typedef enum
 {
-    NIL_LIST_FORM = 1,
+    SELF_EVAL_FORM_NUMBER = 1,
+    SELF_EVAL_FORM_CHARACTER = 2,
+    SELF_EVAL_FORM_STRING = 3,
+    SELF_EVAL_FORM_BIT_VECTOR = 4,
+    SELF_EVAL_FORM_BOOL = 5,
+    SELF_EVAL_FORM_EMPTY_LIST = 6,
+    SELF_EVAL_FORM_KEYWORD = 7,
     
 } self_evaluating_form_t;
 
@@ -69,8 +88,6 @@ typedef struct s_form
     
     lisp_list_s *list;
 
-    //object_s *self_eval_obj;
-
     object_s *obj;
     
     struct s_form *next; /* next form */
@@ -84,6 +101,12 @@ typedef struct s_form
 
 form_s* form_create(void);
 
+form_s* form_create_as_self_eval_form(void);
+
+form_s* form_create_as_character_obj(char *character);
+
+form_s* form_create_nil(void);
+
 bool form_create_symbol(form_s *form);
 
 void form_free(form_s *form);
@@ -96,7 +119,11 @@ bool form_is_unkown(form_s *form);
 
 void form_show(form_s *form);
 
+void form_show_type(form_s *form);
+
 form_s* form_clone(form_s *form);
+
+bool form_add_token(form_s *form, token_s *token);
 
 
 #endif /* ML_FORM_H */

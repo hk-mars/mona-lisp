@@ -13,18 +13,23 @@
 #include "../mem.h"
 
 
-
+#define SWITCH false
+#define TEST_SELF_EVAL_FORM_ON true
 #define TEST_CHAR_ON true
-#define TEST_PRINTER_ON true
-#define TEST_LIST_ON true
-#define TEST_EQ_ON true
-#define TEST_EQ_IF true
+#define TEST_PRINTER_ON false
+#define TEST_LIST_ON SWITCH
+#define TEST_EQ_ON SWITCH
+#define TEST_IF_ON SWITCH
 
 
 const char* TEST_CASES[] =
 {  
     "test_cases/test.lisp",
 
+    #if TEST_SELF_EVAL_FORM_ON
+    "test_cases/test_self_eval_form.lisp",
+    #endif
+    
     #if TEST_CHAR_ON 
     "test_cases/test_char.lisp",
     #endif
@@ -44,11 +49,13 @@ const char* TEST_CASES[] =
     "test_cases/test_eq.lisp",    
     #endif
 
-    #if TEST_EQ_IF
+    #if TEST_IF_ON
     "test_cases/test_if.lisp",
     #endif
 
-    
+    #if TEST_SETQ_ON
+    "test_cases/test_setq.lisp",
+    #endif
 };
 
 

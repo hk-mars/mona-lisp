@@ -88,6 +88,14 @@
 
 static hash_table_s syntax_htab;
 
+#if 0
+static bool is_atom(lisp_list_s *s, lisp_list_s *e);
+static bool is_eq(lisp_list_s *s, lisp_list_s *e);
+static bool is_car(lisp_list_s *s, lisp_list_s *e);
+static bool is_cdr(lisp_list_s *s, lisp_list_s *e);
+static bool is_cons(lisp_list_s *s, lisp_list_s *e);
+#endif
+
 
 syntax_rt_t
 syntax_init(void)
@@ -875,6 +883,8 @@ check_list_form_syntax(form_s *form)
      */
     tr_node_s *nd = find_path((tr_node_s*)item->data, path, form->list->front);
     if (!nd) goto FAIL;
+    //bool rt = is_atom(path, form->list->front);
+    //if (!rt) goto FAIL;
 
   DONE:
     func_ok();
@@ -884,6 +894,7 @@ check_list_form_syntax(form_s *form)
     func_fail();
     return SYNTAX_ERR;
 }
+
 
 
 syntax_rt_t
@@ -899,26 +910,29 @@ syntax_check(form_s *form)
 
     while (f && f != form) {
 
+	form_show_type(f);
+	
 	switch (f->type) {
 
+	case SELF_EVALUATING_FORM:
+
+	    /* syntax of self-evaluating objects have been checked during lexcial parsing.
+	     */
+	    break;
+	    
 	case COMPOUND_FUNCTION_FORM:
 	    
-	    debug("COMPOUND_FUNCTION_FORM \n");	  
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);
 		if (rt != SYNTAX_OK) return rt;
 
 	    }
-	    else {
-	    }
-
 	    
 	    break;
 
 	case COMPOUND_SPECIAL_FORM:
 	    
-	    debug("COMPOUND_SPECIAL_FORM \n");
 	    if (!f->obj) {
 		
 		rt = check_list_form_syntax(f);
@@ -938,24 +952,20 @@ syntax_check(form_s *form)
 	    
 	case SYMBOL_FORM:
 	    
-	    debug("SYMBOL_FORM \n");
 	    break;
 
 	case COMPOUND_MACRO_FORM:
 	    
-	    debug("COMPOUND_MACRO_FORM \n");
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);
 		if (rt != SYNTAX_OK) return rt;
 	    }
-	    else {
-	    }
-
 	    
 	    break;	    
 
 	default:
+
 	    break;
 	}
 	
@@ -964,25 +974,9 @@ syntax_check(form_s *form)
     }
     
 
-    func_ok();
-    return SYNTAX_OK;
+    out(ok, SYNTAX_OK);
 }
 
-
-/*
-static void
-show_path(tr_node_s *s)
-{
-    fs();
-  
-    while(s) {
-	debug("%s \n", s->key);
-	s = s->next;
-    }
-  
-    fe();
-}
-*/
 
 int
 create_syntax_htab(int cnt)
@@ -1152,18 +1146,20 @@ April 1960
 
 */
 
-
 #if 0
 static bool
-syntax_check_atom(lisp_list_s *s, lisp_list_s *e)
+is_atom(lisp_list_s *s, lisp_list_s *e)
 {
     func_s();
+
+    
 
     out(ok, true);
 }    
 
+
 static bool
-syntax_check_eq(lisp_list_s *s, lisp_list_s *e)
+is_eq(lisp_list_s *s, lisp_list_s *e)
 {
     func_s();
 
@@ -1172,7 +1168,7 @@ syntax_check_eq(lisp_list_s *s, lisp_list_s *e)
 
 
 static bool
-syntax_check_car(lisp_list_s *s, lisp_list_s *e)
+is_car(lisp_list_s *s, lisp_list_s *e)
 {
     func_s();
 
@@ -1181,7 +1177,7 @@ syntax_check_car(lisp_list_s *s, lisp_list_s *e)
 
 
 static bool
-syntax_check_cdr(lisp_list_s *s, lisp_list_s *e)
+is_cdr(lisp_list_s *s, lisp_list_s *e)
 {
     func_s();
 
@@ -1190,7 +1186,7 @@ syntax_check_cdr(lisp_list_s *s, lisp_list_s *e)
 
 
 static bool
-syntax_check_cons(lisp_list_s *s, lisp_list_s *e)
+is_cons(lisp_list_s *s, lisp_list_s *e)
 {
     func_s();
 

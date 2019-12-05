@@ -244,9 +244,7 @@ ml_init(void)
 
     parser_rt_t parser_rt = parser_init();
     if (parser_rt != PARSER_OK) return LISP_ERR_PARSER;
-    //TODO: reduce the use of memory while loading the syntax objects from BNF file(pratical).
-    //mm_show();
-    //debug_suspend();
+ 
     
     reader_rt_t reader_rt = ml_reader_init();
     if (reader_rt != READER_OK) return LISP_ERR_READER;

@@ -182,3 +182,11 @@ debug_err(const char *fmt, ...)
 
 #endif
 
+
+void
+ml_err_signal_x(ml_err_t err, const char *func_name, int line)
+{
+    debug("%s: %d \n", func_name, line);
+    ml_err_signal(err);
+}
+    

@@ -12,6 +12,8 @@
 
 #include "list.h"
 
+#include "obj.h"
+
 
 
 /**
@@ -42,17 +44,47 @@ form_create(void)
     form_s *f;
 
     f = ml_malloc(sizeof(form_s));
-    if (!f) return NULL;
+    if (!f) goto FAIL;
 
+    
     f->list = ml_malloc(sizeof(lisp_list_s));
-    if (!f->list) return NULL;
+    if (!f->list) goto FAIL;
 
     f->list->is_head = true;
     f->list->obj.type = OBJ_LIST;
 
     f->type = UNKNOWN_FORM;
+
     
-    return f;
+    out(ok, f);
+
+ FAIL:
+    out(fail, NULL);
+}
+
+
+form_s*
+form_create_as_self_eval_form(void)
+{
+    form_s *f;
+
+    func_s();
+    
+    f = ml_malloc(sizeof(form_s));
+    if (!f) goto FAIL;
+
+    
+    f->obj = ml_malloc(sizeof(object_s));
+    if (!f->obj) goto FAIL;
+
+    f->type = SELF_EVALUATING_FORM;
+    f->obj->type = OBJ_TYPE;
+
+    
+    out(ok, f);
+
+ FAIL:
+    out(fail, NULL);
 }
 
 
@@ -142,6 +174,20 @@ form_show(form_s *form)
 
 	switch (f->type) {
 
+	case SELF_EVALUATING_FORM:
+	    debug("SELF_EVALUATING_FORM \n");
+	    debug("subtype: ");
+	    if (f->subtype == SELF_EVAL_FORM_NUMBER) {
+		debug("SELF_EVAL_FORM_NUMBER \n");
+	    }
+	    else if (f->subtype == SELF_EVAL_FORM_BOOL) {
+		debug("SELF_EVAL_FORM_BOOL \n");
+	    }
+	    
+	    obj_show(f->obj);
+	    
+	    break;
+	    
 	case SYMBOL_FORM:
 	    
 	    debug("SYMBOL_FORM \n");
@@ -199,6 +245,122 @@ form_clone(form_s *form)
     func_fail();
     return NULL;
 }
+
+
+bool
+form_add_token(form_s *form, token_s *token)
+{
+    func_s();
+    
+    
+    if (form->list) {
+	    
+	/* clone the token into the list form */
+	list_add_token(form->list, token);	
+    }
+    else if (form->type == SELF_EVALUATING_FORM) {
+
+	/* clone the token into the self-evaluating form */
+	obj_clone_token(form->obj, token);
+    }
+    else {
+
+	goto FAIL;
+    }
+
+    
+    out(ok, true);
+
+  FAIL:
+    out(fail, false);
+}
+
+
+void
+form_show_type(form_s *form)
+{
+    switch (form->type) {
+
+    case SELF_EVALUATING_FORM:
+	debug("SELF_EVALUATING_FORM \n");
+	debug("subtype: ");
+	if (form->subtype == SELF_EVAL_FORM_NUMBER) {
+	    debug("SELF_EVAL_FORM_NUMBER \n");
+	}
+	else if (form->subtype == SELF_EVAL_FORM_BOOL) {
+	    debug("SELF_EVAL_FORM_BOOL \n");
+	}
+	else {
+
+	    debug("unknown \n\n");
+	}
+	    
+	break;
+	    
+    case SYMBOL_FORM:
+	    
+	debug("SYMBOL_FORM \n");
+	
+	break;
+
+    case COMPOUND_FUNCTION_FORM:
+	    
+	debug("COMPOUND_FUNCTION_FORM \n");
+	break;
+
+    case COMPOUND_SPECIAL_FORM:
+	    
+	debug("COMPOUND_SPECIAL_FORM \n");
+	break;
+
+    case COMPOUND_MACRO_FORM:
+	    
+	debug("COMPOUND_MACRO_FORM \n");
+	break;
+	    
+    default:
+	debug("unkown form, type %d \n", form->type);
+	break;
+
+    }
+
+    debug("\n");
+}
+
+
+form_s*
+form_create_as_character_obj(char *character)
+{
+    form_s *form = form_create_as_self_eval_form();
+    if (!form) goto FAIL;
+
+    form->subtype = SELF_EVAL_FORM_CHARACTER;	    
+    form->obj->type = OBJ_CHARACTER;
+    form->obj->character = character;
+
+    return form;
+
+  FAIL:
+    out(fail, false);
+}
+
+
+form_s*
+form_create_nil(void)
+{
+    form_s *form = form_create_as_self_eval_form();
+    if (!form) goto FAIL;
+
+    form->subtype = SELF_EVAL_FORM_BOOL;	    
+    obj_set_nil(form->obj);
+
+    return form;
+
+  FAIL:
+    out(fail, false);
+}
+
+
 
 
 

@@ -1934,11 +1934,55 @@ eval_macro_form(form_s *form, eval_value_s *val)
 }
 
 
+static eval_rt_t
+eval_self_evaluating_form(form_s *form)
+{
+    func_s();
+
+    stream_s stream;
+    char buf[1024];  
+    memset(&stream, 0, sizeof(stream_s));
+    stream.type = STREAM_OUTPUT;
+    stream.buf = buf;
+    stream.is_default_terminal = true;
+    stream.max_buf_len = sizeof(buf);
+    
+    switch (form->subtype) {
+	
+    case SELF_EVAL_FORM_EMPTY_LIST:
+	
+	debug("empty list \n");
+	
+	printer_print_nil(&stream);
+
+	break;
+	
+    case SELF_EVAL_FORM_NUMBER:
+    case SELF_EVAL_FORM_CHARACTER:
+    case SELF_EVAL_FORM_STRING:
+    case SELF_EVAL_FORM_BOOL:
+    case SELF_EVAL_FORM_KEYWORD:
+	
+	printer_print(form->obj, &stream);
+	
+	break;
+
+    default:
+	goto FAIL;
+    }
+
+    
+    out(ok, EVAL_OK);
+
+  FAIL:
+    out(fail, EVAL_ERR);
+}
+
+
 eval_rt_t
 eval(form_s *form, eval_value_s *result)
 {
     eval_rt_t rt;
-    //eval_value_s value;
     
     if (!form) return EVAL_ERR_NULL;
 
@@ -1949,6 +1993,7 @@ eval(form_s *form, eval_value_s *result)
     while (f && f != form) {
 
 	if (!result->list_in) {
+	    
 	    memset(result, 0, sizeof(eval_value_s));
 	}
 	
@@ -1976,24 +2021,13 @@ eval(form_s *form, eval_value_s *result)
 	    
 	    rt = eval_symbol_form(f, result); 
 	    if (rt != EVAL_OK) goto FAIL;
-	   
+
 	    break;
 
 	case SELF_EVALUATING_FORM:
 
-	    if (f->subtype == NIL_LIST_FORM) {	       
-
-		debug("nil list form \n");
-		
-		stream_s stream;
-		char buf[1024];  
-		memset(&stream, 0, sizeof(stream_s));
-		stream.type = STREAM_OUTPUT;
-		stream.buf = buf;
-		stream.is_default_terminal = true;
-		stream.max_buf_len = sizeof(buf);
-		printer_print_nil(&stream);
-	    }
+	    rt = eval_self_evaluating_form(f);
+	    if (rt != EVAL_OK) goto FAIL;
 	    
 	    break;
 
@@ -2016,10 +2050,8 @@ eval(form_s *form, eval_value_s *result)
 	f = f->next;
     }
 
-    func_ok();
-
-    return EVAL_OK;
-
+    
+    out(ok, EVAL_OK);
 
   FAIL:
     func_fail();

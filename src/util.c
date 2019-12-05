@@ -132,12 +132,12 @@ ml_util_arr2fixnum(char *arr, size_t len)
 	(strlen(buf) == strlen(limit) && strcmp(buf, limit) > 0)) {
 
 	debug_err("number %s is out of the limit %s of fixnum \n"
-		  "It is a big number and is not supported yet.\n",
+		  "It is a big number and not supported yet.\n",
 		  buf, limit);
 	
 	ml_err_signal(ML_ERR_NUM_OVERFLOW);
     }
-    
+
     x = atoll(buf);
 
     return x;

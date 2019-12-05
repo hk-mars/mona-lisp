@@ -42,6 +42,7 @@ void ml_err_proc_mem_full(void);
 /* signal an error for processing */
 void ml_err_signal(ml_err_t err);
 
+void ml_err_signal_x(ml_err_t err, const char *func_name, int line);
 
 #endif /* ML_ERROR_H */
 
