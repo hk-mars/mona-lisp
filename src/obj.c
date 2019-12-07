@@ -8,6 +8,8 @@
 
 #include "list.h"
 
+#include "mem.h"
+
 
 
 void
@@ -50,7 +52,7 @@ obj_show(object_s *obj)
 
 	  debug("%s \n", obj->subtype == OBJ_SUBTYPE_BOOL_TRUE ? "bool: t" : "bool: nil");
       }
-      else if (obj->subtype == OBJ_SUBTYPE_EXPRESSION) {
+      else if (obj->subtype == OBJ_SUBTYPE_QUOTE_EXPRESSION) {
 
 	  debug("symbol quote expression: %s \n", obj_get_symbol(obj));
       }
@@ -109,10 +111,35 @@ obj_is_symbol(object_s *obj)
 char*
 obj_get_symbol(object_s *obj)
 {
-    if (!obj_is_symbol(obj)) return NULL;
+    //if (!obj_is_symbol(obj)) return NULL;
     
     return obj->token.value.symbol;
 }
+
+
+bool
+obj_clone_symbol(object_s *obj, char *buf, size_t len)
+{
+    func_s();
+    
+    if (!obj || !buf || len <= 0) return false;
+
+    char *s;
+    
+    obj->token.value.symbol = s = (char*)ml_malloc(len+1);
+    if (!s) goto FAIL;
+
+    memcpy(s, buf, len);
+    s[len] = '\0';
+
+    debug("%s \n", s);
+    
+    out(ok, true);
+
+  FAIL:
+    out(fail, false);
+}
+
 
 
 bool

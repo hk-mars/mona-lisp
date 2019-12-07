@@ -98,6 +98,11 @@ ml_err_signal(ml_err_t err)
 	proc_divide_zero();
 	break;
 
+    case ML_ERR_SYNTAX_ATOM:
+
+	debug_err("illegal atom syntax \n");
+	break;
+	
     case ML_ERR_SYNTAX_CAR:
 
 	debug_err("illegal car syntax \n");

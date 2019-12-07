@@ -40,7 +40,7 @@ typedef enum
     OBJ_SUBTYPE_MACRO_BACKQUOTE = 3,
     OBJ_SUBTYPE_MACRO_COMMNA = 4,
 
-    OBJ_SUBTYPE_EXPRESSION = 5,
+    OBJ_SUBTYPE_QUOTE_EXPRESSION = 5,
 
     OBJ_SUBTYPE_LIST_AS_ELEMENT = 6,
     
@@ -71,6 +71,8 @@ void obj_show(object_s *obj);
 bool obj_is_symbol(object_s *obj);
 
 char* obj_get_symbol(object_s *obj);
+
+bool obj_clone_symbol(object_s *obj, char *buf, size_t len);
 
 bool obj_is_true(object_s *obj);
 bool obj_is_nil(object_s *obj);

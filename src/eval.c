@@ -22,6 +22,7 @@
 
 #include "printer.h"
 
+#include "chars.h"
 
 
 /** 
@@ -827,6 +828,78 @@ eval_user_func_form(form_s *form, lisp_list_s *val_in, eval_value_s *val_out)
 }
 
 
+static eval_rt_t
+eval_atom_form(form_s *form, eval_value_s *val)
+{
+    if (form->subtype != S_FUNCTION_ATOM) return EVAL_ERR;
+
+       
+    /* get the object */
+    object_s *o = &form->list->next->next->next->obj;
+
+    
+    /* evaluating 
+     */
+    bool result = false;
+    switch (o->type) {
+
+    case OBJ_CHARACTER:
+	result = true;
+	break;
+
+    case OBJ_TYPE:
+	if (o->subtype == OBJ_SUBTYPE_QUOTE_EXPRESSION) {
+
+	    char *s = obj_get_symbol(o);
+	    if (*s == '(') {
+
+		/* if it's a empty list, then the result is true
+		 */
+		int i = 0;
+		s++;
+		while (*s) {
+
+		    debug("0x%02x %c \n", *s, *s);
+		    
+		    if (*s == ')') {
+			break;
+		    }
+		    else if (*s == LINEFEED || *s == NEWLINE ||
+			     *s == SPACE || *s == TAB) {
+			s++;
+		    }
+		    else {
+			s++;
+			i++;
+		    }
+		}
+
+		result = (i <= 0);
+	    }
+	    else {
+		result = true;
+	    }
+	}
+	else {
+	    if (o->token.type != TOKEN_UNKOWN) {
+
+		result = true;
+	    }
+	}
+	
+	break;
+
+    default:
+	break;
+    }
+
+    debug("result: %d \n", result);
+
+    result ? obj_set_t(&val->obj_out) : obj_set_nil(&val->obj_out);
+    
+    out(ok, EVAL_OK);
+}
+
 
 /**
  * The rule of evaluating a function form:
@@ -845,6 +918,8 @@ eval_function_form(form_s *form, eval_value_s *val)
     func_s();
 
 
+    if (eval_atom_form(form, val) == EVAL_OK) goto DONE;
+    
     
     if (!form->list->next) {
 
@@ -1675,18 +1750,38 @@ eval_defun_form(form_s *form, eval_value_s *val)
 
 
 static eval_rt_t
+eval_quote_form(form_s *form, eval_value_s *val)
+{
+    if (!form_is_quote_form(form)) return EVAL_ERR;
+    
+    func_s();
+
+    if (!obj_clone(&val->obj_out, form->obj)) goto FAIL;
+
+    //obj_show(&val->obj_out);
+    
+    out(ok, EVAL_OK);
+
+  FAIL:
+    out(fail, EVAL_ERR);
+}
+
+
+static eval_rt_t
 eval_special_form(form_s *form, eval_value_s *val)
 {
     func_s();
 
+    if (eval_quote_form(form, val) == EVAL_OK) goto DONE;
+    
     if (eval_binder_form(form, val) == EVAL_OK) goto DONE;
 
     if (eval_if_form(form, val) == EVAL_OK) goto DONE;
     
+    out(fail, EVAL_ERR);
     
   DONE:
-    func_ok();
-    return EVAL_OK;
+    out(ok, EVAL_OK);
 }
 
 

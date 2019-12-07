@@ -76,13 +76,37 @@ typedef enum
 } self_evaluating_form_t;
 
 
+/* elementary S-functions and Predicates
+ */
+typedef enum
+{
+    S_FUNCTION_ATOM = 1,
+    S_FUNCTION_CONS = 2,
+    S_FUNCTION_CAR = 3,
+    S_FUNCTION_CDR = 4,
+    S_PREDICATE_EQ = 5, /* a predicate is still a type of function */
+    
+} s_function_t;
+
+
+typedef enum
+{
+    SPECIAL_FORM_QUOTE = 1,
+    SPECIAL_FORM_SETQ = 2,
+    SPECIAL_FORM_IF = 3,
+    SPECIAL_FORM_LET = 4,
+    SPECIAL_FORM_BLOCK = 5,
+    
+} special_form_t;
+
+
 
 /* a form is any object meant to be evaluated.
  */
 typedef struct s_form
 {
     form_t type;
-    unsigned char subtype; /* the sub type of this form */
+    unsigned char subtype; /* subtype of the form */
 
     symbol_s *symbol;
     
@@ -102,6 +126,8 @@ typedef struct s_form
 form_s* form_create(void);
 
 form_s* form_create_as_self_eval_form(void);
+
+form_s* form_create_as_quoted_expression(void);
 
 form_s* form_create_as_character_obj(char *character);
 
@@ -125,6 +151,7 @@ form_s* form_clone(form_s *form);
 
 bool form_add_token(form_s *form, token_s *token);
 
+bool form_is_quote_form(form_s *form);
 
 #endif /* ML_FORM_H */
 

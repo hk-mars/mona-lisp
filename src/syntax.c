@@ -88,8 +88,11 @@
 
 static hash_table_s syntax_htab;
 
+
+static bool is_atom(form_s *form);
+
+
 #if 0
-static bool is_atom(lisp_list_s *s, lisp_list_s *e);
 static bool is_eq(lisp_list_s *s, lisp_list_s *e);
 static bool is_car(lisp_list_s *s, lisp_list_s *e);
 static bool is_cdr(lisp_list_s *s, lisp_list_s *e);
@@ -764,6 +767,10 @@ check_list_form_syntax(form_s *form)
 
 
     if (!form->list) return SYNTAX_INVALID;
+
+    
+    if (is_atom(form)) goto DONE;
+    
     
     if (!form->list->next) {
 
@@ -1146,18 +1153,55 @@ April 1960
 
 */
 
-#if 0
+
 static bool
-is_atom(lisp_list_s *s, lisp_list_s *e)
+is_atom(form_s *form)
 {
+    if (form->subtype != S_FUNCTION_ATOM) return false;
+    
     func_s();
 
-    
 
+    lisp_list_s *l = form->list;
+
+    /* head -> ( -> atom -> object -> ) -> head
+     */
+    l = l->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    
+    if (num <= 0) {
+
+	debug_err("no argument in atom form \n");       	
+	goto FAIL;
+    }
+    else if (num > 1) {
+
+	debug_err("%d arguments in atom form, only one requied \n", num);       	
+	goto FAIL;	
+    }
+    
+   
     out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_ATOM);
+    out(fail, false);
 }    
 
 
+#if 0
 static bool
 is_eq(lisp_list_s *s, lisp_list_s *e)
 {

@@ -135,8 +135,12 @@ read_string(char **code, size_t *code_sz, form_s *form)
 
 
 static bool
-read_quote_expression(char **code, size_t *code_sz, form_s *form_head, form_s *form)
+read_quote_expression(char **code, size_t *code_sz, form_s *form)
 {
+    object_s *obj;
+    char *ss = NULL;
+    int pair;
+	    
     func_s();
 
     if (!eq(**code, '\'')) return false;
@@ -144,83 +148,122 @@ read_quote_expression(char **code, size_t *code_sz, form_s *form_head, form_s *f
 
     
     /* syntax:
-     *     quote <object>
-     * or  ' <object>
-     * The <object> is an expression of object type.
+     *     quote <expression>
+     * or  ' <expression>
+     * The <expression> is an expression of object type.
+     * A textual notation used to notate an object in a source file.
      *
      */
-    while (*code_sz > 0) {
 
-	debug("0x%02x %c \n", **code, **code);
+    char *s = *code;
+    char *e = s + *code_sz - 1;
+    while (s <= e) {
 
-	
-	if (**code == '(') {
-	    
-	    /* TODO: the expression of quote-form which could be printed as a list
-	     * '(1 2) => (1 2)
-	     * '(hello"xx)") => (HELLO "xx)")
-	     */
+	debug("0x%02x %c \n", *s, *s);
 
-	    next_code(*code, *code_sz);
-	
-	    //memchr(*code, ")", *code_sz);
-	      
-	}      	
-	else if (eq(**code, LINEFEED)) {
+	if (*s == LINEFEED || *s == NEWLINE || *s == SPACE) {
 
-	    next_code(*code, *code_sz);
- 
-	    func_ok();
-	    return true;
-	}
-	else {
-
-	}
-
-
-	object_s *obj;
-	if (!form->list->front) {
-	    obj = form->obj = ml_malloc(sizeof(object_s));
-	    if (!form->obj) goto ERR;
-
-	    form->obj->type = OBJ_TYPE;
-	    form->obj->subtype = OBJ_SUBTYPE_EXPRESSION;
-	}
-	else {
-	    obj = NULL;
+	    s++;
+	    continue;
 	}
 	
-	bool found = read_symbol(code, code_sz, form);
-	if (!found) goto ERR;
 
-	if (!obj) obj = &form->list->front->obj;
-	
-	char *sym = obj_get_symbol(obj);
-	if (!sym) {
-		
-	    goto ERR;
+	/* list object
+	 * TODO: move those codes to syntax.c ?
+	 */
+	if (*s == '(') {
+
+	    ss = s+1;
+	    pair = 1;
+	    while (ss <= e) {
+
+		if (*ss == '(') {
+
+		    pair++;
+		    ss++;
+		    continue;
+		}
+
+		if (*ss == ')') {
+
+		    pair--;
+		    ss++;
+		    if (pair == 0) {
+
+			debug("a list object found \n");			
+			goto FOUND;
+		    }
+		    continue;
+		}
+
+		ss++;
+	    }	    
 	}
-	else {
 
-	    if (form_is_unkown(form)) {
-		    
-		form_set_type(form, COMPOUND_SPECIAL_FORM);
-		form_add_front(form_head, form);
+	
+	/* symbol, it could be the codes of a character, a number, a string or any object.
+	 */
+	ss = s+1;
+	while (ss <= e) {
+
+	    debug("0x%02x %c \n", *ss, *ss);
+
+	    if (is_whitespace_char(*ss)) {
+
+		debug("a symbol found \n");
+	       	
+		goto FOUND;
 	    }
+	    else if (*ss == '(' || *ss == ')') {
+
+		debug("a symbol found \n");
 		
-	    func_ok();
-	    return true;
+		goto FOUND;
+	    }
+	    
+	    ss++;
 	}
-
-	next_code(*code, *code_sz);
+	
+	goto ERR;
     }
+ 
+    goto ERR;
 
+    
+  FOUND:
+    ml_util_show_buf(s, ss - s);
+    
+    if (form->obj) {
 
+	obj = form->obj;	
+    }
+    else if (form->list) {
+
+	/* object in list form 
+	 */
+	object_s new_obj;
+	memset(&new_obj, 0, sizeof(object_s));
+	new_obj.type = OBJ_TYPE;
+	new_obj.subtype = OBJ_SUBTYPE_QUOTE_EXPRESSION;
+	
+	if (!list_add_object(form->list, &new_obj)) goto ERR;
+	obj = &form->list->front->obj;
+    }
+    else {
+	goto ERR;
+    }
+  
+    if (!obj_clone_symbol(obj, s, ss - s)) goto ERR;
+
+    move_code(*code, *code_sz, ss - s);
+
+    out(ok, true);
+
+    
   ERR:    
     ml_err_signal(ML_ERR_ILLEGAL_CHAR);
     
-    return false;
-    
+    out(fail, false); 
 }
 
 
@@ -441,6 +484,9 @@ like_list_func(char *code)
 static bool
 like_other_func(char *code)
 {
+    /* atom */
+    if (eq(*code, 'a') || eq(*code, 'A')) return true;
+    
     /* car, cdr */
     if (eq(*code, 'c') || eq(*code, 'C')) return true;
 
@@ -829,22 +875,31 @@ identify_other_func(char **code, size_t *code_sz, form_s *form)
     token_s *t, tk;
     char *str;
     int len;
-    
-    if (ml_util_strbufcmp("car", *code, *code_sz)) {
+
+    if (ml_util_strbufcmp("atom", *code, *code_sz)) {
+
+	str = "atom";
+	form->subtype = S_FUNCTION_ATOM;
+    }    
+    else if (ml_util_strbufcmp("car", *code, *code_sz)) {
 
 	str = "car";
+	form->subtype = S_FUNCTION_CAR;
     }
     else if (ml_util_strbufcmp("cdr", *code, *code_sz)) {
 
 	str = "cdr";
+	form->subtype = S_FUNCTION_CDR;
     }
     else if (ml_util_strbufcmp("cons", *code, *code_sz)) {
 
 	str = "cons";
+	form->subtype = S_FUNCTION_CONS;
     }
     else if (ml_util_strbufcmp("eq", *code, *code_sz)) {
 
-	str = "eq";	
+	str = "eq";
+	form->subtype = S_PREDICATE_EQ;
     }
     else if (ml_util_strbufcmp("print", *code, *code_sz)) {
 
@@ -884,8 +939,6 @@ identify_other_func(char **code, size_t *code_sz, form_s *form)
   DONE:
     memset(&tk, 0, sizeof(token_s));
     t = &tk;
-    //t = token_create();
-    //if (!t) return false;
     
     t->type = TOKEN_SYMBOL;
     t->value.symbol = str;
@@ -1197,9 +1250,11 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 
 	if (*code == '\'') {
 
-	    found = read_quote_expression(&code, &code_sz, form_head, form);
+	    if (form_is_unkown(form)) goto ERR;
+	    
+	    found = read_quote_expression(&code, &code_sz, form);
 	    if (found) {
-		
+
 		continue;
 	    }
 	}
@@ -1213,7 +1268,7 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 	}
 
 	if (like_arithmetic_func(code)) {
-
+	    
 	    found = identify_code_as_func(&code, &code_sz,
 					  identify_arithmetic_operator, form);
 	    if (found) {
@@ -1453,10 +1508,15 @@ read_macro(code_s *cd, lex_s *lex)
 	/* A single-quote introduces an expression to be "quoted" 
 	 */
 	
-	form = form_create();
-	if (!form) break;
+	form = form_create_as_quoted_expression();
+	if (!form) goto FAIL;
 	
-	found = read_quote_expression(&cd->code, &cd->code_sz, &lex->forms, form);
+	found = read_quote_expression(&cd->code, &cd->code_sz, form);
+	if (found) {
+
+	    if (!form_add_front(&lex->forms, form)) goto FAIL;
+	}
+	
 	break;
 	    
     case ';':

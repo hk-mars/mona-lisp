@@ -88,6 +88,32 @@ form_create_as_self_eval_form(void)
 }
 
 
+form_s*
+form_create_as_quoted_expression(void)
+{
+    form_s *f;
+
+    func_s();
+    
+    f = ml_malloc(sizeof(form_s));
+    if (!f) goto FAIL;
+
+    
+    f->obj = ml_malloc(sizeof(object_s));
+    if (!f->obj) goto FAIL;
+
+    f->type = COMPOUND_SPECIAL_FORM;
+    f->subtype = SPECIAL_FORM_QUOTE;
+    f->obj->type = OBJ_TYPE;
+    f->obj->subtype = OBJ_SUBTYPE_QUOTE_EXPRESSION;
+    
+    out(ok, f);
+
+ FAIL:
+    out(fail, NULL);
+}
+
+
 bool
 form_create_symbol(form_s *form)
 {
@@ -204,6 +230,7 @@ form_show(form_s *form)
 	case COMPOUND_SPECIAL_FORM:
 	    
 	    debug("COMPOUND_SPECIAL_FORM \n");
+	    
 	    break;
 
 	case COMPOUND_MACRO_FORM:
@@ -360,6 +387,17 @@ form_create_nil(void)
     out(fail, false);
 }
 
+bool
+form_is_quote_form(form_s *form)
+{
+    
+    bool flag =  (form->type == COMPOUND_SPECIAL_FORM &&
+		  form->subtype == SPECIAL_FORM_QUOTE);
+
+    if (flag) func_ok();
+
+    return flag;
+}
 
 
 
