@@ -56,3 +56,28 @@
 ;(atom )
 
 
+;(eq #\a #\a)
+;(eq #\a #\z)
+;(eq 1 1)
+;(eq 1 10)
+;(eq 1 x)
+;(eq x y)
+;(eq 1 #\a)
+;(eq 'a 'b)
+;(eq 'a 'a)
+;(eq 'abc 'abc)
+;(eq 'abc 'abC)
+
+;; syntax error
+;(cons )
+;(cons 1)
+;(cons 1 2 3)
+
+;(cons 1 2)
+;(cons 1 #\a)
+;(cons 'a 'b)
+;(cons (cons 1 2) 3)
+;(cons 0 (cons 1 2))
+;(cons (cons 1 2) (cons 3 4))
+
+

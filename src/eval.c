@@ -506,40 +506,43 @@ eval_cdr(void *left, void *right)
 static bool
 eval_cons(void *left, void *right)
 {
+    object_s *obj_r = ((eval_value_s*)right)->obj_in;
+    lisp_list_s *list_in = &((eval_value_s*)right)->list;
+    lisp_list_s *list_out = &((eval_value_s*)left)->list;
+
     func_s();
 
-    lisp_list_s *list_out = &((eval_value_s*)left)->list;
-    lisp_list_s *list_in = &((eval_value_s*)right)->list;
+    if (list_is_head(list_in)) {
 
-    if (!list_in) {
-
-	debug_err("NULL list \n");
-	return false;
-    }
-
-    if (!list_in->next) {
-
-	debug_err("nil list \n");
-	return true;
-    }
-
-    lisp_list_s *l = list_in->next;
-    
-    while (l && l != list_in) {
+	list_show(list_in);
 	
-	if (!list_add_object(list_out, &l->obj)) {
-
-	    func_fail();
-	    return false;
-	}
-
-	l = l->next;
+	list_add_list(list_out, list_in);
     }
+    
+    if (!list_add_object(list_out, obj_r)) {
+
+	goto FAIL;
+    }    
+
 
     list_show(list_out);
+
+ #if 0   
+    stream_s stream;
+    char buf[1024];
     
-    func_ok();
-    return true;
+    memset(&stream, 0, sizeof(stream_s));
+    stream.type = STREAM_OUTPUT;
+    stream.buf = buf;
+    stream.is_default_terminal = true;
+    stream.max_buf_len = sizeof(buf);
+    printer_cons(list_out, &stream);
+#endif
+    
+    out(ok, true);
+
+  FAIL:
+    out(fail, false);
 }
 
 
@@ -554,7 +557,6 @@ eval_eq(void *left, void *right)
     object_s *obj_r = ((eval_value_s*)right)->obj_in;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
 
-    //if (!obj_l || !obj_r) goto FAIL;
     
     if (!obj_r && !list_in) goto FAIL;
 
@@ -585,17 +587,24 @@ eval_eq(void *left, void *right)
     if (obj_is_symbol(obj_l)) {
 
 	 var1 = var_get(obj_get_symbol(obj_l));
-	 if (var1) {
-	     obj_l = &var1->val;
+	 if (!var1) {
+
+	     ml_err_signal_x(ML_ERR_VARIABLE_UNBOUND, __FUNCTION__, __LINE__);
+	     goto FAIL;
 	 }
+	 
+	 obj_l = &var1->val;
     }
 
     if (obj_is_symbol(obj_r)) {
 
 	var2 = var_get(obj_get_symbol(obj_r));
-	 if (var2) {
-	     obj_r = &var2->val;
-	 }	
+	 if (!var2) {
+	     
+	     ml_err_signal_x(ML_ERR_VARIABLE_UNBOUND, __FUNCTION__, __LINE__);
+	     goto FAIL;	     
+	 }
+	 obj_r = &var2->val;
     }   
 
     
@@ -634,14 +643,33 @@ eval_eq(void *left, void *right)
 
 	    result = (obj_l->subtype == obj_r->subtype);
 	}
+	else if (obj_l->subtype == OBJ_SUBTYPE_QUOTE_EXPRESSION) {
+
+	    if (obj_r->subtype != obj_l->subtype) {
+
+		result = false;
+	    }
+	    else {
+
+		if (!strcasecmp(obj_get_symbol(obj_l), obj_get_symbol(obj_r))) {
+
+		    result = true;
+		}
+		else {
+		    result = false;
+		}
+	    }
+	}
 	else {
 
 	    goto FAIL;
 	}
 	
 	break;
-	
+
     default:
+
+	debug_err("unknown object %d \n", obj_l->type);
 	
 	goto FAIL;
 	break;
@@ -941,6 +969,8 @@ eval_function_form(form_s *form, eval_value_s *val)
 	return EVAL_ERR_NULL;
     }
 
+    val->list.is_head = true;
+    memset(&value, 0, sizeof(eval_value_s));
   
     char *func_name = l->obj.token.value.symbol;
     const eval_call_s *eval_call = match_eval_call(func_name);
@@ -964,11 +994,13 @@ eval_function_form(form_s *form, eval_value_s *val)
 
     debug("function: %s \n", func_name);
 
+    if (form->subtype == S_FUNCTION_CONS) {
+
+	if (!list_add_object(&val->list, &l->obj)) goto FAIL;
+    }
+
     l = l->next;
-    if (!l) goto FAIL;
-    
-    val->list.is_head = true;
-    memset(&value, 0, sizeof(eval_value_s));
+    if (!l) goto FAIL;   
 
     if (l->next == form->list) {
 
@@ -1051,18 +1083,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 			goto NEXT;
 		    }
 		}
-	
+
 		variable_s *var = var_get(sym);
 		if (!var) {
-
-		    debug_err("symbol %s is unbound \n", sym);
-		    //ml_err_signal( ML_ERR_VARIABLE_UNBOUND);
-		    //return EVAL_ERR;
+		    
 		    value.obj_in = &l->obj;
 		}
 		else {
-		    value.obj_in = &var->val;
 		    
+		    value.obj_in = &var->val;		    
 		}
 
 		

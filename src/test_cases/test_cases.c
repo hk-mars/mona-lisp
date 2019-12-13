@@ -16,8 +16,9 @@
 #define SWITCH false
 #define TEST_SELF_EVAL_FORM_ON false
 #define TEST_CHAR_ON false
-#define TEST_QUOTE_ON true
-#define TEST_ATOM_ON true
+#define TEST_QUOTE_ON false
+#define TEST_ATOM_ON false
+#define TEST_CONS_ON true
 #define TEST_PRINTER_ON false
 #define TEST_LIST_ON SWITCH
 #define TEST_EQ_ON SWITCH
@@ -43,6 +44,10 @@ const char* TEST_CASES[] =
 #if TEST_ATOM_ON 
     "test_cases/test_atom.lisp",
 #endif    
+
+#if TEST_CONS_ON 
+    "test_cases/test_cons.lisp",
+#endif 
     
 #if TEST_PRINTER_ON
     "test_cases/test_printer.lisp",

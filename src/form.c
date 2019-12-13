@@ -224,6 +224,9 @@ form_show(form_s *form)
 	case COMPOUND_FUNCTION_FORM:
 	    
 	    debug("COMPOUND_FUNCTION_FORM \n");
+	    if (f->subtype == S_PREDICATE_EQ) {
+		debug("subtype: S_PREDICATE_EQ \n");
+	    }
 	    list_show(f->list);
 	    break;
 
@@ -309,8 +312,7 @@ form_show_type(form_s *form)
     switch (form->type) {
 
     case SELF_EVALUATING_FORM:
-	debug("SELF_EVALUATING_FORM \n");
-	debug("subtype: ");
+	debug("SELF_EVALUATING_FORM \n");	
 	if (form->subtype == SELF_EVAL_FORM_NUMBER) {
 	    debug("SELF_EVAL_FORM_NUMBER \n");
 	}
@@ -338,11 +340,16 @@ form_show_type(form_s *form)
     case COMPOUND_SPECIAL_FORM:
 	    
 	debug("COMPOUND_SPECIAL_FORM \n");
+
+	if (form->subtype == S_PREDICATE_EQ) {
+	    debug("subtype: S_PREDICATE_EQ \n");
+	}	
 	break;
 
     case COMPOUND_MACRO_FORM:
 	    
 	debug("COMPOUND_MACRO_FORM \n");
+	
 	break;
 	    
     default:

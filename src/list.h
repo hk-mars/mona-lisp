@@ -15,12 +15,12 @@
 #include "token.h"
 
 
-typedef struct s_lisp_list
+typedef struct lisp_list
 {
     object_s obj;
 
-    struct s_lisp_list *next;
-    struct s_lisp_list *front;
+    struct lisp_list *next;
+    struct lisp_list *front;
 
     bool is_head;
     bool is_nil;

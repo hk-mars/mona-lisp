@@ -43,6 +43,9 @@ typedef enum
     OBJ_SUBTYPE_QUOTE_EXPRESSION = 5,
 
     OBJ_SUBTYPE_LIST_AS_ELEMENT = 6,
+
+    OBJ_SUBTYPE_CONS = 7,
+    
     
 } object_sub_t;
 

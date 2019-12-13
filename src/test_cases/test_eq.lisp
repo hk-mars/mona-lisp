@@ -5,6 +5,9 @@
 (eq 1 1)
 (eq 1 10)
 
+;; syntax error
+;;(eq x y)
+
 (setq x #\b)
 (setq y #\b)
 (eq x y)
@@ -29,6 +32,14 @@
 (eq 3 x)
 (eq 4 y)
 (eq y 4)
+
+(eq 1 #\a)
+
+(eq 'a 'b)
+(eq 'a 'a)
+(eq 'abc 'abc)
+(eq 'abc 'abC)
+
 
 (eq 1 (list 2))
 (eq (list 1) 2)

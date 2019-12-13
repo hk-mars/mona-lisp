@@ -90,13 +90,12 @@ static hash_table_s syntax_htab;
 
 
 static bool is_atom(form_s *form);
-
+static bool is_eq(form_s *form);
+static bool is_cons(form_s *form);
 
 #if 0
-static bool is_eq(lisp_list_s *s, lisp_list_s *e);
 static bool is_car(lisp_list_s *s, lisp_list_s *e);
 static bool is_cdr(lisp_list_s *s, lisp_list_s *e);
-static bool is_cons(lisp_list_s *s, lisp_list_s *e);
 #endif
 
 
@@ -770,6 +769,11 @@ check_list_form_syntax(form_s *form)
 
     
     if (is_atom(form)) goto DONE;
+
+    if (is_eq(form)) goto DONE;
+
+    if (is_cons(form)) goto DONE;
+    
     
     
     if (!form->list->next) {
@@ -1113,7 +1117,7 @@ Thus:
 atom [X] = T 
 atom [(X · A)] = F
 
-b2. eq. eq [x;y] is defined if and only if both x and y are atomic. 
+b2. eq. eq [x;y] is defined if and only if both x and y are atomic.(TODO) 
 eq [x; y] = T if x and y are the same symbol, and eq [x; y] = F otherwise.
 
 eq [X; X] = T
@@ -1161,11 +1165,10 @@ is_atom(form_s *form)
     
     func_s();
 
-
-    lisp_list_s *l = form->list;
-
     /* head -> ( -> atom -> object -> ) -> head
      */
+    lisp_list_s *l = form->list;
+  
     l = l->next->next->next;
 
     
@@ -1201,16 +1204,101 @@ is_atom(form_s *form)
 }    
 
 
-#if 0
 static bool
-is_eq(lisp_list_s *s, lisp_list_s *e)
+is_eq(form_s *form)
 {
+    if (form->subtype != S_PREDICATE_EQ) return false;
+    
     func_s();
 
+    /* head -> ( -> eq -> object -> object -> ) -> head
+     */    
+    lisp_list_s *l = form->list;
+
+    l = l->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    
+    if (num < 1) {
+
+	debug_err("no argument in eq form, 2 requied. \n");       	
+	goto FAIL;
+    }
+    else if (num == 1 || num > 2) {
+
+	debug_err("%d arguments in eq form, 2 requied. \n", num);       	
+	goto FAIL;	
+    }
+    
+   
     out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_EQ);
+    out(fail, false);
 }
 
 
+static bool
+is_cons(form_s *form)
+{
+    if (form->subtype != S_FUNCTION_CONS) return false;
+    
+    func_s();
+
+    /* head -> ( -> cons -> object -> object -> ) -> head
+     */    
+    lisp_list_s *l = form->list;
+
+    l = l->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    
+    if (num < 1) {
+
+	debug_err("no argument in cons form, 2 requied. \n");       	
+	goto FAIL;
+    }
+    else if (num == 1 || num > 2) {
+
+	debug_err("%d arguments in cons form, 2 requied. \n", num);       	
+	goto FAIL;	
+    }
+    
+   
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_CONS);
+    out(fail, false);
+}
+
+
+
+#if 0
 static bool
 is_car(lisp_list_s *s, lisp_list_s *e)
 {

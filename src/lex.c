@@ -676,9 +676,8 @@ identify_number_token(char **code, size_t *code_sz, form_s *form)
 	    
     if (token.type != TOKEN_UNKOWN) {
 
-
-	form->subtype = SELF_EVAL_FORM_NUMBER;
-	
+	if (form->obj) form->subtype = SELF_EVAL_FORM_NUMBER;
+    	
 	if (!form_add_token(form, &token)) goto FAIL;
 
 	//form_show(form);	
@@ -948,9 +947,8 @@ identify_other_func(char **code, size_t *code_sz, form_s *form)
     }
     
     list_add_token(form->list, t);
-  
-    func_ok();
-    return true;
+
+    out(ok, true);
 }
 
 
@@ -1296,7 +1294,8 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    if (found) {
 
 		form_add_front(form_head, form);
-		
+
+		form_show(form);
 		continue;
 	    }
 	}

@@ -104,6 +104,7 @@ obj_show(object_s *obj)
 bool
 obj_is_symbol(object_s *obj)
 {
+    /* TODO */
     return (obj->token.type == TOKEN_SYMBOL);
 }
 
@@ -111,8 +112,11 @@ obj_is_symbol(object_s *obj)
 char*
 obj_get_symbol(object_s *obj)
 {
-    //if (!obj_is_symbol(obj)) return NULL;
-    
+    if (obj->subtype != OBJ_SUBTYPE_QUOTE_EXPRESSION &&
+	obj->token.type != TOKEN_SYMBOL) {
+	return NULL;
+    }
+
     return obj->token.value.symbol;
 }
 

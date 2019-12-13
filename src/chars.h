@@ -44,6 +44,7 @@
 #define is_alpha(x) ( ((x) >= 'a' && (x) <= 'z') || ((x) >= 'A' && (x) <= 'Z') )
 
 #define is_whitespace_char(x) ( \
+	(x) == SPACE ||		\
         (x) == BACKSPACE ||    \
 	(x) == TAB ||	       \
 	(x) == NEWLINE ||      \
