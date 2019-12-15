@@ -18,10 +18,11 @@
 #define TEST_CHAR_ON false
 #define TEST_QUOTE_ON false
 #define TEST_ATOM_ON false
-#define TEST_CONS_ON true
+#define TEST_CONS_ON false
+#define TEST_CONS_CAR_CDR_ON true
 #define TEST_PRINTER_ON false
 #define TEST_LIST_ON SWITCH
-#define TEST_EQ_ON SWITCH
+#define TEST_EQ_ON false
 #define TEST_IF_ON SWITCH
 
 
@@ -47,7 +48,12 @@ const char* TEST_CASES[] =
 
 #if TEST_CONS_ON 
     "test_cases/test_cons.lisp",
-#endif 
+#endif
+
+#if TEST_CONS_CAR_CDR_ON
+    "test_cases/test_cons_car_cdr.lisp",
+#endif
+    
     
 #if TEST_PRINTER_ON
     "test_cases/test_printer.lisp",

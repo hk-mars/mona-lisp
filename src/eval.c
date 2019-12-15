@@ -396,22 +396,24 @@ eval_list(void *left, void *right)
 static bool
 eval_car(void *left, void *right)
 {
-    func_s();
-
     object_s *obj_out = &((eval_value_s*)left)->obj_out;
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
 
+    func_s();
+
+    if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
+    
     if (obj_out->type == OBJ_TYPE) {
 
-	ml_err_signal(ML_ERR_SYNTAX_CAR);
-	return false;
+	goto FAIL;
     }
 
     if (!list_in) {
 
 	debug_err("NULL list \n");
-	debug_suspend();
-	return false;
+
+	goto FAIL;
     }
 
 
@@ -422,7 +424,8 @@ eval_car(void *left, void *right)
 	
 	goto DONE;	
     }
-    
+
+    list_show(list_in);
 
     if (list_is_head(list_in->next->next->next)) {
 
@@ -436,13 +439,23 @@ eval_car(void *left, void *right)
 
     
     debug("car of list is: ");
-    obj_show(&list_in->next->next->obj);
+
+    lisp_list_s *l = list_in->next->next;
     
-    obj_clone(obj_out, &list_in->next->next->obj);
+    if (l->obj.subtype == OBJ_SUBTYPE_CONS) {
+
+	l = l->next;	
+    }
+ 
+    obj_show(&l->obj);
+    obj_clone(obj_out, &l->obj);
     
  DONE:
-    func_ok();
-    return true;
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_CAR);
+    out(fail, false);
 }
 
 
@@ -452,92 +465,115 @@ eval_cdr(void *left, void *right)
 {
     func_s();
 
-    lisp_list_s *list_out = &((eval_value_s*)left)->list;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
     object_s *obj_out = &((eval_value_s*)left)->obj_out;
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
 
-    if (!list_in || !list_in->next) {
 
-	debug_err("NULL list \n");
-	return false;
-    }
-
-    lisp_list_s *l = list_in->next->next->next;
-    if (list_is_head(l)) {
-
-	debug("nil list \n");
-	debug("cdr of nil list is: nil \n");
-
-	obj_set_nil(obj_out);       
-	
-	goto DONE;
-    }
+    if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
     
-
-    if (list_is_head(l->next)) {
+    /* if the argument object is a form, then evaluates it. 
+     * then check the object returned if it is a CONS or LIST.
+     */
+    if (obj_in) {
 	
-	debug("only one element, so cdr of the list is nil\n");
-	obj_set_nil(obj_out);
+	if (obj_is_form(obj_in)) {
 
-	goto DONE;
-    }
-    
-    while (l && l != list_in) {
-	
-	if (!list_add_object(list_out, &l->obj)) {
-
-	    func_fail();
-	    return false;
+	    debug_suspend();
 	}
 
-	l = l->next;
+	/* if (obj_in->subtype == OBJ_SUBTYPE_QUOTE_EXPRESSION) { */
+	    
+	/* } */
+    }
+    
+    
+    if (!list_in || !list_in->next) {
 
-	if (l->next && l->next->is_head) break;
+	debug_err("the argument object is not a type of LIST \n");
+	goto FAIL;
     }
 
-    list_show(list_out);
+    lisp_list_s *l = list_in->next->next;    
+    if (l->obj.subtype == OBJ_SUBTYPE_CONS) {
 
+	l = l->next->next;	
+    }
+    else {
+    
+	l = list_in->next->next->next;
+	if (list_is_head(l)) {
+
+	    debug("nil list \n");
+	    debug("cdr of nil list is: nil \n");
+
+	    obj_set_nil(obj_out);       
+	
+	    goto DONE;
+	}
+    
+	if (list_is_head(l->next)) {
+	
+	    debug("only one element, so cdr of the list is nil\n");
+	    obj_set_nil(obj_out);
+
+	    goto DONE;
+	}
+    }
+
+    obj_show(&l->obj);
+       
+
+    if (!obj_clone(obj_out, &l->obj)) {
+	
+	out(fail, false);
+    }
+    
+    obj_show(&l->obj);
+    
   DONE:
-    func_ok();
-    return true;
+    out(ok, true);
+
+
+  FAIL:
+    ml_err_signal(ML_ERR_EVAL_CDR);
+    out(fail, false);
 }
 
 
 static bool
 eval_cons(void *left, void *right)
 {
-    object_s *obj_r = ((eval_value_s*)right)->obj_in;
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
     lisp_list_s *list_out = &((eval_value_s*)left)->list;
 
     func_s();
 
-    if (list_is_head(list_in)) {
 
-	list_show(list_in);
+    //if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
+    
+    
+    if (!obj_in) {
+
+	//list_show(list_in);
 	
-	list_add_list(list_out, list_in);
+	if (!list_add_list(list_out, list_in)) goto FAIL;
+	
     }
-    
-    if (!list_add_object(list_out, obj_r)) {
+    else {
 
-	goto FAIL;
-    }    
+	if (obj_in->list) {
 
-
+	    if (!list_add_list(list_out, obj_in->list)) goto FAIL;
+	}
+	else {
+	    
+	    if (!list_add_object(list_out, obj_in)) goto FAIL;
+	}
+    }
+  
     list_show(list_out);
-
- #if 0   
-    stream_s stream;
-    char buf[1024];
-    
-    memset(&stream, 0, sizeof(stream_s));
-    stream.type = STREAM_OUTPUT;
-    stream.buf = buf;
-    stream.is_default_terminal = true;
-    stream.max_buf_len = sizeof(buf);
-    printer_cons(list_out, &stream);
-#endif
     
     out(ok, true);
 
@@ -554,35 +590,65 @@ eval_eq(void *left, void *right)
     func_s();
 
     object_s *obj_l = &((eval_value_s*)left)->obj_out;
-    object_s *obj_r = ((eval_value_s*)right)->obj_in;
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
+    lisp_list_s *list_out = &((eval_value_s*)left)->list;
 
+
+    if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
     
-    if (!obj_r && !list_in) goto FAIL;
-
-    if (!obj_r && list_in) {
-
-	if (obj_l->type == OBJ_UNKNOWN) {
-	    
-	    obj_l->type = OBJ_LIST;
-	}
-	else {
-
-	    obj_l->type = OBJ_TYPE;
-	    obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;
-	    
-	}
+    
+    if (!obj_in) {
 	
-	goto DONE;
-    }
-      
-    
-    if (obj_l->type == OBJ_UNKNOWN) {
+	if (obj_l->type == OBJ_UNKNOWN) { /* first argument */
 
-	memcpy(obj_l, obj_r, sizeof(object_s));
+	    
+	    
+	    if (list_out->next) {
+
+		debug("list compare \n");
+		//list_show(list_out);
+		//list_show(list_in);
+		
+		obj_l->type = OBJ_TYPE;
+		obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;	    
+	    }
+	    else {
+		
+		if (!list_add_list(list_out, list_in)) goto FAIL;     
+	    }
+	    
+	}
+	else {  /* second argument */
+	    
+	    if (obj_l->list) {
+
+		debug("list compare \n");
+	    }
+	    
+	    obj_l->type = OBJ_TYPE;
+	    obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;	    
+	}
+
 	goto DONE;
     }
+    else {
+	obj_show(obj_in);
+    }
     
+    if (!list_out->next && obj_l->type == OBJ_UNKNOWN) {
+
+	memcpy(obj_l, obj_in, sizeof(object_s));
+	goto DONE;
+    }
+    else if (list_out->next) {
+
+	
+	obj_l->type = OBJ_TYPE;
+	obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;
+	goto DONE;
+    }
+
 
     if (obj_is_symbol(obj_l)) {
 
@@ -596,21 +662,23 @@ eval_eq(void *left, void *right)
 	 obj_l = &var1->val;
     }
 
-    if (obj_is_symbol(obj_r)) {
+    if (obj_is_symbol(obj_in)) {
 
-	var2 = var_get(obj_get_symbol(obj_r));
+	var2 = var_get(obj_get_symbol(obj_in));
 	 if (!var2) {
 	     
 	     ml_err_signal_x(ML_ERR_VARIABLE_UNBOUND, __FUNCTION__, __LINE__);
 	     goto FAIL;	     
 	 }
-	 obj_r = &var2->val;
+	 obj_in = &var2->val;
     }   
 
     
-    if (obj_l->type != obj_r->type) {
+    if (obj_l->type != obj_in->type ||
+	obj_l->subtype != obj_in->subtype) {
 
-	debug_err("object type is inconsistent \n");
+
+	debug("object type is inconsistent \n");
 	
 	obj_l->type = OBJ_TYPE;
 	obj_l->subtype = OBJ_SUBTYPE_BOOL_FALSE;
@@ -626,7 +694,7 @@ eval_eq(void *left, void *right)
 
     case OBJ_CHARACTER:
 
-	result = (obj_l->character[0] == obj_r->character[0]);
+	result = (obj_l->character[0] == obj_in->character[0]);
 	break;
 
     case OBJ_TYPE:
@@ -636,22 +704,22 @@ eval_eq(void *left, void *right)
 	if (obj_l->token.type == TOKEN_NUM_INT) {
 
 	    debug("TOKEN_NUM_INT \n");
-	    result = (obj_l->token.value.num_int == obj_r->token.value.num_int);	    
+	    result = (obj_l->token.value.num_int == obj_in->token.value.num_int);	    
 	}
 	else if (obj_l->subtype == OBJ_SUBTYPE_BOOL_TRUE ||
 	    obj_l->subtype == OBJ_SUBTYPE_BOOL_FALSE) {
 
-	    result = (obj_l->subtype == obj_r->subtype);
+	    result = (obj_l->subtype == obj_in->subtype);
 	}
 	else if (obj_l->subtype == OBJ_SUBTYPE_QUOTE_EXPRESSION) {
 
-	    if (obj_r->subtype != obj_l->subtype) {
+	    if (obj_in->subtype != obj_l->subtype) {
 
 		result = false;
 	    }
 	    else {
 
-		if (!strcasecmp(obj_get_symbol(obj_l), obj_get_symbol(obj_r))) {
+		if (!strcasecmp(obj_get_symbol(obj_l), obj_get_symbol(obj_in))) {
 
 		    result = true;
 		}
@@ -707,11 +775,11 @@ eval_print(void *left, void *right)
   
     
     object_s *obj_l = &((eval_value_s*)left)->obj_out;
-    object_s *obj_r = ((eval_value_s*)right)->obj_in;
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
     
     if (obj_l->type == OBJ_UNKNOWN) {
 
-	memcpy(obj_l, obj_r, sizeof(object_s));
+	memcpy(obj_l, obj_in, sizeof(object_s));
 	goto DONE;
     }
 
@@ -866,9 +934,46 @@ eval_atom_form(form_s *form, eval_value_s *val)
     object_s *o = &form->list->next->next->next->obj;
 
     
-    /* evaluating 
+    /** 
+     * evaluating 
      */
+    
     bool result = false;
+
+    /* evaluate subform
+     */
+    if (obj_is_form(o)) {
+
+	form_s *subform = o->sub;
+	if (subform) {
+	    debug("eval sub_form \n");
+	}
+
+	eval_value_s value;
+	memset(&value, 0, sizeof(eval_value_s));
+	value.list_in = val->list_in;
+	    
+	eval_rt_t rt = eval(subform, &value);
+	if (rt != EVAL_OK) return rt;
+
+	debug("eval sub_form done \n");
+
+	if (value.obj_out.type != OBJ_UNKNOWN && !value.obj_out.list) {
+	    
+	    /* object returned, a empty list would return "nil" object. */
+	    o = &value.obj_out;
+	}
+	else {
+
+	    /* object returned is a LIST */
+	    debug("object returned is a LIST \n");
+	    result = false;
+	    goto DONE;
+	}	   
+    }
+
+    obj_show(o);
+
     switch (o->type) {
 
     case OBJ_CHARACTER:
@@ -918,9 +1023,11 @@ eval_atom_form(form_s *form, eval_value_s *val)
 	break;
 
     default:
+	debug("unkown object \n");
 	break;
     }
 
+  DONE:   
     debug("result: %d \n", result);
 
     result ? obj_set_t(&val->obj_out) : obj_set_nil(&val->obj_out);
@@ -996,6 +1103,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 
     if (form->subtype == S_FUNCTION_CONS) {
 
+	l->obj.subtype = OBJ_SUBTYPE_CONS;
 	if (!list_add_object(&val->list, &l->obj)) goto FAIL;
     }
 
@@ -1050,9 +1158,6 @@ eval_function_form(form_s *form, eval_value_s *val)
 	    else {
 
 		if (list_is_head(&value.list)) {
-
-		    /* the head of a list */
-		    //value.obj_in = &value.list.obj;
 
 		    value.list_in = &value.list;
 		}
@@ -1138,7 +1243,7 @@ eval_function_form(form_s *form, eval_value_s *val)
 			    goto NEXT;
 			}
 		    }
-		}		
+		}
 		else {
 		    value.obj_in = &l->obj;
 		}
@@ -1180,12 +1285,14 @@ eval_function_form(form_s *form, eval_value_s *val)
     }
     else {
 
+	/* if (list_is_head(val->list.next->next)) { */
+
 	debug("add ( \n");
 	list_add_char_obj(val->list.next, "(");
     
 	debug("add ) \n");
 	list_add_char_obj(&val->list, ")");
-
+	
 	list_show(&val->list);
     }
     

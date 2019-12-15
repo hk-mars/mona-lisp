@@ -69,6 +69,9 @@ typedef struct s_object
 } object_s;
 
 
+#define obj_is_form(obj) (bool)((obj)->sub)
+
+
 void obj_show(object_s *obj);
 
 bool obj_is_symbol(object_s *obj);

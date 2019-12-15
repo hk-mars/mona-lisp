@@ -53,4 +53,8 @@
 (atom '"hello")
 
 
+(atom (car (cons 1 2)))
+(atom (car (cons (cons 1 2) 3)))
 
+(atom (cdr (cons 1 2)))
+(atom (cdr (cons 1 (cons 2 3))))

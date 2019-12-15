@@ -134,6 +134,10 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_NUM_OVERFLOW:
 	debug_err("ML_ERR_NUM_OVERFLOW \n");
 	break;
+
+    case ML_ERR_EVAL_CDR:
+	debug_err("ML_ERR_EVAL_CDR \n");
+	break;
 	
     default:
 	debug_err("unkown error \n");

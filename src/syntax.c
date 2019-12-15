@@ -92,11 +92,9 @@ static hash_table_s syntax_htab;
 static bool is_atom(form_s *form);
 static bool is_eq(form_s *form);
 static bool is_cons(form_s *form);
+static bool is_car(form_s *form);
+static bool is_cdr(form_s *form);
 
-#if 0
-static bool is_car(lisp_list_s *s, lisp_list_s *e);
-static bool is_cdr(lisp_list_s *s, lisp_list_s *e);
-#endif
 
 
 syntax_rt_t
@@ -773,7 +771,10 @@ check_list_form_syntax(form_s *form)
     if (is_eq(form)) goto DONE;
 
     if (is_cons(form)) goto DONE;
-    
+
+    if (is_car(form)) goto DONE;
+
+    if (is_cdr(form)) goto DONE;
     
     
     if (!form->list->next) {
@@ -1177,6 +1178,16 @@ is_atom(form_s *form)
     int num = 0;
     while (l) {
 
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
 	l = l->next;
 	if (list_is_head(l)) break;
 	
@@ -1223,6 +1234,16 @@ is_eq(form_s *form)
     int num = 0;
     while (l) {
 
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
 	l = l->next;
 	if (list_is_head(l)) break;
 	
@@ -1269,6 +1290,16 @@ is_cons(form_s *form)
     int num = 0;
     while (l) {
 
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
 	l = l->next;
 	if (list_is_head(l)) break;
 	
@@ -1297,35 +1328,121 @@ is_cons(form_s *form)
 }
 
 
-
-#if 0
 static bool
-is_car(lisp_list_s *s, lisp_list_s *e)
+is_car(form_s *form)
 {
+    if (form->subtype != S_FUNCTION_CAR) return false;
+    
     func_s();
 
-    out(ok, true);    
+    /* head -> ( -> car -> a CONS -> ) -> head
+     */    
+    lisp_list_s *l = form->list;
+
+    l = l->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    
+    if (num < 1) {
+
+	debug_err("no argument in car form, 1 requied. \n");       	
+	goto FAIL;
+    }
+    else if (num > 1) {
+
+	debug_err("%d arguments in car form, 1 requied. \n", num);       	
+	goto FAIL;	
+    }
+    
+   
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_CAR);
+    out(fail, false);
 }
 
 
 static bool
-is_cdr(lisp_list_s *s, lisp_list_s *e)
+is_cdr(form_s *form)
 {
+    if (form->subtype != S_FUNCTION_CDR) return false;
+    
     func_s();
 
-    out(ok, true);    
+    /* head -> ( -> cdr -> a CONS -> ) -> head
+     */    
+    lisp_list_s *l = form->list;
+
+    l = l->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	    
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    
+    if (num < 1) {
+
+	debug_err("no argument in cdr form, 1 requied. \n");       	
+	goto FAIL;
+    }
+    else if (num > 1) {
+
+	debug_err("%d arguments in cdr form, 1 requied. \n", num);       	
+	goto FAIL;	
+    }
+
+
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_CDR);
+    out(fail, false);
 }
 
 
-static bool
-is_cons(lisp_list_s *s, lisp_list_s *e)
-{
-    func_s();
 
-    out(ok, true);    
-}
-
-#endif
 
 
 

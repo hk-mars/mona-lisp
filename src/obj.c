@@ -62,6 +62,10 @@ obj_show(object_s *obj)
 
 	  list_show(obj->list);
       }
+      else if (obj->subtype == OBJ_SUBTYPE_CONS) {
+
+	  debug("cons \n");
+      }
       else {
 	
 	  token_show(&obj->token);
@@ -254,6 +258,8 @@ obj_set_t(object_s *obj)
 
     out(ok, true);
 }
+
+
 
 
 

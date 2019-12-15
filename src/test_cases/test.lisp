@@ -67,6 +67,7 @@
 ;(eq 'a 'a)
 ;(eq 'abc 'abc)
 ;(eq 'abc 'abC)
+;(eq (cons 1 2) (cons 1 2))
 
 ;; syntax error
 ;(cons )
@@ -79,5 +80,43 @@
 ;(cons (cons 1 2) 3)
 ;(cons 0 (cons 1 2))
 ;(cons (cons 1 2) (cons 3 4))
+
+
+;(car (cons 1 2))
+;(car (cons (cons 1 2) 3))
+;(car (cons (cons (cons 1 2) 3) 4))
+
+;; syntax error
+;(car (cons 1))
+
+
+;(cdr (cons 1 2))
+;(cdr (cons 1 (cons 2 3)))
+;(cdr '(1))
+
+;; syntax error
+;(cdr)
+;(cdr 1)
+;(cdr (cons 1 (cons 2)))
+
+;(eq (car (cons 1 2)) 1)
+;(eq (cdr (cons 1 2)) 2)
+;(eq (cdr (cons 1 (cons 2 3))) 4)
+;(eq (cdr (cons 1 #\a)) 2)
+
+;(cons (cons 1 2) 3)
+;(cons (cons 1 2) (cons 3 4))
+
+;(eq (cons 1 2) 3)
+;(eq (cons 1 2) (cons 1 2))
+;(eq nil nil)
+;(eq nil t)
+
+
+;(atom (car (cons 1 2)))
+;(atom (car (cons (cons 1 2) 3))) 
+;(atom (cdr (cons 1 2)))
+;(atom (cdr (cons 1 (cons 2 3))))
+
 
 

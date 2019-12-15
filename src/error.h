@@ -32,6 +32,7 @@ typedef enum
     ML_ERR_NUM_COMPARE = 18,
     ML_ERR_NUM_OVERFLOW = 19,
     ML_ERR_EVAL_EQ = 20,
+    ML_ERR_EVAL_CDR,
     
 } ml_err_t;
 
