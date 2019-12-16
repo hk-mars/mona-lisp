@@ -94,7 +94,7 @@ static bool is_eq(form_s *form);
 static bool is_cons(form_s *form);
 static bool is_car(form_s *form);
 static bool is_cdr(form_s *form);
-
+static bool is_list(form_s *form);
 
 
 syntax_rt_t
@@ -775,6 +775,8 @@ check_list_form_syntax(form_s *form)
     if (is_car(form)) goto DONE;
 
     if (is_cdr(form)) goto DONE;
+
+    if (is_list(form)) goto DONE;
     
     
     if (!form->list->next) {
@@ -1194,6 +1196,8 @@ is_atom(form_s *form)
 	num++;
     }
 
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
     
     if (num <= 0) {
 
@@ -1250,6 +1254,8 @@ is_eq(form_s *form)
 	num++;
     }
 
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
     
     if (num < 1) {
 
@@ -1307,6 +1313,7 @@ is_cons(form_s *form)
     }
 
     debug("arguments count: %d \n", num);
+    form->obj_count = num;
     
     if (num < 1) {
 
@@ -1364,6 +1371,7 @@ is_car(form_s *form)
     }
 
     debug("arguments count: %d \n", num);
+    form->obj_count = num;
     
     if (num < 1) {
 
@@ -1421,6 +1429,7 @@ is_cdr(form_s *form)
     }
 
     debug("arguments count: %d \n", num);
+    form->obj_count = num;
     
     if (num < 1) {
 
@@ -1440,6 +1449,53 @@ is_cdr(form_s *form)
     ml_err_signal(ML_ERR_SYNTAX_CDR);
     out(fail, false);
 }
+
+
+static bool
+is_list(form_s *form)
+{
+    if (form->subtype != S_FUNCTION_LIST) return false;
+    
+    func_s();
+
+    /* head -> ( -> list -> object* -> ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	    
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+
+    form->obj_count = num;
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_LIST);
+    out(fail, false);
+}
+
+
 
 
 

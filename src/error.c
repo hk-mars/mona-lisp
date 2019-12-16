@@ -88,10 +88,6 @@ ml_err_signal(ml_err_t err)
     case ML_ERR_EVAL:
 	debug_err("ML_ERR_EVAL \n");
 	break;
-
-    case ML_ERR_EVAL_EQ:
-	debug_err("ML_ERR_EVAL_EQ \n");
-	break;
 	
     case ML_ERR_EVAL_DIVIDE_ZERO:
 
@@ -117,7 +113,12 @@ ml_err_signal(ml_err_t err)
 
 	debug_err("illegal cons syntax \n");
 	break;
+	
+    case ML_ERR_SYNTAX_LIST:
 
+	debug_err("illegal list syntax \n");
+	break;
+	
     case ML_ERR_VARIABLE_UNBOUND:
 	debug_err("unbound variable \n");
 	break;
@@ -135,8 +136,24 @@ ml_err_signal(ml_err_t err)
 	debug_err("ML_ERR_NUM_OVERFLOW \n");
 	break;
 
+    case ML_ERR_EVAL_CONS:
+	debug_err("ML_ERR_EVAL_CONS \n");
+	break;
+	
+    case ML_ERR_EVAL_CAR:
+	debug_err("ML_ERR_EVAL_CAR \n");
+	break;
+	
     case ML_ERR_EVAL_CDR:
 	debug_err("ML_ERR_EVAL_CDR \n");
+	break;
+
+   case ML_ERR_EVAL_EQ:
+	debug_err("ML_ERR_EVAL_EQ \n");
+	break;
+	
+    case ML_ERR_EVAL_LIST:
+	debug_err("ML_ERR_EVAL_LIST \n");
 	break;
 	
     default:

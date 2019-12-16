@@ -333,39 +333,29 @@ num_compare(void *left, void *right, eval_call_f call)
 static bool
 eval_list(void *left, void *right)
 {
+    lisp_list_s *list = &((eval_value_s*)left)->list;
+  
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
+    lisp_list_s *list_in = &((eval_value_s*)right)->list;
+
     func_s();
 
-    lisp_list_s *list = &((eval_value_s*)left)->list;
-    object_s *obj = ((eval_value_s*)right)->obj_in;
-    lisp_list_s *list_in = ((eval_value_s*)right)->list_in;
     
-    if (!obj) {
+    if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
 
-	//debug_err("%s: object is null \r", __func__);
-	//return false;
-    }
 
-    //obj_show(obj);
-    
-    if (list->obj.type == OBJ_UNKNOWN) {
-
-	list->obj.type = OBJ_LIST;
-	list->is_head = true;
-    }
-
-    if (obj) {
+    if (obj_in) {
 	
 	/* add an object into the list
 	 */
-	if (!list_add_object(list, obj)) {
+	if (!list_add_object(list, obj_in)) {
 
-	    func_fail();
-	    return false;
+	    goto FAIL;
 	}
     }
     else if (list_in) {
 
-	debug("a list x as an element of a list y \n");
+	debug("a list x as the element of a list y \n");
 
 	list_show(list);
 	
@@ -373,10 +363,9 @@ eval_list(void *left, void *right)
 
 	    goto FAIL;
 	}
-
-	//debug_suspend();
     }
     else {
+
 	goto DONE;
     }
     
@@ -385,10 +374,10 @@ eval_list(void *left, void *right)
 
     
   DONE:
-    func_ok();
-    return true;
+    out(ok, true);
 
   FAIL:
+    ml_err_signal(ML_ERR_EVAL_LIST);
     out(fail, false);
 }
 
@@ -401,6 +390,13 @@ eval_car(void *left, void *right)
     lisp_list_s *list_in = &((eval_value_s*)right)->list;
 
     func_s();
+
+    if (!list_in->next && obj_is_nil(obj_in)) {
+
+	obj_set_nil(obj_out);
+	goto DONE;
+    }
+    
 
     if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
     
@@ -454,7 +450,7 @@ eval_car(void *left, void *right)
     out(ok, true);
 
   FAIL:
-    ml_err_signal(ML_ERR_SYNTAX_CAR);
+    ml_err_signal(ML_ERR_EVAL_CAR);
     out(fail, false);
 }
 
@@ -470,6 +466,12 @@ eval_cdr(void *left, void *right)
     object_s *obj_in = ((eval_value_s*)right)->obj_in;
 
 
+    if (!list_in->next && obj_is_nil(obj_in)) {
+
+	obj_set_nil(obj_out);
+	goto DONE;
+    }
+    
     if (obj_in && obj_in->list) list_in = (lisp_list_s*)obj_in->list;
     
     /* if the argument object is a form, then evaluates it. 
@@ -479,7 +481,7 @@ eval_cdr(void *left, void *right)
 	
 	if (obj_is_form(obj_in)) {
 
-	    debug_suspend();
+	    //debug_suspend();
 	}
 
 	/* if (obj_in->subtype == OBJ_SUBTYPE_QUOTE_EXPRESSION) { */
@@ -497,7 +499,14 @@ eval_cdr(void *left, void *right)
     lisp_list_s *l = list_in->next->next;    
     if (l->obj.subtype == OBJ_SUBTYPE_CONS) {
 
-	l = l->next->next;	
+	l = l->next->next;
+
+	obj_show(&l->obj);
+       
+	if (!obj_clone(obj_out, &l->obj)) {
+	
+	    out(fail, false);
+	}
     }
     else {
     
@@ -519,17 +528,39 @@ eval_cdr(void *left, void *right)
 
 	    goto DONE;
 	}
-    }
 
-    obj_show(&l->obj);
-       
 
-    if (!obj_clone(obj_out, &l->obj)) {
+	/* create a new list.
+	 */
+	if (!obj_out->list) {
+
+	    obj_out->list = list_new();
+	    if (!obj_out->list) goto FAIL;
+	    
+	    obj_out->type = OBJ_TYPE;
+	    obj_out->subtype = OBJ_SUBTYPE_LIST_AS_ELEMENT;
+	}
+
+
+	/* copy the rest objects into a new list.
+	 */
+	list_add_char_obj(obj_out->list, "(");
 	
-	out(fail, false);
+	while (l) {
+
+	    obj_show(&l->obj);
+	    
+	    if (!list_add_object(obj_out->list, &l->obj)) goto FAIL;
+	    
+	    l = l->next;
+	    if (l->next && list_is_head(l->next)) break;
+	}
+	
+	list_add_char_obj(obj_out->list, ")");
+	
     }
     
-    obj_show(&l->obj);
+    obj_show(obj_out);
     
   DONE:
     out(ok, true);
@@ -578,6 +609,7 @@ eval_cons(void *left, void *right)
     out(ok, true);
 
   FAIL:
+    ml_err_signal(ML_ERR_EVAL_CONS);
     out(fail, false);
 }
 
@@ -755,14 +787,12 @@ eval_eq(void *left, void *right)
   DONE:
     obj_show(obj_l);
  
-    func_ok();
-    return true;
+    out(ok, true);
 
   FAIL:
     ml_err_signal(ML_ERR_EVAL_EQ);
     
-    func_fail();
-    return false;
+    out(fail, false);
 }
 
 
@@ -1106,6 +1136,15 @@ eval_function_form(form_s *form, eval_value_s *val)
 	l->obj.subtype = OBJ_SUBTYPE_CONS;
 	if (!list_add_object(&val->list, &l->obj)) goto FAIL;
     }
+    else if (form->subtype == S_FUNCTION_LIST) {
+
+	if (form->obj_count == 0) {
+	    if (!obj_set_nil(&val->obj_out)) goto FAIL;
+	    goto EVAL_END;
+	}
+    }
+
+    
 
     l = l->next;
     if (!l) goto FAIL;   

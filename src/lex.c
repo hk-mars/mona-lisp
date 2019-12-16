@@ -850,8 +850,6 @@ identify_list_func(char **code, size_t *code_sz, form_s *form)
   DONE:
     memset(&tk, 0, sizeof(token_s));
     t = &tk;
-    //t = token_create();
-    //if (!t) return false;
     
     t->type = TOKEN_SYMBOL;
     t->value.symbol = "list";
@@ -859,6 +857,7 @@ identify_list_func(char **code, size_t *code_sz, form_s *form)
         
     if (form_is_unkown(form)) {
 	form_set_type(form, COMPOUND_FUNCTION_FORM);
+	form->subtype = S_FUNCTION_LIST;
     }
     
     list_add_token(form->list, t);

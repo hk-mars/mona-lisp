@@ -86,6 +86,8 @@ typedef enum
     S_FUNCTION_CDR = 4,
     S_PREDICATE_EQ = 5, /* a predicate is still a type of function */
     
+    S_FUNCTION_LIST = 6,
+    
 } s_function_t;
 
 
@@ -119,6 +121,8 @@ typedef struct s_form
 
     char *code; /* source code of the form */
     size_t code_sz;
+
+    size_t obj_count;
     
 } form_s;
 

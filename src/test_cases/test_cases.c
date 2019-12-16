@@ -14,16 +14,24 @@
 
 
 #define SWITCH false
-#define TEST_SELF_EVAL_FORM_ON false
-#define TEST_CHAR_ON false
-#define TEST_QUOTE_ON false
-#define TEST_ATOM_ON false
-#define TEST_CONS_ON false
-#define TEST_CONS_CAR_CDR_ON true
-#define TEST_PRINTER_ON false
-#define TEST_LIST_ON SWITCH
-#define TEST_EQ_ON false
-#define TEST_IF_ON SWITCH
+
+#define TEST_SELF_EVAL_FORM_ON (SWITCH || false)
+#define TEST_CHAR_ON (SWITCH || false)
+#define TEST_QUOTE_ON (SWITCH || false)
+#define TEST_ATOM_ON (SWITCH || false)
+#define TEST_CONS_ON (SWITCH || false)
+#define TEST_CAR_ON (SWITCH || false)
+#define TEST_CDR_ON (SWITCH || false)
+#define TEST_CONS_CAR_CDR_ON (SWITCH || false)
+#define TEST_EQ_ON (SWITCH || false)
+#define TEST_LIST_ON (SWITCH || false)
+#define TEST_LIST_CAR_ON (SWITCH || false)
+#define TEST_LIST_CDR_ON (SWITCH || false)
+#define TEST_LIST_CONS_CAR_CDR_ON (SWITCH || false)
+#define TEST_IF_ON (SWITCH || false)
+#define TEST_PRINTER_ON (SWITCH || false)
+#define TEST_SETQ_ON (SWITCH || false)
+
 
 
 const char* TEST_CASES[] =
@@ -50,23 +58,33 @@ const char* TEST_CASES[] =
     "test_cases/test_cons.lisp",
 #endif
 
+#if TEST_CAR_ON 
+    "test_cases/test_car.lisp",
+#endif
+
+#if TEST_CDR_ON 
+    "test_cases/test_cdr.lisp",
+#endif    
+    
 #if TEST_CONS_CAR_CDR_ON
     "test_cases/test_cons_car_cdr.lisp",
-#endif
-    
-    
-#if TEST_PRINTER_ON
-    "test_cases/test_printer.lisp",
 #endif
     
 #if TEST_LIST_ON
     "test_cases/test_list.lisp",
 #endif
+
+#if TEST_LIST_CAR_ON
+    "test_cases/test_list_car.lisp",
+#endif
+
+#if TEST_LIST_CDR_ON
+    "test_cases/test_list_cdr.lisp",
+#endif
     
-    //"test_cases/test_list_car.lisp",
-    //"test_cases/test_list_cdr.lisp",
-    //"test_cases/test_list_car_cdr.lisp",
-    
+#if TEST_LIST_CONS_CAR_CDR_ON
+    "test_cases/test_list_cons_car_cdr.lisp",
+#endif
 
 #if TEST_EQ_ON
     "test_cases/test_eq.lisp",    
@@ -76,6 +94,10 @@ const char* TEST_CASES[] =
     "test_cases/test_if.lisp",
 #endif
 
+#if TEST_PRINTER_ON
+    "test_cases/test_printer.lisp",
+#endif
+    
 #if TEST_SETQ_ON
     "test_cases/test_setq.lisp",
 #endif

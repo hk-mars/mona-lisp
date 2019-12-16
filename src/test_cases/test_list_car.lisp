@@ -1,5 +1,4 @@
 
-(car nil)
 
 (car (list 1 2 3))
 
@@ -14,6 +13,4 @@
 (list (car (list 1 2 3)))
 
 (car (list (car (list 1 2 3))))
-
-
 
