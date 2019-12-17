@@ -1071,7 +1071,14 @@ identify_special_form(char **code, size_t *code_sz, form_s *form)
 
 	len = 2;
 	name = "if";
+	form->subtype = SPECIAL_FORM_IF;
     }
+    else if (ml_util_strbufcmp("setq", *code, *code_sz)) {
+
+	len = 4;
+	name = "setq";
+	form->subtype = SPECIAL_FORM_SETQ;
+    }    
     else {
 
 	return false;
@@ -1299,8 +1306,8 @@ read_list(char *code, size_t code_sz, form_s *form_head, form_s *form)
 	    }
 	}
 
-	if (tolower(*code) == 'e' ||
-	    tolower(*code) == 'i') {
+	if (tolower(*code) == 'i' ||
+	    tolower(*code) == 's') {
 
 	    found = identify_special_form(&code, &code_sz, form);
 	    
@@ -1686,30 +1693,36 @@ read_self_eval_form(code_s *cd, lex_s *lex)
 {
     bool found = false;
     form_s *form;
-
-    func_s();
-    
-    if (!cd || !cd->code || !cd->code_sz) goto FAIL;
+      
+    if (!cd || !cd->code || !cd->code_sz) return false;
 
     char *code = cd->code;
     size_t code_sz = cd->code_sz;
     
     debug("0x%02x %c \n", *code, *code);
 
-    form = form_create_as_self_eval_form();
-    if (!form) goto FAIL;
-    
     
     if (like_num_token(code, code_sz)) {
 
+	func_s();
+	
+	form = form_create_as_self_eval_form();
+	if (!form) goto FAIL;
+    
 	found = identify_code_as_func(&code, &code_sz,
 				      identify_number_token, form);
     }
     else if (*code == 'n' || *code == 'N' || *code == 't' || *code == 'T') {
+
+	func_s();
+	
+	form = form_create_as_self_eval_form();
+	if (!form) goto FAIL;
 	
 	found = identify_bool_constant(&code, &code_sz, form);
     }
     else {
+	return false;
     }
 
     if (!found) goto FAIL;
@@ -1873,17 +1886,35 @@ ml_lex(lex_s *lex, code_s *cd)
 	    cd->code = code;
 	    cd->code_sz = code_sz;	    
         
-	    if (!read_self_eval_form(cd, lex)) return LEX_ERR;
+	    if (!read_self_eval_form(cd, lex)) {
 
-	    form_show(&lex->forms);
-	    
-	    debug("remain code_sz:%d \n",cd->code_sz);
-	    //if (cd->code_sz == 0) break;
+		form_s *f = form_create_symbol_form();
+		if (!read_symbol(&code, &code_sz, f)) {
+		    goto FAIL;
+		}
 
-	    //ml_util_show_buf((char*)cd->code, cd->code_sz);
+	
+		form_add_front(&lex->forms, f);
+	
+			    
+		char *sym = obj_get_symbol(f->obj);
+		if (var_match_binder(sym)) {
+		}
+		form_show(f);
+		
+	    }
+	    else {
+		form_show(&lex->forms);
 	    
-	    code = cd->code;
-	    code_sz = cd->code_sz;
+		debug("remain code_sz:%d \n",cd->code_sz);
+		//if (cd->code_sz == 0) break;
+
+		//ml_util_show_buf((char*)cd->code, cd->code_sz);
+	    
+		code = cd->code;
+		code_sz = cd->code_sz;
+	    }
+
 	    
 	    goto STEP_8;
 	}
@@ -1903,9 +1934,11 @@ ml_lex(lex_s *lex, code_s *cd)
     } /* end of while */
 
     
+    form_show(&lex->forms);
     
     out(ok, LEX_OK);
 
+  FAIL:
   STEP_10:
     ml_err_signal_x(ML_ERR_ILLEGAL_CHAR, __FUNCTION__, __LINE__);
 

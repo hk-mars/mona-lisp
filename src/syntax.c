@@ -89,12 +89,19 @@
 static hash_table_s syntax_htab;
 
 
+/* check S-Function
+ */
 static bool is_atom(form_s *form);
 static bool is_eq(form_s *form);
 static bool is_cons(form_s *form);
 static bool is_car(form_s *form);
 static bool is_cdr(form_s *form);
 static bool is_list(form_s *form);
+
+
+/* check Special Form
+ */
+static bool is_setq(form_s *form);
 
 
 syntax_rt_t
@@ -764,19 +771,6 @@ check_list_form_syntax(form_s *form)
 
 
     if (!form->list) return SYNTAX_INVALID;
-
-    
-    if (is_atom(form)) goto DONE;
-
-    if (is_eq(form)) goto DONE;
-
-    if (is_cons(form)) goto DONE;
-
-    if (is_car(form)) goto DONE;
-
-    if (is_cdr(form)) goto DONE;
-
-    if (is_list(form)) goto DONE;
     
     
     if (!form->list->next) {
@@ -935,7 +929,14 @@ syntax_check(form_s *form)
 	    break;
 	    
 	case COMPOUND_FUNCTION_FORM:
-	    
+
+	    if (is_atom(f)) goto NEXT;
+	    if (is_eq(f)) goto NEXT;
+	    if (is_cons(f)) goto NEXT;
+	    if (is_car(f)) goto NEXT;
+	    if (is_cdr(f)) goto NEXT;
+	    if (is_list(f)) goto NEXT;
+	  
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);
@@ -946,6 +947,8 @@ syntax_check(form_s *form)
 	    break;
 
 	case COMPOUND_SPECIAL_FORM:
+
+	    if (is_setq(f)) goto NEXT;
 	    
 	    if (!f->obj) {
 		
@@ -1494,6 +1497,60 @@ is_list(form_s *form)
     ml_err_signal(ML_ERR_SYNTAX_LIST);
     out(fail, false);
 }
+
+
+static bool
+is_setq(form_s *form)
+{
+    if (form->subtype != SPECIAL_FORM_SETQ) return false;
+    
+    func_s();
+
+    /* head -> ( -> setq -> pair* -> ) -> head
+     * pair: var form
+     * var: a symbol
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	    
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+
+    form->obj_count = num;
+
+    if (num%2 == 1) {
+
+	debug_err("%d arguments in setq form, even number requied. \n", num);
+	goto FAIL;
+    }
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_SETQ);
+    out(fail, false);
+}
+
 
 
 

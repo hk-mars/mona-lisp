@@ -114,13 +114,28 @@ form_create_as_quoted_expression(void)
 }
 
 
-bool
-form_create_symbol(form_s *form)
+form_s*
+form_create_symbol_form(void)
 {
-    form->symbol = ml_malloc(sizeof(symbol_s));
-    if (!form->symbol) return false;
+    form_s *f;
+
+    func_s();
     
-    return true;
+    f = ml_malloc(sizeof(form_s));
+    if (!f) goto FAIL;
+
+    f->type = SYMBOL_FORM;
+    
+    //form->symbol = ml_malloc(sizeof(symbol_s));
+    //if (!form->symbol) return false;
+
+    f->obj = ml_malloc(sizeof(object_s));
+    if (!f->obj) goto FAIL;
+
+    out(ok, f);
+
+ FAIL:
+    out(fail, NULL);
 }
 
 
@@ -293,6 +308,11 @@ form_add_token(form_s *form, token_s *token)
 	/* clone the token into the self-evaluating form */
 	obj_clone_token(form->obj, token);
     }
+    else if (form->type == SYMBOL_FORM) {
+
+	/* clone the token into the symbol form */
+	obj_clone_token(form->obj, token);
+    }    
     else {
 
 	goto FAIL;

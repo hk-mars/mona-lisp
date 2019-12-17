@@ -57,7 +57,7 @@ typedef struct
     
     var_value_s val;
 
-    lisp_list_s val_list;
+    /* lisp_list_s val_list; */
     
     
 } variable_s;

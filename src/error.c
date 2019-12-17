@@ -118,6 +118,11 @@ ml_err_signal(ml_err_t err)
 
 	debug_err("illegal list syntax \n");
 	break;
+
+    case ML_ERR_SYNTAX_SETQ:
+
+	debug_err("illegal setq syntax \n");
+	break;
 	
     case ML_ERR_VARIABLE_UNBOUND:
 	debug_err("unbound variable \n");
@@ -217,3 +222,19 @@ ml_err_signal_x(ml_err_t err, const char *func_name, int line)
     ml_err_signal(err);
 }
     
+
+void
+ml_err_signal_info(ml_err_t err, const char *func_name, int line, void *info)
+{
+    debug("\nfunction %s, line %d:\n", func_name, line);
+
+    /* TODO: @info could be anything
+     */
+    char *msg = (char*)info;
+    debug("%s \n", msg);
+    
+    ml_err_signal(err);
+
+
+}
+  

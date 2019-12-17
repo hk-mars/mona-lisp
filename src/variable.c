@@ -133,15 +133,23 @@ var_show(variable_s *var)
 
     func_s();
 
-    if (var->val.type == OBJ_UNKNOWN) {
+    
+    /* if (var->val.type == OBJ_LIST) { */
 
-	list_show(&var->val_list);
-	return;
-    }
+    /* 	list_show(&var->val_list); */
+    /* 	return; */
+    /* } */
 
     
     switch (var->val.type) {
+    case OBJ_TYPE:
 
+	debug("var: %s \n", var->name);
+	obj_show(&var->val);
+	
+	found = true;
+	break;
+	
     case OBJ_CHARACTER:
 	//debug("OBJ_CHARACTER \n");
 	
@@ -213,17 +221,18 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
  
     func_s();
 
-    i = 1;
-    l = head->next->next;
+    i = -1;
+    l = head->next;
     while (l) {
 
 	i++;
-	
-	if (l->obj.type == OBJ_LIST) {
+
+	switch (l->obj.type) {
+	case OBJ_LIST:
 
 	    debug("OBJ_LIST \n");
 
-	    if (i%2 != 0) {
+	    if (i%2 == 0) {
 
 	        debug_err("should be symbol but not list form \n");
 		ml_err_signal(ML_ERR_BIND_VARIABLE);
@@ -244,7 +253,7 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 
 	    debug("eval sub_form done \n");
 
-	    
+	   	    
 	    if (result->obj_out.type != OBJ_UNKNOWN) {
 
 		memcpy(&pair.val,
@@ -254,27 +263,59 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 	    }
 	    else {
 
+		pair.val.list = list_new();
+		if (!pair.val.list) goto FAIL;	    
+		pair.val.type = OBJ_TYPE;
+		pair.val.subtype = OBJ_SUBTYPE_LIST_AS_ELEMENT;
+
+	    
 		list_show(&result->list);
-		list_copy(&pair.val_list, &result->list);
-		list_show(&pair.val_list);
-		pair.val.type = OBJ_UNKNOWN;
+		list_copy(pair.val.list, &result->list);
+		list_show(pair.val.list);
+		
+		//list_copy(&pair.val_list, &result->list);
+		//list_show(&pair.val_list);
+		//pair.val.type = OBJ_UNKNOWN;
 	    }
 	  	    
 	    pair.var_name = l->front->obj.token.value.symbol;
-	}
-	else if (l->obj.type == OBJ_TYPE) {
+
+	    break;
+	    
+	case OBJ_TYPE:
 
 	    debug("OBJ_TYPE \n");
 
-	    if (i%2 == 0) {
+	    if (i%2 != 0 && i > 0) {
 
-		memcpy(&pair.val, &l->obj, sizeof(var_value_s));
-			    
+		variable_s *var = var_get(obj_get_symbol(&l->obj));
+		if (var) {
+
+		    memcpy(&pair.val, &var->val, sizeof(var_value_s));
+		}
+		else {
+				
+		    memcpy(&pair.val, &l->obj, sizeof(var_value_s));
+		}
+
 		pair.var_name = l->front->obj.token.value.symbol;
-		
 	    }
-	}
-	else if (l->obj.type == OBJ_CHARACTER) {
+	    else {
+
+		/* check if it is a symmbol
+		 */
+		//obj_show(&l->obj);
+		if (!obj_is_symbol(&l->obj)) {
+
+		    debug_err("argument %d \n", i+1);
+		    err_signal(ML_ERR_EVAL_SETQ, "variable name is not a symbol");
+		    goto FAIL;
+		}
+	    }
+	
+	    break;
+	    
+	case OBJ_CHARACTER:
 
 	    debug("OBJ_CHARACTER \n");
 
@@ -286,18 +327,15 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 		//debug("%s %s \n", pair.var_name, pair.val.character);
 	    }	    
 
-	}
-	else {
+	    break;
 
+	default:
 	    debug("unkown object, type: %d \n", l->obj.type);
-
-	    ml_err_signal(ML_ERR_BIND_VARIABLE);
-
-	    return false;
+	    goto FAIL;
 	}
 
 
-	if (i%2 == 0) {
+	if (i%2 != 0 && i > 0) {
 
 	    show_setq_pair(&pair);
 
@@ -306,17 +344,20 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 	    
 	    if (pair.val.type == OBJ_UNKNOWN) {
 				
-		list_copy(&var->val_list, &pair.val_list);
-		list_show(&var->val_list);
+		//list_copy(&var->val_list, &pair.val_list);
+		//list_show(&var->val_list);
 
-		var->val.type = OBJ_UNKNOWN;
+		var->val.type = OBJ_LIST;
 	    }
 	    else {
 
-		memcpy(&var->val, &pair.val, sizeof(var_value_s));
-		obj_show(&var->val);
+		//memcpy(&var->val, &pair.val, sizeof(var_value_s));
+		//obj_show(&var->val);
 		
 	    }
+
+	    memcpy(&var->val, &pair.val, sizeof(var_value_s));
+	    obj_show(&var->val);
 
 	    if (result->list_in) {
 
@@ -350,12 +391,11 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
     }    
     
 
-    func_ok();
-    return true;
+    out(ok, true);
 
   FAIL:
-    func_fail();
-    return false;
+    ml_err_signal(ML_ERR_BIND_VARIABLE);
+    out(fail, false);
 }
 
 
@@ -576,6 +616,8 @@ var_get(char *name)
     htab_entry_s *entry_rt;
     htab_entry_s entry;
     variable_s *var;
+
+    if (!name) return NULL;
     
     func_s();
     
@@ -625,7 +667,7 @@ var_update(variable_s *var_new)
     variable_s *var = var_get(var_new->name);
     if (!var) return false;
 
-    memcpy(&var->val, &var_new->val, sizeof(var_value_s));   
+    memcpy(&var->val, &var_new->val, sizeof(var_value_s));
 
     var_show(var);
     

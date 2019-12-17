@@ -27,7 +27,8 @@ typedef enum
     ML_ERR_SYNTAX_CAR = 13,
     ML_ERR_SYNTAX_CDR = 14,
     ML_ERR_SYNTAX_CONS = 15,
-    ML_ERR_SYNTAX_LIST, 
+    ML_ERR_SYNTAX_LIST,
+    ML_ERR_SYNTAX_SETQ,
     ML_ERR_VARIABLE_UNBOUND,
     ML_ERR_UNKNOWN_CALL,
     ML_ERR_NUM_COMPARE,
@@ -37,9 +38,19 @@ typedef enum
     ML_ERR_EVAL_CDR,
     ML_ERR_EVAL_EQ,
     ML_ERR_EVAL_LIST,
+    ML_ERR_EVAL_SETQ,
+    ML_ERR_SYMBOL_UNBOUND,
     
 } ml_err_t;
 
+
+#define err_signal(id, info)					\
+    if (!info) {						\
+	ml_err_signal_x(id, __FUNCTION__, __LINE__);		\
+    }								\
+    else {							\
+	ml_err_signal_info(id, __FUNCTION__, __LINE__, info);	\
+    }
 
 
 /* process for the out-of-memory error */
@@ -49,6 +60,7 @@ void ml_err_proc_mem_full(void);
 void ml_err_signal(ml_err_t err);
 
 void ml_err_signal_x(ml_err_t err, const char *func_name, int line);
+void ml_err_signal_info(ml_err_t err, const char *func_name, int line, void *info);
 
 #endif /* ML_ERROR_H */
 

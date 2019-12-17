@@ -1357,8 +1357,28 @@ static eval_rt_t
 eval_symbol_form(form_s *form, eval_value_s *val)
 {
     lisp_list_s *l;
-
+    object_s *obj;
+    char *name;
+    
     func_s();
+
+    if (form->obj) {
+
+	obj = form->obj;
+
+	variable_s *var = var_get(obj_get_symbol(obj));
+	if (var) {
+
+	    memcpy(&val->obj_out, &var->val, sizeof(object_s));
+	    goto DONE;
+	}
+
+	debug_err("%s is unbound \n", obj_get_symbol(obj));
+	
+	err_signal(ML_ERR_SYMBOL_UNBOUND, "unbound symbol");
+	goto FAIL;
+	
+    }
 
     if (!form->list->next) {
 
@@ -1374,8 +1394,10 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 
     /* ignore '(' */
     l = l->next;
+    obj = &l->obj;
+
     
-    char *name = obj_get_symbol(&l->obj);
+    name = obj_get_symbol(obj);
     debug("name: %s \n", name);
     
     const var_binder_s *binder = var_match_binder(name);
@@ -1430,8 +1452,71 @@ eval_symbol_form(form_s *form, eval_value_s *val)
 
 
 static eval_rt_t
+eval_setq_form(form_s *form, eval_value_s *val)
+{
+    if (form->subtype != SPECIAL_FORM_SETQ) return EVAL_ERR;
+
+    func_s();
+
+    list_show(form->list);
+    
+    if (form->obj_count == 0) {
+
+	debug("no argument in setq form, return nil \n");
+	obj_set_nil(&val->obj_out);
+	goto DONE;
+    }
+
+    
+    lisp_list_s *l = form->list->next->next;
+    
+    const var_binder_s *binder = var_match_binder("setq");
+    if (!binder) {
+
+	err_signal(ML_ERR_EVAL_SETQ, "binder not found");
+	goto FAIL;
+    }
+
+    if (!binder->bind) {
+
+	err_signal(ML_ERR_EVAL_SETQ, "binding function is null");
+	goto FAIL;
+    }
+
+    variable_s var;
+    bool rt = binder->bind(&var, l, val);
+    if (!rt) goto FAIL;
+
+    if (var.val.type == OBJ_UNKNOWN) {
+
+	//list_copy(&val->list, &var.val_list);
+	//list_show(&val->list);
+    }
+    else {
+	memcpy(&val->obj_out, &var.val, sizeof(object_s));
+  
+	obj_show(&val->obj_out);
+    }
+    
+    
+  DONE:    
+    out(ok, EVAL_OK);
+ 
+  FAIL:
+    err_signal(ML_ERR_EVAL_SETQ, NULL);
+    out(fail, EVAL_ERR);    
+}
+
+
+
+static eval_rt_t
 eval_binder_form(form_s *form, eval_value_s *val)
 {
+    if (eval_setq_form(form, val) == EVAL_OK) goto DONE;
+    
+    func_s();
+    
+    
     lisp_list_s *l;
 
     if (!form->list->next) {
@@ -1460,8 +1545,6 @@ eval_binder_form(form_s *form, eval_value_s *val)
 	return EVAL_ERR;
     }
 
-    func_s();
-
     if (!binder->bind) {
 
 	debug_err("binding function is null \n");
@@ -1475,21 +1558,21 @@ eval_binder_form(form_s *form, eval_value_s *val)
 
     if (var.val.type == OBJ_UNKNOWN) {
 
-	list_copy(&val->list, &var.val_list);
-	list_show(&val->list);
+	/* list_copy(&val->list, &var.val_list); */
+	/* list_show(&val->list); */
     }
     else {
 	memcpy(&val->obj_out, &var.val, sizeof(object_s));
   
 	obj_show(&val->obj_out);
     }
-    
-    func_ok();
-    return EVAL_OK;
 
+
+  DONE:    
+    out(ok, EVAL_OK);
+ 
   FAIL:
-    func_fail();
-    return EVAL_ERR;
+    out(fail, EVAL_ERR);
 }
 
 
@@ -2291,7 +2374,9 @@ eval(form_s *form, eval_value_s *result)
 	    
 	    rt = eval_symbol_form(f, result); 
 	    if (rt != EVAL_OK) goto FAIL;
-
+	    
+	    eval_result_show(result);
+	    
 	    break;
 
 	case SELF_EVALUATING_FORM:

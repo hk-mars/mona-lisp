@@ -58,4 +58,5 @@
 
 (eq (car (cons (cons 1 2) 3)) (cons 1 2))
 
-
+(eq (list 1) (list 1))
+(eq (list) (list))

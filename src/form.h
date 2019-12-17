@@ -137,7 +137,7 @@ form_s* form_create_as_character_obj(char *character);
 
 form_s* form_create_nil(void);
 
-bool form_create_symbol(form_s *form);
+form_s* form_create_symbol_form(void);
 
 void form_free(form_s *form);
 
