@@ -108,6 +108,10 @@ static bool is_setq(form_s *form);
 static bool is_if(form_s *form); 
 
 
+/* check Macro
+ */
+static bool is_loop(form_s *form);
+static bool is_return(form_s *form); 
 
 
 syntax_rt_t
@@ -982,6 +986,9 @@ syntax_check(form_s *form)
 	    break;
 
 	case COMPOUND_MACRO_FORM:
+
+	    if (is_loop(f)) goto NEXT;
+	    if (is_return(f)) goto NEXT;
 	    
 	    if (f->list) {
 		
@@ -1759,9 +1766,105 @@ is_num_compare(form_s *form)
     out(ok, true);
 
   FAIL:
-    ml_err_signal(ML_ERR_EVAL_NUM_GREATER_THAN);
+    ml_err_signal(ML_ERR_SYNTAX_NUM_COMPARE);
     out(fail, false);
 }
+
+
+
+
+
+static bool
+is_loop(form_s *form)
+{
+    if (form->subtype != MACRO_LOOP) return false;
+    
+    func_s();
+
+    /* head -> ( -> loop -> forms* -> ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_MACRO_LOOP);
+    out(fail, false);
+}
+
+
+static bool
+is_return(form_s *form)
+{
+    if (form->subtype != MACRO_RETURN) return false;
+    
+    func_s();
+
+    /* head -> ( -> return [-> form] -> ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_MACRO_RETURN);
+    out(fail, false);
+}
+
+
+
+
+
 
 
 

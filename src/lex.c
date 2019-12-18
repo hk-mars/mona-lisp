@@ -1143,11 +1143,13 @@ identify_macro_form(char **code, size_t *code_sz, form_s *form)
 
 	len = 4;
 	name = "loop";
+	form->subtype = MACRO_LOOP;
     }
     else if (ml_util_strbufcmp("return", *code, *code_sz)) {
 
 	len = 6;
 	name = "return";
+	form->subtype = MACRO_RETURN;
     }
     else if (ml_util_strbufcmp("defun", *code, *code_sz)) {
 

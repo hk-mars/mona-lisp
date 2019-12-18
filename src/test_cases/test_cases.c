@@ -35,6 +35,8 @@
 
 #define TEST_PRINTER_ON (SWITCH || false)
 #define TEST_NUM_FUNCALL_ON (SWITCH || false)
+
+#define TEST_LOOP_ON (SWITCH || true)
 #define TEST_DEFUN_ON (SWITCH || false)
 
 
@@ -111,6 +113,10 @@ const char* TEST_CASES[] =
 
 #if TEST_NUM_FUNCALL_ON
     "test_cases/test_number_funcall.lisp",
+#endif
+
+#if TEST_LOOP_ON
+    "test_cases/test_loop.lisp",
 #endif
     
 #if TEST_DEFUN_ON

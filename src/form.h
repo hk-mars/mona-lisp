@@ -106,6 +106,14 @@ typedef enum
 } special_form_t;
 
 
+typedef enum
+{
+    MACRO_LOOP = 1,
+    MACRO_RETURN = 2,
+    
+} macro_t;
+
+
 
 /* a form is any object meant to be evaluated.
  */
