@@ -85,6 +85,8 @@ bool obj_is_nil(object_s *obj);
 
 bool obj_is_char(object_s *obj);
 
+bool obj_is_number(object_s *obj);
+
 bool obj_update(object_s *obj, object_s *new);
 
 bool obj_clone_token(object_s *obj, token_s *token);

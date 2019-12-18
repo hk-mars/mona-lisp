@@ -98,6 +98,7 @@ static bool is_car(form_s *form);
 static bool is_cdr(form_s *form);
 static bool is_list(form_s *form);
 static bool is_print(form_s *form);
+static bool is_num_add(form_s *form);
 
 
 /* check Special Form
@@ -941,7 +942,9 @@ syntax_check(form_s *form)
 	    if (is_cdr(f)) goto NEXT;
 	    if (is_list(f)) goto NEXT;
 	    if (is_print(f)) goto NEXT;
-	  
+	    if (is_num_add(f)) goto NEXT;
+
+	    
 	    if (f->list) {
 		
 		rt = check_list_form_syntax(f);
@@ -1664,6 +1667,51 @@ is_print(form_s *form)
     ml_err_signal(ML_ERR_SYNTAX_PRINT);
     out(fail, false);
 }
+
+
+static bool
+is_num_add(form_s *form)
+{
+    if (form->subtype != S_FUNCTION_NUM_ADD) return false;
+    
+    func_s();
+
+    /* head -> ( -> + -> token-number* -> ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
+   
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_NUM_ADD);
+    out(fail, false);
+}
+
 
 
 

@@ -172,6 +172,19 @@ obj_is_char(object_s *obj)
 
 
 bool
+obj_is_number(object_s *obj)
+{
+    if (obj->type != OBJ_TYPE) return false;
+    
+    if (obj->token.type == TOKEN_SYMBOL) return false;
+    
+    if (obj->token.type == TOKEN_UNKOWN) return false;
+
+    return true;
+}
+
+
+bool
 obj_update(object_s *obj, object_s *new)
 {
     func_s();

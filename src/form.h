@@ -88,7 +88,7 @@ typedef enum
     
     S_FUNCTION_LIST = 6,
     S_FUNCTION_PRINT = 7,
-    
+    S_FUNCTION_NUM_ADD,
     
 } s_function_t;
 

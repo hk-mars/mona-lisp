@@ -29,10 +29,13 @@
 #define TEST_LIST_CDR_ON (SWITCH || false)
 #define TEST_LIST_CONS_CAR_CDR_ON (SWITCH || false)
 
+
 #define TEST_SETQ_ON (SWITCH || false)
 #define TEST_IF_ON (SWITCH || false)
-#define TEST_PRINTER_ON (SWITCH || true)
 
+#define TEST_PRINTER_ON (SWITCH || false)
+#define TEST_NUM_FUNCALL_ON (SWITCH || true)
+#define TEST_DEFUN_ON (SWITCH || false)
 
 
 
@@ -91,7 +94,7 @@ const char* TEST_CASES[] =
 #if TEST_EQ_ON
     "test_cases/test_eq.lisp",    
 #endif
-
+    
     
 #if TEST_SETQ_ON
     "test_cases/test_setq.lisp",
@@ -101,8 +104,17 @@ const char* TEST_CASES[] =
     "test_cases/test_if.lisp",
 #endif
 
+
 #if TEST_PRINTER_ON
     "test_cases/test_printer.lisp",
+#endif
+
+#if TEST_NUM_FUNCALL_ON
+    "test_cases/test_number_funcall.lisp",
+#endif
+    
+#if TEST_DEFUN_ON
+    "test_cases/test_defun.lisp",
 #endif
     
 };

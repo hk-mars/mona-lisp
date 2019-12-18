@@ -90,9 +90,23 @@ arithmetic_add(void *left, void *right)
 
     object_s *obj_l = &((eval_value_s*)left)->obj_out;   
     token_s *l = &obj_l->token;
-    token_s *r = &((eval_value_s*)right)->obj_in->token;
+    
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
+    token_s *r = &obj_in->token;
 
+    
+    if (!obj_in) {
 
+	err_signal(ML_ERR_EVAL_NUM_ADD, "argument X is not a number");
+	goto FAIL;
+    }
+
+    if (!obj_is_number(obj_in)) {
+
+	err_signal(ML_ERR_EVAL_NUM_ADD, "argument X is not a number");
+	goto FAIL;
+    }
+    
     if (l->type  == TOKEN_UNKOWN) {
 
 	l->value.num_int = r->value.num_int;
@@ -115,7 +129,10 @@ arithmetic_add(void *left, void *right)
     obj_show(obj_l);
     
     
-    return true;
+    out(ok, true);
+
+  FAIL:
+    out(fail, false);
 }
 
 

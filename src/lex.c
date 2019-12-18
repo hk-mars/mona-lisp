@@ -703,6 +703,7 @@ identify_arithmetic_operator(char **code, size_t *code_sz, form_s *form)
     case '+':
 	s = "+";
 	len = 1;
+	form->subtype = S_FUNCTION_NUM_ADD;
 	break;
 	
     case '-':
