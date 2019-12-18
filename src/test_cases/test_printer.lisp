@@ -163,5 +163,16 @@
 (print 'hello)
 
 ;; TODO: the expression of quote-form which could be printed as a list
-;(print '(1 2))
+(print '(1 2))
 
+
+(setq x 1)
+(print x)
+;; TODO: print a LIST
+(setq x (list 1 2))
+(print x)
+
+
+;; TODO: print a CONS
+;(setq x (cons 1 2))
+;(print x)

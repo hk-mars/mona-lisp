@@ -87,6 +87,8 @@ typedef enum
     S_PREDICATE_EQ = 5, /* a predicate is still a type of function */
     
     S_FUNCTION_LIST = 6,
+    S_FUNCTION_PRINT = 7,
+    
     
 } s_function_t;
 

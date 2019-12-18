@@ -30,6 +30,7 @@ typedef enum
     ML_ERR_SYNTAX_LIST,
     ML_ERR_SYNTAX_SETQ,
     ML_ERR_SYNTAX_IF,
+    ML_ERR_SYNTAX_PRINT,
     ML_ERR_VARIABLE_UNBOUND,
     ML_ERR_UNKNOWN_CALL,
     ML_ERR_NUM_COMPARE,
@@ -42,6 +43,7 @@ typedef enum
     ML_ERR_EVAL_SETQ,
     ML_ERR_SYMBOL_UNBOUND,
     ML_ERR_EVAL_IF,
+    ML_ERR_EVAL_PRINT,
     
 } ml_err_t;
 

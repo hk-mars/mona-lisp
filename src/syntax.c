@@ -97,6 +97,7 @@ static bool is_cons(form_s *form);
 static bool is_car(form_s *form);
 static bool is_cdr(form_s *form);
 static bool is_list(form_s *form);
+static bool is_print(form_s *form);
 
 
 /* check Special Form
@@ -939,6 +940,7 @@ syntax_check(form_s *form)
 	    if (is_car(f)) goto NEXT;
 	    if (is_cdr(f)) goto NEXT;
 	    if (is_list(f)) goto NEXT;
+	    if (is_print(f)) goto NEXT;
 	  
 	    if (f->list) {
 		
@@ -1563,7 +1565,7 @@ is_if(form_s *form)
     
     func_s();
 
-    /* head -> ( -> if -> test-form -> then-form [-> then-form]) -> head
+    /* head -> ( -> if -> test-form -> then-form -> [then-form ->] ) -> head
      */    
     lisp_list_s *l = form->list->next->next->next;
 
@@ -1607,6 +1609,61 @@ is_if(form_s *form)
     out(fail, false);
 }
 
+
+static bool
+is_print(form_s *form)
+{
+    if (form->subtype != S_FUNCTION_PRINT) return false;
+    
+    func_s();
+
+    /* head -> ( -> print -> object -> [output-stream ->] ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
+    
+    if (num < 1) {
+
+	debug_err("no argument in car form, 1 requied. \n");       	
+	goto FAIL;
+    }
+    else if (num > 1) {
+
+	debug_err("%d arguments in car form, 1 requied. \n", num);       	
+	goto FAIL;	
+    }
+    
+   
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_PRINT);
+    out(fail, false);
+}
 
 
 

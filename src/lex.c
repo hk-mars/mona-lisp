@@ -901,7 +901,8 @@ identify_other_func(char **code, size_t *code_sz, form_s *form)
     }
     else if (ml_util_strbufcmp("print", *code, *code_sz)) {
 
-	str = "print";	
+	str = "print";
+	form->subtype = S_FUNCTION_PRINT;
     }
     else {
 
