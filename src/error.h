@@ -46,6 +46,8 @@ typedef enum
     ML_ERR_EVAL_IF,
     ML_ERR_EVAL_PRINT,
     ML_ERR_EVAL_NUM_ADD,
+    ML_ERR_EVAL_NUM_COMPARE,
+    ML_ERR_EVAL_NUM_GREATER_THAN
     
 } ml_err_t;
 

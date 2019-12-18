@@ -99,6 +99,7 @@ static bool is_cdr(form_s *form);
 static bool is_list(form_s *form);
 static bool is_print(form_s *form);
 static bool is_num_add(form_s *form);
+static bool is_num_compare(form_s *form);
 
 
 /* check Special Form
@@ -943,7 +944,7 @@ syntax_check(form_s *form)
 	    if (is_list(f)) goto NEXT;
 	    if (is_print(f)) goto NEXT;
 	    if (is_num_add(f)) goto NEXT;
-
+	    if (is_num_compare(f)) goto NEXT;
 	    
 	    if (f->list) {
 		
@@ -1218,7 +1219,7 @@ is_atom(form_s *form)
     }
     else if (num > 1) {
 
-	debug_err("%d arguments in atom form, only one requied \n", num);       	
+	debug_err("%d arguments in atom form, only one required \n", num);       	
 	goto FAIL;	
     }
     
@@ -1271,12 +1272,12 @@ is_eq(form_s *form)
     
     if (num < 1) {
 
-	debug_err("no argument in eq form, 2 requied. \n");       	
+	debug_err("no argument in eq form, 2 required. \n");       	
 	goto FAIL;
     }
     else if (num == 1 || num > 2) {
 
-	debug_err("%d arguments in eq form, 2 requied. \n", num);       	
+	debug_err("%d arguments in eq form, 2 required. \n", num);       	
 	goto FAIL;	
     }
     
@@ -1329,12 +1330,12 @@ is_cons(form_s *form)
     
     if (num < 1) {
 
-	debug_err("no argument in cons form, 2 requied. \n");       	
+	debug_err("no argument in cons form, 2 required. \n");       	
 	goto FAIL;
     }
     else if (num == 1 || num > 2) {
 
-	debug_err("%d arguments in cons form, 2 requied. \n", num);       	
+	debug_err("%d arguments in cons form, 2 required. \n", num);       	
 	goto FAIL;	
     }
     
@@ -1387,12 +1388,12 @@ is_car(form_s *form)
     
     if (num < 1) {
 
-	debug_err("no argument in car form, 1 requied. \n");       	
+	debug_err("no argument in car form, 1 required. \n");       	
 	goto FAIL;
     }
     else if (num > 1) {
 
-	debug_err("%d arguments in car form, 1 requied. \n", num);       	
+	debug_err("%d arguments in car form, 1 required. \n", num);       	
 	goto FAIL;	
     }
     
@@ -1445,12 +1446,12 @@ is_cdr(form_s *form)
     
     if (num < 1) {
 
-	debug_err("no argument in cdr form, 1 requied. \n");       	
+	debug_err("no argument in cdr form, 1 required. \n");       	
 	goto FAIL;
     }
     else if (num > 1) {
 
-	debug_err("%d arguments in cdr form, 1 requied. \n", num);       	
+	debug_err("%d arguments in cdr form, 1 required. \n", num);       	
 	goto FAIL;	
     }
 
@@ -1549,7 +1550,7 @@ is_setq(form_s *form)
 
     if (num%2 == 1) {
 
-	debug_err("%d arguments in setq form, even number requied. \n", num);
+	debug_err("%d arguments in setq form, even number required. \n", num);
 	goto FAIL;
     }
     
@@ -1600,7 +1601,7 @@ is_if(form_s *form)
 
     if (num <= 1 || num > 3) {
 
-    	debug_err("%d arguments in if form, 2 or 3 requied. \n", num);
+    	debug_err("%d arguments in if form, 2 or 3 required. \n", num);
 	//syntax_show(SYNTAX_FORM_IF);
     	goto FAIL;
     }
@@ -1651,12 +1652,12 @@ is_print(form_s *form)
     
     if (num < 1) {
 
-	debug_err("no argument in car form, 1 requied. \n");       	
+	debug_err("no argument in print form, 1 or 2 required. \n");       	
 	goto FAIL;
     }
     else if (num > 1) {
 
-	debug_err("%d arguments in car form, 1 requied. \n", num);       	
+	debug_err("%d arguments in print form, 1 or 2 required. \n", num);       	
 	goto FAIL;	
     }
     
@@ -1712,6 +1713,55 @@ is_num_add(form_s *form)
     out(fail, false);
 }
 
+
+static bool
+is_num_compare(form_s *form)
+{
+    if (form->subtype != S_FUNCTION_NUM_GREATER_THAN) return false;
+    
+    func_s();
+
+    /* head -> ( -> > -> token-number+ -> ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
+
+    if (num < 1) {
+
+	debug_err("no argument in > function, at least 1 required. \n");       	
+	goto FAIL;
+    }
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_EVAL_NUM_GREATER_THAN);
+    out(fail, false);
+}
 
 
 

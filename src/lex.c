@@ -750,7 +750,8 @@ identify_arithmetic_operator(char **code, size_t *code_sz, form_s *form)
 	}
 	else {
 	    s = ">";
-	    len = 1;	    
+	    len = 1;
+	    form->subtype = S_FUNCTION_NUM_GREATER_THAN;
 	}
 	break;
 

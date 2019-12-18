@@ -278,57 +278,92 @@ num_not_equal_than(void *left, void *right)
 
 static bool
 num_compare(void *left, void *right, eval_call_f call)
-{
-    bool flag = false;
-    
-    func_s();
-
+{ 
     token_s *l = &((eval_value_s*)left)->obj_out.token;
     token_s *r = &((eval_value_s*)right)->obj_in->token;
     object_s *obj = &((eval_value_s*)left)->obj_out;
+    object_s *obj_in = ((eval_value_s*)right)->obj_in;
+    bool flag = false;
+    
+    func_s();
+    
+    if (!obj_in) {
 
+	err_signal(ML_ERR_EVAL_NUM_COMPARE, "argument X is not a number");
+	goto FAIL;
+    }
+
+    if (!obj_is_number(obj_in)) {
+
+	err_signal(ML_ERR_EVAL_NUM_COMPARE, "argument X is not a number");
+	goto FAIL;
+    }
+
+    
     //obj_show(obj);
     if (obj->type  == OBJ_UNKNOWN) {
 
-	l->value.num_int = r->value.num_int;
-	l->type = r->type;
-	obj->type = OBJ_TYPE;
+	//l->value.num_int = r->value.num_int;
+	//l->type = r->type;
+	//obj->type = OBJ_TYPE;
+	memcpy(obj, obj_in, sizeof(object_s));
+	
 	debug("init val: ");
 	token_show_fixnum(l->value.num_int);
     }
     else {
+
+	if (obj_is_nil(obj)) goto DONE;
+	
+	const char *op = NULL;
 	
 	if (call == num_less_than) {
 
 	    flag = l->value.num_int < r->value.num_int;
+	    op = "<";
 	}
 	else if (call == num_less_or_equal_than) {
 
 	    flag = l->value.num_int <= r->value.num_int;
+	    op = "<=";
 	}
 	else if (call == num_greater_than) {
 
 	    flag = l->value.num_int > r->value.num_int;
+	    op = ">";
 	}
 	else if (call == num_greater_or_equal_than) {
 
 	    flag = l->value.num_int >= r->value.num_int;
+	    op = ">=";
 	}
 	else if (call == num_equal_than) {
 
 	    flag = l->value.num_int == r->value.num_int;
+	    op = "==";
 	}
 	else if (call == num_not_equal_than) {
 
 	    flag = l->value.num_int != r->value.num_int;
+	    op = "/=";
 	}
 	else {	    
 	    goto FAIL;
 	}
-	
-	obj->token.type = TOKEN_UNKOWN;
-	obj->subtype = (flag ? OBJ_SUBTYPE_BOOL_TRUE : OBJ_SUBTYPE_BOOL_FALSE);
 
+	
+	debug("%lld %s %lld ? => %d \n",
+	      l->value.num_int, op,
+	      r->value.num_int, flag);
+
+	obj->token.type = TOKEN_UNKOWN;
+	obj->subtype = (flag ?
+			OBJ_SUBTYPE_BOOL_TRUE :
+			OBJ_SUBTYPE_BOOL_FALSE);
+
+	l->value.num_int = r->value.num_int;
+	
+      DONE:
 	if (obj_is_true(obj)) {
 
 	    debug("T \n");

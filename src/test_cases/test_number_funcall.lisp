@@ -1,5 +1,9 @@
 
 
+;;
+;; number add
+;;
+
 ;; syntax error
 ;; invalid argument, whic is not a number.
 ;;
@@ -28,5 +32,23 @@
 ;; 46
 (setq x (+ x 1))
 
+
+;;
+;; number compare
+;;
+
+;; syntax error
+;(>)
+;(> 1 t)
+;(> 1 #\a)
+
+(> 1 2)
+(> 2 1)
+(> 2 1 3)
+(> 9 8 7 6 5 4 3 2 1 0)
+(> 0 8 7 6 5 4 3 2 1)
+(> 8 7 6 5 4 1 2 0)
+
+(> (car (list 1 2)) (if (eq 1 2) 1 2))
 
 
