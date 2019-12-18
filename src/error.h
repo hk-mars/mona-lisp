@@ -29,6 +29,7 @@ typedef enum
     ML_ERR_SYNTAX_CONS = 15,
     ML_ERR_SYNTAX_LIST,
     ML_ERR_SYNTAX_SETQ,
+    ML_ERR_SYNTAX_IF,
     ML_ERR_VARIABLE_UNBOUND,
     ML_ERR_UNKNOWN_CALL,
     ML_ERR_NUM_COMPARE,
@@ -40,12 +41,13 @@ typedef enum
     ML_ERR_EVAL_LIST,
     ML_ERR_EVAL_SETQ,
     ML_ERR_SYMBOL_UNBOUND,
+    ML_ERR_EVAL_IF,
     
 } ml_err_t;
 
 
 #define err_signal(id, info)					\
-    if (!info) {						\
+    if (!(info)) {						\
 	ml_err_signal_x(id, __FUNCTION__, __LINE__);		\
     }								\
     else {							\

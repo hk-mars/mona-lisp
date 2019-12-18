@@ -1649,7 +1649,7 @@ eval_if_form(form_s *form, eval_value_s *val)
  
     /* evaluating then-form and else-form
      */ 
-    if (obj_is_true(&result.obj_out)) {
+    if (!obj_is_nil(&result.obj_out)) {
 	
 	debug("t, eval then-form \n");
 	l = l->next;
@@ -1657,6 +1657,12 @@ eval_if_form(form_s *form, eval_value_s *val)
     else {
 
 	debug("nil, eval else-form \n");
+	if (form->obj_count < 3) {
+	    debug("none else-form, return nil \n");
+	    obj_set_nil(&val->obj_out);
+	    goto DONE;
+	}
+	
 	l = l->next->next;
     }
     
@@ -1672,23 +1678,25 @@ eval_if_form(form_s *form, eval_value_s *val)
 
 	obj_show(&l->obj);
 	
-	/* self-evaluating obj
-	 */
-	//rt = eval_myself(&l->obj, &result);
-	//if (rt == EVAL_ERR) goto FAIL;
-
-	memcpy(&val->obj_out, &l->obj, sizeof(object_s));
+	variable_s *var = var_get(obj_get_symbol(&l->obj));
+	if (var) {
+	    
+	    memcpy(&val->obj_out, &var->val, sizeof(object_s));
+	}
+	else {
+	    
+	    memcpy(&val->obj_out, &l->obj, sizeof(object_s));
+	}	
     }
+    
 
+  DONE:
     eval_result_show(val);
   
-
-    func_ok();
-    return EVAL_OK;
+    out(ok, EVAL_OK);
 
   FAIL:
-    func_fail();
-    return EVAL_ERR;
+    out(fail, EVAL_ERR);
 }
 
 

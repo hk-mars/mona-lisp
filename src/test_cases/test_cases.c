@@ -28,7 +28,7 @@
 #define TEST_LIST_CAR_ON (SWITCH || false)
 #define TEST_LIST_CDR_ON (SWITCH || false)
 #define TEST_LIST_CONS_CAR_CDR_ON (SWITCH || false)
-#define TEST_IF_ON (SWITCH || false)
+#define TEST_IF_ON (SWITCH || true)
 #define TEST_PRINTER_ON (SWITCH || false)
 #define TEST_SETQ_ON (SWITCH || false)
 

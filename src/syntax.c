@@ -102,6 +102,9 @@ static bool is_list(form_s *form);
 /* check Special Form
  */
 static bool is_setq(form_s *form);
+static bool is_if(form_s *form); 
+
+
 
 
 syntax_rt_t
@@ -949,6 +952,7 @@ syntax_check(form_s *form)
 	case COMPOUND_SPECIAL_FORM:
 
 	    if (is_setq(f)) goto NEXT;
+	    if (is_if(f)) goto NEXT;
 	    
 	    if (!f->obj) {
 		
@@ -1550,6 +1554,60 @@ is_setq(form_s *form)
     ml_err_signal(ML_ERR_SYNTAX_SETQ);
     out(fail, false);
 }
+
+
+static bool
+is_if(form_s *form)
+{
+    if (form->subtype != SPECIAL_FORM_IF) return false;
+    
+    func_s();
+
+    /* head -> ( -> if -> test-form -> then-form [-> then-form]) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	    
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+
+    form->obj_count = num;
+
+    if (num <= 1 || num > 3) {
+
+    	debug_err("%d arguments in if form, 2 or 3 requied. \n", num);
+	//syntax_show(SYNTAX_FORM_IF);
+    	goto FAIL;
+    }
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_IF);
+    out(fail, false);
+}
+
+
 
 
 

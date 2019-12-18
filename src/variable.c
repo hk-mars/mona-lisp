@@ -319,7 +319,7 @@ binding_setq(variable_s *var, void *context, eval_value_s *result)
 
 	    debug("OBJ_CHARACTER \n");
 
-	    if (i%2 == 0) {
+	    if (i%2 != 0 && i > 0) {
 
 		memcpy(&pair.val, &l->obj, sizeof(var_value_s));
 			    
