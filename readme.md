@@ -52,6 +52,9 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### [reflecting](./design-reflecting.md)
 
 
+## releases
+
+### [mona-lisp v1.0](https://github.com/hk-mars/mona-lisp/releases/tag/v1.0)
 
 
 
