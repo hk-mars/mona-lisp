@@ -45,18 +45,24 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### for-elegant-products
 
 
-## design
+## Design
 
 ### [overview](design.md)
 
 ### [reflecting](./design-reflecting.md)
 
 
-## releases
+## Releases
 
 ### [mona-lisp v1.0](https://github.com/hk-mars/mona-lisp/releases/tag/v1.0)
 
+I recommend you to use [Emacs editor](https://www.gnu.org/software/emacs/) for reading and coding. :-)
 
+I would implement more features and release a stable version in the future, and God know that schedule. :-)
+
+If you have the source codes of a other baby lisp, please share to me, and my email is hk.mars@aol.com, thanks.
+
+And if you want to join mona-lisp community and hack together, please let me know.
 
 
 
