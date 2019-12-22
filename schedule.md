@@ -82,10 +82,8 @@ dolist
 	dynamical memory(pratical via the BNF file and the AST tree).
 	
 			
-- 2019
+- 202x
 
-	lisp printer
-	
 	test cases and bug fixing
 	
 	call user API in C (a demo)
@@ -100,9 +98,40 @@ dolist
 
 	create/search/update db (a demo)
 	
+	more+
+	
 ## 2019
 
 Releases monalisp v1.0 (baby parser)
+
+### 2018-12-22, monalisp v1.0, demo version
+
+**Forms implemented and outputted with test-cases:**
+
+- car, cdr, cons, eq, atom, list, print, number operations
+
+- setq, if
+
+- loop, return, defun
+
+See: all *.lisp in the "test-cases" folder
+
+
+**Forms implemented but needed more tests:**
+
+- defmacro
+
+- quote
+
+- defconstant
+
+- defstruct
+
+See: [demo.lisp](src/demo.lisp)
+
+
+
+
 
 	
 
