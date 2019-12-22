@@ -1155,11 +1155,13 @@ identify_macro_form(char **code, size_t *code_sz, form_s *form)
 
 	len = 5;
 	name = "defun";
+	form->subtype = MACRO_DEFUN;
     }
     else if (ml_util_strbufcmp("defmacro", *code, *code_sz)) {
 
 	len = 8;
 	name = "defmacro";
+	form->subtype = MACRO_DEFMACRO;
     }    
     else {
 

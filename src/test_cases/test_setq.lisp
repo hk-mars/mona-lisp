@@ -32,6 +32,11 @@
 x
 y
 
+(setq z 2)
+(setq r 0)
+
+(setq r (+ r z))
+(setq r (+ r z))
 
 
 

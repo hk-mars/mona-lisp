@@ -112,6 +112,7 @@ static bool is_if(form_s *form);
  */
 static bool is_loop(form_s *form);
 static bool is_return(form_s *form); 
+static bool is_defun(form_s *form);
 
 
 syntax_rt_t
@@ -323,7 +324,7 @@ show_path(lisp_list_s *start, lisp_list_s *end)
 	obj_show(&start->obj);
 
 	start = start->next;
-    };
+    }
     
     
     
@@ -588,7 +589,7 @@ find_path(tr_node_s *root, lisp_list_s *path, lisp_list_s *path_end)
 	    tree_show(root->father, 9);
 
 	    /* 
-	     * Here, if father of the current node is an external loop node, then we shuould
+	     * Here, if father of the current node is an external loop node, then we should
 	     * directly keep on searching from its father, because the external loop node 
 	     * includes all solution of its childs.  
 	     */	  
@@ -940,15 +941,15 @@ syntax_check(form_s *form)
 	    
 	case COMPOUND_FUNCTION_FORM:
 
-	    if (is_atom(f)) goto NEXT;
-	    if (is_eq(f)) goto NEXT;
-	    if (is_cons(f)) goto NEXT;
-	    if (is_car(f)) goto NEXT;
-	    if (is_cdr(f)) goto NEXT;
-	    if (is_list(f)) goto NEXT;
-	    if (is_print(f)) goto NEXT;
-	    if (is_num_add(f)) goto NEXT;
-	    if (is_num_compare(f)) goto NEXT;
+	    if (is_atom(f)) break;
+	    if (is_eq(f)) break;
+	    if (is_cons(f)) break;
+	    if (is_car(f)) break;
+	    if (is_cdr(f)) break;
+	    if (is_list(f)) break;
+	    if (is_print(f)) break;
+	    if (is_num_add(f)) break;
+	    if (is_num_compare(f)) break;
 	    
 	    if (f->list) {
 		
@@ -961,8 +962,8 @@ syntax_check(form_s *form)
 
 	case COMPOUND_SPECIAL_FORM:
 
-	    if (is_setq(f)) goto NEXT;
-	    if (is_if(f)) goto NEXT;
+	    if (is_setq(f)) break;
+	    if (is_if(f)) break;
 	    
 	    if (!f->obj) {
 		
@@ -975,7 +976,6 @@ syntax_check(form_s *form)
 		 */
 		obj_show(f->obj);
 		//debug_suspend();
-		goto NEXT;
 	    }
 
 	    
@@ -987,8 +987,9 @@ syntax_check(form_s *form)
 
 	case COMPOUND_MACRO_FORM:
 
-	    if (is_loop(f)) goto NEXT;
-	    if (is_return(f)) goto NEXT;
+	    if (is_loop(f)) break;
+	    if (is_return(f)) break;
+	    if (is_defun(f)) break;
 	    
 	    if (f->list) {
 		
@@ -1003,7 +1004,6 @@ syntax_check(form_s *form)
 	    break;
 	}
 	
-      NEXT:
 	f = f->next;
     }
     
@@ -1560,11 +1560,12 @@ is_setq(form_s *form)
 	debug_err("%d arguments in setq form, even number required. \n", num);
 	goto FAIL;
     }
-    
+   
     out(ok, true);
 
   FAIL:
     ml_err_signal(ML_ERR_SYNTAX_SETQ);
+    
     out(fail, false);
 }
 
@@ -1860,6 +1861,63 @@ is_return(form_s *form)
     ml_err_signal(ML_ERR_SYNTAX_MACRO_RETURN);
     out(fail, false);
 }
+
+
+static bool
+is_defun(form_s *form)
+{
+    if (form->subtype != MACRO_DEFUN) return false;
+    
+    func_s();
+
+    /* head -> ( -> defun -> function-name -> lambda-list -> form* -> ) -> head
+     */    
+    lisp_list_s *l = form->list->next->next->next;
+
+    
+    /* check the number of arguments
+     */
+    int num = 0;
+    while (l) {
+
+	if (l->obj.sub) {
+
+	    debug("subform \n");
+
+	    if (syntax_check(l->obj.sub) != SYNTAX_OK) {
+
+		goto FAIL;
+	    }
+	}
+	
+	l = l->next;
+	if (list_is_head(l)) break;
+	
+	num++;
+    }
+
+    debug("arguments count: %d \n", num);
+    form->obj_count = num;
+
+    if (num < 0) {
+
+	debug_err("no argument in defun form, at least 2 required. \n");       	
+	goto FAIL;
+    }
+    else if (num < 2) {
+
+	debug_err("%d arguments in defun form, at least 2 required. \n"); 
+    }
+
+    
+    out(ok, true);
+
+  FAIL:
+    ml_err_signal(ML_ERR_SYNTAX_MACRO_RETURN);
+    out(fail, false);
+}
+
+
 
 
 

@@ -14,6 +14,7 @@
 
 #include "lex.h"
 
+#include "syntax.h"
 
 
 static hash_table_s m_func_htab;
@@ -74,7 +75,7 @@ func_add(function_s *func)
     
     //ml_util_show_buf(f->code, f->code_sz);
     //debug_suspend();
-
+    
     /* mark the form as NULL first, and load it from the codes when we need it 
      * as to restrict the use of memory.
      */
@@ -148,11 +149,15 @@ func_get(char *name)
 	lex_rt_t lex_rt = ml_lex(&lex, &cd);
 	if (lex_rt != LEX_OK) goto FAIL;
 
+	/* syntax check
+	 */
+	syntax_rt_t syntax_rt = syntax_check(&lex.forms);
+	if (syntax_rt != SYNTAX_OK) goto FAIL;
+	
 	debug("load function form done \n");
 	form_show(lex.forms.next);
-	f->form = lex.forms.next;
+	f->form = lex.forms.next;	
 	//debug_suspend();
-
     }
     
     

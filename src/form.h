@@ -110,6 +110,8 @@ typedef enum
 {
     MACRO_LOOP = 1,
     MACRO_RETURN = 2,
+    MACRO_DEFUN = 3,
+    MACRO_DEFMACRO = 4,
     
 } macro_t;
 

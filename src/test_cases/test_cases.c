@@ -36,8 +36,8 @@
 #define TEST_PRINTER_ON (SWITCH || false)
 #define TEST_NUM_FUNCALL_ON (SWITCH || false)
 
-#define TEST_LOOP_ON (SWITCH || true)
-#define TEST_DEFUN_ON (SWITCH || false)
+#define TEST_LOOP_ON (SWITCH || false)
+#define TEST_DEFUN_ON (SWITCH || true)
 
 
 
