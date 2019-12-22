@@ -5,7 +5,7 @@
 # Mona-lisp
 An elegant, design-hackable and data-hackable lisp language.
 
-## 1 Ideas
+# Ideas
 ### within-db-feature (data-hackable)
 - Database language would be included into lisp grammer tree as a part of monalisp.
 - Any searchable data could be treated as a list-based db object.
@@ -45,7 +45,7 @@ Those embedded systems need the database feature, but due to the limited footpri
 ### for-elegant-products
 
 
-## 2 Design
+# Design
 
 ### [overview](design.md)
 
@@ -53,7 +53,7 @@ Those embedded systems need the database feature, but due to the limited footpri
 
 
 
-## 3 Releases
+# Releases
 
 ### [mona-lisp v1.0](https://github.com/hk-mars/mona-lisp/releases/tag/v1.0)
 
