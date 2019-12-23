@@ -61,9 +61,13 @@ I recommend you to use [Emacs editor](https://www.gnu.org/software/emacs/) for r
 
 I would implement more features and release a stable version in the future, and God know that schedule. :-)
 
-If you have the source codes of a other baby lisp, please share to me, and my email is hk.mars@aol.com, thanks.
+If you have the source codes of another baby lisp, please share it with me, thanks.
 
 And if you want to join mona-lisp community and hack together, please let me know.
+
+Email: hk.mars@aol.com
+
+
 
 
 
